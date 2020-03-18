@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yu ting&#39;s blog</title>
+  
+  <subtitle>加油！！！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://onlyyu.cn/"/>
+  <updated>2020-03-17T09:46:52.396Z</updated>
+  <id>https://onlyyu.cn/</id>
+  
+  <author>
+    <name>Yu ting</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Next主题配置文件详解</title>
+    <link href="https://onlyyu.cn/2020/03/17/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://onlyyu.cn/2020/03/17/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</id>
+    <published>2020-03-17T09:44:19.000Z</published>
+    <updated>2020-03-17T09:46:52.396Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-NexT主题配置文件详解&quot;&gt;&lt;a href=&quot;#1-NexT主题配置文件详解&quot; class=&quot;headerlink&quot; title=&quot;1. NexT主题配置文件详解&quot;&gt;&lt;/a&gt;1. NexT主题配置文件详解&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Hexo版本-3.8.0&lt;/strong&gt;，&lt;strong&gt;NexT版本-5.1.4hexo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NexT主题配置文件详解&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://onlyyu.cn/categories/hexo/"/>
+    
+    
+      <category term="hexi,Next" scheme="https://onlyyu.cn/tags/hexi-Next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo主题如何将文章置顶</title>
+    <link href="https://onlyyu.cn/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/"/>
+    <id>https://onlyyu.cn/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</id>
+    <published>2020-03-14T16:54:41.000Z</published>
+    <updated>2020-03-15T15:32:43.287Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。&lt;br&gt;这里简单写一下实现hexo文章置顶功能&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://onlyyu.cn/categories/hexo/"/>
+    
+    
+      <category term="hexo,文章置顶" scheme="https://onlyyu.cn/tags/hexo-%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何创建vue脚手架</title>
+    <link href="https://onlyyu.cn/2020/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/"/>
+    <id>https://onlyyu.cn/2020/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</id>
+    <published>2020-03-13T11:46:08.000Z</published>
+    <updated>2020-03-15T15:32:50.239Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　这是一篇教你如何设置国内源来快速安装Vue脚手架的教程&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://onlyyu.cn/categories/vue/"/>
+    
+    
+      <category term="vue.js" scheme="https://onlyyu.cn/tags/vue-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gitee取消输入用户名及密码</title>
+    <link href="https://onlyyu.cn/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/"/>
+    <id>https://onlyyu.cn/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</id>
+    <published>2020-03-13T04:30:10.000Z</published>
+    <updated>2020-03-18T09:03:57.228Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？&lt;br&gt;赶紧来看看吧……&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/categories/git/"/>
+    
+    
+      <category term="gitee" scheme="https://onlyyu.cn/tags/gitee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo常用命令</title>
+    <link href="https://onlyyu.cn/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://onlyyu.cn/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-03-13T04:17:47.000Z</published>
+    <updated>2020-03-18T09:22:07.099Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Hexo是一款非常流行且好用的个人博客模板，下面我们一起来看一下Hexo的常用命令是什么吧……&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://onlyyu.cn/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://onlyyu.cn/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub访问及clone缓慢的方法</title>
+    <link href="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2020-03-12T09:16:28.000Z</published>
+    <updated>2020-03-18T12:52:58.919Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？&lt;br&gt;那么，这种情况该如何杜绝呢？请继续往下阅读……&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/categories/git/"/>
+    
+    
+      <category term="gitee" scheme="https://onlyyu.cn/tags/gitee/"/>
+    
+  </entry>
+  
+</feed>
