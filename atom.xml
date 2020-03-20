@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-03-19T00:59:09.467Z</updated>
+  <updated>2020-03-20T17:27:55.236Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -21,12 +21,11 @@
     <link href="https://onlyyu.cn/2020/03/17/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"/>
     <id>https://onlyyu.cn/2020/03/17/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</id>
     <published>2020-03-17T09:44:19.000Z</published>
-    <updated>2020-03-19T00:59:09.467Z</updated>
+    <updated>2020-03-20T17:27:55.236Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;1-NexT主题配置文件详解&quot;&gt;&lt;a href=&quot;#1-NexT主题配置文件详解&quot; class=&quot;headerlink&quot; title=&quot;1. NexT主题配置文件详解&quot;&gt;&lt;/a&gt;1. NexT主题配置文件详解&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Hexo版本-3.8.0&lt;/strong&gt;，&lt;strong&gt;NexT版本-5.1.4hexo&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;NexT主题配置文件详解&lt;/p&gt;
+      &lt;h2 id=&quot;1-NexT主题配置文件详解&quot;&gt;&lt;a href=&quot;#1-NexT主题配置文件详解&quot; class=&quot;headerlink&quot; title=&quot;1. NexT主题配置文件详解&quot;&gt;&lt;/a&gt;1. NexT主题配置文件详解&lt;/h2&gt;
     
     </summary>
     
@@ -43,11 +42,11 @@
     <link href="https://onlyyu.cn/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/"/>
     <id>https://onlyyu.cn/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</id>
     <published>2020-03-14T16:54:41.000Z</published>
-    <updated>2020-03-19T00:59:01.502Z</updated>
+    <updated>2020-03-20T17:27:26.057Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。&lt;br&gt;这里简单写一下实现hexo文章置顶功能&lt;/p&gt;
+      &lt;p&gt;　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。&lt;/p&gt;
     
     </summary>
     
@@ -85,11 +84,11 @@
     <link href="https://onlyyu.cn/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/"/>
     <id>https://onlyyu.cn/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</id>
     <published>2020-03-13T04:30:10.000Z</published>
-    <updated>2020-03-19T00:58:44.187Z</updated>
+    <updated>2020-03-20T17:26:42.878Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？&lt;br&gt;赶紧来看看吧……&lt;/p&gt;
+      &lt;p&gt;　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？&lt;/p&gt;
     
     </summary>
     
@@ -106,7 +105,7 @@
     <link href="https://onlyyu.cn/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://onlyyu.cn/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2020-03-13T04:17:47.000Z</published>
-    <updated>2020-03-19T00:58:56.452Z</updated>
+    <updated>2020-03-20T17:27:12.151Z</updated>
     
     <summary type="html">
     
@@ -127,11 +126,11 @@
     <link href="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</id>
     <published>2020-03-12T09:16:28.000Z</published>
-    <updated>2020-03-19T00:58:50.877Z</updated>
+    <updated>2020-03-20T17:27:00.612Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？&lt;br&gt;那么，这种情况该如何杜绝呢？请继续往下阅读……&lt;/p&gt;
+      &lt;p&gt;　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？&lt;/p&gt;
     
     </summary>
     
