@@ -1016,6 +1016,7 @@ pre .javascript .function {
 .site-meta {
   flex-grow: 1;
   text-align: center;
+  float: none;
 }
 @media (max-width: 767px) {
   .site-meta {
@@ -1264,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ec4aff;
+  background: #ff1753;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
