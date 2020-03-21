@@ -1005,11 +1005,8 @@ pre .javascript .function {
 }
 .site-brand-container {
   display: flex;
-  background-image: url("/images/27.gif");
   flex-shrink: 0;
-  padding: 0 10px;
-  margin-top: -16px;
-  height: 160px;
+  background-image: url("/images/27.gif");
 }
 .headband {
   background: #000;
@@ -1047,7 +1044,7 @@ pre .javascript .function {
   margin: 10px 0;
   font-weight: bold;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
   font-family: "黑体";
   color: #8c888b;
   background: -webkit-linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
@@ -1267,7 +1264,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3cd63d;
+  background: #816ef0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1753,7 +1750,6 @@ pre .javascript .function {
 }
 .posts-expand {
   padding-top: 40px;
-  padding-top: 2px;
 }
 @media (max-width: 767px) {
   .posts-expand {
@@ -1855,7 +1851,7 @@ pre .javascript .function {
   margin: initial;
   text-align: center;
   background: rgba(66,133,244,0.1);
-  padding-top: 6px;
+  padding-top: 5px;
   border-radius: 15px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -2437,7 +2433,6 @@ ul.breadcrumb li + li:last-child {
   position: absolute;
   top: 0;
   width: 240px;
-  margin-left: -123px;
 }
 @media (min-width: 1200px) {
   .header-inner {
@@ -2455,7 +2450,6 @@ ul.breadcrumb li + li:last-child {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  width: 86%;
   flex-direction: row-reverse;
 }
 @media (max-width: 991px) {
@@ -2507,6 +2501,9 @@ ul.breadcrumb li + li:last-child {
 }
 .brand {
   padding: 0;
+}
+.site-subtitle {
+  margin: 10px 10px 0;
 }
 .custom-logo-image {
   margin-top: 20px;
@@ -2591,7 +2588,7 @@ ul.breadcrumb li + li:last-child {
   border-bottom-color: #fc6423;
 }
 .sidebar {
-  background: rgba(255,255,255,0);
+  background: rgba(255,255,255,0.7);
   border-radius: 30px;
   box-shadow: none;
   margin-top: 100%;
