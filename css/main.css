@@ -1005,7 +1005,6 @@ pre .javascript .function {
 }
 .site-brand-container {
   display: flex;
-  background: rgba(0,0,0,0.1);
   flex-shrink: 0;
   padding: 0 10px;
   margin-top: -16px;
@@ -1267,7 +1266,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff;
+  background: #b1ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2433,7 +2432,6 @@ ul.breadcrumb li + li:last-child {
   box-shadow: 0 0 20px 10px rgba(0,0,0,0.12) inset, 0 0 20px 10px rgba(0,0,0,0.12) inset,;
   overflow: hidden;
   padding: 0;
-  margin-top: 2px;
   position: absolute;
   top: 0;
   width: 240px;
