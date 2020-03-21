@@ -177,7 +177,7 @@ body {
   color: var(--text-color);
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
-  line-height: 2;
+  line-height: 2.05;
 }
 @media (max-width: 991px) {
   body {
@@ -1010,7 +1010,7 @@ pre .javascript .function {
   margin-top: 2px;
 }
 .headband {
-  background: #db70db;
+  background: #000;
   height: 3px;
 }
 .site-meta {
@@ -1043,10 +1043,17 @@ pre .javascript .function {
   font-weight: bolder;
 }
 .site-subtitle {
-  color: #4285f4;
-  font-size: 0.925em;
-  margin: 10px 0;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "黑体";
+  color: #8c888b;
+  background: -webkit-linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
+  color: transparent;
+/*设置字体颜色透明*/
+  -webkit-background-clip: text;
+/*背景裁剪为文本形式*/
+  animation: ran 10s linear infinite;
+/*动态10s展示*/
 }
 .use-motion .brand {
   opacity: 0;
@@ -1057,6 +1064,38 @@ pre .javascript .function {
   opacity: 0;
   position: relative;
   top: -10px;
+}
+@-moz-keyframes ran {
+  from {
+    backgroud-position: 0 0;
+  }
+  to {
+    background-position: 2000px 0;
+  }
+}
+@-webkit-keyframes ran {
+  from {
+    backgroud-position: 0 0;
+  }
+  to {
+    background-position: 2000px 0;
+  }
+}
+@-o-keyframes ran {
+  from {
+    backgroud-position: 0 0;
+  }
+  to {
+    background-position: 2000px 0;
+  }
+}
+@keyframes ran {
+  from {
+    backgroud-position: 0 0;
+  }
+  to {
+    background-position: 2000px 0;
+  }
 }
 .site-nav-toggle,
 .site-nav-right {
@@ -1225,7 +1264,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #59ff4f;
+  background: #d40d33;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2362,7 +2401,7 @@ ul.breadcrumb li + li:last-child {
 .popular-posts .popular-posts-item .popular-posts-title {
   font-size: 0.875em;
   font-weight: normal;
-  line-height: 2.4;
+  line-height: 2.46;
   margin: 0;
 }
 .header {
@@ -2465,7 +2504,7 @@ ul.breadcrumb li + li:last-child {
   padding: 0;
 }
 .site-subtitle {
-  margin: 10px 10px 0;
+  margin-right: 16px;
 }
 .custom-logo-image {
   margin-top: 20px;
