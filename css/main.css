@@ -1267,7 +1267,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b0f1b6;
+  background: #3cd63d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2507,9 +2507,6 @@ ul.breadcrumb li + li:last-child {
 }
 .brand {
   padding: 0;
-}
-.site-subtitle {
-  margin-left: 15px;
 }
 .custom-logo-image {
   margin-top: 20px;
