@@ -1007,9 +1007,7 @@ pre .javascript .function {
 .site-brand-container {
   display: flex;
   flex-shrink: 0;
-  background: rgba(255,0,0,0);
   padding: 0 0 0 0;
-  margin-top: 2px;
 }
 .headband {
   background: #000;
@@ -1022,8 +1020,6 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .site-meta {
     text-align: center;
-    float: none;
-    margin-left: 0;
   }
 }
 .brand {
@@ -1041,10 +1037,9 @@ pre .javascript .function {
   display: inline-block;
   font-family: 'Gabriola', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 3em;
-  font-weight: normal;
+  font-weight: bolder;
   line-height: 1.5;
   vertical-align: top;
-  font-weight: bolder;
 }
 .site-subtitle {
   margin: 10px 0;
@@ -1270,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #4a0141;
+  background: #55c64b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
