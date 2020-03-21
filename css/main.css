@@ -990,7 +990,6 @@ pre .javascript .function {
 }
 .header {
   background: transparent;
-  height: 2px;
 }
 .header-inner {
   margin: 0 auto;
@@ -1222,7 +1221,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #123db6;
+  background: #168ed6;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
