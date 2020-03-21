@@ -1267,7 +1267,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #4054ff;
+  background: #50ffb3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2437,6 +2437,7 @@ ul.breadcrumb li + li:last-child {
   position: absolute;
   top: 0;
   width: 240px;
+  margin-left: -123px;
 }
 @media (min-width: 1200px) {
   .header-inner {
@@ -2454,6 +2455,7 @@ ul.breadcrumb li + li:last-child {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
+  width: 86%;
   flex-direction: row-reverse;
 }
 @media (max-width: 991px) {
