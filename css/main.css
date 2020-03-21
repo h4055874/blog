@@ -990,6 +990,7 @@ pre .javascript .function {
 }
 .header {
   background: transparent;
+  height: 2px;
 }
 .header-inner {
   margin: 0 auto;
@@ -1008,7 +1009,7 @@ pre .javascript .function {
 .site-brand-container {
   display: flex;
   flex-shrink: 0;
-  padding: 0 10px;
+  padding: 0 0 0 0;
 }
 .headband {
   background: #222;
@@ -1221,7 +1222,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffa8ff;
+  background: #98ff63;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
