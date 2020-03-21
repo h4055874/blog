@@ -1028,7 +1028,7 @@ pre .javascript .function {
   border-bottom: none;
   color: var(--brand-color);
   display: inline-block;
-  line-height: 3em;
+  line-height: 2em;
   padding: 0 40px;
   position: relative;
 }
@@ -1038,7 +1038,7 @@ pre .javascript .function {
 .site-title {
   display: inline-block;
   font-family: 'Gabriola', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: bolder;
   line-height: 1.5;
   vertical-align: top;
@@ -1047,7 +1047,7 @@ pre .javascript .function {
   margin: 10px 0;
   font-weight: bold;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   font-family: "黑体";
   color: #8c888b;
   background: -webkit-linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
@@ -1267,7 +1267,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #50ffb3;
+  background: #b0f1b6;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
