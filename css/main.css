@@ -2,16 +2,16 @@
   --body-bg-color: #eee;
   --content-bg-color: rgba(255,255,255,0.7);
   --card-bg-color: #f5f5f5;
-  --text-color: #70dbdb;
-  --link-color: #70dbdb;
+  --text-color: #000;
+  --link-color: #000;
   --link-hover-color: #db70db;
   --brand-color: #4285f4;
   --brand-hover-color: #38d0be;
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
-  --btn-default-color: #70dbdb;
-  --btn-default-border-color: #70dbdb;
+  --btn-default-color: #000;
+  --btn-default-border-color: #000;
   --btn-default-hover-bg: #70dbdb;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #70dbdb;
@@ -269,7 +269,7 @@ kbd {
   border: 1px solid #ccc;
   border-radius: 0.2em;
   box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
-  color: #70dbdb;
+  color: #000;
   font-family: inherit;
   padding: 0.1em 0.3em;
   white-space: nowrap;
@@ -442,7 +442,7 @@ code {
 code {
   background: #eee;
   border-radius: 3px;
-  color: #70dbdb;
+  color: #000;
   padding: 2px 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -633,7 +633,7 @@ pre .javascript .function {
   margin-bottom: 10px;
 }
 .post-body .label {
-  color: #70dbdb;
+  color: #000;
   display: inline;
   padding: 0 2px;
 }
@@ -1256,7 +1256,7 @@ pre .javascript .function {
 }
 .links-of-author a,
 .links-of-author span.exturl {
-  border-bottom-color: #70dbdb;
+  border-bottom-color: #000;
   display: inline-block;
   font-size: 0.925em;
   margin-bottom: 10px;
@@ -1265,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f6ffff;
+  background: #d7ff9f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1337,7 +1337,7 @@ pre .javascript .function {
 }
 .sidebar-nav li {
   border-bottom: 1px solid transparent;
-  color: #70dbdb;
+  color: #000;
   cursor: pointer;
   display: inline-block;
   font-size: 0.875em;
