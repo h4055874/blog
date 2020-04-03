@@ -983,7 +983,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 73%;
+    width: 89%;
   }
 }
 .header {
@@ -1000,7 +1000,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 73%;
+    width: 89%;
   }
 }
 .site-brand-container {
@@ -1265,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff1a3b;
+  background: #0e3685;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1482,7 +1482,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 73%;
+    width: 89%;
   }
 }
 .with-love {
@@ -2434,7 +2434,7 @@ ul.breadcrumb li + li:last-child {
 }
 @media (min-width: 1600px) {
   .header {
-    width: 73%;
+    width: 89%;
   }
 }
 @media (max-width: 991px) {
