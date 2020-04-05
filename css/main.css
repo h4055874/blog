@@ -1265,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff28;
+  background: #1cff0b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1455,8 +1455,7 @@ pre .javascript .function {
   text-align: center;
 }
 .site-state-item-name {
-  color: #70dbdb;
-  font-size: 0.925em;
+  font-size: 1em;
 }
 .footer {
   color: #4c5e8f;
@@ -2584,7 +2583,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .menu .menu-item .badge {
-  background: rgba(112,219,219,0.859);
+  background: #222;
   border-radius: 10px;
   color: #fff;
   float: right;
