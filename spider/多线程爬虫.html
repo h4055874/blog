@@ -26,16 +26,16 @@
   <meta name="description" content="1、整体思路12345&gt; 队列保存变化的参数，即之前构建的类似页码的东西。&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。&gt; 一个类实现 ：1.  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。2. 定义函数数据入库，pymongon数据插入数据即可  12345主程序 mian 分为">
 <meta property="og:type" content="website">
 <meta property="og:title" content="多线程爬虫">
-<meta property="og:url" content="https://onlyyu.cn/notes/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB.html">
+<meta property="og:url" content="https://onlyyu.cn/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
 <meta property="og:description" content="1、整体思路12345&gt; 队列保存变化的参数，即之前构建的类似页码的东西。&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。&gt; 一个类实现 ：1.  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。2. 定义函数数据入库，pymongon数据插入数据即可  12345主程序 mian 分为">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-05T16:10:47.726Z">
+<meta property="article:published_time" content="2020-04-07T17:09:35.009Z">
 <meta property="article:modified_time" content="2020-04-05T16:10:47.726Z">
 <meta property="article:author" content="Yu ting">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/notes/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB">
+<link rel="canonical" href="https://onlyyu.cn/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -324,13 +324,6 @@ input[type="radio"]:not(:checked) + label:after {
 
 <div class="post-meta">
   
-  <ul class="breadcrumb">
-          
-            <li><a href="/notes/">NOTES</a></li>
-            <li><a href="/notes/spider/">SPIDER</a></li>
-            <li>多线程爬虫</li>
-          
-  </ul>
 
 </div>
 
@@ -430,13 +423,6 @@ input[type="radio"]:not(:checked) + label:after {
       
     </div>
     
-  <ul class="breadcrumb">
-          
-            <li><a href="/notes/">NOTES</a></li>
-            <li><a href="/notes/spider/">SPIDER</a></li>
-            <li>多线程爬虫</li>
-          
-  </ul>
 
     
     

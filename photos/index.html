@@ -31,7 +31,7 @@
 <meta property="og:description" content=".header-inner{          display: none;     }     .sidebar{         display: none;     }     .content{         margin-bottom: 360px;     }     .content-wrap{        width: 100%;        &#x2F;&#x2F; box-siz">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T14:12:19.000Z">
-<meta property="article:modified_time" content="2020-03-19T14:17:56.665Z">
+<meta property="article:modified_time" content="2020-04-07T14:48:00.250Z">
 <meta property="article:author" content="Yu ting">
 <meta name="twitter:card" content="summary">
 
@@ -180,9 +180,14 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
 
   </li>
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
 
-    <a href="/photos/" rel="section"><i class="fa fa-fw fa-photo"></i>photos</a>
+    <a href="/photos/" rel="section"><i class="fa fa-fw fa-photo"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="/notes/" rel="section"><i class="fa fa-fw fa-book"></i>笔记</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -516,9 +521,7 @@ input[type="radio"]:not(:checked) + label:after {
 </style>
 
 <div id="box" class="box"></div>
-
 <script type="text/javascript">
-
    // 相册json
    var json = 
     [
@@ -577,87 +580,87 @@ input[type="radio"]:not(:checked) + label:after {
             }
         ],
 
-        [
-            {
-                'title': '世界之巅',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5540.md.jpg'
-            },
-            {
-                'title': '一天的行程',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl56gS.md.jpg'
-            },
-            {
-                'title': '珠峰国家公园',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5RBj.md.jpg'
-            },
-            {
-                'title': '盘山公路',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl54Nq.md.jpg'
-            },
-            {
-                'title': '保护区',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5LDJ.md.png'
-            },
-            {
-                'title': '珠峰大本营',
-                'url': 'https://s2.ax1x.com/2019/09/07/nlINGV.md.png'
-            },
-            {
-                'title': '氧气瓶',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5jER.md.jpg'
-            },
-            {
-                'title': '珠峰日出',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5cjg.md.jpg'
-            },
-            {
-                'title': '海拔最高的寺庙—绒布寺',
-                'url': 'https://s2.ax1x.com/2019/09/07/nl5hEn.md.jpg'
-            }
-        ]
+
+<pre><code>    [
+        {
+            &apos;title&apos;: &apos;世界之巅&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5540.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;一天的行程&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl56gS.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;珠峰国家公园&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5RBj.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;盘山公路&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl54Nq.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;保护区&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5LDJ.md.png&apos;
+        },
+        {
+            &apos;title&apos;: &apos;珠峰大本营&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nlINGV.md.png&apos;
+        },
+        {
+            &apos;title&apos;: &apos;氧气瓶&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5jER.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;珠峰日出&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5cjg.md.jpg&apos;
+        },
+        {
+            &apos;title&apos;: &apos;海拔最高的寺庙—绒布寺&apos;,
+            &apos;url&apos;: &apos;https://s2.ax1x.com/2019/09/07/nl5hEn.md.jpg&apos;
+        }
     ]
+]
 
-    var content = json2Array(json);
+var content = json2Array(json);
 
-    var wid = 250;
-    if ((window.innerWidth) > 1200) {
-        wid = (window.innerWidth*3)/18;
-    }
-    var box = document.getElementById('box');
+var wid = 250;
+if ((window.innerWidth) &gt; 1200) {
+    wid = (window.innerWidth*3)/18;
+}
+var box = document.getElementById(&apos;box&apos;);
 
-    var i=0;
-    for (var i = 0; i < content.length; i++) {
-        var conBox = document.createElement("div");
-        conBox.id = 'conBox'+i;
-        box.appendChild(conBox);
-        var item = document.createElement("div");
-        var title = content[i][0].title;
-        var url = content[i][0].url;
-        item.innerHTML = "<button class = 'title' style = 'background: url(" + url + ");'><span style = 'display: inline;'><strong style = 'color:#f0f3f6;' >" + title + "</strong></span></button>";
+var i=0;
+for (var i = 0; i &lt; content.length; i++) {
+    var conBox = document.createElement(&quot;div&quot;);
+    conBox.id = &apos;conBox&apos;+i;
+    box.appendChild(conBox);
+    var item = document.createElement(&quot;div&quot;);
+    var title = content[i][0].title;
+    var url = content[i][0].url;
+    item.innerHTML = &quot;&lt;button class = &apos;title&apos; style = &apos;background: url(&quot; + url + &quot;);&apos;&gt;&lt;span style = &apos;display: inline;&apos;&gt;&lt;strong style = &apos;color:#f0f3f6;&apos; &gt;&quot; + title + &quot;&lt;/strong&gt;&lt;/span&gt;&lt;/button&gt;&quot;;
+    conBox.appendChild(item);
+
+    for (var j = 1; j &lt; content[i].length ; j++) {
+        var _title = content[i][j].title;
+        var _url = content[i][j].url;
+        var item = document.createElement(&quot;li&quot;);
+        item.innerHTML=&quot;&lt;div class = &apos;imgbox&apos; id = &apos;imgbox&apos; style = &apos;height: &quot; + wid + &quot;px;&apos;&gt;&lt;img class = &apos;imgitem&apos; src=&apos;&quot; + _url + &quot;&apos; alt=&apos;&quot; + _url + &quot;&apos;&gt;&lt;/div&gt;&lt;span&gt;&quot; + _title +&quot;&lt;/span&gt;&quot;;
         conBox.appendChild(item);
-
-        for (var j = 1; j < content[i].length ; j++) {
-            var _title = content[i][j].title;
-            var _url = content[i][j].url;
-            var item = document.createElement("li");
-            item.innerHTML="<div class = 'imgbox' id = 'imgbox' style = 'height: " + wid + "px;'><img class = 'imgitem' src='" + _url + "' alt='" + _url + "'></div><span>" + _title +"</span>";
-            conBox.appendChild(item);
-        }
     }
+}
 
-    //json转二维数组
-    function json2Array(arr) {
-        for (var i=0; i<arr.length; i++) {
-            var tmpArr = []
-            for (var attr in arr[i]) {
-                tmpArr.push(arr[i][attr])
-            }
-            arr[i] = tmpArr
+//json转二维数组
+function json2Array(arr) {
+    for (var i=0; i&lt;arr.length; i++) {
+        var tmpArr = []
+        for (var attr in arr[i]) {
+            tmpArr.push(arr[i][attr])
         }
-        return arr
+        arr[i] = tmpArr
     }
+    return arr
+}</code></pre><p></script></p>
 
-</script>
       </div>
       
       
