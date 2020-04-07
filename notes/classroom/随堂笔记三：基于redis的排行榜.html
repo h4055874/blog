@@ -23,19 +23,19 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、安装虚拟环境12# 命令：pip install virtualenvwrapper-win -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple    https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple网址是清华源网址，-i 加清华源网址会提高下载速度  2、创建虚拟环境123# 命令：mkvirtualenv name	---">
+  <meta name="description" content="排行榜，就是要将一组数据根据某种条件来进行排序，就好比游戏，可以根据经验值，等级来进行递减排行，电影，可以根据热度或者评分来进行排行今天我们学习的内容就是做一个基于redis的商品点击量排行榜 基于redis的排行榜1、新的商品参与排名接口　　接口作用：　　　　如果此商品是第一次被访问，那么此时该商品的访问次数，就默认从1开始　　　　如果此商品非第一次被访问，那么此时该商品的访问次数会在原有的">
 <meta property="og:type" content="website">
-<meta property="og:title" content="虚拟环境命令">
-<meta property="og:url" content="https://onlyyu.cn/spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4.html">
+<meta property="og:title" content="随堂笔记三：基于redis的排行榜">
+<meta property="og:url" content="https://onlyyu.cn/notes/classroom/%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0%E4%B8%89%EF%BC%9A%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="1、安装虚拟环境12# 命令：pip install virtualenvwrapper-win -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple    https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple网址是清华源网址，-i 加清华源网址会提高下载速度  2、创建虚拟环境123# 命令：mkvirtualenv name	---">
+<meta property="og:description" content="排行榜，就是要将一组数据根据某种条件来进行排序，就好比游戏，可以根据经验值，等级来进行递减排行，电影，可以根据热度或者评分来进行排行今天我们学习的内容就是做一个基于redis的商品点击量排行榜 基于redis的排行榜1、新的商品参与排名接口　　接口作用：　　　　如果此商品是第一次被访问，那么此时该商品的访问次数，就默认从1开始　　　　如果此商品非第一次被访问，那么此时该商品的访问次数会在原有的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-05T16:16:44.726Z">
-<meta property="article:modified_time" content="2020-04-05T16:16:44.726Z">
+<meta property="article:published_time" content="2020-04-07T10:11:20.054Z">
+<meta property="article:modified_time" content="2020-04-07T09:41:28.705Z">
 <meta property="article:author" content="Yu ting">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4">
+<link rel="canonical" href="https://onlyyu.cn/notes/classroom/%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0%E4%B8%89%EF%BC%9A%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -51,7 +51,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>虚拟环境命令 | Yu ting's blog
+  <title>随堂笔记三：基于redis的排行榜 | Yu ting's blog
   </title>
   
 
@@ -141,7 +141,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">I only for you!</p>
+        <p class="site-subtitle">加油！！！</p>
   </div>
 
   <div class="site-nav-right">
@@ -167,7 +167,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -177,7 +177,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -314,11 +314,18 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">虚拟环境命令
+<h1 class="post-title" itemprop="name headline">随堂笔记三：基于redis的排行榜
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/notes/">NOTES</a></li>
+            <li><a href="/notes/classroom/">CLASSROOM</a></li>
+            <li>随堂笔记三：基于REDIS的排行榜</li>
+          
+  </ul>
 
 </div>
 
@@ -328,25 +335,18 @@ input[type="radio"]:not(:checked) + label:after {
       
       
       <div class="post-body">
-          <h2 id="1、安装虚拟环境"><a href="#1、安装虚拟环境" class="headerlink" title="1、安装虚拟环境"></a>1、安装虚拟环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line">    https://pypi.tuna.tsinghua.edu.cn/simple网址是清华源网址，-i 加清华源网址会提高下载速度</span><br></pre></td></tr></table></figure>
+          <p>　　排行榜，就是要将一组数据根据某种条件来进行排序，就好比游戏，可以根据经验值，等级来进行递减排行，电影，可以根据热度或者评分来进行排行<br>今天我们学习的内容就是做一个基于redis的商品点击量排行榜</p>
+<h2 id="基于redis的排行榜"><a href="#基于redis的排行榜" class="headerlink" title="基于redis的排行榜"></a>基于redis的排行榜</h2><h2 id="1、新的商品参与排名接口"><a href="#1、新的商品参与排名接口" class="headerlink" title="1、新的商品参与排名接口"></a>1、新的商品参与排名接口</h2><p>　　接口作用：<br>　　　　如果此商品是第一次被访问，那么此时该商品的访问次数，就默认从1开始<br>　　　　如果此商品非第一次被访问，那么此时该商品的访问次数会在原有的次数上面+1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入redis</span></span><br><span class="line">host = <span class="string">'localhost'</span></span><br><span class="line">port = <span class="number">6379</span></span><br><span class="line">r = redis.Redis(host=host, port=port)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新的商品参与排名</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsClick</span><span class="params">(APIView)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,request)</span>:</span></span><br><span class="line">        <span class="comment"># 接收参数</span></span><br><span class="line">        gid = request.GET.get(<span class="string">'gid'</span>,<span class="literal">None</span>)</span><br><span class="line">        <span class="comment"># 修改商品的点击数</span></span><br><span class="line">        r.zincrby(<span class="string">"good_rank"</span>,<span class="number">1</span>,int(gid))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">"message"</span>:<span class="string">"访问+1"</span>&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="2、创建虚拟环境"><a href="#2、创建虚拟环境" class="headerlink" title="2、创建虚拟环境"></a>2、创建虚拟环境</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：mkvirtualenv name</span></span><br><span class="line">	-----name是虚拟环境的名字</span><br><span class="line">	例如创建一个a1906虚拟环境----&gt;命令：# mkvirtualenv a1906</span><br></pre></td></tr></table></figure>
+<h2 id="1、2-前端调用参与排名接口"><a href="#1、2-前端调用参与排名接口" class="headerlink" title="1、2  前端调用参与排名接口"></a>1、2  前端调用参与排名接口</h2><p>　　新的商品参与排名接口，可以放在前端的商品详情页面(item.vue)的mounted钩子中，这样每次进入详情页，都可以为该商品增加一次访问量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取请求详情信息的商品id</span></span><br><span class="line">    <span class="keyword">this</span>.gid = <span class="keyword">this</span>.$route.query.gid;</span><br><span class="line">    <span class="comment">// 调用增加访问接口</span></span><br><span class="line">    <span class="keyword">this</span>.add_rank();</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    <span class="comment">// 访问一次增加一次访问数</span></span><br><span class="line">	add_rank() &#123;</span><br><span class="line">		<span class="keyword">this</span>.axios(&#123;</span><br><span class="line">			url: config[<span class="string">'baseurl'</span>] + <span class="string">'goodsclick/'</span>,</span><br><span class="line">			params: &#123;</span><br><span class="line">				gid: <span class="keyword">this</span>.gid</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"偷偷+1"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="3、激活虚拟环境"><a href="#3、激活虚拟环境" class="headerlink" title="3、激活虚拟环境"></a>3、激活虚拟环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：workon name</span></span><br><span class="line">	当我门需要使用a1906虚拟环境时，可以使用命令来激活---&gt;命令：# workon a1906</span><br><span class="line">    如果我们已经在使用一个虚拟环境，需要切换到另一个虚拟环境时，也可以直接使用此命令来切换</span><br></pre></td></tr></table></figure>
+<h2 id="2、排行榜数据进行展示接口及定义工具方法"><a href="#2、排行榜数据进行展示接口及定义工具方法" class="headerlink" title="2、排行榜数据进行展示接口及定义工具方法"></a>2、排行榜数据进行展示接口及定义工具方法</h2><p>　　接口作用：<br>　　　　将获取到的数据返回，由前端获取到后进行展示<br>　　工具的作用：<br>　　　　该工具方法用来获取排行榜前N名的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工具方法，获取前N名的数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_top_n</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="comment"># 获取redis中的数据</span></span><br><span class="line">    goods_click = r.zrange(<span class="string">"good_rank"</span>,<span class="number">0</span>,<span class="number">-1</span>,desc=<span class="literal">True</span>,withscores=<span class="literal">True</span>)[:num]</span><br><span class="line">    <span class="comment"># 获取mysql中数据</span></span><br><span class="line">    goods = Goods.objects.in_bulk([int(item[<span class="number">0</span>]) <span class="keyword">for</span> item <span class="keyword">in</span> goods_click])</span><br><span class="line">    <span class="comment"># 合并操作</span></span><br><span class="line">    resp = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> goods_click:</span><br><span class="line">        <span class="comment"># 遍历列表</span></span><br><span class="line">        <span class="comment"># 捕获异常，防止mysql和redis数据不同步问题</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            resp.append(&#123;int(item[<span class="number">1</span>]): goods[int(item[<span class="number">0</span>])]&#125;)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> resp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 商品排行榜数据视图</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodRank</span><span class="params">(APIView)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,request)</span>:</span></span><br><span class="line">        <span class="comment"># 获取排名前10的数据</span></span><br><span class="line">        get_resp = get_top_n(<span class="number">10</span>)</span><br><span class="line">        resp = []</span><br><span class="line">        <span class="comment"># 遍历进行序列化</span></span><br><span class="line">        <span class="keyword">for</span> dic <span class="keyword">in</span> get_resp:</span><br><span class="line">            <span class="keyword">for</span> k,v <span class="keyword">in</span> dic.items():</span><br><span class="line">                <span class="comment"># 序列化</span></span><br><span class="line">                data = GoodsSer(v).data</span><br><span class="line">                <span class="comment"># 将商品点击数附加到商品序列化数据中</span></span><br><span class="line">                data[<span class="string">'clicks'</span>] = k</span><br><span class="line">                resp.append(data)</span><br><span class="line">        <span class="comment"># 返回</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
 
-<h2 id="4、安装模块"><a href="#4、安装模块" class="headerlink" title="4、安装模块"></a>4、安装模块</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip install 模块名</span></span><br><span class="line">	当我们需要在虚拟环境中安装requests模块时，可以使用---&gt;命令：# pip install requests</span><br><span class="line">还可以通过清华源来安装---&gt;命令：# pip install requests -i 清华源网址(https://pypi.tuna.tsinghua.edu.cn/simple)</span><br></pre></td></tr></table></figure>
-
-<h2 id="5、删除已安装的模块"><a href="#5、删除已安装的模块" class="headerlink" title="5、删除已安装的模块"></a>5、删除已安装的模块</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip uninstall 模块名</span></span><br><span class="line">	当我们需要删除requests模块时，可以使用---&gt;命令：# pip uninstall requests</span><br></pre></td></tr></table></figure>
-
-<h2 id="6、查看已安装的模块"><a href="#6、查看已安装的模块" class="headerlink" title="6、查看已安装的模块"></a>6、查看已安装的模块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip list</span></span><br><span class="line">	此命令可以查看所有已安装过的模块名</span><br></pre></td></tr></table></figure>
-
-<h2 id="7、退出虚拟环境"><a href="#7、退出虚拟环境" class="headerlink" title="7、退出虚拟环境"></a>7、退出虚拟环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：deactivate</span></span><br><span class="line">	此命令可以退出当前正在使用的虚拟环境</span><br></pre></td></tr></table></figure>
-
-<h2 id="8、生成requirements-txt文件"><a href="#8、生成requirements-txt文件" class="headerlink" title="8、生成requirements.txt文件"></a>8、生成requirements.txt文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip freeze &gt; requirements.txt</span></span><br><span class="line">	此命令可以将环境中所有已安装的模块和包导入到生成的requirements.txt文件中</span><br></pre></td></tr></table></figure>
-
-<h2 id="9、批量安装模块"><a href="#9、批量安装模块" class="headerlink" title="9、批量安装模块"></a>9、批量安装模块</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令：pip install -r requirements.txt文件所在目录</span></span><br><span class="line">	-r 后面跟的是路径，我们也可以切换到requirements.txt文件的所在目录进入虚拟环境进行直接安装，使用---&gt;命令：# pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="3、今天写商品排行榜遇到的bug"><a href="#3、今天写商品排行榜遇到的bug" class="headerlink" title="3、今天写商品排行榜遇到的bug"></a>3、今天写商品排行榜遇到的bug</h2><p>　　今天好像其它同学遇到了不同的问题，<br>有ORM框架报错的(卸载ORM框架后重新安装，问题解决)，<br>也有因为查找的商品不存在报错的(在工具方法的遍历中，添加一个捕获异常的功能，避免因为商品不存在而报错)<br>而我所遇到的问题是，获取到的排行榜，全部为同一商品，只是点击量不同，经与老师代码进行排除，发现问题出现在工具方法中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在工具方法中，向resp中添加元素时，我将goods的值固定成了一个商品</span></span><br><span class="line">resp.append(&#123;int(item[<span class="number">1</span>]): goods[int(<span class="number">1</span>)]&#125;)</span><br><span class="line"><span class="comment"># 正确为：：</span></span><br><span class="line">resp.append(&#123;int(item[<span class="number">1</span>]): goods[int(item[<span class="number">0</span>])]&#125;)</span><br></pre></td></tr></table></figure>
 
 
       </div>
@@ -355,6 +355,13 @@ input[type="radio"]:not(:checked) + label:after {
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/notes/">NOTES</a></li>
+            <li><a href="/notes/classroom/">CLASSROOM</a></li>
+            <li>随堂笔记三：基于REDIS的排行榜</li>
+          
+  </ul>
 
     
     
@@ -412,7 +419,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、安装虚拟环境"><span class="nav-text">1、安装虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、创建虚拟环境"><span class="nav-text">2、创建虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、激活虚拟环境"><span class="nav-text">3、激活虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、安装模块"><span class="nav-text">4、安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、删除已安装的模块"><span class="nav-text">5、删除已安装的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、查看已安装的模块"><span class="nav-text">6、查看已安装的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、退出虚拟环境"><span class="nav-text">7、退出虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、生成requirements-txt文件"><span class="nav-text">8、生成requirements.txt文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、批量安装模块"><span class="nav-text">9、批量安装模块</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于redis的排行榜"><span class="nav-text">基于redis的排行榜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、新的商品参与排名接口"><span class="nav-text">1、新的商品参与排名接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、2-前端调用参与排名接口"><span class="nav-text">1、2  前端调用参与排名接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、排行榜数据进行展示接口及定义工具方法"><span class="nav-text">2、排行榜数据进行展示接口及定义工具方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、今天写商品排行榜遇到的bug"><span class="nav-text">3、今天写商品排行榜遇到的bug</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -428,7 +435,7 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -441,7 +448,7 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -805,13 +812,13 @@ input[type="radio"]:not(:checked) + label:after {
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">6k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>

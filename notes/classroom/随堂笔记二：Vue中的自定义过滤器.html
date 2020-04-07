@@ -23,19 +23,19 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、整体思路12345&gt; 队列保存变化的参数，即之前构建的类似页码的东西。&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。&gt; 一个类实现 ：1.  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。2. 定义函数数据入库，pymongon数据插入数据即可  12345主程序 mian 分为">
+  <meta name="description" content="现在很多页面显示的时间、金钱等等都需要转换格式后再进行展示，而如何进行转换呢？我想很多人都想到了—自定义过滤器 １、自定义过滤器　　今天课堂上，我们做了一个uid转换成username来展示的点 123456&lt;ul&gt;    &lt;li v-for&#x3D;&quot;item in commentlist&quot;&gt;        &lt;!-- 引用过滤器--myfilter --&gt;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="多线程爬虫">
-<meta property="og:url" content="https://onlyyu.cn/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB.html">
+<meta property="og:title" content="随堂笔记二：Vue中的自定义过滤器">
+<meta property="og:url" content="https://onlyyu.cn/notes/classroom/%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0%E4%BA%8C%EF%BC%9AVue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="1、整体思路12345&gt; 队列保存变化的参数，即之前构建的类似页码的东西。&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。&gt; 一个类实现 ：1.  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。2. 定义函数数据入库，pymongon数据插入数据即可  12345主程序 mian 分为">
+<meta property="og:description" content="现在很多页面显示的时间、金钱等等都需要转换格式后再进行展示，而如何进行转换呢？我想很多人都想到了—自定义过滤器 １、自定义过滤器　　今天课堂上，我们做了一个uid转换成username来展示的点 123456&lt;ul&gt;    &lt;li v-for&#x3D;&quot;item in commentlist&quot;&gt;        &lt;!-- 引用过滤器--myfilter --&gt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-05T16:10:47.726Z">
-<meta property="article:modified_time" content="2020-04-05T16:10:47.726Z">
+<meta property="article:published_time" content="2020-04-07T10:11:20.053Z">
+<meta property="article:modified_time" content="2020-04-06T08:37:15.783Z">
 <meta property="article:author" content="Yu ting">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB">
+<link rel="canonical" href="https://onlyyu.cn/notes/classroom/%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0%E4%BA%8C%EF%BC%9AVue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -51,7 +51,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>多线程爬虫 | Yu ting's blog
+  <title>随堂笔记二：Vue中的自定义过滤器 | Yu ting's blog
   </title>
   
 
@@ -141,7 +141,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">I only for you!</p>
+        <p class="site-subtitle">加油！！！</p>
   </div>
 
   <div class="site-nav-right">
@@ -167,7 +167,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -177,7 +177,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -314,11 +314,18 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">多线程爬虫
+<h1 class="post-title" itemprop="name headline">随堂笔记二：Vue中的自定义过滤器
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/notes/">NOTES</a></li>
+            <li><a href="/notes/classroom/">CLASSROOM</a></li>
+            <li>随堂笔记二：VUE中的自定义过滤器</li>
+          
+  </ul>
 
 </div>
 
@@ -328,96 +335,29 @@ input[type="radio"]:not(:checked) + label:after {
       
       
       <div class="post-body">
-          <h2 id="1、整体思路"><a href="#1、整体思路" class="headerlink" title="1、整体思路"></a>1、整体思路</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; 队列保存变化的参数，即之前构建的类似页码的东西。</span><br><span class="line"></span><br><span class="line">&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。</span><br><span class="line"></span><br><span class="line">&gt; 一个类实现 ：<span class="number">1.</span>  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。<span class="number">2.</span> 定义函数数据入库，pymongon数据插入数据即可</span><br></pre></td></tr></table></figure>
+          <p>　　现在很多页面显示的时间、金钱等等都需要转换格式后再进行展示，而如何进行转换呢？我想很多人都想到了—自定义过滤器</p>
+<h2 id="１、自定义过滤器"><a href="#１、自定义过滤器" class="headerlink" title="１、自定义过滤器"></a>１、自定义过滤器</h2><p>　　今天课堂上，我们做了一个uid转换成username来展示的点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in commentlist"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 引用过滤器--myfilter --&gt;</span></span><br><span class="line">        &#123;&#123; item.uid | myfilter &#125;&#125;:&#123;&#123; item.content &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主程序 mian 分为 两 部分</span><br><span class="line"></span><br><span class="line">- 实例化队列，我们有两组线程在工作，初始队列一个，线程间通信需要一个，一共两个</span><br><span class="line"></span><br><span class="line">- 实例化线程，通过遍历实例化线程类，创建俩组三线程。</span><br></pre></td></tr></table></figure>
+<h2 id="1、1-过滤器错误写法："><a href="#1、1-过滤器错误写法：" class="headerlink" title="1、1  过滤器错误写法："></a>1、1  过滤器错误写法：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">  <span class="comment">// 自定用户义方法</span></span><br><span class="line">  user_filter(value) &#123;</span><br><span class="line">    <span class="comment">// 通过key(用户id)取用户名</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.myuser[value]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调用主程序</span><br></pre></td></tr></table></figure>
+<h2 id="1、2-过滤器语法规范"><a href="#1、2-过滤器语法规范" class="headerlink" title="1、2  过滤器语法规范"></a>1、2  过滤器语法规范</h2><p>　　当过滤器return用this语法来写时，Console控制台会报出this is undefined，顾名思义，this未定义，因为过滤器中不支持this语法<br>　　这时，我们应该在mounted请求中，先声明一个变量来代替this</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 声明变量</span></span><br><span class="line">  <span class="built_in">window</span>.that = <span class="keyword">this</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-
-
-<ol start="2">
-<li><p>具体部署，和相关知识点罗列</p>
-<p>细节决定成败，必须搞清楚每一步的意义是什么，而不是说这里就应该这么写，没有那么多理所应当。</p>
-<p>#####具体部署： </p>
-<ul>
-<li><p>定义第一个类：</p>
-<ul>
-<li><p>定义类：需要继承threading.Thread父类</p>
-</li>
-<li><p>类属性：想清楚传那些熟悉</p>
-<ol>
-<li><p>参数队列要传进来</p>
-</li>
-<li><p>子类重写初始化属性</p>
-<p>先继承父类属性—-&gt;然后写自己要加的属性</p>
-</li>
-</ol>
-</li>
-<li><p>定义方法：</p>
-<p>重写run方法</p>
-<p>​    通过无限循环获取队列中的参数，实现请求多页面，</p>
-<p>​    这个队列是被三个线程去访问的。</p>
-</li>
-</ul>
-</li>
-<li><p>定义第二个类：</p>
-<p>​    需要考虑的和第一个类思路是一样的，这里有一个互斥锁的加入</p>
-<p>​    就是在处理数据的时候加入，因为写入数据库的字段都一样，避免数据量过大</p>
-<p>​    出错，导致数据错乱。</p>
-</li>
-<li><p>主程序代码</p>
-<ul>
-<li><p>实例队列对象</p>
-<p>page_Queue = Queue() 构建参数</p>
-<p>data_Queue = Queue() 负责两个主线程间的通信</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>+ 实例互斥锁对象
-
-  lock = Lock()
-
-
-
-+ 构建两个主线程，一个线程负责采集数据，一个线程处理数据并入库
-
-+ 当然都是用for循环来构建的，记得线程类需要传入那些属性</code></pre><ul>
-<li><p>调用主程序</p>
-<p>#####相关知识点： </p>
-</li>
-<li><p>重写父类同名方法需要注意:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParseTread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadName, dataQueue, lock)</span>:</span></span><br><span class="line">        <span class="comment"># 先把父类的方法继承下来</span></span><br><span class="line">        super(ParseTread, self).__init__()</span><br><span class="line">        <span class="comment"># 然后定义自己的方法</span></span><br><span class="line">        self.threadName = threadName</span><br><span class="line">        self.dataQueue = dataQueue</span><br><span class="line">        self.lock = lock</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>首先明白什么是进程什么是线程，线程和进程的区别？</p>
-<p>线程（有时候称为轻量级进程）与进程类似，不过它们是在同一个进程下执行的，并共享相同的上下文。可以将它们认为是在一个主进程或“主线程”中并行运行的一些“迷你进程”。 </p>
-<p>这里讲的很清楚<a href="https://www.cnblogs.com/chbo/p/7043660.html" target="_blank" rel="noopener">https://www.cnblogs.com/chbo/p/7043660.html</a> </p>
-</li>
-<li><p>我们的子线程为什么要设置join()，其实设置了守护线程才是join()出现的时机</p>
-<p>如果是为了避免数据的恶性竞争的话，互斥锁是接这个的小能手。</p>
-</li>
-<li><p>为什么要设置守护线程</p>
-<p>如果给线程设置守护线程，那么后台线程执行完毕就会杀死这些线程。大致的作用就是当你退出进程，后台线程关闭那么这些子线程也要同时关闭。</p>
-</li>
-<li><p>join()的作用，和其存在的意义</p>
-<p>join()的功能是设置阻塞，之所以要设置join()就是有选择的设置守护线程，因为我们有的线程需要同步主线程结束而结束，而有的线程需要执行完毕菜行。设置了守护线程的子线程都会随着主线的结束而结束。</p>
-<p>我们这里设置的join()是没有意义的，因为并没有设置守护线程，因此没必要设置阻塞。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">from</span> chaojiying <span class="keyword">import</span> Chaojiying_Client</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> re, threading</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CrawlThread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadName, page_Queue, data_Queue)</span>:</span></span><br><span class="line">        super(CrawlThread, self).__init__()</span><br><span class="line">        self.threadName = threadName</span><br><span class="line">        self.pageQueue = page_Queue</span><br><span class="line">        self.dataQueue = data_Queue</span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"</span>,&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        url1 = <span class="string">'http://www.ziroom.com/z/nl/z3.html?p=%s'</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 如果队列为空 block 为 True 那么进入阻塞状态</span></span><br><span class="line">                <span class="comment"># 如果队列为控 block 为 false 那么会抛出异常</span></span><br><span class="line">                p = self.pageQueue.get(block=<span class="literal">False</span>)</span><br><span class="line">                print(<span class="string">'%s开始工作...'</span> % self.threadName)</span><br><span class="line">                response = requests.get(url=url1 % p, headers=self.headers)</span><br><span class="line">                content = response.text</span><br><span class="line">                self.dataQueue.put(content)</span><br><span class="line">                <span class="comment"># print(self.dataQueue.qsize())</span></span><br><span class="line">                print(<span class="string">'%s工作结束...'</span> % self.threadName)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParseTread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, threadName, dataQueue, lock)</span>:</span></span><br><span class="line">        super(ParseTread, self).__init__()</span><br><span class="line">        self.threadName = threadName</span><br><span class="line">        self.dataQueue = dataQueue</span><br><span class="line">        self.lock = lock</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                html = self.dataQueue.get(block=<span class="literal">False</span>)</span><br><span class="line">                print(<span class="string">'%s开始处理数据........'</span> % self.threadName)</span><br><span class="line">                self.get_price_list(html)</span><br><span class="line">                print(<span class="string">'%s数据处理完毕........'</span> % self.threadName)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                print(e)</span><br><span class="line">                <span class="comment"># print('出错了')</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_price_list</span><span class="params">(self, html)</span>:</span></span><br><span class="line">        <span class="comment"># 正则匹配图片地址，超级鹰打码，获取列表两个参数 code 下标列表</span></span><br><span class="line">        price_image = re.findall(<span class="string">r'"image":"(.*?)"'</span>, html)[<span class="number">0</span>]</span><br><span class="line">        index_list = re.findall(<span class="string">r'"offset":(.*?)&#125;;'</span>, html)[<span class="number">0</span>]</span><br><span class="line">        index_list = eval(index_list)</span><br><span class="line">        <span class="comment"># print(index_list)</span></span><br><span class="line">        price_image_link = <span class="string">'http:'</span> + price_image</span><br><span class="line">        <span class="comment"># print(price_image_link)</span></span><br><span class="line">        request.urlretrieve(price_image_link, <span class="string">'./im.jpg'</span>)</span><br><span class="line">        <span class="comment"># 超级鹰打码，获取到图片中的数字</span></span><br><span class="line">        chaojiying = Chaojiying_Client(<span class="string">'ipython'</span>, <span class="string">'123456789'</span>, <span class="string">'96001'</span>)</span><br><span class="line">        im = open(<span class="string">'im.jpg'</span>, <span class="string">'rb'</span>).read()</span><br><span class="line">        code = chaojiying.PostPic(im, <span class="number">4111</span>)[<span class="string">'pic_str'</span>]</span><br><span class="line">        price_list = []</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> index_list:</span><br><span class="line">            <span class="comment"># print(j)</span></span><br><span class="line">            str1 = <span class="string">''</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> j:</span><br><span class="line">                str1 += code[int(i)]</span><br><span class="line">            <span class="comment"># print(code)</span></span><br><span class="line">            <span class="comment"># print(str1)</span></span><br><span class="line">            price_list.append(int(str1))</span><br><span class="line">        self.get_detail_list(html, price_list)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_detail_list</span><span class="params">(self, html, price_list)</span>:</span></span><br><span class="line">        html = etree.HTML(html)</span><br><span class="line">        data_list = html.xpath(<span class="string">'//ul[@id="houseList"]/li'</span>)</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> data_list:</span><br><span class="line">            item = &#123;&#125;</span><br><span class="line">            title = i.xpath(<span class="string">'.//h3/a[@class="t1"]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">            size_detail = i.xpath(<span class="string">'.//div[@class="detail"]/p'</span>)[<span class="number">0</span>].xpath(<span class="string">'.//span/text()'</span>)</span><br><span class="line">            position = i.xpath(<span class="string">'.//div[@class="detail"]/p'</span>)[<span class="number">1</span>].xpath(<span class="string">'.//span/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">            item = &#123;<span class="string">'标题'</span>: title, <span class="string">'面积'</span>: size_detail, <span class="string">'位置'</span>: position, <span class="string">'价格'</span>: price_list[a]&#125;</span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">            <span class="keyword">with</span> self.lock:</span><br><span class="line">                self.save(item)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        conn = pymongo.MongoClient(<span class="string">"localhost"</span>,<span class="number">27017</span>)</span><br><span class="line">        db = conn.qiubai</span><br><span class="line">        table = db.qiubai</span><br><span class="line">        table.insert(item)</span><br><span class="line">       </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(n)</span>:</span></span><br><span class="line">    page_Queue = Queue()</span><br><span class="line">    data_Queue = Queue()</span><br><span class="line">    lock = Lock()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        page_Queue.put(i)</span><br><span class="line"></span><br><span class="line">    crawlList = &#123;<span class="string">'长征1号'</span>, <span class="string">'长征2号'</span>, <span class="string">'长征3号'</span>&#125;</span><br><span class="line">    TreadCrawl = []</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> crawlList:</span><br><span class="line">        c = CrawlThread(var, page_Queue, data_Queue)</span><br><span class="line">        c.start()</span><br><span class="line">        TreadCrawl.append(c)</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> TreadCrawl:</span><br><span class="line">        var.join()</span><br><span class="line">    parseList = [<span class="string">'嫦娥1号'</span>, <span class="string">'嫦娥2号'</span>, <span class="string">'嫦娥3号'</span>]</span><br><span class="line">    TreadParse = []</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> parseList:</span><br><span class="line">        p = ParseTread(var, data_Queue, lock)</span><br><span class="line">        p.start()</span><br><span class="line">        TreadParse.append(p)</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> TreadParse:</span><br><span class="line">        var.join()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
+<h2 id="1、3-过滤器正确写法："><a href="#1、3-过滤器正确写法：" class="headerlink" title="1、3  过滤器正确写法："></a>1、3  过滤器正确写法：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">  <span class="comment">// 自定用户义方法</span></span><br><span class="line">  user_filter(value) &#123;</span><br><span class="line">    <span class="comment">// 通过key(用户id)取用户名</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.that.myuser[value]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/notes/">NOTES</a></li>
+            <li><a href="/notes/classroom/">CLASSROOM</a></li>
+            <li>随堂笔记二：VUE中的自定义过滤器</li>
+          
+  </ul>
 
     
     
@@ -475,7 +415,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、整体思路"><span class="nav-text">1、整体思路</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#１、自定义过滤器"><span class="nav-text">１、自定义过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、1-过滤器错误写法："><span class="nav-text">1、1  过滤器错误写法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、2-过滤器语法规范"><span class="nav-text">1、2  过滤器语法规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、3-过滤器正确写法："><span class="nav-text">1、3  过滤器正确写法：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,7 +431,7 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -504,7 +444,7 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -868,13 +808,13 @@ input[type="radio"]:not(:checked) + label:after {
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">6k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>
