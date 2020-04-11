@@ -180,11 +180,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
 
   </li>
-        <li class="menu-item menu-item-相册">
-
-    <a href="/photos/" rel="section"><i class="fa fa-fw fa-photo"></i>相册</a>
-
-  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
@@ -452,12 +447,12 @@ input[type="radio"]:not(:checked) + label:after {
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/loading4.gif" data-original="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/images/loading4.gif" data-original="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -501,6 +496,8 @@ input[type="radio"]:not(:checked) + label:after {
 
               <!-- 此处可在文章模块中间添加东西 -->
           </div>
+          <!-- 评论系统 -->
+          <!--
           
     <div class="comments" id="valine-comments"></div>
 
@@ -525,7 +522,7 @@ input[type="radio"]:not(:checked) + label:after {
     });
   }
 </script>
-
+-->
         </div>
           
   
@@ -1095,5 +1092,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     a{cursor:url(/images/链接选择.cur),wait} 
   </style>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

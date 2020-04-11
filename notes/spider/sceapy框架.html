@@ -30,13 +30,13 @@
 <meta property="og:site_name" content="Yu ting&#39;s blog">
 <meta property="og:description" content="1、scrapy安装与环境依赖　　1.在安装scrapy前需要安装好相应的依赖库, 再安装scrapy, 具体安装步骤如下: 12345678910(1).安装lxml库: pip install lxml(2).安装wheel: pip install wheel(3).安装twisted: pip install twisted文件路径	(twisted需下载后本地安装,下载地址:http:&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://onlyyu.cn/images/loading4.gif">
-<meta property="og:image" content="https://onlyyu.cn/images/loading4.gif">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy2.png">
 <meta property="article:published_time" content="2020-04-05T15:59:02.802Z">
 <meta property="article:modified_time" content="2020-04-05T15:59:02.802Z">
 <meta property="article:author" content="Yu ting">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://onlyyu.cn/images/loading4.gif">
+<meta name="twitter:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy.png">
 
 <link rel="canonical" href="https://onlyyu.cn/notes/spider/sceapy%E6%A1%86%E6%9E%B6">
 
@@ -181,11 +181,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
-
-  </li>
-        <li class="menu-item menu-item-相册">
-
-    <a href="/photos/" rel="section"><i class="fa fa-fw fa-photo"></i>相册</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -346,13 +341,13 @@ input[type="radio"]:not(:checked) + label:after {
           <h2 id="1、scrapy安装与环境依赖"><a href="#1、scrapy安装与环境依赖" class="headerlink" title="1、scrapy安装与环境依赖"></a>1、scrapy安装与环境依赖</h2><p>　　1.在安装scrapy前需要安装好相应的依赖库, 再安装scrapy, 具体安装步骤如下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>).安装lxml库: pip install lxml</span><br><span class="line">(<span class="number">2</span>).安装wheel: pip install wheel</span><br><span class="line">(<span class="number">3</span>).安装twisted: pip install twisted文件路径</span><br><span class="line">	(twisted需下载后本地安装,下载地址:http://www.lfd.uci.edu/~gohlke/pythonlibs/<span class="comment">#twisted)</span></span><br><span class="line">	(版本选择如下图,版本后面有解释,请根据自己实际选择)</span><br><span class="line">(<span class="number">4</span>).安装pywin32: pip install pywin32</span><br><span class="line">	(注意:以上安装步骤一定要确保每一步安装都成功,没有报错信息,如有报错自行百度解决)</span><br><span class="line">(<span class="number">5</span>).安装scrapy: pip install scrapy</span><br><span class="line">	(注意:以上安装步骤一定要确保每一步安装都成功,没有报错信息,如有报错自行百度解决)</span><br><span class="line">(<span class="number">6</span>).成功验证:在cmd命令行输入scrapy,显示Scrapy1<span class="number">.6</span><span class="number">.0</span>-no active project,证明安装成功</span><br></pre></td></tr></table></figure>
 
-<img src="/images/loading4.gif" data-original="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy.png">
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy.png">
 
 <h2 id="2、创建项目"><a href="#2、创建项目" class="headerlink" title="2、创建项目"></a>2、创建项目</h2><p>　　1.手动创建一个目录test<br>　　2.在test文件夹下创建爬虫项目为spiderpro: scrapy startproject spiderpro<br>　　3.进入项目文件夹: cd spiderpro<br>　　4.创建爬虫文件: scrapy genspider 爬虫名 域名</p>
 <h2 id="3、项目目录介绍"><a href="#3、项目目录介绍" class="headerlink" title="3、项目目录介绍"></a>3、项目目录介绍</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">spiderpro</span><br><span class="line">　　spiderpro <span class="comment"># 项目目录</span></span><br><span class="line">　　　　__init__</span><br><span class="line">　　　　spiders:爬虫文件目录</span><br><span class="line">　　　　　　__init__</span><br><span class="line">　　　　　　tests.py:爬虫文件</span><br><span class="line">　　　　items.py:定义爬取数据持久化的数据结构</span><br><span class="line">　　　　middlewares.py:定义中间件</span><br><span class="line">　　　　pipelines.py:管道,持久化存储相关</span><br><span class="line">　　　　settings.py:配置文件</span><br><span class="line">　　venv:虚拟环境目录</span><br><span class="line">　 scrapy.cfg: scrapy项目配置文件</span><br></pre></td></tr></table></figure>
 
 <h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><p>　　(1).spiders:其内包含一个个Spider的实现, 每个Spider是一个单独的文件<br>　　(2).items.py:它定义了Item数据结构, 爬取到的数据存储为哪些字段<br>　　(3).pipelines.py:它定义Item Pipeline的实现<br>　　(4).settings.py:项目的全局配置<br>　　(5).middlewares.py:定义中间件, 包括爬虫中间件和下载中间件<br>　　(6).scrapy.cfg:它是scrapy项目的配置文件, 其内定义了项目的配置路径, 部署相关的信息等</p>
-<h2 id="4、scrapy框架介绍-5大核心组件与数据流向"><a href="#4、scrapy框架介绍-5大核心组件与数据流向" class="headerlink" title="4、scrapy框架介绍: 5大核心组件与数据流向"></a>4、scrapy框架介绍: 5大核心组件与数据流向</h2><img src="/images/loading4.gif" data-original="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy2.png" style="zoom:70%">
+<h2 id="4、scrapy框架介绍-5大核心组件与数据流向"><a href="#4、scrapy框架介绍-5大核心组件与数据流向" class="headerlink" title="4、scrapy框架介绍: 5大核心组件与数据流向"></a>4、scrapy框架介绍: 5大核心组件与数据流向</h2><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/sceapy2.png" style="zoom:70%">
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>).架构:</span><br><span class="line"></span><br><span class="line">　　Scrapy Engine: 这是引擎，负责Spiders、ItemPipeline、Downloader、Scheduler中间的通讯，信号、数据传递等等!</span><br><span class="line"></span><br><span class="line">　　Scheduler(调度器): 它负责接受引擎发送过来的requests请求，并按照一定的方式进行整理排列，入队、并等待Scrapy Engine(引擎)来请求时，交给引擎。</span><br><span class="line"></span><br><span class="line">　　Downloader（下载器)：负责下载Scrapy Engine(引擎)发送的所有Requests请求，并将其获取到的Responses交还给Scrapy Engine(引擎)，由引擎交给Spiders来处理，</span><br><span class="line"></span><br><span class="line">　　Spiders：它负责处理所有Responses,从中分析提取数据，获取Item字段需要的数据，并将需要跟进的URL提交给引擎，再次进入Scheduler(调度器)，</span><br><span class="line"></span><br><span class="line">　　Item Pipeline：它负责处理Spiders中获取到的Item，并进行处理，比如去重，持久化存储（存数据库，写入文件，总之就是保存数据用的）</span><br><span class="line"></span><br><span class="line">　　Downloader Middlewares(下载中间件)：你可以当作是一个可以自定义扩展下载功能的组件</span><br><span class="line"></span><br><span class="line">　　Spider Middlewares(Spider中间件)：你可以理解为是一个可以自定扩展和操作引擎和Spiders中间‘通信‘的功能组件（比如进入Spiders的Responses;和从Spiders出去的Requests）</span><br></pre></td></tr></table></figure>
 
@@ -411,6 +406,8 @@ input[type="radio"]:not(:checked) + label:after {
 
               <!-- 此处可在文章模块中间添加东西 -->
           </div>
+          <!-- 评论系统 -->
+          <!--
           
     <div class="comments" id="valine-comments"></div>
 
@@ -435,7 +432,7 @@ input[type="radio"]:not(:checked) + label:after {
     });
   }
 </script>
-
+-->
         </div>
           
   
@@ -1005,5 +1002,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     a{cursor:url(/images/链接选择.cur),wait} 
   </style>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
