@@ -23,23 +23,20 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？">
+  <meta name="description" content="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）1git push -- force">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub访问及clone缓慢的方法">
-<meta property="og:url" content="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？">
+<meta property="og:description" content="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）1git push -- force">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%951.png">
-<meta property="og:image" content="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%952.png">
-<meta property="article:published_time" content="2020-03-12T09:16:28.000Z">
-<meta property="article:modified_time" content="2020-04-03T15:47:38.867Z">
+<meta property="article:published_time" content="2020-04-21T09:50:15.000Z">
+<meta property="article:modified_time" content="2020-04-21T10:00:26.702Z">
 <meta property="article:author" content="Yu ting">
-<meta property="article:tag" content="gitee">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%951.png">
 
-<link rel="canonical" href="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -55,7 +52,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>GitHub访问及clone缓慢的方法 | Yu ting's blog</title>
+  <title>git常用命令 | Yu ting's blog</title>
   
 
 
@@ -313,7 +310,7 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -326,7 +323,7 @@ input[type="radio"]:not(:checked) + label:after {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GitHub访问及clone缓慢的方法
+          git常用命令
         </h1>
 
         <div class="post-meta">
@@ -335,16 +332,10 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-12 17:16:28" itemprop="dateCreated datePublished" datetime="2020-03-12T17:16:28+08:00">2020-03-12</time>
+              <time title="创建时间：2020-04-21 17:50:15 / 修改时间：18:00:26" itemprop="dateCreated datePublished" datetime="2020-04-21T17:50:15+08:00">2020-04-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-03 23:47:38" itemprop="dateModified" datetime="2020-04-03T23:47:38+08:00">2020-04-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -356,7 +347,7 @@ input[type="radio"]:not(:checked) + label:after {
             </span>
 
           
-            <span id="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="GitHub访问及clone缓慢的方法" title="阅读次数">
+            <span id="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="git常用命令" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -371,8 +362,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -382,14 +373,14 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>4.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -401,25 +392,50 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？</p>
+        <h3 id="1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）"><a href="#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）" class="headerlink" title="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）"></a>1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push <span class="comment">-- force</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<p>那么，这种情况该如何杜绝呢？请继续往下阅读……</p>
-<h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><p>　　点击访问网址：<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a><br>　　在该网址中搜索：<br>　　　　github.global.ssl.fastly.net<br>　　　　github.com<br>　　得到相应的ip地址<span style="color:red">(如图一，图二)</span></p>
-<h2 id="如图"><a href="#如图" class="headerlink" title="如图:"></a>如图:</h2><img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%951.png" style="zoom:67%;" />
 
-<p style="color:blue;text-align:center">图一</p>
-<img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%952.png" style="zoom:67%;" />
+<h3 id="2-创建文件等小命令"><a href="#2-创建文件等小命令" class="headerlink" title="2.创建文件等小命令"></a>2.创建文件等小命令</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch a <span class="comment">// 创建一个a文件</span></span><br><span class="line">echo 1234 &gt;&gt; a <span class="comment">// 把1234这个内容放入a文件</span></span><br><span class="line"><span class="keyword">cat</span> a <span class="comment">// 打开a文件 读取出a文件中的内容</span></span><br><span class="line"><span class="keyword">mkdir</span> <span class="keyword">test</span> <span class="comment">// 创建test文件夹</span></span><br><span class="line"><span class="keyword">rm</span> 文件名 <span class="comment">// 删除文件</span></span><br><span class="line"><span class="keyword">pwd</span> <span class="comment">// 打印当前工作路径</span></span><br></pre></td></tr></table></figure>
 
-<p style="color:blue;text-align:center">图二</p>
-第二步：
----
+<h3 id="3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同"><a href="#3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同" class="headerlink" title="3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同"></a>3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitk <span class="comment">// 用git命令快速打开git GUI</span></span><br></pre></td></tr></table></figure>
 
-<p>　　找到个人电脑中的hosts文件，此文件在每个电脑上的路径基本上是一致的：C:\Windows\System32\drivers\etc<br>　　打开后将获取到的ip地址及网址添加到posts文件的最下面，保存后退出<br>　　例如：<br>　　　　151.101.185.194 github.global-ssl.fastly.net<br>　　　　192.30.253.112 github.com<br>　　注意：<br>　　　　因此文件在系统目录中，所以无法直接保存，可将posts文件复制到桌面进行修改<br>　　　　修改完成后粘贴到C:\Windows\System32\drivers\etc目录中进行取代之前的posts文件</p>
-<h2 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h2><p>　　当第二步完成后，我们需要更新DNS<br>　　Winodws系统的做法：打开CMD，输入ipconfig /flushdns<br>　　Linux的做法：在终端输入sudo /etc/init.d/networking restart</p>
-<h2 id="另："><a href="#另：" class="headerlink" title="另："></a>另：</h2><p>　　如果添加上面两条ip后无任何作用，可复制以下内容添加到posts文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<h3 id="4-文件信息"><a href="#4-文件信息" class="headerlink" title="4.文件信息"></a>4.文件信息</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> <span class="string">//</span> 查看当前路径下面的所有文件名</span><br><span class="line"><span class="keyword">ls</span> 文件夹名 <span class="string">//</span> 查看对应文件夹中的内容</span><br><span class="line"><span class="keyword">ls</span> -l <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名</span><br><span class="line"><span class="keyword">ls</span> -l -a <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名，隐藏的文件也会显示</span><br></pre></td></tr></table></figure>
 
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>　　只要脑子不滑坡，办法总比困难多，祝各位机友越学越年轻，都能有自己满意的成果<br>　　如果感觉麻烦，或者不想修改电脑C盘中的文件，则可以参考我的另一篇文章来实现快速访问<a href="https://www.onlyyu.cn/2020/04/02/07/" target="_blank" rel="noopener">点击这里阅读</a></p>
+<h3 id="5-cd快速切换路径"><a href="#5-cd快速切换路径" class="headerlink" title="5.cd快速切换路径"></a>5.cd快速切换路径</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~ <span class="string">//</span> 将工作路径快速切换到root</span><br><span class="line"><span class="keyword">cd</span> - <span class="string">//</span> 将工作路径切换到上一状态</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../</span> <span class="string">//</span> 切回到上一个工作路径</span><br><span class="line"><span class="keyword">cd</span> 文件夹名 <span class="string">//</span> 进入某个目录</span><br><span class="line"><span class="keyword">cd</span> / <span class="string">//</span> 进入根目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-vim模式"><a href="#6-vim模式" class="headerlink" title="6.vim模式"></a>6.vim模式</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim 文件名 <span class="string">//</span> 新建一个文件</span><br><span class="line">i 插入内容</span><br><span class="line">按下esc <span class="function">:wq</span> 保存并退出</span><br><span class="line">按下esc <span class="function">:q</span> 直接退出</span><br><span class="line">vim 模式下 文件中<span class="comment">#号开头的为注释</span></span><br><span class="line"><span class="string">.project</span> 忽略<span class="string">.project</span>文件</span><br><span class="line">*<span class="string">.obj</span> 或者 *<span class="string">.exe</span> 忽略一类文件 例如以<span class="string">.obj</span> <span class="string">.exe</span> 结尾的文件</span><br><span class="line">git check-ignore -v <span class="string">.project</span> 查看ignore中<span class="string">.project</span>的位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-常用git-命令"><a href="#7-常用git-命令" class="headerlink" title="7.常用git 命令"></a>7.常用git 命令</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">// 初始化 在工作路径上创建主分支</span></span><br><span class="line">git clone 地址 <span class="comment">// 克隆远程仓库</span></span><br><span class="line">git clone -b 分支名 地址 <span class="comment">// 克隆分支的代码到本地</span></span><br><span class="line">git status <span class="comment">// 查看状态</span></span><br><span class="line">git <span class="keyword">add</span> 文件名 <span class="comment">// 将某个文件存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> b c <span class="comment">//把b和c存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> . <span class="comment">// 将所有文件提交到暂存区</span></span><br><span class="line">git <span class="keyword">add</span> -p 文件名 <span class="comment">// 一个文件分多次提交</span></span><br><span class="line">git stash -u -k <span class="comment">// 提交部分文件内容 到仓库 例如本地有3个文件 a b c 只想提交a b到远程仓库 git add a b 然后 git stash -u -k 再然后git commit -m "备注信息" 然后再push push之后 git stash pop 把之前放入堆栈的c拿出来 继续下一波操作</span></span><br><span class="line">git commit -m <span class="string">"提交的备注信息"</span>  <span class="comment">// 提交到仓库</span></span><br><span class="line">若已经有若干文件放入仓库，再次提交可以不用git <span class="keyword">add</span>和git commit -m <span class="string">"备注信息"</span> 这<span class="number">2</span>步， 直接用</span><br><span class="line">git commit -am <span class="string">"备注信息"</span> <span class="comment">// 将内容放至仓库 也可用git commit -a -m "备注信息"</span></span><br><span class="line"></span><br><span class="line">* git commit中的备注信息尽量完善 养成良好提交习惯 例如 git commit -m <span class="string">"变更(范围)：变更的内容"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-存储密码凭证-设置别名-获取config信息以及配置"><a href="#8-存储密码凭证-设置别名-获取config信息以及配置" class="headerlink" title="8.存储密码凭证 设置别名 获取config信息以及配置"></a>8.存储密码凭证 设置别名 获取config信息以及配置</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --list <span class="comment">// 获取config信息</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.safecrlf</span> false <span class="comment">// 去掉git add 命令后 出现的一堆CR LF提示信息</span></span><br><span class="line">其中CR是回车的意思 LF是换行</span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> credential<span class="variable">.helper</span> wincred <span class="comment">// 存储凭证 (可用于输入一次用户密码后，不再输入 有时我们已经用SSH key 绑定关联好了 但是每次git提交的时候 还是需要你输入用户名密码 在这个时候 敲入这个命令 将凭证存储起来 用户名密码就不需要再次输入了)</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.ci</span> commit <span class="comment">// 将commit命令设置别名ci git commit命令将由git ci来代替</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-查看git常用命令"><a href="#9-查看git常用命令" class="headerlink" title="9.查看git常用命令"></a>9.查看git常用命令</h3><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">helper</span> -a <span class="comment">// 查看全部git子命令</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-逐行查看文件的修改历史"><a href="#10-逐行查看文件的修改历史" class="headerlink" title="10.逐行查看文件的修改历史"></a>10.逐行查看文件的修改历史</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git blame 文件名 <span class="comment">// 查看该文件的修改历史</span></span><br><span class="line">git blame -L <span class="number">100</span>,<span class="number">10</span> 文件名 <span class="comment">// 从100行开始，到110行 逐行查看文件的修改历史</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="11-清除"><a href="#11-清除" class="headerlink" title="11.清除"></a>11.清除</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clean -n <span class="comment">// 列出打算清除的档案(首先会对工作区的内容进行提示)</span></span><br><span class="line">git clean -f <span class="comment">// 真正的删除</span></span><br><span class="line">git clean -x -f <span class="comment">// 连.gitignore中忽略的档案也删除</span></span><br><span class="line">git status -sb (sb是 <span class="keyword">short</span> branch) <span class="comment">// 简洁的输出git status中的信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="12-删除放入暂存区文件的方法（已commit后）"><a href="#12-删除放入暂存区文件的方法（已commit后）" class="headerlink" title="12.删除放入暂存区文件的方法（已commit后）"></a>12.删除放入暂存区文件的方法（已commit后）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm 文件名 // 将该文件从<span class="keyword">commit</span>后撤回到<span class="keyword">add</span>后</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^ <span class="comment">--hard // 删除后 可以用git rm 文件名再回撤一步</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13-查看提交内容"><a href="#13-查看提交内容" class="headerlink" title="13.查看提交内容"></a>13.查看提交内容</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git hi <span class="number">-5</span> <span class="comment">// 查看前5条内容</span></span><br><span class="line">git hi --grep hello <span class="comment">// 过滤提交信息里有hello字眼的内容</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="14-修改文件名以及移动"><a href="#14-修改文件名以及移动" class="headerlink" title="14.修改文件名以及移动"></a>14.修改文件名以及移动</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git mv <span class="selector-tag">a</span> <span class="selector-tag">b</span> <span class="comment">// 把a文件名字改成b 并且直接放入git add后的暂存区</span></span><br><span class="line">git mv <span class="selector-tag">b</span> ./demos/ <span class="comment">// 把b文件移动到demos文件夹下</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="15-对比工作区，暂存区，仓库的差异"><a href="#15-对比工作区，暂存区，仓库的差异" class="headerlink" title="15.对比工作区，暂存区，仓库的差异"></a>15.对比工作区，暂存区，仓库的差异</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git diff <span class="comment">// 查看变更 工作区与暂存区的差异比对</span></span><br><span class="line">git diff --cached <span class="comment">// 暂存区与提交版本的差异</span></span><br><span class="line">git diff HEAD <span class="comment">// 工作区与仓库中最后一次提交版本的差别</span></span><br><span class="line">git diff 版本哈希值 版本哈希值 <span class="comment">// 查看这2个版本哈希之间的区别</span></span><br><span class="line">或者 git diff HEAD~数字 HEAD~数字</span><br><span class="line"></span><br><span class="line">git tag tt HEAD~<span class="number">4</span> 给倒数第<span class="number">5</span>次提交打一个tag tag名字是tt</span><br><span class="line">git diff tt 就是倒数第<span class="number">5</span>个版本与第一个版本之间的差异</span><br><span class="line">git diff --cached tt 暂存区与倒数第<span class="number">5</span>个版本之间的比对</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-查看提交信息"><a href="#16-查看提交信息" class="headerlink" title="16.查看提交信息"></a>16.查看提交信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> // 查看最后一次提交修改的详细信息 也可以用git <span class="keyword">show</span> 哈希值 查看对应的内容</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^ // 查看倒数第二次的提交修改详细信息</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^^ 或者git <span class="keyword">show</span> <span class="keyword">HEAD</span>~<span class="number">2</span> 查看前<span class="number">2</span>次变更</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> 或 git <span class="keyword">show</span> 哈希值 或者git <span class="keyword">show</span> tag(标签名) 都可以查看最近一次提交的详细信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-查看信息"><a href="#17-查看信息" class="headerlink" title="17.查看信息"></a>17.查看信息</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=format:'%h %ad | %s%d [%an]' --graph --date=short</span></span><br><span class="line">// 获取git <span class="built_in">log</span>里的树形详细信息 包括hasg 日期 提交信息 提交人等</span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline //拉出所有提交信息 q是退出</span></span><br><span class="line">git <span class="built_in">log</span> <span class="number">-5</span><span class="comment"> // 查看前5次的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline -5 // 打印出的日志里面只有哈希值和修改的内容备注</span></span><br><span class="line">git <span class="built_in">log</span> 文件名<span class="comment"> // 查看该文件的提交</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--grep // 想过滤看到的内容   过滤日志</span></span><br><span class="line">git <span class="built_in">log</span> -n<span class="comment"> // 查看近期提交的n条信息内容</span></span><br><span class="line">git <span class="built_in">log</span> -p<span class="comment"> // 查看详细提交记录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="18-变基操作，改写历史提交-把多次提交合并起来"><a href="#18-变基操作，改写历史提交-把多次提交合并起来" class="headerlink" title="18.变基操作，改写历史提交 把多次提交合并起来"></a>18.变基操作，改写历史提交 把多次提交合并起来</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~<span class="number">3</span> 变基之后的哈希值与之前的不同 证明变基是重新做的提交 把多次提交合并成了几次提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-回撤操作"><a href="#19-回撤操作" class="headerlink" title="19.回撤操作"></a>19.回撤操作</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m "提交信息" // 回撤上一次提交并与本次工作区一起提交</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>~<span class="number">2</span> <span class="comment">--hard // 回撤2步</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--files // 从仓库回撤到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> // 回撤暂存区内容到工作目录</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--soft 回撤提交到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--hard // 回撤提交 放弃变更 (慎用)</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^  // 回撤仓库最后一次提交</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard commitid // 回撤到该次提交id的位置</span></span><br><span class="line"></span><br><span class="line">git push -f -u origin 分支名 所有内容都回撤完了 将回撤后的操作强制推送到远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="20-标签操作"><a href="#20-标签操作" class="headerlink" title="20.标签操作"></a>20.标签操作</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span> <span class="comment">// 查看列出所有打过的标签名</span></span><br><span class="line">git <span class="built_in">tag</span> <span class="params">-d</span> 标签名 <span class="comment">// 删除对应标签</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名字 <span class="comment">// 在当前仓库打个标签</span></span><br><span class="line">git <span class="built_in">tag</span> foo <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在当前提交上，打标签foo 并给message信息注释</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名 哈希值 <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在某个哈希值上打标签并且写上标签的信息</span></span><br><span class="line">git <span class="built_in">tag</span> foo HEAD~<span class="number">4</span> <span class="comment">// 在当前提交之前的第4个版本上 打标签foo</span></span><br><span class="line">git push origin -<span class="params">-tags</span> <span class="comment">// 把所有打好的标签推送到远程仓库</span></span><br><span class="line">git push origin 标签名 <span class="comment">// 把指定标签推送到远程仓库</span></span><br><span class="line">git stash <span class="comment">// 把暂存区的内容 暂时放在其他中 使暂存区变空</span></span><br><span class="line">git stash <span class="built_in">list</span> <span class="comment">// 查看stash了哪些存储</span></span><br><span class="line">git stash pop <span class="comment">// 将stash中的内容恢复到当前目录，将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash apply <span class="comment">// 将stash中的内容恢复到当前目录，不会将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash clear <span class="comment">// 删除所有缓存的stash</span></span><br><span class="line">git pull -<span class="params">-tags</span> <span class="comment">// 把远程仓库的标签也拉取下来</span></span><br><span class="line">git push origin :refs/tags/远程标签名 <span class="comment">// 删除远程仓库的标签</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="21-分支"><a href="#21-分支" class="headerlink" title="21.分支"></a>21.分支</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名 <span class="comment">// 新建分支</span></span><br><span class="line">git branch <span class="comment">// 查看当前所有分支</span></span><br><span class="line">git checkout 分支名 <span class="comment">// 检出分支</span></span><br><span class="line">git checkout -b 分支名 <span class="comment">// 创建并切换分支</span></span><br><span class="line">git checkout commitId 文件名（文件路径下的文件名） 还原这个文件到对应的commitId的版本</span><br><span class="line">（例如src<span class="regexp">/page/</span>attendance<span class="regexp">/attendanceSum.vue我想把它还原到2个版本之前 首先git log src/</span>page<span class="regexp">/attendance/</span>attendanceSum.vue找到对应想要还原的版本</span><br><span class="line">复制版本提交的commitID 然后执行git checkout commitID src<span class="regexp">/page/</span>attendance/attendanceSum.vue</span><br><span class="line">这样就把attendanceSum.vue这个单个文件 还原到了对应版本）</span><br><span class="line">git branch -v <span class="comment">// 查看分支以及提交hash值和commit信息</span></span><br><span class="line">git merge 分支名 <span class="comment">// 把该分支的内容合并到现有分支上</span></span><br><span class="line">git branch -d 分支名 <span class="comment">// 删除分支</span></span><br><span class="line">git branch -D 分支名 <span class="comment">// 强制删除 若没有其他分支合并就删除 d会提示 D不会</span></span><br><span class="line">git branch -m 旧分支名 新分支名 <span class="comment">// 修改分支名</span></span><br><span class="line">git branch -M 旧分支名 新分支名 <span class="comment">// 修改分支名 M强制修改 若与其他分支有冲突也会创建(慎用)</span></span><br><span class="line">git branch -r <span class="comment">// 列出远程分支(远程所有分支名)</span></span><br><span class="line">git branch -a <span class="comment">// 查看远程分支(列出远程分支以及本地分支名)</span></span><br><span class="line">git fetch <span class="comment">// 更新remote索引</span></span><br><span class="line">git push -u origin 分支名 <span class="comment">// 将本地分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -446,12 +462,12 @@ input[type="radio"]:not(:checked) + label:after {
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/">GitHub访问及clone缓慢的方法</a></p>
+  <p><span>本文标题:</span><a href="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
-  <p><span>发布时间:</span>2020年03月12日 - 17:03</p>
-  <p><span>最后更新:</span>2020年04月03日 - 23:04</p>
-  <p><span>原始链接:</span><a href="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/" title="GitHub访问及clone缓慢的方法">https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年04月21日 - 17:04</p>
+  <p><span>最后更新:</span>2020年04月21日 - 18:04</p>
+  <p><span>原始链接:</span><a href="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="git常用命令">https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -475,7 +491,7 @@ input[type="radio"]:not(:checked) + label:after {
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\13\gitee取消输入用户名及密码\" rel="bookmark">gitee取消输入用户名及密码</a></div>
+      <div class="popular-posts-title"><a href="\2020\04\21\git配置密钥\" rel="bookmark">git配置密钥</a></div>
     </li>
   </ul>
 
@@ -502,7 +518,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/gitee/" rel="tag">分类： gitee</a>
+              <a href="/tags/git/" rel="tag">分类： git</a>
           </div>
 
         
@@ -515,10 +531,13 @@ input[type="radio"]:not(:checked) + label:after {
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next" title="hexo常用命令">
-      hexo常用命令 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/21/markdown%E8%AF%AD%E6%B3%95/" rel="prev" title="markdown语法">
+      <i class="fa fa-chevron-left"></i> markdown语法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/" rel="next" title="git配置密钥">
+      git配置密钥 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -583,7 +602,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步："><span class="nav-text">第一步：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如图"><span class="nav-text">如图:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步："><span class="nav-text">第三步：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另："><span class="nav-text">另：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）"><span class="nav-text">1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建文件等小命令"><span class="nav-text">2.创建文件等小命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同"><span class="nav-text">3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-文件信息"><span class="nav-text">4.文件信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-cd快速切换路径"><span class="nav-text">5.cd快速切换路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-vim模式"><span class="nav-text">6.vim模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-常用git-命令"><span class="nav-text">7.常用git 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-存储密码凭证-设置别名-获取config信息以及配置"><span class="nav-text">8.存储密码凭证 设置别名 获取config信息以及配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-查看git常用命令"><span class="nav-text">9.查看git常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-逐行查看文件的修改历史"><span class="nav-text">10.逐行查看文件的修改历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-清除"><span class="nav-text">11.清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-删除放入暂存区文件的方法（已commit后）"><span class="nav-text">12.删除放入暂存区文件的方法（已commit后）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-查看提交内容"><span class="nav-text">13.查看提交内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-修改文件名以及移动"><span class="nav-text">14.修改文件名以及移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-对比工作区，暂存区，仓库的差异"><span class="nav-text">15.对比工作区，暂存区，仓库的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-查看提交信息"><span class="nav-text">16.查看提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-查看信息"><span class="nav-text">17.查看信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-变基操作，改写历史提交-把多次提交合并起来"><span class="nav-text">18.变基操作，改写历史提交 把多次提交合并起来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-回撤操作"><span class="nav-text">19.回撤操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-标签操作"><span class="nav-text">20.标签操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-分支"><span class="nav-text">21.分支</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

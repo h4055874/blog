@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-04-12T10:23:43.712Z</updated>
+  <updated>2020-04-21T10:17:51.301Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,91 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>axios封装</title>
+    <link href="https://onlyyu.cn/2020/04/21/axios%E5%B0%81%E8%A3%85/"/>
+    <id>https://onlyyu.cn/2020/04/21/axios%E5%B0%81%E8%A3%85/</id>
+    <published>2020-04-21T10:15:15.000Z</published>
+    <updated>2020-04-21T10:17:51.301Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;作用&quot;&gt;&lt;a href=&quot;#作用&quot; class=&quot;headerlink&quot; title=&quot;作用&quot;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;p&gt;　　封装请求的方式有多种多样，目的是可以管理vue项目中axios请求的路由。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="axios" scheme="https://onlyyu.cn/categories/axios/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git配置密钥</title>
+    <link href="https://onlyyu.cn/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/"/>
+    <id>https://onlyyu.cn/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/</id>
+    <published>2020-04-21T10:05:15.000Z</published>
+    <updated>2020-04-21T10:04:51.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.本地安装好git；&lt;/p&gt;
+&lt;p&gt;2.桌面右键 Git Bash Here 打开git命令行；&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用命令</title>
+    <link href="https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://onlyyu.cn/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-04-21T09:50:15.000Z</published>
+    <updated>2020-04-21T10:00:26.702Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）&quot;&gt;&lt;a href=&quot;#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）&quot; class=&quot;headerlink&quot; title=&quot;1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）&quot;&gt;&lt;/a&gt;1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）&lt;/h3&gt;&lt;figure class=&quot;highlight ada&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git push &lt;span class=&quot;comment&quot;&gt;-- force&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://onlyyu.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown语法</title>
+    <link href="https://onlyyu.cn/2020/04/21/markdown%E8%AF%AD%E6%B3%95/"/>
+    <id>https://onlyyu.cn/2020/04/21/markdown%E8%AF%AD%E6%B3%95/</id>
+    <published>2020-04-21T09:26:15.000Z</published>
+    <updated>2020-04-21T09:50:04.524Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;欢迎使用Markdown编辑器&quot;&gt;&lt;a href=&quot;#欢迎使用Markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;欢迎使用Markdown编辑器&quot;&gt;&lt;/a&gt;欢迎使用Markdown编辑器&lt;/h1&gt;&lt;p&gt;你好！ 这是你第一次使用 &lt;strong&gt;Markdown编辑器&lt;/strong&gt; 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="markdown语法" scheme="https://onlyyu.cn/categories/markdown%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="markdown" scheme="https://onlyyu.cn/tags/markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>文明上网实现正常访问google网站</title>
