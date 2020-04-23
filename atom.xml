@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-04-21T10:17:51.301Z</updated>
+  <updated>2020-04-23T13:18:28.629Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu命令大全</title>
+    <link href="https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
+    <id>https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</id>
+    <published>2020-04-23T13:17:15.000Z</published>
+    <updated>2020-04-23T13:18:28.629Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cd .. // 返回上一级目录&lt;/p&gt;
+&lt;p&gt;cd - // 返回上一次目录&lt;/p&gt;
+&lt;p&gt;cd或cd ~ // 返回家目录&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04设置国内原</title>
+    <link href="https://onlyyu.cn/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E5%8E%9F/"/>
+    <id>https://onlyyu.cn/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E5%8E%9F/</id>
+    <published>2020-04-23T13:05:15.000Z</published>
+    <updated>2020-04-23T13:15:33.607Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Ubuntu本身的源使用的是国内的源，下载速度比较慢，不像CentOS一样yum安装的时候对镜像站点进项选择，&lt;br&gt;　　所以选择了更换成国内的源。&lt;br&gt;　　以下内容整合自网络&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>axios封装</title>

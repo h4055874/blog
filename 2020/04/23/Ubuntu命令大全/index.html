@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="cd .. &#x2F;&#x2F; 返回上一级目录 cd - &#x2F;&#x2F; 返回上一次目录 cd或cd ~ &#x2F;&#x2F; 返回家目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu命令大全">
+<meta property="og:url" content="https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/index.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="cd .. &#x2F;&#x2F; 返回上一级目录 cd - &#x2F;&#x2F; 返回上一次目录 cd或cd ~ &#x2F;&#x2F; 返回家目录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-23T13:17:15.000Z">
+<meta property="article:modified_time" content="2020-04-23T13:18:28.629Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Ubuntu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>Ubuntu命令大全 | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script>
+
+   <!-- 不知道是什么玩意 -->
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+    
+    <!-- 在首页添加github图标 -->
+<!--     <a href="https://github.com/h4055874" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+      <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <!--  -->
+
+    <!-- -->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="/notes/" rel="section"><i class="fa fa-fw fa-book"></i>笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu命令大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-23 21:17:15 / 修改时间：21:18:28" itemprop="dateCreated datePublished" datetime="2020-04-23T21:17:15+08:00">2020-04-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu命令大全" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>cd .. // 返回上一级目录</p>
+<p>cd - // 返回上一次目录</p>
+<p>cd或cd ~ // 返回家目录</p>
+<a id="more"></a>
+
+<p>cd / // 进入根目录</p>
+<p>pwd // 显示当前目录</p>
+<p>ls // 显示当前目录文件</p>
+<p>ls localrepo/ // 显示指定目录的文件</p>
+<p>ll // 查看目录文件的的详细信息</p>
+<p>la // 查看全部包括隐藏的目录文件</p>
+<p>tree // 查看当前目录文件树</p>
+<p>tree mydir // 查看指定目录的文件树</p>
+<p>touch hello.py // 创建空文件</p>
+<p>mkdir mydir // 创建文件夹</p>
+<p>mkdir -p a/b/c // 创建层级目录</p>
+<p>mkdir -p a/{b,c}/{d,e} // 同一级创建多个文件夹</p>
+<p>cp hello.py ~/hello2.py // 拷贝文件</p>
+<p>cp hello.py -i hello2.py // 拷贝文件，如果有同名文件询问是否覆盖</p>
+<p>cp hello.py -f hello2.py // 拷贝文件，如果有同名文件强制覆盖</p>
+<p>cp hello.py -n hello2.py // 拷贝文件，如果有同名文件不覆盖</p>
+<p>mv hello2.py hellocp.py // 重命名文件</p>
+<p>mv hello.py ~/Desktop // 移动文件</p>
+<p>rm hellocp.py // 删除文件</p>
+<p>rm -rf localrepo/ // 递归删除目录</p>
+<p>find ~/Desktop/ -name ‘*.py’ // 在指定目录中查找文件</p>
+<p>whereis python // 查找可执行程序</p>
+<p>which python // 查看当前使用的是哪个目录中的python</p>
+<p>ln -s /usr/bin/python ./mypylink // 创建可执行程序的软链接</p>
+<p>alias rrm=’rm -rf’ // 给命令起别名，需要root权限(不建议使用)</p>
+<p>history // 查看命令历史</p>
+<p>clear // 清屏(快捷键Ctrl+l)</p>
+<p><strong>@命令速查</strong></p>
+<p>rm –help // 查看rm命令帮助</p>
+<p>man rm // 查看rm命令的手册解释</p>
+<p>info rm // 查看rm命令详细信息</p>
+<p><strong>@更多查找</strong></p>
+<p>find ~/ -name ‘*.py’ -exec rm {} ;    查找家目录下所有的py文件并删除，{}与exec结合匹配所有文件</p>
+<p>find ~/ -name ‘*.py’ -exec chown wife {} ;        查找家目录下所有py文件并将所有权转让给wife用户</p>
+<p>find ~/ -name ‘*.py’ -exec cat {} ;&gt; record.txt    查找文件并将全部内容拼接并写入文件中</p>
+<p>find ~/ -name ‘*.py’ -exec cp {} mydir ;        查找文件并拷贝到指定目录</p>
+<p>grep ‘def.*’ a.py    在a.py中查找指定内容</p>
+<p>grep ‘def.*’ a.py b.py c.py    在多个文件中寻找指定内容</p>
+<p>grep -v ‘def.*’ a.py    在a.py中查找指定内容以外的内容</p>
+<p>grep -i “HELLO” a.py    在a.py中查找指定内容并忽略大小写</p>
+<p>grep -E “[1-9]+” a.py    在a.py中查找正则表达式匹配的内容（匹配1到多个数字）</p>
+<p>grep -F “[1-9]+” a.py    在a.py中查找纯文本内容（严格匹配字符串”[1-9]+”）</p>
+<p>grep -e “def.*” -e “class.*” a.py    在a.py中查找多个内容</p>
+<p>grep “text” ./ -r -n    在当前目录下递归查找内容</p>
+<p><strong>@系统管理</strong></p>
+<p>poweroff    关机</p>
+<p>reboot    重启</p>
+<p>shutdown -h 12:00    定时关机</p>
+<p>shutdown -h now        立刻关机</p>
+<p>shutdown -c            取消定时关机</p>
+<p>#结合1,查看所有CPU平均负载/每个CPU的具体负载</p>
+<p>#结合M/P/T,按内存占用/CPU占用/运行时间的降序，查看进程信息</p>
+<p>top                    显示所有系统任务</p>
+<p>free -m             查看内存占用，以M为单位</p>
+<p>uname -a            打印操作系统信息</p>
+<p>uptime -p            查看系统运行时间</p>
+<p>echo $PATH            查看环境变量</p>
+<p>export PATH=$PATH:/home/sirouyang/Desktop/    追加环境变量</p>
+<p>lsof | head -n 10    查看进程打开的文件（一切皆文件，数据文件、网络连接、硬件设备）</p>
+<p>lscpu                查看CPU信息</p>
+<p>time lsof        统计命令执行时间</p>
+<p>cal/date            查看日历和时间</p>
+<p>date +%y-%m-%d-%H-%M-%S    格式化地查看时间</p>
+<p># 0-6:0停机-1单用户安全模式-2多用户安全模式-3多用户网络模式-4系统保留级别-5图形界面-6重启</p>
+<p>runlevel        显示当前运行级别</p>
+<p>init 6            切换运行级别</p>
+<p><strong>@软件安装</strong></p>
+<p>//方式一：通过包管理工具apt进行管理</p>
+<p>sudo apt update // 更新软件源</p>
+<p>sudo apt search xxx//查找xxx软件包</p>
+<p>sudo apt install net-tools //安装net-tools</p>
+<p>sudo apt remove –purge net-tools //彻底卸载net-tools</p>
+<p>//方式二：编译源码</p>
+<p>wget “http://………..xxx.tar.gz” //下载源码包</p>
+<p>tar -zxvf xxx.tar.gz //解压源码包</p>
+<p>make clean    清除编译的垃圾</p>
+<p>make        执行编译</p>
+<p>make install    安装</p>
+<p>make uninstall    卸载</p>
+<p>可选：./configure    如果源码包中自带配置程序则执行之</p>
+<p>可选：sudo apt search libxxx //如果编译失败通常会提示缺少xxx依赖，此时应该搜索并安装该依赖</p>
+<p>可选：sudo apt install libxxx-dev //安装检索到的依赖</p>
+<p><strong>@文本命令</strong></p>
+<p>cat hello.py // 查看文件</p>
+<p>gedit hello.py // 使用gedit查看文件</p>
+<p>head -n 10 hello.py // 查看前10行</p>
+<p>tail -n 10 hello.py // 查看后10行</p>
+<p>less hello.py // 一次查看少量内容，PageUp和PageDown键翻页</p>
+<p>vim hello.py // 使用vim打开文件</p>
+<p><strong>@管道与重定向</strong></p>
+<p>sort hello.py | uniq -c // 排序后统计次数</p>
+<p>sort hello.py | uniq -d // 排序后找出重复的行</p>
+<p>cat /proc/cpuinfo | grep -c processor // 显示CPU核心数</p>
+<p>echo ‘newline’ &gt; hello.py // 将结果写入文件（覆盖）</p>
+<p>echo ‘newline’ &gt;&gt; hello.py // 将结果追加到文件</p>
+<p>cat &lt; ~/proc/cpuinfo //将指定的文件作为cat的输入</p>
+<p><strong>@压缩和解压</strong></p>
+<p>tar -cvf /home/abc.tar /home/abc  只打包，不压缩（c=创建压缩包,v=打印信息,f=指定文件名）</p>
+<p>tar -zcvf /home/abc.tar.gz /home/abc  打包，并用gzip压缩</p>
+<p>tar -jcvf /home/abc.tar.bz2 /home/abc  打包，并用bzip2压缩</p>
+<p>tar -xvf abc.tar 解压普通tar包(x=解压缩)</p>
+<p>tar -zxvf abc.tar.gz 解压gz压缩包</p>
+<p>tar -jxvf abc.tar.bz2 解压bz2压缩包</p>
+<p>zip -r xxx.zip abc/* fuck/* temp/* 递归压缩多个文件夹到xxx.zip</p>
+<p>unzip xxx.zip #解压zip压缩包</p>
+<p><strong>@磁盘管理</strong></p>
+<p>df -h /                    查看磁盘使用情况</p>
+<p>sudo du -h ~            查看用户目录的磁盘使用情况</p>
+<p>du -sh                    当前目录的总体占用情况</p>
+<p>du abc.tar.gz abc.tar    查看文件和目录的磁盘占用</p>
+<p>dd if=/dev/zero of=temp.txt bs=1K count=1024    写入一个充满0的文件，每块1K，共1024块，总大小1M</p>
+<p>time dd if=/dev/zero of=temp.txt bs=1M count=1024    测试写入1G文件的时间（以此衡量磁盘的读写效率）</p>
+<p><strong>@登录日志</strong></p>
+<p>last 查看用户近期登陆情况</p>
+<p>last -2 最近登陆的两个用户</p>
+<p>last -2 root 查看root用户最近两次登陆情况</p>
+<p>id    显示用户及其群组信息</p>
+<p>groups    查看当前用户所加入的组</p>
+<p>whoami    显示当前用户名称</p>
+<p><strong>@用户与权限</strong></p>
+<p>groups // 查看所属的工作组</p>
+<p>whoami // 显示当前用户名称</p>
+<p>sudo useradd -m wife // 新建wife用户，-m=自动创建家目录</p>
+<p>sudo useradd -d /home/myson -m son //创建son用户，指定其家目录为/home/myson</p>
+<p>sudo useradd -g guests -G root,adm -m him //创建him用户，属于group组，其次也属于adm,root组</p>
+<p>sudo useradd -G guests,sudo -m -s /bin/bash mywife // 新增一个用户,-m=自动创建家目录,-s指定bash</p>
+<p>userdel rose 删除rose 账号</p>
+<p>userdel -r rose 删除用户及相关目录下的文件（/etc/passwd, /etc/shadow, /etc/group等）</p>
+<p>usermod -s /bin/ksh -d /home/z –g developer him // 修改him用户的shell、家目录、所属组等信息</p>
+<p>sudo passwd // 修改自己的密码</p>
+<p>sudo passwd mywife // 修改mywife的密码</p>
+<p>sudo su mywife // 切换用户</p>
+<p>sudo su // 切换到root用户</p>
+<p>sudo groupadd guests // 添加guests组</p>
+<p>sudo groupadd -g 101 group1 //添加组group1，识别号为101</p>
+<p>groupdel group1 //删除组</p>
+<p>groupmod –g 10000 -n group3 group2 //将组group2的标识号改为10000，组名修改为group3</p>
+<p>gpasswd -a u1 g1 将u1 加入到 g1 组</p>
+<p>gpasswd -d u1 g1 将u1 退出 g1 组</p>
+<p>gpasswd -A u1 g1 将g1 组的管理员指派给u1</p>
+<p>chmod 421 hello.py // 设置自己、用户组、其他人的权限分别为只读、只写、只执行</p>
+<p>chmod a+r,u+wx,g+x,o-wx hello.py // 详细修改全部用户、拥有者、用户组、其他人的权限</p>
+<p>/etc/passwd文件说明：</p>
+<p>是用户管理工作涉及的最重要的一个文件</p>
+<p>内容包含7个字段，例如 him❌200:50:Sam san:/usr/sam:/bin/sh</p>
+<p>含义分别为 用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</p>
+<p><strong>@网络管理</strong></p>
+<p>sudo apt install net-tools 安装网络工具</p>
+<p>ifconfig // 查看网卡状态</p>
+<p>ping 192.168.59.129    // 检查网络是否连通</p>
+<p>wget “<a href="http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;</a> // 下载redis</p>
+<p>sudo apt install traceroute 安装路径追踪工具</p>
+<p>traceroute -m 100 <a href="http://www.sina.com" target="_blank" rel="noopener">www.sina.com</a>        追踪路由信息，最大100跳</p>
+<p>netstat -t        列出所有TCP端口</p>
+<p>netstat -r        显示路由表</p>
+<p>netstat -i        显示接口（网卡）列表</p>
+<p>netstat -tpnl    查看已连接的TCP端口和程序名</p>
+<p>netstat -anp | grep 3306 -c        查看MySQL的连接数</p>
+<p><strong>@远程登录</strong></p>
+<p>//安装并启动ssh服务</p>
+<p>sudo apt install openssh-server 安装openssh-server</p>
+<p>sudo ps -ef | grep ssh 查看SSH服务是否启动，还可以netstat -tl | grep 22或systemctl status ssh</p>
+<p>sudo systemctl start ssh 如果没有启动则启动SSH服务</p>
+<p>//访问远程主机（前提：对方开启了ssh服务，且你知道对方的密码，或对方持有你的ssh公钥）</p>
+<p>ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a> 访问远程主机</p>
+<p>exit 退出远程访问</p>
+<p>//执行远程拷贝</p>
+<p>scp -r <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/abc /home/wife/Desktop/        从远程主机拷贝内容到本地</p>
+<p>scp -r /abc <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/Desktop/    从本地拷贝内容弄到远程主机（对方没有本地的公钥时需要密码认证）</p>
+<p># ssh公钥交换过程：远程主机持有本地的公钥时，ssh以及scp可以免密执行</p>
+<p>ssh-keygen -t rsa    生成ssh秘钥对</p>
+<p>scp ~/.ssh/id_rsa.pub <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/.ssh/    上传公钥给远程主机</p>
+<p>ssh <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>    ssh登录远程主机</p>
+<p>cat Desktop/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys    操作远程主机添加公钥认证（今后远程对本地ssh免密）</p>
+<p>//一站式让远程持有自己的公钥</p>
+<p>ssh-copy-id <a href="mailto:sirouyang@192.168.158.128">sirouyang@192.168.158.128</a>    让远程持有自己的公钥（对方不必添加公钥到authorized_keys）</p>
+<p>如果远程持有自己的公钥后依然无法免密登录，需要修改配置文件，请参考： <a href="https://blog.csdn.net/b_x_p/article/details/78534423" target="_blank" rel="noopener">https://blog.csdn.net/b_x_p/article/details/78534423</a></p>
+<p><strong>@进程管理</strong></p>
+<p>ps -ef // 查看所有进程（包括登录的其它用户的进程）</p>
+<p>ps -aux //查看所有进程（仅当前用户的进程）</p>
+<p>ps -ef | grep redis    // 查找redis进程</p>
+<p>kill -9 77157    // 强行杀死指定pid的进程</p>
+<p>kill -15 77157    // 终止指定进程</p>
+<p><strong>@服务管理</strong></p>
+<p>#chkconfig服务管理</p>
+<p>apt-get install sysv-rc-conf    安装chkconfig服务</p>
+<p>cp /usr/sbin/sysv-rc-conf /usr/sbin/chkconfig    重命名一下可执行程序</p>
+<p>chkconfig –list            查看所有服务的开机启动状态</p>
+<p>chkconfig –list mysqld        查看mysql的开机启动状态</p>
+<p>chkconfig mysqld on            设置mysql开机启动</p>
+<p>chkconfig mysqld off        禁止mysql开机启动</p>
+<p>sudo apt install firewalld    安装firewalld</p>
+<p>firewall-cmd –state        查看防火墙状态</p>
+<p>#原生的service服务管理</p>
+<p>service mysql start            启动mysql</p>
+<p>service mysql stop            停止mysql</p>
+<p>service mysql restart        重启mysql</p>
+<p>/etc/init.d/mysql start        启动mysql</p>
+<p>/etc/init.d/mysql stop        停止mysql</p>
+<p>/etc/init.d/mysql restart    重启mysql</p>
+<p>#systemctl服务管理（推荐方式）</p>
+<p>systemctl status firewalld        查看服务状态</p>
+<p>systemctl start firewalld         启动服务</p>
+<p>systemctl stop firewalld         停止服务</p>
+<p>systemctl restart firewalld     重启服务</p>
+<p>systemctl is-enabled firewalld     查看是否开机启动</p>
+<p>systemctl enable firewalld        设置服务开机自启</p>
+<p>systemctl disable firewalld     禁止服务开机自启</p>
+<p><strong>@其它命令</strong></p>
+<p>ls -i /usr/bin/python //查看文件的inode</p>
+<p>ln /usr/bin/python ./phln // 创建硬链接（共享文件入口）(硬链接不能跨磁盘)</p>
+<p>source ~/.bashrc // 使修改后的bashrc生效</p>
+<p><strong>@一键安装Ubuntu常用库</strong></p>
+<p>sudo apt install man gcc make sudo lsof ssh openssl tree vim dnsutils iputils‑ping net‑</p>
+<p>tools psmisc sysstat curl telnet traceroute wget libbz2‑dev libpcre3 libpcre3‑dev</p>
+<p>libreadline‑dev libsqlite3‑dev libssl‑dev zlib1g‑dev git mysql‑server mysql‑client zip</p>
+<p>p7zip golang-go libncurses5-dev libmysqlclient-dev</p>
+<p>作者：小小马里奥<br>链接：<a href="https://www.jianshu.com/p/254366c230cc" target="_blank" rel="noopener">https://www.jianshu.com/p/254366c230cc</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">Ubuntu命令大全</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2020年04月23日 - 21:04</p>
+  <p><span>最后更新:</span>2020年04月23日 - 21:04</p>
+  <p><span>原始链接:</span><a href="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" title="Ubuntu命令大全">https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\04\23\Ubuntu18.04设置国内原\" rel="bookmark">Ubuntu18.04设置国内原</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag">分类： Ubuntu</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E5%8E%9F/" rel="prev" title="Ubuntu18.04设置国内原">
+      <i class="fa fa-chevron-left"></i> Ubuntu18.04设置国内原
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+          <!-- 评论系统 -->
+          <!--
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+-->
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">25 分钟</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 动画效果 -->
+  
+
+    <!-- 鼠标跟随 -->
+  
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
