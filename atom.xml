@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-04-23T13:23:37.388Z</updated>
+  <updated>2020-04-28T17:02:00.305Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>支付宝沙箱支付</title>
+    <link href="https://onlyyu.cn/2020/04/29/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/"/>
+    <id>https://onlyyu.cn/2020/04/29/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/</id>
+    <published>2020-04-28T17:00:15.000Z</published>
+    <updated>2020-04-28T17:02:00.305Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Python支付宝沙箱支付代码接口&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="支付宝" scheme="https://onlyyu.cn/categories/%E6%94%AF%E4%BB%98%E5%AE%9D/"/>
+    
+      <category term="Alipay" scheme="https://onlyyu.cn/categories/%E6%94%AF%E4%BB%98%E5%AE%9D/Alipay/"/>
+    
+      <category term="沙箱支付" scheme="https://onlyyu.cn/categories/%E6%94%AF%E4%BB%98%E5%AE%9D/Alipay/%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/"/>
+    
+    
+      <category term="支付宝" scheme="https://onlyyu.cn/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/"/>
+    
+      <category term="Alipay" scheme="https://onlyyu.cn/tags/Alipay/"/>
+    
+      <category term="沙箱支付" scheme="https://onlyyu.cn/tags/%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu命令大全</title>

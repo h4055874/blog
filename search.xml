@@ -1,315 +1,703 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Ubuntu命令大全</title>
-      <link href="/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
-      <url>/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
-      
-        <content type="html"><![CDATA[<p>cd .. // 返回上一级目录</p><p>cd - // 返回上一次目录</p><p>cd或cd ~ // 返回家目录</p><a id="more"></a><p>cd / // 进入根目录</p><p>pwd // 显示当前目录</p><p>ls // 显示当前目录文件</p><p>ls localrepo/ // 显示指定目录的文件</p><p>ll // 查看目录文件的的详细信息</p><p>la // 查看全部包括隐藏的目录文件</p><p>tree // 查看当前目录文件树</p><p>tree mydir // 查看指定目录的文件树</p><p>touch hello.py // 创建空文件</p><p>mkdir mydir // 创建文件夹</p><p>mkdir -p a/b/c // 创建层级目录</p><p>mkdir -p a/{b,c}/{d,e} // 同一级创建多个文件夹</p><p>cp hello.py ~/hello2.py // 拷贝文件</p><p>cp hello.py -i hello2.py // 拷贝文件，如果有同名文件询问是否覆盖</p><p>cp hello.py -f hello2.py // 拷贝文件，如果有同名文件强制覆盖</p><p>cp hello.py -n hello2.py // 拷贝文件，如果有同名文件不覆盖</p><p>mv hello2.py hellocp.py // 重命名文件</p><p>mv hello.py ~/Desktop // 移动文件</p><p>rm hellocp.py // 删除文件</p><p>rm -rf localrepo/ // 递归删除目录</p><p>find ~/Desktop/ -name ‘*.py’ // 在指定目录中查找文件</p><p>whereis python // 查找可执行程序</p><p>which python // 查看当前使用的是哪个目录中的python</p><p>ln -s /usr/bin/python ./mypylink // 创建可执行程序的软链接</p><p>alias rrm=’rm -rf’ // 给命令起别名，需要root权限(不建议使用)</p><p>history // 查看命令历史</p><p>clear // 清屏(快捷键Ctrl+l)</p><p><strong>@命令速查</strong></p><p>rm –help // 查看rm命令帮助</p><p>man rm // 查看rm命令的手册解释</p><p>info rm // 查看rm命令详细信息</p><p><strong>@更多查找</strong></p><p>find ~/ -name ‘*.py’ -exec rm {} ;    查找家目录下所有的py文件并删除，{}与exec结合匹配所有文件</p><p>find ~/ -name ‘*.py’ -exec chown wife {} ;        查找家目录下所有py文件并将所有权转让给wife用户</p><p>find ~/ -name ‘*.py’ -exec cat {} ;&gt; record.txt    查找文件并将全部内容拼接并写入文件中</p><p>find ~/ -name ‘*.py’ -exec cp {} mydir ;        查找文件并拷贝到指定目录</p><p>grep ‘def.*’ a.py    在a.py中查找指定内容</p><p>grep ‘def.*’ a.py b.py c.py    在多个文件中寻找指定内容</p><p>grep -v ‘def.*’ a.py    在a.py中查找指定内容以外的内容</p><p>grep -i “HELLO” a.py    在a.py中查找指定内容并忽略大小写</p><p>grep -E “[1-9]+” a.py    在a.py中查找正则表达式匹配的内容（匹配1到多个数字）</p><p>grep -F “[1-9]+” a.py    在a.py中查找纯文本内容（严格匹配字符串”[1-9]+”）</p><p>grep -e “def.*” -e “class.*” a.py    在a.py中查找多个内容</p><p>grep “text” ./ -r -n    在当前目录下递归查找内容</p><p><strong>@系统管理</strong></p><p>poweroff    关机</p><p>reboot    重启</p><p>shutdown -h 12:00    定时关机</p><p>shutdown -h now        立刻关机</p><p>shutdown -c            取消定时关机</p><p>#结合1,查看所有CPU平均负载/每个CPU的具体负载</p><p>#结合M/P/T,按内存占用/CPU占用/运行时间的降序，查看进程信息</p><p>top                    显示所有系统任务</p><p>free -m             查看内存占用，以M为单位</p><p>uname -a            打印操作系统信息</p><p>uptime -p            查看系统运行时间</p><p>echo $PATH            查看环境变量</p><p>export PATH=$PATH:/home/sirouyang/Desktop/    追加环境变量</p><p>lsof | head -n 10    查看进程打开的文件（一切皆文件，数据文件、网络连接、硬件设备）</p><p>lscpu                查看CPU信息</p><p>time lsof        统计命令执行时间</p><p>cal/date            查看日历和时间</p><p>date +%y-%m-%d-%H-%M-%S    格式化地查看时间</p><p># 0-6:0停机-1单用户安全模式-2多用户安全模式-3多用户网络模式-4系统保留级别-5图形界面-6重启</p><p>runlevel        显示当前运行级别</p><p>init 6            切换运行级别</p><p><strong>@软件安装</strong></p><p>//方式一：通过包管理工具apt进行管理</p><p>sudo apt update // 更新软件源</p><p>sudo apt search xxx//查找xxx软件包</p><p>sudo apt install net-tools //安装net-tools</p><p>sudo apt remove –purge net-tools //彻底卸载net-tools</p><p>//方式二：编译源码</p><p>wget “http://………..xxx.tar.gz” //下载源码包</p><p>tar -zxvf xxx.tar.gz //解压源码包</p><p>make clean    清除编译的垃圾</p><p>make        执行编译</p><p>make install    安装</p><p>make uninstall    卸载</p><p>可选：./configure    如果源码包中自带配置程序则执行之</p><p>可选：sudo apt search libxxx //如果编译失败通常会提示缺少xxx依赖，此时应该搜索并安装该依赖</p><p>可选：sudo apt install libxxx-dev //安装检索到的依赖</p><p><strong>@文本命令</strong></p><p>cat hello.py // 查看文件</p><p>gedit hello.py // 使用gedit查看文件</p><p>head -n 10 hello.py // 查看前10行</p><p>tail -n 10 hello.py // 查看后10行</p><p>less hello.py // 一次查看少量内容，PageUp和PageDown键翻页</p><p>vim hello.py // 使用vim打开文件</p><p><strong>@管道与重定向</strong></p><p>sort hello.py | uniq -c // 排序后统计次数</p><p>sort hello.py | uniq -d // 排序后找出重复的行</p><p>cat /proc/cpuinfo | grep -c processor // 显示CPU核心数</p><p>echo ‘newline’ &gt; hello.py // 将结果写入文件（覆盖）</p><p>echo ‘newline’ &gt;&gt; hello.py // 将结果追加到文件</p><p>cat &lt; ~/proc/cpuinfo //将指定的文件作为cat的输入</p><p><strong>@压缩和解压</strong></p><p>tar -cvf /home/abc.tar /home/abc  只打包，不压缩（c=创建压缩包,v=打印信息,f=指定文件名）</p><p>tar -zcvf /home/abc.tar.gz /home/abc  打包，并用gzip压缩</p><p>tar -jcvf /home/abc.tar.bz2 /home/abc  打包，并用bzip2压缩</p><p>tar -xvf abc.tar 解压普通tar包(x=解压缩)</p><p>tar -zxvf abc.tar.gz 解压gz压缩包</p><p>tar -jxvf abc.tar.bz2 解压bz2压缩包</p><p>zip -r xxx.zip abc/* fuck/* temp/* 递归压缩多个文件夹到xxx.zip</p><p>unzip xxx.zip #解压zip压缩包</p><p><strong>@磁盘管理</strong></p><p>df -h /                    查看磁盘使用情况</p><p>sudo du -h ~            查看用户目录的磁盘使用情况</p><p>du -sh                    当前目录的总体占用情况</p><p>du abc.tar.gz abc.tar    查看文件和目录的磁盘占用</p><p>dd if=/dev/zero of=temp.txt bs=1K count=1024    写入一个充满0的文件，每块1K，共1024块，总大小1M</p><p>time dd if=/dev/zero of=temp.txt bs=1M count=1024    测试写入1G文件的时间（以此衡量磁盘的读写效率）</p><p><strong>@登录日志</strong></p><p>last 查看用户近期登陆情况</p><p>last -2 最近登陆的两个用户</p><p>last -2 root 查看root用户最近两次登陆情况</p><p>id    显示用户及其群组信息</p><p>groups    查看当前用户所加入的组</p><p>whoami    显示当前用户名称</p><p><strong>@用户与权限</strong></p><p>groups // 查看所属的工作组</p><p>whoami // 显示当前用户名称</p><p>sudo useradd -m wife // 新建wife用户，-m=自动创建家目录</p><p>sudo useradd -d /home/myson -m son //创建son用户，指定其家目录为/home/myson</p><p>sudo useradd -g guests -G root,adm -m him //创建him用户，属于group组，其次也属于adm,root组</p><p>sudo useradd -G guests,sudo -m -s /bin/bash mywife // 新增一个用户,-m=自动创建家目录,-s指定bash</p><p>userdel rose 删除rose 账号</p><p>userdel -r rose 删除用户及相关目录下的文件（/etc/passwd, /etc/shadow, /etc/group等）</p><p>usermod -s /bin/ksh -d /home/z –g developer him // 修改him用户的shell、家目录、所属组等信息</p><p>sudo passwd // 修改自己的密码</p><p>sudo passwd mywife // 修改mywife的密码</p><p>sudo su mywife // 切换用户</p><p>sudo su // 切换到root用户</p><p>sudo groupadd guests // 添加guests组</p><p>sudo groupadd -g 101 group1 //添加组group1，识别号为101</p><p>groupdel group1 //删除组</p><p>groupmod –g 10000 -n group3 group2 //将组group2的标识号改为10000，组名修改为group3</p><p>gpasswd -a u1 g1 将u1 加入到 g1 组</p><p>gpasswd -d u1 g1 将u1 退出 g1 组</p><p>gpasswd -A u1 g1 将g1 组的管理员指派给u1</p><p>chmod 421 hello.py // 设置自己、用户组、其他人的权限分别为只读、只写、只执行</p><p>chmod a+r,u+wx,g+x,o-wx hello.py // 详细修改全部用户、拥有者、用户组、其他人的权限</p><p>/etc/passwd文件说明：</p><p>是用户管理工作涉及的最重要的一个文件</p><p>内容包含7个字段，例如 him❌200:50:Sam san:/usr/sam:/bin/sh</p><p>含义分别为 用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</p><p><strong>@网络管理</strong></p><p>sudo apt install net-tools 安装网络工具</p><p>ifconfig // 查看网卡状态</p><p>ping 192.168.59.129    // 检查网络是否连通</p><p>wget “<a href="http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;</a> // 下载redis</p><p>sudo apt install traceroute 安装路径追踪工具</p><p>traceroute -m 100 <a href="http://www.sina.com" target="_blank" rel="noopener">www.sina.com</a>        追踪路由信息，最大100跳</p><p>netstat -t        列出所有TCP端口</p><p>netstat -r        显示路由表</p><p>netstat -i        显示接口（网卡）列表</p><p>netstat -tpnl    查看已连接的TCP端口和程序名</p><p>netstat -anp | grep 3306 -c        查看MySQL的连接数</p><p><strong>@远程登录</strong></p><p>//安装并启动ssh服务</p><p>sudo apt install openssh-server 安装openssh-server</p><p>sudo ps -ef | grep ssh 查看SSH服务是否启动，还可以netstat -tl | grep 22或systemctl status ssh</p><p>sudo systemctl start ssh 如果没有启动则启动SSH服务</p><p>//访问远程主机（前提：对方开启了ssh服务，且你知道对方的密码，或对方持有你的ssh公钥）</p><p>ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a> 访问远程主机</p><p>exit 退出远程访问</p><p>//执行远程拷贝</p><p>scp -r <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/abc /home/wife/Desktop/        从远程主机拷贝内容到本地</p><p>scp -r /abc <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/Desktop/    从本地拷贝内容弄到远程主机（对方没有本地的公钥时需要密码认证）</p><p># ssh公钥交换过程：远程主机持有本地的公钥时，ssh以及scp可以免密执行</p><p>ssh-keygen -t rsa    生成ssh秘钥对</p><p>scp ~/.ssh/id_rsa.pub <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/.ssh/    上传公钥给远程主机</p><p>ssh <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>    ssh登录远程主机</p><p>cat Desktop/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys    操作远程主机添加公钥认证（今后远程对本地ssh免密）</p><p>//一站式让远程持有自己的公钥</p><p>ssh-copy-id <a href="mailto:sirouyang@192.168.158.128">sirouyang@192.168.158.128</a>    让远程持有自己的公钥（对方不必添加公钥到authorized_keys）</p><p>如果远程持有自己的公钥后依然无法免密登录，需要修改配置文件，请参考： <a href="https://blog.csdn.net/b_x_p/article/details/78534423" target="_blank" rel="noopener">https://blog.csdn.net/b_x_p/article/details/78534423</a></p><p><strong>@进程管理</strong></p><p>ps -ef // 查看所有进程（包括登录的其它用户的进程）</p><p>ps -aux //查看所有进程（仅当前用户的进程）</p><p>ps -ef | grep redis    // 查找redis进程</p><p>kill -9 77157    // 强行杀死指定pid的进程</p><p>kill -15 77157    // 终止指定进程</p><p><strong>@服务管理</strong></p><p>#chkconfig服务管理</p><p>apt-get install sysv-rc-conf    安装chkconfig服务</p><p>cp /usr/sbin/sysv-rc-conf /usr/sbin/chkconfig    重命名一下可执行程序</p><p>chkconfig –list            查看所有服务的开机启动状态</p><p>chkconfig –list mysqld        查看mysql的开机启动状态</p><p>chkconfig mysqld on            设置mysql开机启动</p><p>chkconfig mysqld off        禁止mysql开机启动</p><p>sudo apt install firewalld    安装firewalld</p><p>firewall-cmd –state        查看防火墙状态</p><p>#原生的service服务管理</p><p>service mysql start            启动mysql</p><p>service mysql stop            停止mysql</p><p>service mysql restart        重启mysql</p><p>/etc/init.d/mysql start        启动mysql</p><p>/etc/init.d/mysql stop        停止mysql</p><p>/etc/init.d/mysql restart    重启mysql</p><p>#systemctl服务管理（推荐方式）</p><p>systemctl status firewalld        查看服务状态</p><p>systemctl start firewalld         启动服务</p><p>systemctl stop firewalld         停止服务</p><p>systemctl restart firewalld     重启服务</p><p>systemctl is-enabled firewalld     查看是否开机启动</p><p>systemctl enable firewalld        设置服务开机自启</p><p>systemctl disable firewalld     禁止服务开机自启</p><p><strong>@其它命令</strong></p><p>ls -i /usr/bin/python //查看文件的inode</p><p>ln /usr/bin/python ./phln // 创建硬链接（共享文件入口）(硬链接不能跨磁盘)</p><p>source ~/.bashrc // 使修改后的bashrc生效</p><p><strong>@一键安装Ubuntu常用库</strong></p><p>sudo apt install man gcc make sudo lsof ssh openssl tree vim dnsutils iputils‑ping net‑</p><p>tools psmisc sysstat curl telnet traceroute wget libbz2‑dev libpcre3 libpcre3‑dev</p><p>libreadline‑dev libsqlite3‑dev libssl‑dev zlib1g‑dev git mysql‑server mysql‑client zip</p><p>p7zip golang-go libncurses5-dev libmysqlclient-dev</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>支付宝沙箱支付</title>
+    <url>/2020/04/29/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/</url>
+    <content><![CDATA[<p>　　Python支付宝沙箱支付代码接口</p>
+<a id="more"></a>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">pip <span class="keyword">install</span> python-alipay-sdk <span class="comment">--upgrade</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="请求支付页面"><a href="#请求支付页面" class="headerlink" title="请求支付页面"></a>请求支付页面</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 沙箱支付</span></span><br><span class="line"><span class="comment"># 进入支付页面</span></span><br><span class="line"><span class="comment"># 沙箱支付所需包</span></span><br><span class="line"><span class="keyword">from</span> alipay <span class="keyword">import</span> AliPay</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Alipay</span><span class="params">(APIView)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        <span class="comment"># 随机生成订单号</span></span><br><span class="line">        order = datetime.datetime.now().strftime(<span class="string">"%Y%m%d%H%M%S"</span>) + str(random.randint(<span class="number">10</span>, <span class="number">99</span>))</span><br><span class="line">        <span class="comment"># 判断订单是否存在</span></span><br><span class="line">        order_id = Order.objects.filter(order=order).first()</span><br><span class="line">        <span class="keyword">if</span> order_id:</span><br><span class="line">            <span class="keyword">return</span> Response(&#123;<span class="string">"code"</span>:<span class="number">405</span>,<span class="string">"message"</span>:<span class="string">"该订单已存在，请重新下单"</span>&#125;)</span><br><span class="line">        <span class="comment"># 获取支付价格</span></span><br><span class="line">        price = request.GET.get(<span class="string">"price"</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="comment"># 获取token</span></span><br><span class="line">        jwt_token = request.GET.get(<span class="string">"token"</span>,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            user_json = jwt_decode_handler(jwt_token)</span><br><span class="line">            <span class="comment"># 获取token中的uid</span></span><br><span class="line">            user_id = user_json[<span class="string">'user_id'</span>]</span><br><span class="line">            r.set(<span class="string">"payuid"</span>,user_id)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            r.set(<span class="string">"payuid"</span>,str())</span><br><span class="line">            <span class="keyword">return</span> Response(&#123;<span class="string">"code"</span>:<span class="number">405</span>,<span class="string">"message"</span>:<span class="string">"用户信息已失效，请重新登录"</span>&#125;)</span><br><span class="line">        <span class="comment"># 读取私钥及公钥</span></span><br><span class="line">        app_private_key_string = open(<span class="string">"pay/private.txt"</span>).read()</span><br><span class="line">        alipay_public_key_string = open(<span class="string">"pay/public.txt"</span>).read()</span><br><span class="line"></span><br><span class="line">        alipay = AliPay(</span><br><span class="line">            appid=<span class="string">"2016102400753303"</span>,</span><br><span class="line">            app_notify_url= <span class="literal">None</span>,  <span class="comment"># 默认回调url</span></span><br><span class="line">            app_private_key_string=app_private_key_string,</span><br><span class="line">            alipay_public_key_string=alipay_public_key_string,</span><br><span class="line">            <span class="comment"># 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,</span></span><br><span class="line">            sign_type=<span class="string">"RSA2"</span>,  <span class="comment"># RSA 或者 RSA2</span></span><br><span class="line">            debug=<span class="literal">True</span>  <span class="comment"># 默认False</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 电脑网站支付，需要跳转到https://openapi.alipay.com/gateway.do? + order_string</span></span><br><span class="line">        order_str = alipay.api_alipay_trade_page_pay(</span><br><span class="line">            subject=<span class="string">"实验楼消费"</span>,</span><br><span class="line">            notify_url=<span class="literal">None</span>,</span><br><span class="line">            out_trade_no=order,      <span class="comment"># 订单号</span></span><br><span class="line">            total_amount=price,         <span class="comment"># 订单价格</span></span><br><span class="line">            return_url=<span class="string">"http://127.0.0.1:8000/get_alipy/"</span></span><br><span class="line">        )</span><br><span class="line">	<span class="comment"># 拼接支付宝支付页面网址url</span></span><br><span class="line">        request_url = <span class="string">'https://openapi.alipaydev.com/gateway.do?'</span> + order_str</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Response(&#123;</span><br><span class="line">            <span class="string">"code"</span>: <span class="number">200</span>,</span><br><span class="line">            <span class="string">"msg"</span>: <span class="string">"请求成功，跳转支付页面"</span>,</span><br><span class="line">            <span class="string">"data"</span>: request_url</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取回调网址-returnURL-中的参数"><a href="#获取回调网址-returnURL-中的参数" class="headerlink" title="获取回调网址(returnURL)中的参数"></a>获取回调网址(returnURL)中的参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 支付回调(获取回调网址中的参数)</span></span><br><span class="line"><span class="comment"># 使用悲观锁修改数据</span></span><br><span class="line"><span class="comment"># 悲观锁包</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> transaction</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Get_Alipy</span><span class="params">(APIView)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,request)</span>:</span></span><br><span class="line">        user = request.query_params</span><br><span class="line">        <span class="comment"># 获取支付用户id</span></span><br><span class="line">        uid = r.get(<span class="string">"payuid"</span>)</span><br><span class="line">        <span class="comment"># 获取订单号及价格  并将单位换算成分</span></span><br><span class="line">        price = int(float(user[<span class="string">"total_amount"</span>])*<span class="number">100</span>)</span><br><span class="line">        order = user[<span class="string">"out_trade_no"</span>]</span><br><span class="line">        <span class="comment"># 订单表中生成订单</span></span><br><span class="line">        Order.objects.create(uid=int(uid),order=order,price=price)</span><br><span class="line">        <span class="keyword">with</span> transaction.atomic():</span><br><span class="line">            save =transaction.savepoint()</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 获取该价格在会员中的等级</span></span><br><span class="line">                price = VIP.objects.filter(price=price).first()</span><br><span class="line">                <span class="comment"># 修改该用户的会员等级</span></span><br><span class="line">                user = User.objects.select_for_update().get(id=int(uid))</span><br><span class="line">                <span class="comment"># 修改用户的vip等级</span></span><br><span class="line">                user.vid = price.id</span><br><span class="line">                <span class="comment"># 修改后进行保存</span></span><br><span class="line">                user.save()</span><br><span class="line">                <span class="comment"># 提交所有修改</span></span><br><span class="line">                transaction.savepoint_commit(save)</span><br><span class="line">                <span class="keyword">return</span> HttpResponseRedirect(<span class="string">'http://127.0.0.1:8080/vip'</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="comment"># 失败全部回滚</span></span><br><span class="line">                transaction.savepoint_rollback(save)</span><br><span class="line">        r.delete(<span class="string">"payuid"</span>)</span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">"code"</span>:<span class="number">500</span>,<span class="string">"message"</span>:<span class="string">"修改失败"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> Ubuntu </category>
-          
+        <category>支付宝</category>
+        <category>Alipay</category>
+        <category>沙箱支付</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Ubuntu </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Ubuntu18.04设置国内源</title>
-      <link href="/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/"/>
-      <url>/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/</url>
-      
-        <content type="html"><![CDATA[<p>　　Ubuntu本身的源使用的是国内的源，下载速度比较慢，不像CentOS一样yum安装的时候对镜像站点进项选择，<br>　　所以选择了更换成国内的源。<br>　　以下内容整合自网络</p><a id="more"></a><h2 id="备份-etc-apt-sources-list文件"><a href="#备份-etc-apt-sources-list文件" class="headerlink" title="备份/etc/apt/sources.list文件"></a>备份/etc/apt/sources.list文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/apt/sources.list /etc/apt/sourses.list.backup</span><br></pre></td></tr></table></figure><h2 id="新建-etc-apt-sources-list文件并添加以下内容"><a href="#新建-etc-apt-sources-list文件并添加以下内容" class="headerlink" title="新建/etc/apt/sources.list文件并添加以下内容"></a>新建/etc/apt/sources.list文件并添加以下内容</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 新建sources.<span class="type">list</span></span><br><span class="line"><span class="section">touch</span> /etc/apt/sources.<span class="type">list</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开sources.list文件</span></span><br><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 输入i，进入编辑，添加一下代码：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#163源</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">添加后按Esc退出编辑模式</span><br><span class="line">输入：:wq    <span class="comment"># 保存退出</span></span><br></pre></td></tr></table></figure><h2 id="更改完成之后执行以下命令"><a href="#更改完成之后执行以下命令" class="headerlink" title="更改完成之后执行以下命令"></a>更改完成之后执行以下命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade</span><br></pre></td></tr></table></figure><h2 id="其他的一些apt命令"><a href="#其他的一些apt命令" class="headerlink" title="其他的一些apt命令"></a>其他的一些apt命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure><h2 id="其他几个国内的源："><a href="#其他几个国内的源：" class="headerlink" title="其他几个国内的源："></a>其他几个国内的源：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>支付宝</tag>
+        <tag>Alipay</tag>
+        <tag>沙箱支付</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu命令大全</title>
+    <url>/2020/04/23/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
+    <content><![CDATA[<p>cd .. // 返回上一级目录</p>
+<p>cd - // 返回上一次目录</p>
+<p>cd或cd ~ // 返回家目录</p>
+<a id="more"></a>
+
+<p>cd / // 进入根目录</p>
+<p>pwd // 显示当前目录</p>
+<p>ls // 显示当前目录文件</p>
+<p>ls localrepo/ // 显示指定目录的文件</p>
+<p>ll // 查看目录文件的的详细信息</p>
+<p>la // 查看全部包括隐藏的目录文件</p>
+<p>tree // 查看当前目录文件树</p>
+<p>tree mydir // 查看指定目录的文件树</p>
+<p>touch hello.py // 创建空文件</p>
+<p>mkdir mydir // 创建文件夹</p>
+<p>mkdir -p a/b/c // 创建层级目录</p>
+<p>mkdir -p a/{b,c}/{d,e} // 同一级创建多个文件夹</p>
+<p>cp hello.py ~/hello2.py // 拷贝文件</p>
+<p>cp hello.py -i hello2.py // 拷贝文件，如果有同名文件询问是否覆盖</p>
+<p>cp hello.py -f hello2.py // 拷贝文件，如果有同名文件强制覆盖</p>
+<p>cp hello.py -n hello2.py // 拷贝文件，如果有同名文件不覆盖</p>
+<p>mv hello2.py hellocp.py // 重命名文件</p>
+<p>mv hello.py ~/Desktop // 移动文件</p>
+<p>rm hellocp.py // 删除文件</p>
+<p>rm -rf localrepo/ // 递归删除目录</p>
+<p>find ~/Desktop/ -name ‘*.py’ // 在指定目录中查找文件</p>
+<p>whereis python // 查找可执行程序</p>
+<p>which python // 查看当前使用的是哪个目录中的python</p>
+<p>ln -s /usr/bin/python ./mypylink // 创建可执行程序的软链接</p>
+<p>alias rrm=’rm -rf’ // 给命令起别名，需要root权限(不建议使用)</p>
+<p>history // 查看命令历史</p>
+<p>clear // 清屏(快捷键Ctrl+l)</p>
+<p><strong>@命令速查</strong></p>
+<p>rm –help // 查看rm命令帮助</p>
+<p>man rm // 查看rm命令的手册解释</p>
+<p>info rm // 查看rm命令详细信息</p>
+<p><strong>@更多查找</strong></p>
+<p>find ~/ -name ‘*.py’ -exec rm {} ;    查找家目录下所有的py文件并删除，{}与exec结合匹配所有文件</p>
+<p>find ~/ -name ‘*.py’ -exec chown wife {} ;        查找家目录下所有py文件并将所有权转让给wife用户</p>
+<p>find ~/ -name ‘*.py’ -exec cat {} ;&gt; record.txt    查找文件并将全部内容拼接并写入文件中</p>
+<p>find ~/ -name ‘*.py’ -exec cp {} mydir ;        查找文件并拷贝到指定目录</p>
+<p>grep ‘def.*’ a.py    在a.py中查找指定内容</p>
+<p>grep ‘def.*’ a.py b.py c.py    在多个文件中寻找指定内容</p>
+<p>grep -v ‘def.*’ a.py    在a.py中查找指定内容以外的内容</p>
+<p>grep -i “HELLO” a.py    在a.py中查找指定内容并忽略大小写</p>
+<p>grep -E “[1-9]+” a.py    在a.py中查找正则表达式匹配的内容（匹配1到多个数字）</p>
+<p>grep -F “[1-9]+” a.py    在a.py中查找纯文本内容（严格匹配字符串”[1-9]+”）</p>
+<p>grep -e “def.*” -e “class.*” a.py    在a.py中查找多个内容</p>
+<p>grep “text” ./ -r -n    在当前目录下递归查找内容</p>
+<p><strong>@系统管理</strong></p>
+<p>poweroff    关机</p>
+<p>reboot    重启</p>
+<p>shutdown -h 12:00    定时关机</p>
+<p>shutdown -h now        立刻关机</p>
+<p>shutdown -c            取消定时关机</p>
+<p>#结合1,查看所有CPU平均负载/每个CPU的具体负载</p>
+<p>#结合M/P/T,按内存占用/CPU占用/运行时间的降序，查看进程信息</p>
+<p>top                    显示所有系统任务</p>
+<p>free -m             查看内存占用，以M为单位</p>
+<p>uname -a            打印操作系统信息</p>
+<p>uptime -p            查看系统运行时间</p>
+<p>echo $PATH            查看环境变量</p>
+<p>export PATH=$PATH:/home/sirouyang/Desktop/    追加环境变量</p>
+<p>lsof | head -n 10    查看进程打开的文件（一切皆文件，数据文件、网络连接、硬件设备）</p>
+<p>lscpu                查看CPU信息</p>
+<p>time lsof        统计命令执行时间</p>
+<p>cal/date            查看日历和时间</p>
+<p>date +%y-%m-%d-%H-%M-%S    格式化地查看时间</p>
+<p># 0-6:0停机-1单用户安全模式-2多用户安全模式-3多用户网络模式-4系统保留级别-5图形界面-6重启</p>
+<p>runlevel        显示当前运行级别</p>
+<p>init 6            切换运行级别</p>
+<p><strong>@软件安装</strong></p>
+<p>//方式一：通过包管理工具apt进行管理</p>
+<p>sudo apt update // 更新软件源</p>
+<p>sudo apt search xxx//查找xxx软件包</p>
+<p>sudo apt install net-tools //安装net-tools</p>
+<p>sudo apt remove –purge net-tools //彻底卸载net-tools</p>
+<p>//方式二：编译源码</p>
+<p>wget “http://………..xxx.tar.gz” //下载源码包</p>
+<p>tar -zxvf xxx.tar.gz //解压源码包</p>
+<p>make clean    清除编译的垃圾</p>
+<p>make        执行编译</p>
+<p>make install    安装</p>
+<p>make uninstall    卸载</p>
+<p>可选：./configure    如果源码包中自带配置程序则执行之</p>
+<p>可选：sudo apt search libxxx //如果编译失败通常会提示缺少xxx依赖，此时应该搜索并安装该依赖</p>
+<p>可选：sudo apt install libxxx-dev //安装检索到的依赖</p>
+<p><strong>@文本命令</strong></p>
+<p>cat hello.py // 查看文件</p>
+<p>gedit hello.py // 使用gedit查看文件</p>
+<p>head -n 10 hello.py // 查看前10行</p>
+<p>tail -n 10 hello.py // 查看后10行</p>
+<p>less hello.py // 一次查看少量内容，PageUp和PageDown键翻页</p>
+<p>vim hello.py // 使用vim打开文件</p>
+<p><strong>@管道与重定向</strong></p>
+<p>sort hello.py | uniq -c // 排序后统计次数</p>
+<p>sort hello.py | uniq -d // 排序后找出重复的行</p>
+<p>cat /proc/cpuinfo | grep -c processor // 显示CPU核心数</p>
+<p>echo ‘newline’ &gt; hello.py // 将结果写入文件（覆盖）</p>
+<p>echo ‘newline’ &gt;&gt; hello.py // 将结果追加到文件</p>
+<p>cat &lt; ~/proc/cpuinfo //将指定的文件作为cat的输入</p>
+<p><strong>@压缩和解压</strong></p>
+<p>tar -cvf /home/abc.tar /home/abc  只打包，不压缩（c=创建压缩包,v=打印信息,f=指定文件名）</p>
+<p>tar -zcvf /home/abc.tar.gz /home/abc  打包，并用gzip压缩</p>
+<p>tar -jcvf /home/abc.tar.bz2 /home/abc  打包，并用bzip2压缩</p>
+<p>tar -xvf abc.tar 解压普通tar包(x=解压缩)</p>
+<p>tar -zxvf abc.tar.gz 解压gz压缩包</p>
+<p>tar -jxvf abc.tar.bz2 解压bz2压缩包</p>
+<p>zip -r xxx.zip abc/* fuck/* temp/* 递归压缩多个文件夹到xxx.zip</p>
+<p>unzip xxx.zip #解压zip压缩包</p>
+<p><strong>@磁盘管理</strong></p>
+<p>df -h /                    查看磁盘使用情况</p>
+<p>sudo du -h ~            查看用户目录的磁盘使用情况</p>
+<p>du -sh                    当前目录的总体占用情况</p>
+<p>du abc.tar.gz abc.tar    查看文件和目录的磁盘占用</p>
+<p>dd if=/dev/zero of=temp.txt bs=1K count=1024    写入一个充满0的文件，每块1K，共1024块，总大小1M</p>
+<p>time dd if=/dev/zero of=temp.txt bs=1M count=1024    测试写入1G文件的时间（以此衡量磁盘的读写效率）</p>
+<p><strong>@登录日志</strong></p>
+<p>last 查看用户近期登陆情况</p>
+<p>last -2 最近登陆的两个用户</p>
+<p>last -2 root 查看root用户最近两次登陆情况</p>
+<p>id    显示用户及其群组信息</p>
+<p>groups    查看当前用户所加入的组</p>
+<p>whoami    显示当前用户名称</p>
+<p><strong>@用户与权限</strong></p>
+<p>groups // 查看所属的工作组</p>
+<p>whoami // 显示当前用户名称</p>
+<p>sudo useradd -m wife // 新建wife用户，-m=自动创建家目录</p>
+<p>sudo useradd -d /home/myson -m son //创建son用户，指定其家目录为/home/myson</p>
+<p>sudo useradd -g guests -G root,adm -m him //创建him用户，属于group组，其次也属于adm,root组</p>
+<p>sudo useradd -G guests,sudo -m -s /bin/bash mywife // 新增一个用户,-m=自动创建家目录,-s指定bash</p>
+<p>userdel rose 删除rose 账号</p>
+<p>userdel -r rose 删除用户及相关目录下的文件（/etc/passwd, /etc/shadow, /etc/group等）</p>
+<p>usermod -s /bin/ksh -d /home/z –g developer him // 修改him用户的shell、家目录、所属组等信息</p>
+<p>sudo passwd // 修改自己的密码</p>
+<p>sudo passwd mywife // 修改mywife的密码</p>
+<p>sudo su mywife // 切换用户</p>
+<p>sudo su // 切换到root用户</p>
+<p>sudo groupadd guests // 添加guests组</p>
+<p>sudo groupadd -g 101 group1 //添加组group1，识别号为101</p>
+<p>groupdel group1 //删除组</p>
+<p>groupmod –g 10000 -n group3 group2 //将组group2的标识号改为10000，组名修改为group3</p>
+<p>gpasswd -a u1 g1 将u1 加入到 g1 组</p>
+<p>gpasswd -d u1 g1 将u1 退出 g1 组</p>
+<p>gpasswd -A u1 g1 将g1 组的管理员指派给u1</p>
+<p>chmod 421 hello.py // 设置自己、用户组、其他人的权限分别为只读、只写、只执行</p>
+<p>chmod a+r,u+wx,g+x,o-wx hello.py // 详细修改全部用户、拥有者、用户组、其他人的权限</p>
+<p>/etc/passwd文件说明：</p>
+<p>是用户管理工作涉及的最重要的一个文件</p>
+<p>内容包含7个字段，例如 him❌200:50:Sam san:/usr/sam:/bin/sh</p>
+<p>含义分别为 用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</p>
+<p><strong>@网络管理</strong></p>
+<p>sudo apt install net-tools 安装网络工具</p>
+<p>ifconfig // 查看网卡状态</p>
+<p>ping 192.168.59.129    // 检查网络是否连通</p>
+<p>wget “<a href="http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.9.tar.gz&quot;</a> // 下载redis</p>
+<p>sudo apt install traceroute 安装路径追踪工具</p>
+<p>traceroute -m 100 <a href="http://www.sina.com" target="_blank" rel="noopener">www.sina.com</a>        追踪路由信息，最大100跳</p>
+<p>netstat -t        列出所有TCP端口</p>
+<p>netstat -r        显示路由表</p>
+<p>netstat -i        显示接口（网卡）列表</p>
+<p>netstat -tpnl    查看已连接的TCP端口和程序名</p>
+<p>netstat -anp | grep 3306 -c        查看MySQL的连接数</p>
+<p><strong>@远程登录</strong></p>
+<p>//安装并启动ssh服务</p>
+<p>sudo apt install openssh-server 安装openssh-server</p>
+<p>sudo ps -ef | grep ssh 查看SSH服务是否启动，还可以netstat -tl | grep 22或systemctl status ssh</p>
+<p>sudo systemctl start ssh 如果没有启动则启动SSH服务</p>
+<p>//访问远程主机（前提：对方开启了ssh服务，且你知道对方的密码，或对方持有你的ssh公钥）</p>
+<p>ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a> 访问远程主机</p>
+<p>exit 退出远程访问</p>
+<p>//执行远程拷贝</p>
+<p>scp -r <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/abc /home/wife/Desktop/        从远程主机拷贝内容到本地</p>
+<p>scp -r /abc <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/Desktop/    从本地拷贝内容弄到远程主机（对方没有本地的公钥时需要密码认证）</p>
+<p># ssh公钥交换过程：远程主机持有本地的公钥时，ssh以及scp可以免密执行</p>
+<p>ssh-keygen -t rsa    生成ssh秘钥对</p>
+<p>scp ~/.ssh/id_rsa.pub <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>:/home/sirouyang/.ssh/    上传公钥给远程主机</p>
+<p>ssh <a href="mailto:sirouyang@192.168.158.129">sirouyang@192.168.158.129</a>    ssh登录远程主机</p>
+<p>cat Desktop/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys    操作远程主机添加公钥认证（今后远程对本地ssh免密）</p>
+<p>//一站式让远程持有自己的公钥</p>
+<p>ssh-copy-id <a href="mailto:sirouyang@192.168.158.128">sirouyang@192.168.158.128</a>    让远程持有自己的公钥（对方不必添加公钥到authorized_keys）</p>
+<p>如果远程持有自己的公钥后依然无法免密登录，需要修改配置文件，请参考： <a href="https://blog.csdn.net/b_x_p/article/details/78534423" target="_blank" rel="noopener">https://blog.csdn.net/b_x_p/article/details/78534423</a></p>
+<p><strong>@进程管理</strong></p>
+<p>ps -ef // 查看所有进程（包括登录的其它用户的进程）</p>
+<p>ps -aux //查看所有进程（仅当前用户的进程）</p>
+<p>ps -ef | grep redis    // 查找redis进程</p>
+<p>kill -9 77157    // 强行杀死指定pid的进程</p>
+<p>kill -15 77157    // 终止指定进程</p>
+<p><strong>@服务管理</strong></p>
+<p>#chkconfig服务管理</p>
+<p>apt-get install sysv-rc-conf    安装chkconfig服务</p>
+<p>cp /usr/sbin/sysv-rc-conf /usr/sbin/chkconfig    重命名一下可执行程序</p>
+<p>chkconfig –list            查看所有服务的开机启动状态</p>
+<p>chkconfig –list mysqld        查看mysql的开机启动状态</p>
+<p>chkconfig mysqld on            设置mysql开机启动</p>
+<p>chkconfig mysqld off        禁止mysql开机启动</p>
+<p>sudo apt install firewalld    安装firewalld</p>
+<p>firewall-cmd –state        查看防火墙状态</p>
+<p>#原生的service服务管理</p>
+<p>service mysql start            启动mysql</p>
+<p>service mysql stop            停止mysql</p>
+<p>service mysql restart        重启mysql</p>
+<p>/etc/init.d/mysql start        启动mysql</p>
+<p>/etc/init.d/mysql stop        停止mysql</p>
+<p>/etc/init.d/mysql restart    重启mysql</p>
+<p>#systemctl服务管理（推荐方式）</p>
+<p>systemctl status firewalld        查看服务状态</p>
+<p>systemctl start firewalld         启动服务</p>
+<p>systemctl stop firewalld         停止服务</p>
+<p>systemctl restart firewalld     重启服务</p>
+<p>systemctl is-enabled firewalld     查看是否开机启动</p>
+<p>systemctl enable firewalld        设置服务开机自启</p>
+<p>systemctl disable firewalld     禁止服务开机自启</p>
+<p><strong>@其它命令</strong></p>
+<p>ls -i /usr/bin/python //查看文件的inode</p>
+<p>ln /usr/bin/python ./phln // 创建硬链接（共享文件入口）(硬链接不能跨磁盘)</p>
+<p>source ~/.bashrc // 使修改后的bashrc生效</p>
+<p><strong>@一键安装Ubuntu常用库</strong></p>
+<p>sudo apt install man gcc make sudo lsof ssh openssl tree vim dnsutils iputils‑ping net‑</p>
+<p>tools psmisc sysstat curl telnet traceroute wget libbz2‑dev libpcre3 libpcre3‑dev</p>
+<p>libreadline‑dev libsqlite3‑dev libssl‑dev zlib1g‑dev git mysql‑server mysql‑client zip</p>
+<p>p7zip golang-go libncurses5-dev libmysqlclient-dev</p>
+]]></content>
       <categories>
-          
-          <category> Ubuntu </category>
-          
+        <category>Ubuntu</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Ubuntu </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>axios封装</title>
-      <link href="/2020/04/21/axios%E5%B0%81%E8%A3%85/"/>
-      <url>/2020/04/21/axios%E5%B0%81%E8%A3%85/</url>
-      
-        <content type="html"><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>　　封装请求的方式有多种多样，目的是可以管理vue项目中axios请求的路由。</p><a id="more"></a><h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在下面目录中创建文件</span><br><span class="line">components/axios_api/http.js</span><br></pre></td></tr></table></figure><h2 id="Vue-axios封装"><a href="#Vue-axios封装" class="headerlink" title="Vue-axios封装"></a>Vue-axios封装</h2><p>　　<strong>封装到文件：components/axios_api/http.js中</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">"http://127.0.0.1:8000/"</span></span><br><span class="line">axios.defaults.timeout = <span class="number">10000</span>;</span><br><span class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span>;</span><br><span class="line">axios.defaults.headers.put[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span>;</span><br><span class="line"></span><br><span class="line">axios.interceptors.request.use(    </span><br><span class="line">    config =&gt; &#123;</span><br><span class="line">        <span class="comment">// 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了</span></span><br><span class="line">        <span class="comment">// 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断</span></span><br><span class="line">        <span class="keyword">const</span> token = sessionStorage.getItem(<span class="string">"jwt_token"</span>)        </span><br><span class="line">        token &amp;&amp; (config.headers.Authorization = token)        </span><br><span class="line">        <span class="keyword">return</span> config;    </span><br><span class="line">    &#125;,    </span><br><span class="line">    error =&gt; &#123;        </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.error(error);    </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(    </span><br><span class="line">    <span class="comment">// 请求成功</span></span><br><span class="line">    res =&gt; res.status === <span class="number">200</span> ? <span class="built_in">Promise</span>.resolve(res) : <span class="built_in">Promise</span>.reject(res),    </span><br><span class="line">    <span class="comment">// 请求失败</span></span><br><span class="line">    error =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; response &#125; = error;</span><br><span class="line">        <span class="keyword">if</span> (response) &#123;</span><br><span class="line">            <span class="comment">// 请求已发出，但是不在2xx的范围 </span></span><br><span class="line">            errorHandle(response.status, response.data.message);</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(response);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 处理断网的情况</span></span><br><span class="line">            <span class="comment">// eg:请求超时或断网时，更新state的network状态</span></span><br><span class="line">            <span class="comment">// network状态在app.vue中控制着一个全局的断网提示组件的显示隐藏</span></span><br><span class="line">            <span class="comment">// 关于断网组件中的刷新重新获取数据，会在断网组件中说明</span></span><br><span class="line">            store.commit(<span class="string">'changeNetwork'</span>, <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_get</span>(<span class="params">url,params</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            axios.get(url,&#123;<span class="attr">params</span>:params&#125;)</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_post</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.post(url,<span class="built_in">JSON</span>.stringify(data))</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_put</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.put(url,<span class="built_in">JSON</span>.stringify(data))</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_delete</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.delete(url,&#123;<span class="attr">params</span>:data&#125;)</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="导出使用："><a href="#导出使用：" class="headerlink" title="导出使用："></a>导出使用：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;axios_get,axios_post,axios_delete,axios_put&#125; <span class="keyword">from</span> <span class="string">'./http.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> jwt_send_get = <span class="function"><span class="params">p</span>  =&gt;</span> axios_get(<span class="string">"/appjwt/index01/"</span>,p)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu18.04设置国内源</title>
+    <url>/2020/04/23/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <content><![CDATA[<p>　　Ubuntu本身的源使用的是国内的源，下载速度比较慢，不像CentOS一样yum安装的时候对镜像站点进项选择，<br>　　所以选择了更换成国内的源。<br>　　以下内容整合自网络</p>
+<a id="more"></a>
+
+<h2 id="备份-etc-apt-sources-list文件"><a href="#备份-etc-apt-sources-list文件" class="headerlink" title="备份/etc/apt/sources.list文件"></a>备份/etc/apt/sources.list文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv /etc/apt/sources.list /etc/apt/sourses.list.backup</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建-etc-apt-sources-list文件并添加以下内容"><a href="#新建-etc-apt-sources-list文件并添加以下内容" class="headerlink" title="新建/etc/apt/sources.list文件并添加以下内容"></a>新建/etc/apt/sources.list文件并添加以下内容</h2><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"># 新建sources.<span class="type">list</span></span><br><span class="line"><span class="section">touch</span> /etc/apt/sources.<span class="type">list</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开sources.list文件</span></span><br><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 输入i，进入编辑，添加一下代码：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#163源</span></span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">添加后按Esc退出编辑模式</span><br><span class="line">输入：:wq    <span class="comment"># 保存退出</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="更改完成之后执行以下命令"><a href="#更改完成之后执行以下命令" class="headerlink" title="更改完成之后执行以下命令"></a>更改完成之后执行以下命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他的一些apt命令"><a href="#其他的一些apt命令" class="headerlink" title="其他的一些apt命令"></a>其他的一些apt命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他几个国内的源："><a href="#其他几个国内的源：" class="headerlink" title="其他几个国内的源："></a>其他几个国内的源：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-          
-          <category> axios </category>
-          
+        <category>Ubuntu</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>git配置密钥</title>
-      <link href="/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/"/>
-      <url>/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/</url>
-      
-        <content type="html"><![CDATA[<p>1.本地安装好git；</p><p>2.桌面右键 Git Bash Here 打开git命令行；</p><a id="more"></a><p>3.ssh-keygen -t rsa -C “<a href="mailto:XXXXX@XXX.com">XXXXX@XXX.com</a>“   （你的邮箱,全部按enter）；</p><p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹）；</p><p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p><p>6.复制，打开github   ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p><p>7.titile  随便写。  key里    粘贴第六步的内容；完成。</p>]]></content>
-      
-      
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>axios封装</title>
+    <url>/2020/04/21/axios%E5%B0%81%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>　　封装请求的方式有多种多样，目的是可以管理vue项目中axios请求的路由。</p>
+<a id="more"></a>
+
+<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"># 在下面目录中创建文件</span><br><span class="line">components/axios_api/http.js</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue-axios封装"><a href="#Vue-axios封装" class="headerlink" title="Vue-axios封装"></a>Vue-axios封装</h2><p>　　<strong>封装到文件：components/axios_api/http.js中</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">"http://127.0.0.1:8000/"</span></span><br><span class="line">axios.defaults.timeout = <span class="number">10000</span>;</span><br><span class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span>;</span><br><span class="line">axios.defaults.headers.put[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span>;</span><br><span class="line"></span><br><span class="line">axios.interceptors.request.use(    </span><br><span class="line">    config =&gt; &#123;</span><br><span class="line">        <span class="comment">// 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了</span></span><br><span class="line">        <span class="comment">// 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断</span></span><br><span class="line">        <span class="keyword">const</span> token = sessionStorage.getItem(<span class="string">"jwt_token"</span>)        </span><br><span class="line">        token &amp;&amp; (config.headers.Authorization = token)        </span><br><span class="line">        <span class="keyword">return</span> config;    </span><br><span class="line">    &#125;,    </span><br><span class="line">    error =&gt; &#123;        </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.error(error);    </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(    </span><br><span class="line">    <span class="comment">// 请求成功</span></span><br><span class="line">    res =&gt; res.status === <span class="number">200</span> ? <span class="built_in">Promise</span>.resolve(res) : <span class="built_in">Promise</span>.reject(res),    </span><br><span class="line">    <span class="comment">// 请求失败</span></span><br><span class="line">    error =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; response &#125; = error;</span><br><span class="line">        <span class="keyword">if</span> (response) &#123;</span><br><span class="line">            <span class="comment">// 请求已发出，但是不在2xx的范围 </span></span><br><span class="line">            errorHandle(response.status, response.data.message);</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(response);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 处理断网的情况</span></span><br><span class="line">            <span class="comment">// eg:请求超时或断网时，更新state的network状态</span></span><br><span class="line">            <span class="comment">// network状态在app.vue中控制着一个全局的断网提示组件的显示隐藏</span></span><br><span class="line">            <span class="comment">// 关于断网组件中的刷新重新获取数据，会在断网组件中说明</span></span><br><span class="line">            store.commit(<span class="string">'changeNetwork'</span>, <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_get</span>(<span class="params">url,params</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            axios.get(url,&#123;<span class="attr">params</span>:params&#125;)</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_post</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.post(url,<span class="built_in">JSON</span>.stringify(data))</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_put</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.put(url,<span class="built_in">JSON</span>.stringify(data))</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">axios_delete</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">        (resolve,reject)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data)</span><br><span class="line">            axios.delete(url,&#123;<span class="attr">params</span>:data&#125;)</span><br><span class="line">            .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"封装信息的的res"</span>,res)</span><br><span class="line">                resolve(res.data)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                reject(err.data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="导出使用："><a href="#导出使用：" class="headerlink" title="导出使用："></a>导出使用：</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;axios_get,axios_post,axios_delete,axios_put&#125; <span class="keyword">from</span> <span class="string">'./http.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> jwt_send_get = <span class="function"><span class="params">p</span>  =&gt;</span> axios_get(<span class="string">"/appjwt/index01/"</span>,p)</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>axios</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>git常用命令</title>
-      <link href="/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）"><a href="#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）" class="headerlink" title="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）"></a>1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push <span class="comment">-- force</span></span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="2-创建文件等小命令"><a href="#2-创建文件等小命令" class="headerlink" title="2.创建文件等小命令"></a>2.创建文件等小命令</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch a <span class="comment">// 创建一个a文件</span></span><br><span class="line">echo 1234 &gt;&gt; a <span class="comment">// 把1234这个内容放入a文件</span></span><br><span class="line"><span class="keyword">cat</span> a <span class="comment">// 打开a文件 读取出a文件中的内容</span></span><br><span class="line"><span class="keyword">mkdir</span> <span class="keyword">test</span> <span class="comment">// 创建test文件夹</span></span><br><span class="line"><span class="keyword">rm</span> 文件名 <span class="comment">// 删除文件</span></span><br><span class="line"><span class="keyword">pwd</span> <span class="comment">// 打印当前工作路径</span></span><br></pre></td></tr></table></figure><h3 id="3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同"><a href="#3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同" class="headerlink" title="3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同"></a>3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitk <span class="comment">// 用git命令快速打开git GUI</span></span><br></pre></td></tr></table></figure><h3 id="4-文件信息"><a href="#4-文件信息" class="headerlink" title="4.文件信息"></a>4.文件信息</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> <span class="string">//</span> 查看当前路径下面的所有文件名</span><br><span class="line"><span class="keyword">ls</span> 文件夹名 <span class="string">//</span> 查看对应文件夹中的内容</span><br><span class="line"><span class="keyword">ls</span> -l <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名</span><br><span class="line"><span class="keyword">ls</span> -l -a <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名，隐藏的文件也会显示</span><br></pre></td></tr></table></figure><h3 id="5-cd快速切换路径"><a href="#5-cd快速切换路径" class="headerlink" title="5.cd快速切换路径"></a>5.cd快速切换路径</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~ <span class="string">//</span> 将工作路径快速切换到root</span><br><span class="line"><span class="keyword">cd</span> - <span class="string">//</span> 将工作路径切换到上一状态</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../</span> <span class="string">//</span> 切回到上一个工作路径</span><br><span class="line"><span class="keyword">cd</span> 文件夹名 <span class="string">//</span> 进入某个目录</span><br><span class="line"><span class="keyword">cd</span> / <span class="string">//</span> 进入根目录</span><br></pre></td></tr></table></figure><h3 id="6-vim模式"><a href="#6-vim模式" class="headerlink" title="6.vim模式"></a>6.vim模式</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim 文件名 <span class="string">//</span> 新建一个文件</span><br><span class="line">i 插入内容</span><br><span class="line">按下esc <span class="function">:wq</span> 保存并退出</span><br><span class="line">按下esc <span class="function">:q</span> 直接退出</span><br><span class="line">vim 模式下 文件中<span class="comment">#号开头的为注释</span></span><br><span class="line"><span class="string">.project</span> 忽略<span class="string">.project</span>文件</span><br><span class="line">*<span class="string">.obj</span> 或者 *<span class="string">.exe</span> 忽略一类文件 例如以<span class="string">.obj</span> <span class="string">.exe</span> 结尾的文件</span><br><span class="line">git check-ignore -v <span class="string">.project</span> 查看ignore中<span class="string">.project</span>的位置</span><br></pre></td></tr></table></figure><h3 id="7-常用git-命令"><a href="#7-常用git-命令" class="headerlink" title="7.常用git 命令"></a>7.常用git 命令</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">// 初始化 在工作路径上创建主分支</span></span><br><span class="line">git clone 地址 <span class="comment">// 克隆远程仓库</span></span><br><span class="line">git clone -b 分支名 地址 <span class="comment">// 克隆分支的代码到本地</span></span><br><span class="line">git status <span class="comment">// 查看状态</span></span><br><span class="line">git <span class="keyword">add</span> 文件名 <span class="comment">// 将某个文件存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> b c <span class="comment">//把b和c存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> . <span class="comment">// 将所有文件提交到暂存区</span></span><br><span class="line">git <span class="keyword">add</span> -p 文件名 <span class="comment">// 一个文件分多次提交</span></span><br><span class="line">git stash -u -k <span class="comment">// 提交部分文件内容 到仓库 例如本地有3个文件 a b c 只想提交a b到远程仓库 git add a b 然后 git stash -u -k 再然后git commit -m "备注信息" 然后再push push之后 git stash pop 把之前放入堆栈的c拿出来 继续下一波操作</span></span><br><span class="line">git commit -m <span class="string">"提交的备注信息"</span>  <span class="comment">// 提交到仓库</span></span><br><span class="line">若已经有若干文件放入仓库，再次提交可以不用git <span class="keyword">add</span>和git commit -m <span class="string">"备注信息"</span> 这<span class="number">2</span>步， 直接用</span><br><span class="line">git commit -am <span class="string">"备注信息"</span> <span class="comment">// 将内容放至仓库 也可用git commit -a -m "备注信息"</span></span><br><span class="line"></span><br><span class="line">* git commit中的备注信息尽量完善 养成良好提交习惯 例如 git commit -m <span class="string">"变更(范围)：变更的内容"</span></span><br></pre></td></tr></table></figure><h3 id="8-存储密码凭证-设置别名-获取config信息以及配置"><a href="#8-存储密码凭证-设置别名-获取config信息以及配置" class="headerlink" title="8.存储密码凭证 设置别名 获取config信息以及配置"></a>8.存储密码凭证 设置别名 获取config信息以及配置</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --list <span class="comment">// 获取config信息</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.safecrlf</span> false <span class="comment">// 去掉git add 命令后 出现的一堆CR LF提示信息</span></span><br><span class="line">其中CR是回车的意思 LF是换行</span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> credential<span class="variable">.helper</span> wincred <span class="comment">// 存储凭证 (可用于输入一次用户密码后，不再输入 有时我们已经用SSH key 绑定关联好了 但是每次git提交的时候 还是需要你输入用户名密码 在这个时候 敲入这个命令 将凭证存储起来 用户名密码就不需要再次输入了)</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.ci</span> commit <span class="comment">// 将commit命令设置别名ci git commit命令将由git ci来代替</span></span><br></pre></td></tr></table></figure><h3 id="9-查看git常用命令"><a href="#9-查看git常用命令" class="headerlink" title="9.查看git常用命令"></a>9.查看git常用命令</h3><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">helper</span> -a <span class="comment">// 查看全部git子命令</span></span><br></pre></td></tr></table></figure><h3 id="10-逐行查看文件的修改历史"><a href="#10-逐行查看文件的修改历史" class="headerlink" title="10.逐行查看文件的修改历史"></a>10.逐行查看文件的修改历史</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git blame 文件名 <span class="comment">// 查看该文件的修改历史</span></span><br><span class="line">git blame -L <span class="number">100</span>,<span class="number">10</span> 文件名 <span class="comment">// 从100行开始，到110行 逐行查看文件的修改历史</span></span><br></pre></td></tr></table></figure><h3 id="11-清除"><a href="#11-清除" class="headerlink" title="11.清除"></a>11.清除</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clean -n <span class="comment">// 列出打算清除的档案(首先会对工作区的内容进行提示)</span></span><br><span class="line">git clean -f <span class="comment">// 真正的删除</span></span><br><span class="line">git clean -x -f <span class="comment">// 连.gitignore中忽略的档案也删除</span></span><br><span class="line">git status -sb (sb是 <span class="keyword">short</span> branch) <span class="comment">// 简洁的输出git status中的信息</span></span><br></pre></td></tr></table></figure><h3 id="12-删除放入暂存区文件的方法（已commit后）"><a href="#12-删除放入暂存区文件的方法（已commit后）" class="headerlink" title="12.删除放入暂存区文件的方法（已commit后）"></a>12.删除放入暂存区文件的方法（已commit后）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm 文件名 // 将该文件从<span class="keyword">commit</span>后撤回到<span class="keyword">add</span>后</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^ <span class="comment">--hard // 删除后 可以用git rm 文件名再回撤一步</span></span><br></pre></td></tr></table></figure><h3 id="13-查看提交内容"><a href="#13-查看提交内容" class="headerlink" title="13.查看提交内容"></a>13.查看提交内容</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git hi <span class="number">-5</span> <span class="comment">// 查看前5条内容</span></span><br><span class="line">git hi --grep hello <span class="comment">// 过滤提交信息里有hello字眼的内容</span></span><br></pre></td></tr></table></figure><h3 id="14-修改文件名以及移动"><a href="#14-修改文件名以及移动" class="headerlink" title="14.修改文件名以及移动"></a>14.修改文件名以及移动</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git mv <span class="selector-tag">a</span> <span class="selector-tag">b</span> <span class="comment">// 把a文件名字改成b 并且直接放入git add后的暂存区</span></span><br><span class="line">git mv <span class="selector-tag">b</span> ./demos/ <span class="comment">// 把b文件移动到demos文件夹下</span></span><br></pre></td></tr></table></figure><h3 id="15-对比工作区，暂存区，仓库的差异"><a href="#15-对比工作区，暂存区，仓库的差异" class="headerlink" title="15.对比工作区，暂存区，仓库的差异"></a>15.对比工作区，暂存区，仓库的差异</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git diff <span class="comment">// 查看变更 工作区与暂存区的差异比对</span></span><br><span class="line">git diff --cached <span class="comment">// 暂存区与提交版本的差异</span></span><br><span class="line">git diff HEAD <span class="comment">// 工作区与仓库中最后一次提交版本的差别</span></span><br><span class="line">git diff 版本哈希值 版本哈希值 <span class="comment">// 查看这2个版本哈希之间的区别</span></span><br><span class="line">或者 git diff HEAD~数字 HEAD~数字</span><br><span class="line"></span><br><span class="line">git tag tt HEAD~<span class="number">4</span> 给倒数第<span class="number">5</span>次提交打一个tag tag名字是tt</span><br><span class="line">git diff tt 就是倒数第<span class="number">5</span>个版本与第一个版本之间的差异</span><br><span class="line">git diff --cached tt 暂存区与倒数第<span class="number">5</span>个版本之间的比对</span><br></pre></td></tr></table></figure><h3 id="16-查看提交信息"><a href="#16-查看提交信息" class="headerlink" title="16.查看提交信息"></a>16.查看提交信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> // 查看最后一次提交修改的详细信息 也可以用git <span class="keyword">show</span> 哈希值 查看对应的内容</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^ // 查看倒数第二次的提交修改详细信息</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^^ 或者git <span class="keyword">show</span> <span class="keyword">HEAD</span>~<span class="number">2</span> 查看前<span class="number">2</span>次变更</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> 或 git <span class="keyword">show</span> 哈希值 或者git <span class="keyword">show</span> tag(标签名) 都可以查看最近一次提交的详细信息</span><br></pre></td></tr></table></figure><h3 id="17-查看信息"><a href="#17-查看信息" class="headerlink" title="17.查看信息"></a>17.查看信息</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=format:'%h %ad | %s%d [%an]' --graph --date=short</span></span><br><span class="line">// 获取git <span class="built_in">log</span>里的树形详细信息 包括hasg 日期 提交信息 提交人等</span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline //拉出所有提交信息 q是退出</span></span><br><span class="line">git <span class="built_in">log</span> <span class="number">-5</span><span class="comment"> // 查看前5次的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline -5 // 打印出的日志里面只有哈希值和修改的内容备注</span></span><br><span class="line">git <span class="built_in">log</span> 文件名<span class="comment"> // 查看该文件的提交</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--grep // 想过滤看到的内容   过滤日志</span></span><br><span class="line">git <span class="built_in">log</span> -n<span class="comment"> // 查看近期提交的n条信息内容</span></span><br><span class="line">git <span class="built_in">log</span> -p<span class="comment"> // 查看详细提交记录</span></span><br></pre></td></tr></table></figure><h3 id="18-变基操作，改写历史提交-把多次提交合并起来"><a href="#18-变基操作，改写历史提交-把多次提交合并起来" class="headerlink" title="18.变基操作，改写历史提交 把多次提交合并起来"></a>18.变基操作，改写历史提交 把多次提交合并起来</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~<span class="number">3</span> 变基之后的哈希值与之前的不同 证明变基是重新做的提交 把多次提交合并成了几次提交</span><br></pre></td></tr></table></figure><h3 id="19-回撤操作"><a href="#19-回撤操作" class="headerlink" title="19.回撤操作"></a>19.回撤操作</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m "提交信息" // 回撤上一次提交并与本次工作区一起提交</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>~<span class="number">2</span> <span class="comment">--hard // 回撤2步</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--files // 从仓库回撤到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> // 回撤暂存区内容到工作目录</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--soft 回撤提交到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--hard // 回撤提交 放弃变更 (慎用)</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^  // 回撤仓库最后一次提交</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard commitid // 回撤到该次提交id的位置</span></span><br><span class="line"></span><br><span class="line">git push -f -u origin 分支名 所有内容都回撤完了 将回撤后的操作强制推送到远程分支</span><br></pre></td></tr></table></figure><h3 id="20-标签操作"><a href="#20-标签操作" class="headerlink" title="20.标签操作"></a>20.标签操作</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span> <span class="comment">// 查看列出所有打过的标签名</span></span><br><span class="line">git <span class="built_in">tag</span> <span class="params">-d</span> 标签名 <span class="comment">// 删除对应标签</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名字 <span class="comment">// 在当前仓库打个标签</span></span><br><span class="line">git <span class="built_in">tag</span> foo <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在当前提交上，打标签foo 并给message信息注释</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名 哈希值 <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在某个哈希值上打标签并且写上标签的信息</span></span><br><span class="line">git <span class="built_in">tag</span> foo HEAD~<span class="number">4</span> <span class="comment">// 在当前提交之前的第4个版本上 打标签foo</span></span><br><span class="line">git push origin -<span class="params">-tags</span> <span class="comment">// 把所有打好的标签推送到远程仓库</span></span><br><span class="line">git push origin 标签名 <span class="comment">// 把指定标签推送到远程仓库</span></span><br><span class="line">git stash <span class="comment">// 把暂存区的内容 暂时放在其他中 使暂存区变空</span></span><br><span class="line">git stash <span class="built_in">list</span> <span class="comment">// 查看stash了哪些存储</span></span><br><span class="line">git stash pop <span class="comment">// 将stash中的内容恢复到当前目录，将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash apply <span class="comment">// 将stash中的内容恢复到当前目录，不会将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash clear <span class="comment">// 删除所有缓存的stash</span></span><br><span class="line">git pull -<span class="params">-tags</span> <span class="comment">// 把远程仓库的标签也拉取下来</span></span><br><span class="line">git push origin :refs/tags/远程标签名 <span class="comment">// 删除远程仓库的标签</span></span><br></pre></td></tr></table></figure><h3 id="21-分支"><a href="#21-分支" class="headerlink" title="21.分支"></a>21.分支</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名 <span class="comment">// 新建分支</span></span><br><span class="line">git branch <span class="comment">// 查看当前所有分支</span></span><br><span class="line">git checkout 分支名 <span class="comment">// 检出分支</span></span><br><span class="line">git checkout -b 分支名 <span class="comment">// 创建并切换分支</span></span><br><span class="line">git checkout commitId 文件名（文件路径下的文件名） 还原这个文件到对应的commitId的版本</span><br><span class="line">（例如src<span class="regexp">/page/</span>attendance<span class="regexp">/attendanceSum.vue我想把它还原到2个版本之前 首先git log src/</span>page<span class="regexp">/attendance/</span>attendanceSum.vue找到对应想要还原的版本</span><br><span class="line">复制版本提交的commitID 然后执行git checkout commitID src<span class="regexp">/page/</span>attendance/attendanceSum.vue</span><br><span class="line">这样就把attendanceSum.vue这个单个文件 还原到了对应版本）</span><br><span class="line">git branch -v <span class="comment">// 查看分支以及提交hash值和commit信息</span></span><br><span class="line">git merge 分支名 <span class="comment">// 把该分支的内容合并到现有分支上</span></span><br><span class="line">git branch -d 分支名 <span class="comment">// 删除分支</span></span><br><span class="line">git branch -D 分支名 <span class="comment">// 强制删除 若没有其他分支合并就删除 d会提示 D不会</span></span><br><span class="line">git branch -m 旧分支名 新分支名 <span class="comment">// 修改分支名</span></span><br><span class="line">git branch -M 旧分支名 新分支名 <span class="comment">// 修改分支名 M强制修改 若与其他分支有冲突也会创建(慎用)</span></span><br><span class="line">git branch -r <span class="comment">// 列出远程分支(远程所有分支名)</span></span><br><span class="line">git branch -a <span class="comment">// 查看远程分支(列出远程分支以及本地分支名)</span></span><br><span class="line">git fetch <span class="comment">// 更新remote索引</span></span><br><span class="line">git push -u origin 分支名 <span class="comment">// 将本地分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git配置密钥</title>
+    <url>/2020/04/21/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/</url>
+    <content><![CDATA[<p>1.本地安装好git；</p>
+<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
+<a id="more"></a>
+
+<p>3.ssh-keygen -t rsa -C “<a href="mailto:XXXXX@XXX.com">XXXXX@XXX.com</a>“   （你的邮箱,全部按enter）；</p>
+<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹）；</p>
+<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
+<p>6.复制，打开github   ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
+<p>7.titile  随便写。  key里    粘贴第六步的内容；完成。</p>
+]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>git</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>markdown语法</title>
-      <link href="/2020/04/21/markdown%E8%AF%AD%E6%B3%95/"/>
-      <url>/2020/04/21/markdown%E8%AF%AD%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p><a id="more"></a><h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p><ol><li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li><li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li><li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li><li>全新的 <strong>KaTeX数学公式</strong> 语法；</li><li>增加了支持<strong>甘特图的mermaid语法<a href="[mermaid语法说明](https://mermaidjs.github.io/)">^1</a></strong> 功能；</li><li>增加了 <strong>多屏幕编辑</strong> Markdown文章功能；</li><li>增加了 <strong>焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置</strong> 等功能，功能按钮位于编辑区域与预览区域中间；</li><li>增加了 <strong>检查列表</strong> 功能。</li></ol><h2 id="功能快捷键"><a href="#功能快捷键" class="headerlink" title="功能快捷键"></a>功能快捷键</h2><p>撤销：<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>重做：<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>加粗：<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>斜体：<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>标题：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>无序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>有序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>检查列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>插入代码：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>插入链接：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>插入图片：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd><br>查找：<kbd>Ctrl/Command</kbd> + <kbd>F</kbd><br>替换：<kbd>Ctrl/Command</kbd> + <kbd>G</kbd></p><h2 id="合理的创建标题，有助于目录的生成"><a href="#合理的创建标题，有助于目录的生成" class="headerlink" title="合理的创建标题，有助于目录的生成"></a>合理的创建标题，有助于目录的生成</h2><p>直接输入1次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成1级标题。<br>输入2次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成2级标题。<br>以此类推，我们支持6级标题。有助于使用<code>TOC</code>语法后生成一个完美的目录。</p><h2 id="如何改变文本的样式"><a href="#如何改变文本的样式" class="headerlink" title="如何改变文本的样式"></a>如何改变文本的样式</h2><p><em>强调文本</em> <em>强调文本</em></p><p><strong>加粗文本</strong> <strong>加粗文本</strong></p><p>==标记文本==</p><p><del>删除文本</del></p><blockquote><p>引用文本</p></blockquote><p>H<del>2</del>O is是液体。</p><p>2^10^ 运算结果是 1024.</p><h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><p>链接: <a href="https://www.csdn.net/" target="_blank" rel="noopener">link</a>.</p><p>图片:<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw"></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</span>)</span><br></pre></td></tr></table></figure><p>带尺寸的图片: </p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="zoom:30%"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw =30x30</span>)</span><br></pre></td></tr></table></figure><p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="align-center:center"></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</span>)</span><br></pre></td></tr></table></figure><p>居中并且带尺寸的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="align-center:center;zoom:30%"></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center =30x30</span>)</span><br></pre></td></tr></table></figure><p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p><h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a href="https://mp.csdn.net/console/configBlog" target="_blank" rel="noopener">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An highlighted block</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure><h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul><li>项目<ul><li>项目<ul><li>项目</li></ul></li></ul></li></ul><ol><li>项目1</li><li>项目2</li><li>项目3</li></ol><ul><li><input disabled="" type="checkbox"> 计划任务</li><li><input checked="" disabled="" type="checkbox"> 完成任务</li></ul><h2 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h2><p>一个简单的表格是这么创建的：<br>| 项目 | Value |<br>| —- | —– |<br>| 电脑 | $1600 |<br>| 手机 | $12   |<br>| 导管 | $1    |</p><h3 id="设定内容居中、居左、居右"><a href="#设定内容居中、居左、居右" class="headerlink" title="设定内容居中、居左、居右"></a>设定内容居中、居左、居右</h3><p>使用<code>:---------:</code>居中<br>使用<code>:----------</code>居左<br>使用<code>----------:</code>居右<br>|     第一列     |         第二列 | 第三列         |<br>| :————: | ————-: | :————- |<br>| 第一列文本居中 | 第二列文本居右 | 第三列文本居左 |</p><h3 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h3><p>SmartyPants将ASCII标点字符转换为“智能”印刷标点HTML实体。例如：<br>|    TYPE   |ASCII                          |HTML<br>|—————-|——————————-|—————————–|<br>|Single backticks|<code>&#39;Isn&#39;t this fun?&#39;</code>            |’Isn’t this fun?’            |<br>|Quotes          |<code>&quot;Isn&#39;t this fun?&quot;</code>            |”Isn’t this fun?”            |<br>|Dashes          |<code>-- is en-dash, --- is em-dash</code>|– is en-dash, — is em-dash|</p><h2 id="创建一个自定义列表"><a href="#创建一个自定义列表" class="headerlink" title="创建一个自定义列表"></a>创建一个自定义列表</h2><dl><dt>Markdown</dt><dd>Text-to-HTML conversion tool</dd></dl><dl><dt>Authors<br>:  John</dt><dd>Luke</dd></dl><h2 id="如何创建一个注脚"><a href="#如何创建一个注脚" class="headerlink" title="如何创建一个注脚"></a>如何创建一个注脚</h2><p>一个具有注脚的文本。<a href="注脚的解释">^2</a></p><h2 id="注释也是必不可少的"><a href="#注释也是必不可少的" class="headerlink" title="注释也是必不可少的"></a>注释也是必不可少的</h2><p>Markdown将文本转换为 HTML。</p><p>*[HTML]:   超文本标记语言</p><h2 id="KaTeX数学公式"><a href="#KaTeX数学公式" class="headerlink" title="KaTeX数学公式"></a>KaTeX数学公式</h2><p>您可以使用渲染LaTeX数学表达式 <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p><p>Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall<br>n\in\mathbb N$ 是通过欧拉积分</p><p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt,.<br>$$</p><blockquote><p>你可以找到更多关于的信息 <strong>LaTeX</strong> 数学表达式<a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p></blockquote><h2 id="新的甘特图功能，丰富你的文章"><a href="#新的甘特图功能，丰富你的文章" class="headerlink" title="新的甘特图功能，丰富你的文章"></a>新的甘特图功能，丰富你的文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure><ul><li>关于 <strong>甘特图</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li></ul><h2 id="UML-图表"><a href="#UML-图表" class="headerlink" title="UML 图表"></a>UML 图表</h2><p>可以使用UML图表进行渲染。 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. 例如下面产生的一个序列图：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br&#x2F;&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure><p>这将产生一个流程图。:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure><ul><li>关于 <strong>Mermaid</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li></ul><h2 id="FLowchart流程图"><a href="#FLowchart流程图" class="headerlink" title="FLowchart流程图"></a>FLowchart流程图</h2><p>我们依旧会支持flowchart的流程图：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">e&#x3D;&gt;end: 结束</span><br><span class="line">op&#x3D;&gt;operation: 我的操作</span><br><span class="line">cond&#x3D;&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure><ul><li>关于 <strong>Flowchart流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">这儿</a>.</li></ul><h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>]]></content>
-      
-      
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2020/04/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）"><a href="#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）" class="headerlink" title="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）"></a>1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）</h3><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">git push <span class="comment">-- force</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="2-创建文件等小命令"><a href="#2-创建文件等小命令" class="headerlink" title="2.创建文件等小命令"></a>2.创建文件等小命令</h3><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">touch a <span class="comment">// 创建一个a文件</span></span><br><span class="line">echo 1234 &gt;&gt; a <span class="comment">// 把1234这个内容放入a文件</span></span><br><span class="line"><span class="keyword">cat</span> a <span class="comment">// 打开a文件 读取出a文件中的内容</span></span><br><span class="line"><span class="keyword">mkdir</span> <span class="keyword">test</span> <span class="comment">// 创建test文件夹</span></span><br><span class="line"><span class="keyword">rm</span> 文件名 <span class="comment">// 删除文件</span></span><br><span class="line"><span class="keyword">pwd</span> <span class="comment">// 打印当前工作路径</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同"><a href="#3-安装git的时候-都会安装git-bash和git-GUI-我们完全也可以使用git-GUI来提交版本-与sourcetree等功能相同" class="headerlink" title="3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同"></a>3.安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同</h3><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">gitk <span class="comment">// 用git命令快速打开git GUI</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-文件信息"><a href="#4-文件信息" class="headerlink" title="4.文件信息"></a>4.文件信息</h3><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ls</span> <span class="string">//</span> 查看当前路径下面的所有文件名</span><br><span class="line"><span class="keyword">ls</span> 文件夹名 <span class="string">//</span> 查看对应文件夹中的内容</span><br><span class="line"><span class="keyword">ls</span> -l <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名</span><br><span class="line"><span class="keyword">ls</span> -l -a <span class="string">//</span> 拉出最近git提交记录以及对应修改的文件名，隐藏的文件也会显示</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-cd快速切换路径"><a href="#5-cd快速切换路径" class="headerlink" title="5.cd快速切换路径"></a>5.cd快速切换路径</h3><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~ <span class="string">//</span> 将工作路径快速切换到root</span><br><span class="line"><span class="keyword">cd</span> - <span class="string">//</span> 将工作路径切换到上一状态</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../</span> <span class="string">//</span> 切回到上一个工作路径</span><br><span class="line"><span class="keyword">cd</span> 文件夹名 <span class="string">//</span> 进入某个目录</span><br><span class="line"><span class="keyword">cd</span> / <span class="string">//</span> 进入根目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-vim模式"><a href="#6-vim模式" class="headerlink" title="6.vim模式"></a>6.vim模式</h3><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">vim 文件名 <span class="string">//</span> 新建一个文件</span><br><span class="line">i 插入内容</span><br><span class="line">按下esc <span class="function">:wq</span> 保存并退出</span><br><span class="line">按下esc <span class="function">:q</span> 直接退出</span><br><span class="line">vim 模式下 文件中<span class="comment">#号开头的为注释</span></span><br><span class="line"><span class="string">.project</span> 忽略<span class="string">.project</span>文件</span><br><span class="line">*<span class="string">.obj</span> 或者 *<span class="string">.exe</span> 忽略一类文件 例如以<span class="string">.obj</span> <span class="string">.exe</span> 结尾的文件</span><br><span class="line">git check-ignore -v <span class="string">.project</span> 查看ignore中<span class="string">.project</span>的位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-常用git-命令"><a href="#7-常用git-命令" class="headerlink" title="7.常用git 命令"></a>7.常用git 命令</h3><figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">git init <span class="comment">// 初始化 在工作路径上创建主分支</span></span><br><span class="line">git clone 地址 <span class="comment">// 克隆远程仓库</span></span><br><span class="line">git clone -b 分支名 地址 <span class="comment">// 克隆分支的代码到本地</span></span><br><span class="line">git status <span class="comment">// 查看状态</span></span><br><span class="line">git <span class="keyword">add</span> 文件名 <span class="comment">// 将某个文件存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> b c <span class="comment">//把b和c存入暂存区</span></span><br><span class="line">git <span class="keyword">add</span> . <span class="comment">// 将所有文件提交到暂存区</span></span><br><span class="line">git <span class="keyword">add</span> -p 文件名 <span class="comment">// 一个文件分多次提交</span></span><br><span class="line">git stash -u -k <span class="comment">// 提交部分文件内容 到仓库 例如本地有3个文件 a b c 只想提交a b到远程仓库 git add a b 然后 git stash -u -k 再然后git commit -m "备注信息" 然后再push push之后 git stash pop 把之前放入堆栈的c拿出来 继续下一波操作</span></span><br><span class="line">git commit -m <span class="string">"提交的备注信息"</span>  <span class="comment">// 提交到仓库</span></span><br><span class="line">若已经有若干文件放入仓库，再次提交可以不用git <span class="keyword">add</span>和git commit -m <span class="string">"备注信息"</span> 这<span class="number">2</span>步， 直接用</span><br><span class="line">git commit -am <span class="string">"备注信息"</span> <span class="comment">// 将内容放至仓库 也可用git commit -a -m "备注信息"</span></span><br><span class="line"></span><br><span class="line">* git commit中的备注信息尽量完善 养成良好提交习惯 例如 git commit -m <span class="string">"变更(范围)：变更的内容"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-存储密码凭证-设置别名-获取config信息以及配置"><a href="#8-存储密码凭证-设置别名-获取config信息以及配置" class="headerlink" title="8.存储密码凭证 设置别名 获取config信息以及配置"></a>8.存储密码凭证 设置别名 获取config信息以及配置</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">config</span> --list <span class="comment">// 获取config信息</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.safecrlf</span> false <span class="comment">// 去掉git add 命令后 出现的一堆CR LF提示信息</span></span><br><span class="line">其中CR是回车的意思 LF是换行</span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> credential<span class="variable">.helper</span> wincred <span class="comment">// 存储凭证 (可用于输入一次用户密码后，不再输入 有时我们已经用SSH key 绑定关联好了 但是每次git提交的时候 还是需要你输入用户名密码 在这个时候 敲入这个命令 将凭证存储起来 用户名密码就不需要再次输入了)</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.ci</span> commit <span class="comment">// 将commit命令设置别名ci git commit命令将由git ci来代替</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-查看git常用命令"><a href="#9-查看git常用命令" class="headerlink" title="9.查看git常用命令"></a>9.查看git常用命令</h3><figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">helper</span> -a <span class="comment">// 查看全部git子命令</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-逐行查看文件的修改历史"><a href="#10-逐行查看文件的修改历史" class="headerlink" title="10.逐行查看文件的修改历史"></a>10.逐行查看文件的修改历史</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">git blame 文件名 <span class="comment">// 查看该文件的修改历史</span></span><br><span class="line">git blame -L <span class="number">100</span>,<span class="number">10</span> 文件名 <span class="comment">// 从100行开始，到110行 逐行查看文件的修改历史</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="11-清除"><a href="#11-清除" class="headerlink" title="11.清除"></a>11.清除</h3><figure class="highlight aspectj"><table><tr><td class="code"><pre><span class="line">git clean -n <span class="comment">// 列出打算清除的档案(首先会对工作区的内容进行提示)</span></span><br><span class="line">git clean -f <span class="comment">// 真正的删除</span></span><br><span class="line">git clean -x -f <span class="comment">// 连.gitignore中忽略的档案也删除</span></span><br><span class="line">git status -sb (sb是 <span class="keyword">short</span> branch) <span class="comment">// 简洁的输出git status中的信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="12-删除放入暂存区文件的方法（已commit后）"><a href="#12-删除放入暂存区文件的方法（已commit后）" class="headerlink" title="12.删除放入暂存区文件的方法（已commit后）"></a>12.删除放入暂存区文件的方法（已commit后）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">git rm 文件名 // 将该文件从<span class="keyword">commit</span>后撤回到<span class="keyword">add</span>后</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^ <span class="comment">--hard // 删除后 可以用git rm 文件名再回撤一步</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13-查看提交内容"><a href="#13-查看提交内容" class="headerlink" title="13.查看提交内容"></a>13.查看提交内容</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">git hi <span class="number">-5</span> <span class="comment">// 查看前5条内容</span></span><br><span class="line">git hi --grep hello <span class="comment">// 过滤提交信息里有hello字眼的内容</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="14-修改文件名以及移动"><a href="#14-修改文件名以及移动" class="headerlink" title="14.修改文件名以及移动"></a>14.修改文件名以及移动</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git mv <span class="selector-tag">a</span> <span class="selector-tag">b</span> <span class="comment">// 把a文件名字改成b 并且直接放入git add后的暂存区</span></span><br><span class="line">git mv <span class="selector-tag">b</span> ./demos/ <span class="comment">// 把b文件移动到demos文件夹下</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="15-对比工作区，暂存区，仓库的差异"><a href="#15-对比工作区，暂存区，仓库的差异" class="headerlink" title="15.对比工作区，暂存区，仓库的差异"></a>15.对比工作区，暂存区，仓库的差异</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">git diff <span class="comment">// 查看变更 工作区与暂存区的差异比对</span></span><br><span class="line">git diff --cached <span class="comment">// 暂存区与提交版本的差异</span></span><br><span class="line">git diff HEAD <span class="comment">// 工作区与仓库中最后一次提交版本的差别</span></span><br><span class="line">git diff 版本哈希值 版本哈希值 <span class="comment">// 查看这2个版本哈希之间的区别</span></span><br><span class="line">或者 git diff HEAD~数字 HEAD~数字</span><br><span class="line"></span><br><span class="line">git tag tt HEAD~<span class="number">4</span> 给倒数第<span class="number">5</span>次提交打一个tag tag名字是tt</span><br><span class="line">git diff tt 就是倒数第<span class="number">5</span>个版本与第一个版本之间的差异</span><br><span class="line">git diff --cached tt 暂存区与倒数第<span class="number">5</span>个版本之间的比对</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-查看提交信息"><a href="#16-查看提交信息" class="headerlink" title="16.查看提交信息"></a>16.查看提交信息</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> // 查看最后一次提交修改的详细信息 也可以用git <span class="keyword">show</span> 哈希值 查看对应的内容</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^ // 查看倒数第二次的提交修改详细信息</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span>^^ 或者git <span class="keyword">show</span> <span class="keyword">HEAD</span>~<span class="number">2</span> 查看前<span class="number">2</span>次变更</span><br><span class="line">git <span class="keyword">show</span> <span class="keyword">HEAD</span> 或 git <span class="keyword">show</span> 哈希值 或者git <span class="keyword">show</span> tag(标签名) 都可以查看最近一次提交的详细信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-查看信息"><a href="#17-查看信息" class="headerlink" title="17.查看信息"></a>17.查看信息</h3><figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=format:'%h %ad | %s%d [%an]' --graph --date=short</span></span><br><span class="line">// 获取git <span class="built_in">log</span>里的树形详细信息 包括hasg 日期 提交信息 提交人等</span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline //拉出所有提交信息 q是退出</span></span><br><span class="line">git <span class="built_in">log</span> <span class="number">-5</span><span class="comment"> // 查看前5次的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--oneline -5 // 打印出的日志里面只有哈希值和修改的内容备注</span></span><br><span class="line">git <span class="built_in">log</span> 文件名<span class="comment"> // 查看该文件的提交</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">--grep // 想过滤看到的内容   过滤日志</span></span><br><span class="line">git <span class="built_in">log</span> -n<span class="comment"> // 查看近期提交的n条信息内容</span></span><br><span class="line">git <span class="built_in">log</span> -p<span class="comment"> // 查看详细提交记录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="18-变基操作，改写历史提交-把多次提交合并起来"><a href="#18-变基操作，改写历史提交-把多次提交合并起来" class="headerlink" title="18.变基操作，改写历史提交 把多次提交合并起来"></a>18.变基操作，改写历史提交 把多次提交合并起来</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~<span class="number">3</span> 变基之后的哈希值与之前的不同 证明变基是重新做的提交 把多次提交合并成了几次提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-回撤操作"><a href="#19-回撤操作" class="headerlink" title="19.回撤操作"></a>19.回撤操作</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m "提交信息" // 回撤上一次提交并与本次工作区一起提交</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>~<span class="number">2</span> <span class="comment">--hard // 回撤2步</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--files // 从仓库回撤到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> // 回撤暂存区内容到工作目录</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--soft 回撤提交到暂存区</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> <span class="comment">--hard // 回撤提交 放弃变更 (慎用)</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^  // 回撤仓库最后一次提交</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard commitid // 回撤到该次提交id的位置</span></span><br><span class="line"></span><br><span class="line">git push -f -u origin 分支名 所有内容都回撤完了 将回撤后的操作强制推送到远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="20-标签操作"><a href="#20-标签操作" class="headerlink" title="20.标签操作"></a>20.标签操作</h3><figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">tag</span> <span class="comment">// 查看列出所有打过的标签名</span></span><br><span class="line">git <span class="built_in">tag</span> <span class="params">-d</span> 标签名 <span class="comment">// 删除对应标签</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名字 <span class="comment">// 在当前仓库打个标签</span></span><br><span class="line">git <span class="built_in">tag</span> foo <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在当前提交上，打标签foo 并给message信息注释</span></span><br><span class="line">git <span class="built_in">tag</span> 标签名 哈希值 <span class="params">-m</span> <span class="string">"message"</span> <span class="comment">// 在某个哈希值上打标签并且写上标签的信息</span></span><br><span class="line">git <span class="built_in">tag</span> foo HEAD~<span class="number">4</span> <span class="comment">// 在当前提交之前的第4个版本上 打标签foo</span></span><br><span class="line">git push origin -<span class="params">-tags</span> <span class="comment">// 把所有打好的标签推送到远程仓库</span></span><br><span class="line">git push origin 标签名 <span class="comment">// 把指定标签推送到远程仓库</span></span><br><span class="line">git stash <span class="comment">// 把暂存区的内容 暂时放在其他中 使暂存区变空</span></span><br><span class="line">git stash <span class="built_in">list</span> <span class="comment">// 查看stash了哪些存储</span></span><br><span class="line">git stash pop <span class="comment">// 将stash中的内容恢复到当前目录，将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash apply <span class="comment">// 将stash中的内容恢复到当前目录，不会将缓存堆栈中的对应stash删除</span></span><br><span class="line">git stash clear <span class="comment">// 删除所有缓存的stash</span></span><br><span class="line">git pull -<span class="params">-tags</span> <span class="comment">// 把远程仓库的标签也拉取下来</span></span><br><span class="line">git push origin :refs/tags/远程标签名 <span class="comment">// 删除远程仓库的标签</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="21-分支"><a href="#21-分支" class="headerlink" title="21.分支"></a>21.分支</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git branch 分支名 <span class="comment">// 新建分支</span></span><br><span class="line">git branch <span class="comment">// 查看当前所有分支</span></span><br><span class="line">git checkout 分支名 <span class="comment">// 检出分支</span></span><br><span class="line">git checkout -b 分支名 <span class="comment">// 创建并切换分支</span></span><br><span class="line">git checkout commitId 文件名（文件路径下的文件名） 还原这个文件到对应的commitId的版本</span><br><span class="line">（例如src<span class="regexp">/page/</span>attendance<span class="regexp">/attendanceSum.vue我想把它还原到2个版本之前 首先git log src/</span>page<span class="regexp">/attendance/</span>attendanceSum.vue找到对应想要还原的版本</span><br><span class="line">复制版本提交的commitID 然后执行git checkout commitID src<span class="regexp">/page/</span>attendance/attendanceSum.vue</span><br><span class="line">这样就把attendanceSum.vue这个单个文件 还原到了对应版本）</span><br><span class="line">git branch -v <span class="comment">// 查看分支以及提交hash值和commit信息</span></span><br><span class="line">git merge 分支名 <span class="comment">// 把该分支的内容合并到现有分支上</span></span><br><span class="line">git branch -d 分支名 <span class="comment">// 删除分支</span></span><br><span class="line">git branch -D 分支名 <span class="comment">// 强制删除 若没有其他分支合并就删除 d会提示 D不会</span></span><br><span class="line">git branch -m 旧分支名 新分支名 <span class="comment">// 修改分支名</span></span><br><span class="line">git branch -M 旧分支名 新分支名 <span class="comment">// 修改分支名 M强制修改 若与其他分支有冲突也会创建(慎用)</span></span><br><span class="line">git branch -r <span class="comment">// 列出远程分支(远程所有分支名)</span></span><br><span class="line">git branch -a <span class="comment">// 查看远程分支(列出远程分支以及本地分支名)</span></span><br><span class="line">git fetch <span class="comment">// 更新remote索引</span></span><br><span class="line">git push -u origin 分支名 <span class="comment">// 将本地分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> markdown语法 </category>
-          
+        <category>git</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>文明上网实现正常访问google网站</title>
-      <link href="/2020/04/02/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/"/>
-      <url>/2020/04/02/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/</url>
-      
-        <content type="html"><![CDATA[<p>　　国内文明上网，实现正常访问Google网站</p><a id="more"></a><p>　　你们知道在国内为什么无法访问Google网站么？有兴趣的小伙伴可以百度搜索一下，我这里就不多说了<br>我们都知道，Google是搜索引擎界的大哥大，而我们在国内却无法使用，是不是感觉非常遗憾？在这里，我来告诉大家，<br>在国内，同样可以正常访问Google旗下的所有网站的方法：</p><h2 id="安装Chrome浏览器以及下载插件"><a href="#安装Chrome浏览器以及下载插件" class="headerlink" title="安装Chrome浏览器以及下载插件"></a>安装Chrome浏览器以及下载插件</h2><p>　　1、Chrome浏览器自行安装，这里不多说<br>　　2、其次，访问网站：<a href="https://chrome.zzzmh.cn/index" target="_blank" rel="noopener">https://chrome.zzzmh.cn/index</a><br>　　　　2.1、在网站首页右侧，点击：谷歌上网助手<span style="color:red">(图一)</span><br>　　　　2.2、点击后进入页面，在右侧有小贴士提示：<br>　　　　　　　请注意：本页面的版本原作者已停止更新，请点击跳转新版本 谷歌上网助手 Ghelper Beta<span style="color:red">(图二)</span><br>　　　　2.3、点击进入最新版本下载页面进行下载<span style="color:red">(图三)</span></p><h2 id="如图："><a href="#如图：" class="headerlink" title="如图："></a>如图：</h2><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google1.png" style="zoom:43%"><p align="center" style="color:blue">图一</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google2.png" style="zoom:50%"><p align="center" style="color:blue">图二</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google3.png" style="zoom:50%"><p align="center" style="color:blue">图三</p><h2 id="解压插件并进行安装使用"><a href="#解压插件并进行安装使用" class="headerlink" title="解压插件并进行安装使用"></a>解压插件并进行安装使用</h2><p>　　1、将下载好的插件进行解压<span style="color:red">(图四)</span>，目标文件：<span style="color:red">Ghelper Beta_2.1.2_chrome.zzzmh.cn.crx</span><br>　　2、将目标文件拖到Chrome浏览器的插件管理中，进行安装<span style="color:red">(图五)</span>;注意：需打开Chrome浏览器右上角的开发者模式<span style="color:red">(图六)</span><br>　　3、当插件拖进去安装时，会出现提示框<span style="color:red">(图七)</span>，然后这里选择点击添加扩展程序，到这里，该插件基本上已经OK了<br>　　4、安装好之后，点击浏览器网址输入框右侧新安装的插件图标<span style="color:red">(图八)</span>，这里需要注册登录，不需要购买VIP哦<br>　　5、到这里就结束了，你现在就可以正常的访问Google旗下的网址了，而且你会发现，Chrome浏览器访问网页的速度变快了很多</p><h2 id="如图"><a href="#如图" class="headerlink" title="如图:"></a>如图:</h2><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google4.png" style="zoom:70%"><p align="center" style="color:blue">图四</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google5.png" style="zoom:50%"><p align="center" style="color:blue">图五</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google6.png" style="zoom:64%"><p align="center" style="color:blue">图六</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google7.png" style="zoom:109%"><p align="center" style="color:blue">图七</p><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google8.png" style="zoom:102%"><p align="center" style="color:blue">图八</p>## 总结<p>　　Chrome是一款非常好用的浏览器，它可以安装多种插件，已满足用户的各种需求，更多功能需要自行慢慢研究探索哦<br>　　本人在另一篇文章中有为大家介绍几款非常实用的插件，有兴趣的小伙伴可以<a href="https://www.onlyyu.cn/2020/04/02/07/" target="_blank" rel="noopener"">点击浏览</a>哦</p>]]></content>
-      
-      
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown语法</title>
+    <url>/2020/04/21/markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<a id="more"></a>
+
+<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
+<ol>
+<li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
+<li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li>
+<li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li>
+<li>全新的 <strong>KaTeX数学公式</strong> 语法；</li>
+<li>增加了支持<strong>甘特图的mermaid语法<a href="[mermaid语法说明](https://mermaidjs.github.io/)">^1</a></strong> 功能；</li>
+<li>增加了 <strong>多屏幕编辑</strong> Markdown文章功能；</li>
+<li>增加了 <strong>焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置</strong> 等功能，功能按钮位于编辑区域与预览区域中间；</li>
+<li>增加了 <strong>检查列表</strong> 功能。</li>
+</ol>
+<h2 id="功能快捷键"><a href="#功能快捷键" class="headerlink" title="功能快捷键"></a>功能快捷键</h2><p>撤销：<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>重做：<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>加粗：<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>斜体：<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>标题：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>无序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>有序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>检查列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>插入代码：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>插入链接：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>插入图片：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd><br>查找：<kbd>Ctrl/Command</kbd> + <kbd>F</kbd><br>替换：<kbd>Ctrl/Command</kbd> + <kbd>G</kbd></p>
+<h2 id="合理的创建标题，有助于目录的生成"><a href="#合理的创建标题，有助于目录的生成" class="headerlink" title="合理的创建标题，有助于目录的生成"></a>合理的创建标题，有助于目录的生成</h2><p>直接输入1次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成1级标题。<br>输入2次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成2级标题。<br>以此类推，我们支持6级标题。有助于使用<code>TOC</code>语法后生成一个完美的目录。</p>
+<h2 id="如何改变文本的样式"><a href="#如何改变文本的样式" class="headerlink" title="如何改变文本的样式"></a>如何改变文本的样式</h2><p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>==标记文本==</p>
+<p><del>删除文本</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is是液体。</p>
+<p>2^10^ 运算结果是 1024.</p>
+<h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><p>链接: <a href="https://www.csdn.net/" target="_blank" rel="noopener">link</a>.</p>
+<p>图片:<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>带尺寸的图片: </p>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="zoom:30%">
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw =30x30</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="align-center:center"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>居中并且带尺寸的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" style="align-center:center;zoom:30%"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt</span>](<span class="link">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center =30x30</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p>
+<h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a href="https://mp.csdn.net/console/configBlog" target="_blank" rel="noopener">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// An highlighted block</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
+</ul>
+<h2 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h2><p>一个简单的表格是这么创建的：<br>| 项目 | Value |<br>| —- | —– |<br>| 电脑 | $1600 |<br>| 手机 | $12   |<br>| 导管 | $1    |</p>
+<h3 id="设定内容居中、居左、居右"><a href="#设定内容居中、居左、居右" class="headerlink" title="设定内容居中、居左、居右"></a>设定内容居中、居左、居右</h3><p>使用<code>:---------:</code>居中<br>使用<code>:----------</code>居左<br>使用<code>----------:</code>居右<br>|     第一列     |         第二列 | 第三列         |<br>| :————: | ————-: | :————- |<br>| 第一列文本居中 | 第二列文本居右 | 第三列文本居左 |</p>
+<h3 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h3><p>SmartyPants将ASCII标点字符转换为“智能”印刷标点HTML实体。例如：<br>|    TYPE   |ASCII                          |HTML<br>|—————-|——————————-|—————————–|<br>|Single backticks|<code>&#39;Isn&#39;t this fun?&#39;</code>            |’Isn’t this fun?’            |<br>|Quotes          |<code>&quot;Isn&#39;t this fun?&quot;</code>            |”Isn’t this fun?”            |<br>|Dashes          |<code>-- is en-dash, --- is em-dash</code>|– is en-dash, — is em-dash|</p>
+<h2 id="创建一个自定义列表"><a href="#创建一个自定义列表" class="headerlink" title="创建一个自定义列表"></a>创建一个自定义列表</h2><dl><dt>Markdown</dt><dd>Text-to-HTML conversion tool</dd></dl><dl><dt>Authors<br>:  John</dt><dd>Luke</dd></dl><h2 id="如何创建一个注脚"><a href="#如何创建一个注脚" class="headerlink" title="如何创建一个注脚"></a>如何创建一个注脚</h2><p>一个具有注脚的文本。<a href="注脚的解释">^2</a></p>
+<h2 id="注释也是必不可少的"><a href="#注释也是必不可少的" class="headerlink" title="注释也是必不可少的"></a>注释也是必不可少的</h2><p>Markdown将文本转换为 HTML。</p>
+<p>*[HTML]:   超文本标记语言</p>
+<h2 id="KaTeX数学公式"><a href="#KaTeX数学公式" class="headerlink" title="KaTeX数学公式"></a>KaTeX数学公式</h2><p>您可以使用渲染LaTeX数学表达式 <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p>
+<p>Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall<br>n\in\mathbb N$ 是通过欧拉积分</p>
+<p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt,.<br>$$</p>
+<blockquote>
+<p>你可以找到更多关于的信息 <strong>LaTeX</strong> 数学表达式<a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p>
+</blockquote>
+<h2 id="新的甘特图功能，丰富你的文章"><a href="#新的甘特图功能，丰富你的文章" class="headerlink" title="新的甘特图功能，丰富你的文章"></a>新的甘特图功能，丰富你的文章</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于 <strong>甘特图</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="UML-图表"><a href="#UML-图表" class="headerlink" title="UML 图表"></a>UML 图表</h2><p>可以使用UML图表进行渲染。 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. 例如下面产生的一个序列图：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br&#x2F;&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure>
+
+<p>这将产生一个流程图。:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Mermaid</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="FLowchart流程图"><a href="#FLowchart流程图" class="headerlink" title="FLowchart流程图"></a>FLowchart流程图</h2><p>我们依旧会支持flowchart的流程图：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">e&#x3D;&gt;end: 结束</span><br><span class="line">op&#x3D;&gt;operation: 我的操作</span><br><span class="line">cond&#x3D;&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Flowchart流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">这儿</a>.</li>
+</ul>
+<h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
+]]></content>
       <categories>
-          
-          <category> Google </category>
-          
-          <category> chrome </category>
-          
-          <category> 插件 </category>
-          
+        <category>markdown语法</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Google </tag>
-            
-            <tag> chrome </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hexo主题如何将文章置顶</title>
-      <link href="/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/"/>
-      <url>/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</url>
-      
-        <content type="html"><![CDATA[<p>　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。</p><a id="more"></a><p>这里简单写一下实现hexo文章置顶功能</p><h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p>　　找到node_modules/hexo-generator-index/lib/generator.js这个文件。<br>　　在代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br></pre></td></tr></table></figure><p>　　下面添加以下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 如果两篇文章top都有定义</span></span><br><span class="line"><span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 如果top值一样则按照文章日期降序排</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 如果只有一篇文章top有定义，那么将有top的排在前面</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">            <span class="keyword">const</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line"></span><br><span class="line">            posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">                                <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">                                <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">                                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">                                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">const</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">            <span class="keyword">const</span> path = config.index_generator.path || <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> pagination(path, posts, &#123;</span><br><span class="line">                perPage: config.index_generator.per_page,</span><br><span class="line">                layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">                format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    __index: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line">date: 文章发布时间</span><br><span class="line">tags: 文章标签</span><br><span class="line">top: 100(文章置顶)</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>　　迁移时，切莫忘记备份node_modules/hexo-generator-index/lib/generator.js这个文件</p>]]></content>
-      
-      
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文明上网实现正常访问google网站</title>
+    <url>/2020/04/02/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>　　国内文明上网，实现正常访问Google网站</p>
+<a id="more"></a>
+<p>　　你们知道在国内为什么无法访问Google网站么？有兴趣的小伙伴可以百度搜索一下，我这里就不多说了<br>我们都知道，Google是搜索引擎界的大哥大，而我们在国内却无法使用，是不是感觉非常遗憾？在这里，我来告诉大家，<br>在国内，同样可以正常访问Google旗下的所有网站的方法：</p>
+<h2 id="安装Chrome浏览器以及下载插件"><a href="#安装Chrome浏览器以及下载插件" class="headerlink" title="安装Chrome浏览器以及下载插件"></a>安装Chrome浏览器以及下载插件</h2><p>　　1、Chrome浏览器自行安装，这里不多说<br>　　2、其次，访问网站：<a href="https://chrome.zzzmh.cn/index" target="_blank" rel="noopener">https://chrome.zzzmh.cn/index</a><br>　　　　2.1、在网站首页右侧，点击：谷歌上网助手<span style="color:red">(图一)</span><br>　　　　2.2、点击后进入页面，在右侧有小贴士提示：<br>　　　　　　　请注意：本页面的版本原作者已停止更新，请点击跳转新版本 谷歌上网助手 Ghelper Beta<span style="color:red">(图二)</span><br>　　　　2.3、点击进入最新版本下载页面进行下载<span style="color:red">(图三)</span></p>
+<h2 id="如图："><a href="#如图：" class="headerlink" title="如图："></a>如图：</h2><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google1.png" style="zoom:43%">
+
+<p align="center" style="color:blue">图一</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google2.png" style="zoom:50%">
+
+<p align="center" style="color:blue">图二</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google3.png" style="zoom:50%">
+
+<p align="center" style="color:blue">图三</p>
+
+
+<h2 id="解压插件并进行安装使用"><a href="#解压插件并进行安装使用" class="headerlink" title="解压插件并进行安装使用"></a>解压插件并进行安装使用</h2><p>　　1、将下载好的插件进行解压<span style="color:red">(图四)</span>，目标文件：<span style="color:red">Ghelper Beta_2.1.2_chrome.zzzmh.cn.crx</span><br>　　2、将目标文件拖到Chrome浏览器的插件管理中，进行安装<span style="color:red">(图五)</span>;注意：需打开Chrome浏览器右上角的开发者模式<span style="color:red">(图六)</span><br>　　3、当插件拖进去安装时，会出现提示框<span style="color:red">(图七)</span>，然后这里选择点击添加扩展程序，到这里，该插件基本上已经OK了<br>　　4、安装好之后，点击浏览器网址输入框右侧新安装的插件图标<span style="color:red">(图八)</span>，这里需要注册登录，不需要购买VIP哦<br>　　5、到这里就结束了，你现在就可以正常的访问Google旗下的网址了，而且你会发现，Chrome浏览器访问网页的速度变快了很多</p>
+<h2 id="如图"><a href="#如图" class="headerlink" title="如图:"></a>如图:</h2><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google4.png" style="zoom:70%">
+
+<p align="center" style="color:blue">图四</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google5.png" style="zoom:50%">
+
+<p align="center" style="color:blue">图五</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google6.png" style="zoom:64%">
+
+<p align="center" style="color:blue">图六</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google7.png" style="zoom:109%">
+
+<p align="center" style="color:blue">图七</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/Google8.png" style="zoom:102%">
+
+<p align="center" style="color:blue">图八</p>
+## 总结
+
+<p>　　Chrome是一款非常好用的浏览器，它可以安装多种插件，已满足用户的各种需求，更多功能需要自行慢慢研究探索哦<br>　　本人在另一篇文章中有为大家介绍几款非常实用的插件，有兴趣的小伙伴可以<a href="https://www.onlyyu.cn/2020/04/02/07/" target="_blank" rel="noopener"">点击浏览</a>哦</p>
+]]></content>
       <categories>
-          
-          <category> hexo </category>
-          
+        <category>Google</category>
+        <category>chrome</category>
+        <category>插件</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo,文章置顶 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何创建vue脚手架</title>
-      <link href="/2020/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/"/>
-      <url>/2020/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
-      
-        <content type="html"><![CDATA[<p>　　这是一篇教你如何设置国内源来快速安装Vue脚手架的教程</p><a id="more"></a><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>　　首先设置国内源，这样你的下载速度会非常快：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><p>　　查看源：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm<span class="built_in"> config </span>list</span><br></pre></td></tr></table></figure><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>　　首先要卸载原有的vue版本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall vue-cli -g</span><br></pre></td></tr></table></figure><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>　　安装vue：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @vue/cli -g</span><br></pre></td></tr></table></figure><h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>　　创建项目前要先执行命令：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br></pre></td></tr></table></figure><p>　　执行完后再执行命令：(文件名自己取)</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack 文件名</span><br></pre></td></tr></table></figure><p>　　安装过程中一次提示如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project name（项目名称）  <span class="comment"># 按回车</span></span><br><span class="line">project description（项目描述） <span class="comment"># 按回车</span></span><br><span class="line">author（作者） <span class="comment"># 按回车</span></span><br><span class="line">vue build（解释器） <span class="comment"># 按回车</span></span><br><span class="line">Install vue-router(路由) <span class="comment"># 按y按回车</span></span><br><span class="line">use aslantto lint your code(代码检查) <span class="comment"># 按n按回车</span></span><br><span class="line"><span class="built_in">set</span> up unit tests(测试模块) <span class="comment"># 按n按回车</span></span><br><span class="line">setup e2e tests with night watch(是否安装e2e) <span class="comment"># 按n按回车</span></span><br><span class="line">should we run ’npm install’(是否选择npm方式)<span class="comment"># 选第一个，按回车</span></span><br></pre></td></tr></table></figure><h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><p>　　运行完之后：<br>    　　cd 到项目中，可以安装一些常用的包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install axios --save</span><br><span class="line">npm install style-loader —-save</span><br><span class="line">npm install heyui --save</span><br><span class="line">npm install js-md5 --save</span><br></pre></td></tr></table></figure><p>　　安装完之后可以直接启动：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure><p>　　退出服务：</p><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + <span class="keyword">c</span></span><br></pre></td></tr></table></figure><h2 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h2><p>　　　　如果出现任何关于node依赖的问题导致服务无法启动，执行npm install无法解决的，则安装rimraf,然后进入项目目录下，<br>　　执行rimraf node_modules 删除后，重新执行 npm install 安装依赖<br>　　安装rimraf：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> rimraf -g</span><br></pre></td></tr></table></figure><p>　　删除node_modules：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rimraf node_modules</span></span><br></pre></td></tr></table></figure><p>　　重新安装node_modules：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>Google</tag>
+        <tag>chrome</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo主题如何将文章置顶</title>
+    <url>/2020/03/15/hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</url>
+    <content><![CDATA[<p>　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。</p>
+<a id="more"></a>
+<p>这里简单写一下实现hexo文章置顶功能</p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p>　　找到node_modules/hexo-generator-index/lib/generator.js这个文件。<br>　　在代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br></pre></td></tr></table></figure>
+
+<p>　　下面添加以下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 如果两篇文章top都有定义</span></span><br><span class="line">		<span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 如果top值一样则按照文章日期降序排</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; 		<span class="comment">// 否则按照top值降序排</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; 		<span class="comment">// 如果只有一篇文章top有定义，那么将有top的排在前面</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">            <span class="keyword">const</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line"></span><br><span class="line">            posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">                                <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">                                <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">                                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">                                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">const</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">            <span class="keyword">const</span> path = config.index_generator.path || <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> pagination(path, posts, &#123;</span><br><span class="line">                perPage: config.index_generator.per_page,</span><br><span class="line">                layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">                format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    __index: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line">date: 文章发布时间</span><br><span class="line">tags: 文章标签</span><br><span class="line">top: 100(文章置顶)</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>　　迁移时，切莫忘记备份node_modules/hexo-generator-index/lib/generator.js这个文件</p>
+]]></content>
       <categories>
-          
-          <category> vue </category>
-          
+        <category>hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> vue.js </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>gitee取消输入用户名及密码</title>
-      <link href="/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/"/>
-      <url>/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</url>
-      
-        <content type="html"><![CDATA[<p>　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？</p><a id="more"></a><p>本篇文章为您揭晓…</p><h2 id="第一步、查看通信方式"><a href="#第一步、查看通信方式" class="headerlink" title="第一步、查看通信方式"></a>第一步、查看通信方式</h2><p>　　在你的本地仓库中,打开命令窗口,执行以下代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure><p>　　如果是：<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (fetch)<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (push)<br>　　则证明是https 通信，这样每次都会提示输入用户名和密码，然后我们将其修改为ssh绑定gitee仓库服务端</p><h2 id="第二步、通过以下命令删除原有origin的通信方式"><a href="#第二步、通过以下命令删除原有origin的通信方式" class="headerlink" title="第二步、通过以下命令删除原有origin的通信方式"></a>第二步、通过以下命令删除原有origin的通信方式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure><h2 id="第三步、重新add-，通过ssh绑定gitee仓库服务端"><a href="#第三步、重新add-，通过ssh绑定gitee仓库服务端" class="headerlink" title="第三步、重新add ，通过ssh绑定gitee仓库服务端"></a>第三步、重新add ，通过ssh绑定gitee仓库服务端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@gitee.com:USERNAME/UM.git</span><br></pre></td></tr></table></figure><p>　　username填写gitee户名，um.git 填写仓库名.git<br>　　若怕输错，也可以去仓库里【克隆/下载】的地方，直接复制SSH路由</p>]]></content>
-      
-      
+      <tags>
+        <tag>hexo,文章置顶</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何创建vue脚手架</title>
+    <url>/2020/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <content><![CDATA[<p>　　这是一篇教你如何设置国内源来快速安装Vue脚手架的教程</p>
+<a id="more"></a>
+
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>　　首先设置国内源，这样你的下载速度会非常快：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">npm set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>　　查看源：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">npm<span class="built_in"> config </span>list</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>　　首先要卸载原有的vue版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm uninstall vue-cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>　　安装vue：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>　　创建项目前要先执行命令：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br></pre></td></tr></table></figure>
+
+<p>　　执行完后再执行命令：(文件名自己取)</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">vue init webpack 文件名</span><br></pre></td></tr></table></figure>
+
+
+<p>　　安装过程中一次提示如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">project name（项目名称）	  <span class="comment"># 按回车</span></span><br><span class="line">project description（项目描述）	 <span class="comment"># 按回车</span></span><br><span class="line">author（作者）	 <span class="comment"># 按回车</span></span><br><span class="line">vue build（解释器）	 <span class="comment"># 按回车</span></span><br><span class="line">Install vue-router(路由) 		<span class="comment"># 按y按回车</span></span><br><span class="line">use aslantto lint your code(代码检查) 	<span class="comment"># 按n按回车</span></span><br><span class="line"><span class="built_in">set</span> up unit tests(测试模块) 	<span class="comment"># 按n按回车</span></span><br><span class="line">setup e2e tests with night watch(是否安装e2e) 	<span class="comment"># 按n按回车</span></span><br><span class="line">should we run ’npm install’(是否选择npm方式)	<span class="comment"># 选第一个，按回车</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><p>　　运行完之后：<br>    　　cd 到项目中，可以安装一些常用的包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install axios --save</span><br><span class="line">npm install style-loader —-save</span><br><span class="line">npm install heyui --save</span><br><span class="line">npm install js-md5 --save</span><br></pre></td></tr></table></figure>
+
+<p>　　安装完之后可以直接启动：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p>　　退出服务：</p>
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">ctrl + <span class="keyword">c</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h2><p>　　　　如果出现任何关于node依赖的问题导致服务无法启动，执行npm install无法解决的，则安装rimraf,然后进入项目目录下，<br>　　执行rimraf node_modules 删除后，重新执行 npm install 安装依赖<br>　　安装rimraf：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> rimraf -g</span><br></pre></td></tr></table></figure>
+
+<p>　　删除node_modules：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">rimraf node_modules</span></span><br></pre></td></tr></table></figure>
+
+<p>　　重新安装node_modules：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>vue</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> gitee </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hexo常用命令</title>
-      <link href="/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<p>　　Hexo是一款非常流行且好用的个人博客模板，下面我们一起来看一下Hexo的常用命令是什么吧……</p><a id="more"></a><h2 id="常见命令："><a href="#常见命令：" class="headerlink" title="常见命令："></a>常见命令：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure><h2 id="缩写："><a href="#缩写：" class="headerlink" title="缩写："></a>缩写：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure><h2 id="组合命令："><a href="#组合命令：" class="headerlink" title="组合命令："></a>组合命令：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure><h2 id="写博客："><a href="#写博客：" class="headerlink" title="写博客："></a>写博客：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定位到我们的hexo根目录，执行命令：</span><br><span class="line">hexo new <span class="string">'my-first-blog'</span></span><br><span class="line">hexo会帮我们在`_posts`下生成相关md文件：</span><br><span class="line"><span class="comment"># 命令窗口中：</span></span><br><span class="line">F:\blog\hexo&gt;hexo new <span class="string">"my-first-blog"</span></span><br><span class="line">INFO  Created: F:\blog\hexo\<span class="built_in">source</span>\_posts\hexo常用命令-1.md</span><br></pre></td></tr></table></figure><p>　　我们只需要打开这个文件就可以开始写博客了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认生成如下内容：</span></span><br><span class="line">---</span><br><span class="line">title: my-first-blog</span><br><span class="line">date: 2013-12-02 15:30:16 </span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>　　当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一般完整格式如下：</span></span><br><span class="line">---</span><br><span class="line">title: postName <span class="comment">#文章页面上的显示名称，一般是中文</span></span><br><span class="line">date: 2013-12-02 15:30:16 <span class="comment">#文章生成时间，一般不改，当然也可以任意修改</span></span><br><span class="line">categories: 默认分类 <span class="comment">#分类</span></span><br><span class="line">tags: [tag1,tag2,tag3] <span class="comment">#文章标签，可空，多标签请用格式，注意:后面有个空格</span></span><br><span class="line">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gitee取消输入用户名及密码</title>
+    <url>/2020/03/13/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</url>
+    <content><![CDATA[<p>　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？</p>
+<a id="more"></a>
+<p>本篇文章为您揭晓…</p>
+<h2 id="第一步、查看通信方式"><a href="#第一步、查看通信方式" class="headerlink" title="第一步、查看通信方式"></a>第一步、查看通信方式</h2><p>　　在你的本地仓库中,打开命令窗口,执行以下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<p>　　如果是：<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (fetch)<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (push)<br>　　则证明是https 通信，这样每次都会提示输入用户名和密码，然后我们将其修改为ssh绑定gitee仓库服务端</p>
+<h2 id="第二步、通过以下命令删除原有origin的通信方式"><a href="#第二步、通过以下命令删除原有origin的通信方式" class="headerlink" title="第二步、通过以下命令删除原有origin的通信方式"></a>第二步、通过以下命令删除原有origin的通信方式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三步、重新add-，通过ssh绑定gitee仓库服务端"><a href="#第三步、重新add-，通过ssh绑定gitee仓库服务端" class="headerlink" title="第三步、重新add ，通过ssh绑定gitee仓库服务端"></a>第三步、重新add ，通过ssh绑定gitee仓库服务端</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:USERNAME/UM.git</span><br></pre></td></tr></table></figure>
+
+<p>　　username填写gitee户名，um.git 填写仓库名.git<br>　　若怕输错，也可以去仓库里【克隆/下载】的地方，直接复制SSH路由</p>
+]]></content>
       <categories>
-          
-          <category> hexo </category>
-          
+        <category>git</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>GitHub访问及clone缓慢的方法</title>
-      <link href="/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-      <url>/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<p>　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？</p><a id="more"></a><p>那么，这种情况该如何杜绝呢？请继续往下阅读……</p><h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><p>　　点击访问网址：<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a><br>　　在该网址中搜索：<br>　　　　github.global.ssl.fastly.net<br>　　　　github.com<br>　　得到相应的ip地址<span style="color:red">(如图一，图二)</span></p><h2 id="如图"><a href="#如图" class="headerlink" title="如图:"></a>如图:</h2><img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%951.png" style="zoom:67%;" /><p style="color:blue;text-align:center">图一</p><img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%952.png" style="zoom:67%;" /><p style="color:blue;text-align:center">图二</p>第二步：---<p>　　找到个人电脑中的hosts文件，此文件在每个电脑上的路径基本上是一致的：C:\Windows\System32\drivers\etc<br>　　打开后将获取到的ip地址及网址添加到posts文件的最下面，保存后退出<br>　　例如：<br>　　　　151.101.185.194 github.global-ssl.fastly.net<br>　　　　192.30.253.112 github.com<br>　　注意：<br>　　　　因此文件在系统目录中，所以无法直接保存，可将posts文件复制到桌面进行修改<br>　　　　修改完成后粘贴到C:\Windows\System32\drivers\etc目录中进行取代之前的posts文件</p><h2 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h2><p>　　当第二步完成后，我们需要更新DNS<br>　　Winodws系统的做法：打开CMD，输入ipconfig /flushdns<br>　　Linux的做法：在终端输入sudo /etc/init.d/networking restart</p><h2 id="另："><a href="#另：" class="headerlink" title="另："></a>另：</h2><p>　　如果添加上面两条ip后无任何作用，可复制以下内容添加到posts文件中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>　　只要脑子不滑坡，办法总比困难多，祝各位机友越学越年轻，都能有自己满意的成果<br>　　如果感觉麻烦，或者不想修改电脑C盘中的文件，则可以参考我的另一篇文章来实现快速访问<a href="https://www.onlyyu.cn/2020/04/02/07/" target="_blank" rel="noopener">点击这里阅读</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo常用命令</title>
+    <url>/2020/03/13/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>　　Hexo是一款非常流行且好用的个人博客模板，下面我们一起来看一下Hexo的常用命令是什么吧……</p>
+<a id="more"></a>
+
+<h2 id="常见命令："><a href="#常见命令：" class="headerlink" title="常见命令："></a>常见命令：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 					<span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy 					<span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  					<span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  					<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="缩写："><a href="#缩写：" class="headerlink" title="缩写："></a>缩写：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合命令："><a href="#组合命令：" class="headerlink" title="组合命令："></a>组合命令：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="写博客："><a href="#写博客：" class="headerlink" title="写博客："></a>写博客：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">定位到我们的hexo根目录，执行命令：</span><br><span class="line">	hexo new <span class="string">'my-first-blog'</span></span><br><span class="line">hexo会帮我们在`_posts`下生成相关md文件：</span><br><span class="line"><span class="comment"># 命令窗口中：</span></span><br><span class="line">F:\blog\hexo&gt;hexo new <span class="string">"my-first-blog"</span></span><br><span class="line">INFO  Created: F:\blog\hexo\<span class="built_in">source</span>\_posts\hexo常用命令-1.md</span><br></pre></td></tr></table></figure>
+
+<p>　　我们只需要打开这个文件就可以开始写博客了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认生成如下内容：</span></span><br><span class="line">---</span><br><span class="line">title: my-first-blog</span><br><span class="line">date: 2013-12-02 15:30:16 </span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>　　当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一般完整格式如下：</span></span><br><span class="line">---</span><br><span class="line">title: postName <span class="comment">#文章页面上的显示名称，一般是中文</span></span><br><span class="line">date: 2013-12-02 15:30:16 <span class="comment">#文章生成时间，一般不改，当然也可以任意修改</span></span><br><span class="line">categories: 默认分类 <span class="comment">#分类</span></span><br><span class="line">tags: [tag1,tag2,tag3] <span class="comment">#文章标签，可空，多标签请用格式，注意:后面有个空格</span></span><br><span class="line">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>hexo</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> gitee </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub访问及clone缓慢的方法</title>
+    <url>/2020/03/12/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？</p>
+<a id="more"></a>
+<p>那么，这种情况该如何杜绝呢？请继续往下阅读……</p>
+<h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><p>　　点击访问网址：<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a><br>　　在该网址中搜索：<br>　　　　github.global.ssl.fastly.net<br>　　　　github.com<br>　　得到相应的ip地址<span style="color:red">(如图一，图二)</span></p>
+<h2 id="如图"><a href="#如图" class="headerlink" title="如图:"></a>如图:</h2><img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%951.png" style="zoom:67%;" />
+
+<p style="color:blue;text-align:center">图一</p>
+<img src="http://q72tcv6j6.bkt.clouddn.com/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%952.png" style="zoom:67%;" />
+
+<p style="color:blue;text-align:center">图二</p>
+第二步：
+---
+
+<p>　　找到个人电脑中的hosts文件，此文件在每个电脑上的路径基本上是一致的：C:\Windows\System32\drivers\etc<br>　　打开后将获取到的ip地址及网址添加到posts文件的最下面，保存后退出<br>　　例如：<br>　　　　151.101.185.194 github.global-ssl.fastly.net<br>　　　　192.30.253.112 github.com<br>　　注意：<br>　　　　因此文件在系统目录中，所以无法直接保存，可将posts文件复制到桌面进行修改<br>　　　　修改完成后粘贴到C:\Windows\System32\drivers\etc目录中进行取代之前的posts文件</p>
+<h2 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h2><p>　　当第二步完成后，我们需要更新DNS<br>　　Winodws系统的做法：打开CMD，输入ipconfig /flushdns<br>　　Linux的做法：在终端输入sudo /etc/init.d/networking restart</p>
+<h2 id="另："><a href="#另：" class="headerlink" title="另："></a>另：</h2><p>　　如果添加上面两条ip后无任何作用，可复制以下内容添加到posts文件中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>　　只要脑子不滑坡，办法总比困难多，祝各位机友越学越年轻，都能有自己满意的成果<br>　　如果感觉麻烦，或者不想修改电脑C盘中的文件，则可以参考我的另一篇文章来实现快速访问<a href="https://www.onlyyu.cn/2020/04/02/07/" target="_blank" rel="noopener">点击这里阅读</a></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
 </search>
