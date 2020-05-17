@@ -668,10 +668,10 @@
 
 <h4 id="8、中止进程"><a href="#8、中止进程" class="headerlink" title="8、中止进程"></a>8、中止进程</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 6832</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>CentOS8</category>
+        <category>CentOS</category>
       </categories>
       <tags>
-        <tag>CentOS8</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -831,10 +831,10 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 <p>以上.</p>
 ]]></content>
       <categories>
-        <category>CentOS</category>
+        <category>Redis</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -879,10 +879,10 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 <p>以上.</p>
 ]]></content>
       <categories>
-        <category>CentOS</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -960,10 +960,10 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 <p>以上,就是mysql主从配置的操作</p>
 ]]></content>
       <categories>
-        <category>CentOS</category>
+        <category>MySQL</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1031,10 +1031,10 @@ show slave status\G  </code></pre>
 <p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
-        <category>CentOS</category>
+        <category>MySQL</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1789,7 +1789,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>阿里云旗下ecs云服务器配置使用详情</title>
-    <url>/2019/12/23/Ubuntu/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/</url>
+    <url>/2019/12/23/CentOS/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/</url>
     <content><![CDATA[<h2 id="前段时间-与朋友在阿里云平台上一起购买了一台云服务器"><a href="#前段时间-与朋友在阿里云平台上一起购买了一台云服务器" class="headerlink" title="前段时间,与朋友在阿里云平台上一起购买了一台云服务器"></a>前段时间,与朋友在阿里云平台上一起购买了一台云服务器</h2><h2 id="原定计划是安装ubuntu系统来使用-方便配置-后面因为我们两个侧重点都在python上-于是选择了本身自带python环境的centos系统-在这个过程中-遇到了各种各样的问题"><a href="#原定计划是安装ubuntu系统来使用-方便配置-后面因为我们两个侧重点都在python上-于是选择了本身自带python环境的centos系统-在这个过程中-遇到了各种各样的问题" class="headerlink" title="原定计划是安装ubuntu系统来使用,方便配置,后面因为我们两个侧重点都在python上,于是选择了本身自带python环境的centos系统,在这个过程中,遇到了各种各样的问题"></a>原定计划是安装ubuntu系统来使用,方便配置,后面因为我们两个侧重点都在python上,于是选择了本身自带python环境的centos系统,在这个过程中,遇到了各种各样的问题</h2><a id="more"></a>
 
 <h2 id="我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总"><a href="#我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总" class="headerlink" title="我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总"></a>我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总</h2><h2 id="看到这篇文章的朋友如果有什么疑问-可以给作者发私信"><a href="#看到这篇文章的朋友如果有什么疑问-可以给作者发私信" class="headerlink" title="看到这篇文章的朋友如果有什么疑问,可以给作者发私信"></a>看到这篇文章的朋友如果有什么疑问,可以给作者发私信</h2><ol>
@@ -1832,10 +1832,10 @@ show slave status\G  </code></pre>
 <p>​    </p>
 ]]></content>
       <categories>
-        <category>Centos</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1846,10 +1846,10 @@ show slave status\G  </code></pre>
 <p>[root@localhost /]# node -v<br>v10.9.0<br>[root@localhost /]# npm -v<br>6.2.0</p>
 ]]></content>
       <categories>
-        <category>CentOS</category>
+        <category>Node.js</category>
       </categories>
       <tags>
-        <tag>Node.js</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -2491,18 +2491,6 @@ print(res.text)
       </tags>
   </entry>
   <entry>
-    <title>flask文件下载</title>
-    <url>/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
-<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>flask中g定向</title>
     <url>/2018/10/14/Flask/g%E5%AE%9A%E5%90%91/</url>
     <content><![CDATA[<h2 id="g定向"><a href="#g定向" class="headerlink" title="g定向"></a>g定向</h2><a id="more"></a>
@@ -2531,6 +2519,18 @@ def func():
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flask文件下载</title>
+    <url>/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
+<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
       <categories>
         <category>Flask</category>
       </categories>
