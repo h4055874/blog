@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CentOS 8安装mysql8.0</title>
+    <url>/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/</url>
+    <content><![CDATA[<h3 id="CentOS-8-安装MySQL-8-0"><a href="#CentOS-8-安装MySQL-8-0" class="headerlink" title="CentOS 8 安装MySQL 8.0"></a>CentOS 8 安装MySQL 8.0</h3><a id="more"></a>
+
+<h4 id="1、使用最新的包管理器安装MySQL"><a href="#1、使用最新的包管理器安装MySQL" class="headerlink" title="1、使用最新的包管理器安装MySQL"></a>1、使用最新的包管理器安装MySQL</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、开启启动"><a href="#2、开启启动" class="headerlink" title="2、开启启动"></a>2、开启启动</h4><p><strong>安装完成后，运行以下命令来启动MySQL服务并使它在启动时自动启动：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、要检查MySQL服务器是否正在运行"><a href="#3、要检查MySQL服务器是否正在运行" class="headerlink" title="3、要检查MySQL服务器是否正在运行"></a>3、要检查MySQL服务器是否正在运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、添加密码及安全设置"><a href="#4、添加密码及安全设置" class="headerlink" title="4、添加密码及安全设置"></a>4、添加密码及安全设置</h4><p><strong>运行mysql_secure_installation脚本，该脚本执行一些与安全性相关的操作并设置MySQL根密码：**</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo mysql_secure_installation</span></span><br></pre></td></tr></table></figure>
+
+<p>步骤如下：</p>
+<p>1、要求你配置VALIDATE PASSWORD component（验证密码组件）： 输入y ，回车进入该配置</p>
+<ul>
+<li>选择密码验证策略等级， 我这里选择0 （low），回车</li>
+<li>输入新密码两次</li>
+<li>确认是否继续使用提供的密码？输入y ，回车</li>
+<li>移除匿名用户？ 输入y ，回车</li>
+<li>不允许root远程登陆？ 我这里需要远程登陆，所以输入n ，回车</li>
+</ul>
+<p>2、移除test数据库？ 输入y ，回车</p>
+<p>3、重新载入权限表？ 输入y ，回车</p>
+<h4 id="5、配置远程登陆"><a href="#5、配置远程登陆" class="headerlink" title="5、配置远程登陆"></a>5、配置远程登陆</h4><p>如果需要设置root账户远程登陆，上一步骤中，<code>不允许root远程登陆？</code>这一步需要设为n。<br>接下来本机登录MySQL，将root用户的host字段设为’%’，意为接受root所有IP地址的登录请求：<br>本机登录MySQL:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p&lt;上面步骤中设置的密码&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>接着继续执行mysql语句，将将root用户的host字段设为’%’：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">'%'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后输入exit退出mysql，回到终端shell界面，接着开启系统防火墙的3306端口：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --add-port=3306/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="6、关闭MySQL主机查询dns"><a href="#6、关闭MySQL主机查询dns" class="headerlink" title="6、关闭MySQL主机查询dns"></a>6、关闭MySQL主机查询dns</h4><p>MySQL会反向解析远程连接地址的dns记录，如果MySQL主机无法连接外网，则dns可能无法解析成功，</p>
+<p>导致第一次连接MySQL速度很慢，所以在配置中可以关闭该功能。</p>
+<p>打开<code>/etc/my.cnf</code>文件，添加以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+
+<h4 id="7、重启服务"><a href="#7、重启服务" class="headerlink" title="7、重启服务"></a>7、重启服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<p><strong>本机测试安装后，MySQL8.0默认已经是utf8mb4字符集，所以字符集不再修改</strong></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>虚拟环境命令</title>
     <url>/2020/05/17/Spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="1、安装虚拟环境"><a href="#1、安装虚拟环境" class="headerlink" title="1、安装虚拟环境"></a>1、安装虚拟环境</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令：pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line">    https://pypi.tuna.tsinghua.edu.cn/simple网址是清华源网址，-i 加清华源网址会提高下载速度</span><br></pre></td></tr></table></figure>
@@ -702,8 +753,8 @@
         <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>Ubuntu</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1002,13 +1053,13 @@ show slave status\G  </code></pre>
 </li>
 <li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
 </li>
-<li><p><del>够扯淡,我喜欢</del><img src="/fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
 </li>
 <li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
 </li>
 <li><p>然后…..</p>
 </li>
-<li><p><img src="/fcg22450.github.io/images/meme/what.png" alt="what"></p>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
 </li>
 <li><p>居然是真的??????????</p>
 </li>
@@ -2326,6 +2377,22 @@ client.ecnet(text);
       </tags>
   </entry>
   <entry>
+    <title>动态获取数据</title>
+    <url>/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
+<ol>
+<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
+<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>代理ip</title>
     <url>/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -2388,22 +2455,6 @@ print(res.text)
       </tags>
   </entry>
   <entry>
-    <title>动态获取数据</title>
-    <url>/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</url>
-    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
-<ol>
-<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
-<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>flask文件上传</title>
     <url>/2018/10/24/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
     <content><![CDATA[<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传:"></a>文件上传:</h2><a id="more"></a>
@@ -2429,6 +2480,18 @@ print(res.text)
 <p>  class userForm(Form):<br>      #创建文件上传约束<br>      avater = FileField(validators=[FileRequired(),FileAllowed([‘jpg’,’png’,’gif’])])</p>
 <p>  @app.route(‘/‘,methods=[‘GET’,’POST’])<br>  dedf func():<br>      if request.method == ‘GET’:<br>          return render_template(‘add.html’)<br>      else:<br>          #使用ConbinedMultiDict模块对传输的两个不同的值进行合并,一起传入wtf文件传输判定中进行验证<br>          userform = userForm(CombinedMultiDict([request.form,request.files]))<br>          if userform.validate():<br>              avater = userform.avater.data<br>              filename = secure_filename(avater.filename)<br>              avater.save(os.path.join(upload_url,filename))<br>              return ‘上传成功’</p>
 <pre><code></code></pre>]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flask文件下载</title>
+    <url>/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
+<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
       <categories>
         <category>Flask</category>
       </categories>
@@ -2519,18 +2582,6 @@ def func():
 </li>
 </ul>
 ]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask文件下载</title>
-    <url>/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
-<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
       <categories>
         <category>Flask</category>
       </categories>

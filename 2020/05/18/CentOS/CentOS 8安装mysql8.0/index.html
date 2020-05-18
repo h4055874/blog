@@ -23,22 +23,27 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yu ting&#39;s blog">
-<meta property="og:url" content="https://onlyyu.cn/archives/2019/index.html">
+  <meta name="description" content="CentOS 8 安装MySQL 8.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 8安装mysql8.0">
+<meta property="og:url" content="https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/index.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="CentOS 8 安装MySQL 8.0">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-18T15:54:15.000Z">
+<meta property="article:modified_time" content="2020-05-18T15:54:05.833Z">
 <meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="CentOS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/archives/2019/">
+<link rel="canonical" href="https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
@@ -47,7 +52,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>归档 | Yu ting's blog</title>
+  <title>CentOS 8安装mysql8.0 | Yu ting's blog</title>
   
 
 
@@ -295,233 +300,254 @@ input[type="radio"]:not(:checked) + label:after {
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS 8安装mysql8.0
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-18 23:54:15 / 修改时间：23:54:05" itemprop="dateCreated datePublished" datetime="2020-05-18T23:54:15+08:00">2020-05-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 8安装mysql8.0" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">很好! 目前共计 102 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+        <h3 id="CentOS-8-安装MySQL-8-0"><a href="#CentOS-8-安装MySQL-8-0" class="headerlink" title="CentOS 8 安装MySQL 8.0"></a>CentOS 8 安装MySQL 8.0</h3><a id="more"></a>
+
+<h4 id="1、使用最新的包管理器安装MySQL"><a href="#1、使用最新的包管理器安装MySQL" class="headerlink" title="1、使用最新的包管理器安装MySQL"></a>1、使用最新的包管理器安装MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、开启启动"><a href="#2、开启启动" class="headerlink" title="2、开启启动"></a>2、开启启动</h4><p><strong>安装完成后，运行以下命令来启动MySQL服务并使它在启动时自动启动：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、要检查MySQL服务器是否正在运行"><a href="#3、要检查MySQL服务器是否正在运行" class="headerlink" title="3、要检查MySQL服务器是否正在运行"></a>3、要检查MySQL服务器是否正在运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、添加密码及安全设置"><a href="#4、添加密码及安全设置" class="headerlink" title="4、添加密码及安全设置"></a>4、添加密码及安全设置</h4><p><strong>运行mysql_secure_installation脚本，该脚本执行一些与安全性相关的操作并设置MySQL根密码：**</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo mysql_secure_installation</span></span><br></pre></td></tr></table></figure>
+
+<p>步骤如下：</p>
+<p>1、要求你配置VALIDATE PASSWORD component（验证密码组件）： 输入y ，回车进入该配置</p>
+<ul>
+<li>选择密码验证策略等级， 我这里选择0 （low），回车</li>
+<li>输入新密码两次</li>
+<li>确认是否继续使用提供的密码？输入y ，回车</li>
+<li>移除匿名用户？ 输入y ，回车</li>
+<li>不允许root远程登陆？ 我这里需要远程登陆，所以输入n ，回车</li>
+</ul>
+<p>2、移除test数据库？ 输入y ，回车</p>
+<p>3、重新载入权限表？ 输入y ，回车</p>
+<h4 id="5、配置远程登陆"><a href="#5、配置远程登陆" class="headerlink" title="5、配置远程登陆"></a>5、配置远程登陆</h4><p>如果需要设置root账户远程登陆，上一步骤中，<code>不允许root远程登陆？</code>这一步需要设为n。<br>接下来本机登录MySQL，将root用户的host字段设为’%’，意为接受root所有IP地址的登录请求：<br>本机登录MySQL:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&lt;上面步骤中设置的密码&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>接着继续执行mysql语句，将将root用户的host字段设为’%’：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">'%'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后输入exit退出mysql，回到终端shell界面，接着开启系统防火墙的3306端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --add-port=3306/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="6、关闭MySQL主机查询dns"><a href="#6、关闭MySQL主机查询dns" class="headerlink" title="6、关闭MySQL主机查询dns"></a>6、关闭MySQL主机查询dns</h4><p>MySQL会反向解析远程连接地址的dns记录，如果MySQL主机无法连接外网，则dns可能无法解析成功，</p>
+<p>导致第一次连接MySQL速度很慢，所以在配置中可以关闭该功能。</p>
+<p>打开<code>/etc/my.cnf</code>文件，添加以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+
+<h4 id="7、重启服务"><a href="#7、重启服务" class="headerlink" title="7、重启服务"></a>7、重启服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<p><strong>本机测试安装后，MySQL8.0默认已经是utf8mb4字符集，所以字符集不再修改</strong></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-23T00:00:00+08:00"
-              content="2019-12-23">
-          12-23
-        </time>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/">CentOS 8安装mysql8.0</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2020年05月18日 - 23:05</p>
+  <p><span>最后更新:</span>2020年05月18日 - 23:05</p>
+  <p><span>原始链接:</span><a href="/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/" title="CentOS 8安装mysql8.0">https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\05\11\CentOS\centos7服务器配置redis主从与哨兵\" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\06\08\CentOS\CentOS8安装node\" rel="bookmark">CentOS 8安装nodejs</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\05\10\CentOS\centos7服务器配置主从\" rel="bookmark">CentOS7服务器配置主从</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\05\17\CentOS\CentOS 8查看监听端口\" rel="bookmark">CentOS8查看监听端口</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\05\10\CentOS\centos7服务器配置主从之后的一些操作\" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/23/CentOS/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/" itemprop="url">
-            <span itemprop="name">阿里云旗下ecs云服务器配置使用详情</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-06-08T00:00:00+08:00"
-              content="2019-06-08">
-          06-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/06/08/CentOS/CentOS8%E5%AE%89%E8%A3%85node/" itemprop="url">
-            <span itemprop="name">CentOS 8安装nodejs</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-06-08T00:00:00+08:00"
-              content="2019-06-08">
-          06-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/06/08/Ubuntu/Ububtu%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" itemprop="url">
-            <span itemprop="name">Ubuntu配置数据库踩坑记录</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-05-27T00:00:00+08:00"
-              content="2019-05-27">
-          05-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/05/27/Spider/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%8D%8F%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">进程线程协程</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-05-16T00:00:00+08:00"
-              content="2019-05-16">
-          05-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/05/16/Spider/%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" itemprop="url">
-            <span itemprop="name">分布式爬虫实现原理与运行机制</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-05-12T00:00:00+08:00"
-              content="2019-05-12">
-          05-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/05/12/Spider/%E7%99%BE%E5%BA%A6AI%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">百度AI项目解析与使用</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-05-02T00:00:00+08:00"
-              content="2019-05-02">
-          05-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/05/02/Redis/redis%E6%A6%82%E8%A7%88/" itemprop="url">
-            <span itemprop="name">redis概览</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-27T00:00:00+08:00"
-              content="2019-04-27">
-          04-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/04/27/Spider/crawlSpider%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">基于crawlSpider进行的全栈数据爬取</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-27T00:00:00+08:00"
-              content="2019-04-27">
-          04-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/04/27/Spider/%E5%A2%9E%E9%87%8F%E5%BC%8F%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">增量式爬虫使用</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-02-13T00:00:00+08:00"
-              content="2019-02-13">
-          02-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/" itemprop="url">
-            <span itemprop="name">动态获取数据</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+  </div>
+</div>
 
 
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CentOS/" rel="tag">分类： CentOS</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/17/Spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/" rel="prev" title="虚拟环境命令">
+      <i class="fa fa-chevron-left"></i> 虚拟环境命令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+  </div>
 
 
               <!-- 此处可在文章模块中间添加东西 -->
@@ -529,6 +555,7 @@ input[type="radio"]:not(:checked) + label:after {
           <!-- 评论系统 -->
           <!--
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -575,6 +602,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS-8-安装MySQL-8-0"><span class="nav-text">CentOS 8 安装MySQL 8.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、使用最新的包管理器安装MySQL"><span class="nav-text">1、使用最新的包管理器安装MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、开启启动"><span class="nav-text">2、开启启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、要检查MySQL服务器是否正在运行"><span class="nav-text">3、要检查MySQL服务器是否正在运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、添加密码及安全设置"><span class="nav-text">4、添加密码及安全设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、配置远程登陆"><span class="nav-text">5、配置远程登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、关闭MySQL主机查询dns"><span class="nav-text">6、关闭MySQL主机查询dns</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、重启服务"><span class="nav-text">7、重启服务</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
