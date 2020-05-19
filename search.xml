@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Django中mysql的联合唯一索引</title>
+    <url>/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<h4 id="在Django中设置mysql的联合唯一索引"><a href="#在Django中设置mysql的联合唯一索引" class="headerlink" title="在Django中设置mysql的联合唯一索引"></a>在Django中设置mysql的联合唯一索引</h4><a id="more"></a>
+
+<h4 id="联合唯一索引的意义："><a href="#联合唯一索引的意义：" class="headerlink" title="联合唯一索引的意义："></a>联合唯一索引的意义：</h4><p>　　<strong>节省空间、提高效率、建立联合索引的同时、还会给他们之间的组合建立索引</strong></p>
+<h4 id="联合唯一索引的作用："><a href="#联合唯一索引的作用：" class="headerlink" title="联合唯一索引的作用："></a>联合唯一索引的作用：</h4><p>　　<strong>联合唯一索引的字段，相同的数据，同时只能存在一次，保证数据的唯一性</strong></p>
+<h4 id="在Django中的使用方法："><a href="#在Django中的使用方法：" class="headerlink" title="在Django中的使用方法："></a>在Django中的使用方法：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Temperature</span><span class="params">(Base)</span>:</span></span><br><span class="line">    order_id = models.IntegerField()  <span class="comment"># 运单号</span></span><br><span class="line">    tempera = models.CharField(max_length=<span class="number">200</span>)  <span class="comment"># 记录温度</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">'temperature'</span></span><br><span class="line">         <span class="comment"># 联合索引   其中order_id和create_time不能同时重复存在</span></span><br><span class="line">        unique_together = (</span><br><span class="line">            (<span class="string">'order_id'</span>, <span class="string">'create_time'</span>)</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS 8安装mysql8.0</title>
     <url>/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/</url>
     <content><![CDATA[<h3 id="CentOS-8-安装MySQL-8-0"><a href="#CentOS-8-安装MySQL-8-0" class="headerlink" title="CentOS 8 安装MySQL 8.0"></a>CentOS 8 安装MySQL 8.0</h3><a id="more"></a>
@@ -937,6 +954,77 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS7服务器配置主从</title>
     <url>/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</url>
     <content><![CDATA[<h2 id="Centos7-环境下配置mysql主从服务"><a href="#Centos7-环境下配置mysql主从服务" class="headerlink" title="Centos7 环境下配置mysql主从服务"></a>Centos7 环境下配置mysql主从服务</h2><a id="more"></a>
@@ -1009,77 +1097,6 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
-
-<ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
-</li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
-</li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
-</ol>
-</li>
-</ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>MySQL</category>
@@ -3262,6 +3279,40 @@ form models <span class="keyword">import</span> Person
       </tags>
   </entry>
   <entry>
+    <title>flask_route</title>
+    <url>/2018/08/03/Flask/flask_route/</url>
+    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
+<ul>
+<li><p>创建app主体</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
+app = Flask(__name__)
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></code></pre>
+</li>
+<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></code></pre>
+</li>
+<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
+</li>
+</ul>
+</li>
+<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
+    app.run(debug=<span class="literal">True</span>)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flask开端</title>
     <url>/2018/08/03/Flask/flask/</url>
     <content><![CDATA[<h2 id="—————————–flask开端——————————–"><a href="#—————————–flask开端——————————–" class="headerlink" title="—————————–flask开端——————————–"></a>—————————–flask开端——————————–</h2><hr>
@@ -3295,40 +3346,6 @@ if __name__ = &apos;__main__&apos;:
 <ul>
 <li>点击运行按钮左边的选项,在台出的页面中选择edit configurations</li>
 <li>进入后勾选FLASK_DEBUG</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask_route</title>
-    <url>/2018/08/03/Flask/flask_route/</url>
-    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
-<ul>
-<li><p>创建app主体</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
-app = Flask(__name__)
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></code></pre>
-</li>
-<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></code></pre>
-</li>
-<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
-</li>
-</ul>
-</li>
-<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
-    app.run(debug=<span class="literal">True</span>)</code></pre>
-</li>
-</ul>
-</li>
 </ul>
 ]]></content>
       <categories>

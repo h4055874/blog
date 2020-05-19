@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-05-18T15:54:05.833Z</updated>
+  <updated>2020-05-19T13:22:40.303Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django中mysql的联合唯一索引</title>
+    <link href="https://onlyyu.cn/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
+    <id>https://onlyyu.cn/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/</id>
+    <published>2020-05-19T13:13:03.148Z</published>
+    <updated>2020-05-19T13:22:40.303Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;在Django中设置mysql的联合唯一索引&quot;&gt;&lt;a href=&quot;#在Django中设置mysql的联合唯一索引&quot; class=&quot;headerlink&quot; title=&quot;在Django中设置mysql的联合唯一索引&quot;&gt;&lt;/a&gt;在Django中设置mysql的联合唯一索引&lt;/h4&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 8安装mysql8.0</title>
@@ -531,15 +552,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</id>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:36.718Z</updated>
+    <updated>2020-05-17T10:11:29.387Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
     
     </summary>
     
@@ -552,15 +573,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</id>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-17T10:11:29.387Z</updated>
+    <updated>2020-05-17T10:00:36.718Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
@@ -1444,16 +1465,15 @@
   </entry>
   
   <entry>
-    <title>flask开端</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask/</id>
+    <title>flask_route</title>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/flask_route/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/flask_route/</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:47:51.366Z</updated>
+    <updated>2020-05-17T06:48:01.847Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
+      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -1466,15 +1486,16 @@
   </entry>
   
   <entry>
-    <title>flask_route</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask_route/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask_route/</id>
+    <title>flask开端</title>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/flask/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/flask/</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:01.847Z</updated>
+    <updated>2020-05-17T06:47:51.366Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
+      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
     
     </summary>
     
