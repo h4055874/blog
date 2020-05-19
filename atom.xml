@@ -447,7 +447,7 @@
     <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E9%85%8D%E7%BD%AEmysql/"/>
     <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E9%85%8D%E7%BD%AEmysql/</id>
     <published>2020-05-16T09:39:15.000Z</published>
-    <updated>2020-05-17T07:20:44.693Z</updated>
+    <updated>2020-05-19T14:18:19.310Z</updated>
     
     <summary type="html">
     
@@ -459,9 +459,9 @@
       <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
-    
       <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
@@ -470,7 +470,7 @@
     <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
     <published>2020-05-16T08:51:15.000Z</published>
-    <updated>2020-05-16T08:51:49.333Z</updated>
+    <updated>2020-05-19T14:18:07.630Z</updated>
     
     <summary type="html">
     
@@ -491,7 +491,7 @@
     <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%88%86%E8%BE%A8%E7%8E%87/"/>
     <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%88%86%E8%BE%A8%E7%8E%87/</id>
     <published>2020-05-16T07:56:15.000Z</published>
-    <updated>2020-05-16T09:07:44.471Z</updated>
+    <updated>2020-05-19T14:17:57.561Z</updated>
     
     <summary type="html">
     
@@ -552,15 +552,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</id>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-17T10:11:29.387Z</updated>
+    <updated>2020-05-17T10:00:36.718Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
@@ -573,15 +573,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</id>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:36.718Z</updated>
+    <updated>2020-05-17T10:11:29.387Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
     
     </summary>
     
@@ -643,7 +643,7 @@
     <link href="https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
     <id>https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</id>
     <published>2020-04-23T13:17:15.000Z</published>
-    <updated>2020-05-17T07:23:14.847Z</updated>
+    <updated>2020-05-19T14:17:43.459Z</updated>
     
     <summary type="html">
     
@@ -1127,15 +1127,16 @@
   </entry>
   
   <entry>
-    <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
-    <id>https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</id>
+    <title>代理ip</title>
+    <link href="https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/"/>
+    <id>https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:57:10.458Z</updated>
+    <updated>2020-05-17T06:56:57.582Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
     
     </summary>
     
@@ -1148,16 +1149,15 @@
   </entry>
   
   <entry>
-    <title>代理ip</title>
-    <link href="https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/"/>
-    <id>https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/</id>
+    <title>动态获取数据</title>
+    <link href="https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
+    <id>https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:57.582Z</updated>
+    <updated>2020-05-17T06:57:10.458Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
+      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
     
     </summary>
     
@@ -1191,15 +1191,15 @@
   </entry>
   
   <entry>
-    <title>flask文件下载</title>
-    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
-    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</id>
+    <title>flask常用钩子函数</title>
+    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/"/>
+    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:38.230Z</updated>
+    <updated>2020-05-17T06:48:25.232Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
+      &lt;h2 id=&quot;常用钩子函数&quot;&gt;&lt;a href=&quot;#常用钩子函数&quot; class=&quot;headerlink&quot; title=&quot;常用钩子函数&quot;&gt;&lt;/a&gt;常用钩子函数&lt;/h2&gt;
     
     </summary>
     
@@ -1212,15 +1212,15 @@
   </entry>
   
   <entry>
-    <title>flask常用钩子函数</title>
-    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/"/>
-    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/</id>
+    <title>flask文件下载</title>
+    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:25.232Z</updated>
+    <updated>2020-05-17T06:48:38.230Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;常用钩子函数&quot;&gt;&lt;a href=&quot;#常用钩子函数&quot; class=&quot;headerlink&quot; title=&quot;常用钩子函数&quot;&gt;&lt;/a&gt;常用钩子函数&lt;/h2&gt;
+      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
     
     </summary>
     
@@ -1465,15 +1465,16 @@
   </entry>
   
   <entry>
-    <title>flask_route</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask_route/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask_route/</id>
+    <title>flask开端</title>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/flask/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/flask/</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:01.847Z</updated>
+    <updated>2020-05-17T06:47:51.366Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
+      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
     
     </summary>
     
@@ -1486,16 +1487,15 @@
   </entry>
   
   <entry>
-    <title>flask开端</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask/</id>
+    <title>flask_route</title>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/flask_route/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/flask_route/</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:47:51.366Z</updated>
+    <updated>2020-05-17T06:48:01.847Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
+      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
