@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-05-27T17:54:27.811Z</updated>
+  <updated>2020-05-27T18:01:31.133Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue中router-link的点击事件</title>
+    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%ADrouter-link%E7%9A%84%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
+    <id>https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%ADrouter-link%E7%9A%84%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-05-27T18:01:31.133Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="点击事件" scheme="https://onlyyu.cn/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue引入百度地图</title>
@@ -42,7 +63,7 @@
     <link href="https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%AD%E8%AF%A6%E7%BB%86%E7%9A%84%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E8%A7%A3%E6%9E%90/"/>
     <id>https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%AD%E8%AF%A6%E7%BB%86%E7%9A%84%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E8%A7%A3%E6%9E%90/</id>
     <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-05-27T17:54:17.291Z</updated>
+    <updated>2020-05-27T18:03:41.318Z</updated>
     
     <summary type="html">
     
@@ -627,9 +648,9 @@
       <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
-    
       <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
