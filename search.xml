@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Vue中router-link的点击事件</title>
-    <url>/2020/05/28/Vue/Vue%E4%B8%ADrouter-link%E7%9A%84%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</url>
+    <url>/2020/05/28/Vue/Vue_id_06/</url>
     <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
 <a id="more"></a>
 
@@ -16,31 +16,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue引入百度地图</title>
-    <url>/2020/05/28/Vue/Vue%E5%BC%95%E5%85%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/</url>
-    <content><![CDATA[<p>　　Vue中引入百度地图</p>
-<a id="more"></a>
-
-<h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">npm install vue-baidu-map --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="在main-js文件中全局引入"><a href="#在main-js文件中全局引入" class="headerlink" title="在main.js文件中全局引入"></a>在main.js文件中全局引入</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BaiduMap <span class="keyword">from</span> <span class="string">'vue-baidu-map'</span></span><br><span class="line">Vue.use(BaiduMap, &#123;</span><br><span class="line">  ak: <span class="string">'你申请的key'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="在Vue页面中导入使用"><a href="#在Vue页面中导入使用" class="headerlink" title="在Vue页面中导入使用"></a>在Vue页面中导入使用</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">baidu-map</span> <span class="attr">:center</span>=<span class="string">"center"</span> <span class="attr">:zoom</span>=<span class="string">"zoom"</span> @<span class="attr">ready</span>=<span class="string">"handler"</span> <span class="attr">style</span>=<span class="string">"height:1080px"</span> @<span class="attr">click</span>=<span class="string">"getClickInfo"</span> <span class="attr">:scroll-wheel-zoom</span>=<span class="string">'true'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">baidu-map</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'TestBaiDu'</span>,</span></span><br><span class="line">  data () &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      center: &#123;lng: 109.45744048529967, lat: 36.49771311230842&#125;,</span><br><span class="line">      zoom: 13</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handler (&#123;BMap, map&#125;) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(<span class="number">109.49926175379778</span>, <span class="number">36.60449676862417</span>)</span></span><br><span class="line">      map.centerAndZoom(point, 13)</span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point) <span class="comment">// 创建标注</span></span></span><br><span class="line"><span class="actionscript">      map.addOverlay(marker) <span class="comment">// 将标注添加到地图中</span></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> circle = <span class="keyword">new</span> BMap.Circle(point, <span class="number">6</span>, &#123; strokeColor: <span class="string">'Red'</span>, strokeWeight: <span class="number">6</span>, strokeOpacity: <span class="number">1</span>, Color: <span class="string">'Red'</span>, fillColor: <span class="string">'#f03'</span> &#125;)</span></span><br><span class="line">      map.addOverlay(circle)</span><br><span class="line">    &#125;,</span><br><span class="line">    getClickInfo (e) &#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(e.point.lng)</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(e.point.lat)</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.center.lng = e.point.lng</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.center.lat = e.point.lat</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="取消百度地图的Logo及版本"><a href="#取消百度地图的Logo及版本" class="headerlink" title="取消百度地图的Logo及版本"></a>取消百度地图的Logo及版本</h3><p>　　<strong>设置样式为隐藏，如果在当前页面不生效，则可以在全局css样式写入以下类属性</strong></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.BMap_cpyCtrl</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.anchorBL</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>百度地图</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue中详细的百度地图解析</title>
-    <url>/2020/05/28/Vue/Vue%E4%B8%AD%E8%AF%A6%E7%BB%86%E7%9A%84%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E8%A7%A3%E6%9E%90/</url>
+    <url>/2020/05/28/Vue/Vue_id_08/</url>
     <content><![CDATA[<p>　　Vue中如何引入百度地图，点击<a href="/2020/05/28/Vue/Vue引入百度地图/">Vue中引入百度地图</a>查看</p>
 <a id="more"></a>
 
@@ -189,8 +166,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue引入百度地图</title>
+    <url>/2020/05/28/Vue/Vue_id_05/</url>
+    <content><![CDATA[<p>　　Vue中引入百度地图</p>
+<a id="more"></a>
+
+<h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">npm install vue-baidu-map --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="在main-js文件中全局引入"><a href="#在main-js文件中全局引入" class="headerlink" title="在main.js文件中全局引入"></a>在main.js文件中全局引入</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BaiduMap <span class="keyword">from</span> <span class="string">'vue-baidu-map'</span></span><br><span class="line">Vue.use(BaiduMap, &#123;</span><br><span class="line">  ak: <span class="string">'你申请的key'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在Vue页面中导入使用"><a href="#在Vue页面中导入使用" class="headerlink" title="在Vue页面中导入使用"></a>在Vue页面中导入使用</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">baidu-map</span> <span class="attr">:center</span>=<span class="string">"center"</span> <span class="attr">:zoom</span>=<span class="string">"zoom"</span> @<span class="attr">ready</span>=<span class="string">"handler"</span> <span class="attr">style</span>=<span class="string">"height:1080px"</span> @<span class="attr">click</span>=<span class="string">"getClickInfo"</span> <span class="attr">:scroll-wheel-zoom</span>=<span class="string">'true'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">baidu-map</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'TestBaiDu'</span>,</span></span><br><span class="line">  data () &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      center: &#123;lng: 109.45744048529967, lat: 36.49771311230842&#125;,</span><br><span class="line">      zoom: 13</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handler (&#123;BMap, map&#125;) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(<span class="number">109.49926175379778</span>, <span class="number">36.60449676862417</span>)</span></span><br><span class="line">      map.centerAndZoom(point, 13)</span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point) <span class="comment">// 创建标注</span></span></span><br><span class="line"><span class="actionscript">      map.addOverlay(marker) <span class="comment">// 将标注添加到地图中</span></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> circle = <span class="keyword">new</span> BMap.Circle(point, <span class="number">6</span>, &#123; strokeColor: <span class="string">'Red'</span>, strokeWeight: <span class="number">6</span>, strokeOpacity: <span class="number">1</span>, Color: <span class="string">'Red'</span>, fillColor: <span class="string">'#f03'</span> &#125;)</span></span><br><span class="line">      map.addOverlay(circle)</span><br><span class="line">    &#125;,</span><br><span class="line">    getClickInfo (e) &#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(e.point.lng)</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(e.point.lat)</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.center.lng = e.point.lng</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.center.lat = e.point.lat</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="取消百度地图的Logo及版本"><a href="#取消百度地图的Logo及版本" class="headerlink" title="取消百度地图的Logo及版本"></a>取消百度地图的Logo及版本</h3><p>　　<strong>设置样式为隐藏，如果在当前页面不生效，则可以在全局css样式写入以下类属性</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.BMap_cpyCtrl</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.anchorBL</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>百度地图</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算某年某月某一天是第几天</title>
-    <url>/2020/05/25/Python/%E8%AE%A1%E7%AE%97%E6%9F%90%E5%B9%B4%E6%9F%90%E6%9C%88%E6%9F%90%E4%B8%80%E5%A4%A9%E6%98%AF%E7%AC%AC%E5%87%A0%E5%A4%A9/</url>
+    <url>/2020/05/25/Python/Python_id_04/</url>
     <content><![CDATA[<p>　实现输入某年某月某日计算出这一天是该年第几天的方法</p>
 <a id="more"></a>
 
@@ -209,8 +209,24 @@
       </tags>
   </entry>
   <entry>
+    <title>redis数据淘汰机制</title>
+    <url>/2020/05/24/Redis/Redis_id_03/</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+<a id="more"></a>
+
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>redis优化</title>
-    <url>/2020/05/24/Redis/redis%E4%BC%98%E5%8C%96/</url>
+    <url>/2020/05/24/Redis/Redis_id_05/</url>
     <content><![CDATA[<h4 id="内存管理优化"><a href="#内存管理优化" class="headerlink" title="内存管理优化"></a>内存管理优化</h4><p>Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：</p>
 <a id="more"></a>
 
@@ -248,7 +264,7 @@
   </entry>
   <entry>
     <title>redis持久化</title>
-    <url>/2020/05/24/Redis/redis%E6%8C%81%E4%B9%85%E5%8C%96/</url>
+    <url>/2020/05/24/Redis/Redis_id_01/</url>
     <content><![CDATA[<p>redis是一个内存数据库，数据保存在内存中，但是我们都知道内存的数据变化是很快的，也容易发生丢失。幸好Redis还为我们提供了持久化的机制，分别是RDB(Redis DataBase)和AOF(Append Only File)。</p>
 <a id="more"></a>
 
@@ -340,24 +356,8 @@
       </tags>
   </entry>
   <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/2020/05/24/Redis/redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
-<a id="more"></a>
-
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>redis雪崩、击穿、穿透</title>
-    <url>/2020/05/24/Redis/redis%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E7%A9%BF%E9%80%8F/</url>
+    <url>/2020/05/24/Redis/Redis_id_04/</url>
     <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
 <a id="more"></a>
 
@@ -386,7 +386,7 @@
   </entry>
   <entry>
     <title>RBAC用户权限管理设计思路</title>
-    <url>/2020/05/21/Django/RBAC%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</url>
+    <url>/2020/05/21/Django/Django_id_29/</url>
     <content><![CDATA[<p>　　目前，使用最普遍的权限管理模型正是RBAC（Role-Based Access Control）模型，这篇文章也主要是介绍基于RBAC的权限管理系统，我会从RBAC是什么、如何设计RBAC两部分来介绍。</p>
 <a id="more"></a>
 
@@ -460,7 +460,7 @@
   </entry>
   <entry>
     <title>Django中mysql的联合唯一索引</title>
-    <url>/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/</url>
+    <url>/2020/05/19/Django/Django_id_28/</url>
     <content><![CDATA[<h4 id="在Django中设置mysql的联合唯一索引"><a href="#在Django中设置mysql的联合唯一索引" class="headerlink" title="在Django中设置mysql的联合唯一索引"></a>在Django中设置mysql的联合唯一索引</h4><a id="more"></a>
 
 <h4 id="联合唯一索引的意义："><a href="#联合唯一索引的意义：" class="headerlink" title="联合唯一索引的意义："></a>联合唯一索引的意义：</h4><p>　　<strong>节省空间、提高效率、建立联合索引的同时、还会给他们之间的组合建立索引</strong></p>
@@ -477,7 +477,7 @@
   </entry>
   <entry>
     <title>CentOS 8安装mysql8.0</title>
-    <url>/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/</url>
+    <url>/2020/05/18/CentOS/CentOS_id_01/</url>
     <content><![CDATA[<h3 id="CentOS-8-安装MySQL-8-0"><a href="#CentOS-8-安装MySQL-8-0" class="headerlink" title="CentOS 8 安装MySQL 8.0"></a>CentOS 8 安装MySQL 8.0</h3><a id="more"></a>
 
 <h4 id="1、使用最新的包管理器安装MySQL"><a href="#1、使用最新的包管理器安装MySQL" class="headerlink" title="1、使用最新的包管理器安装MySQL"></a>1、使用最新的包管理器安装MySQL</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure>
@@ -528,7 +528,7 @@
   </entry>
   <entry>
     <title>虚拟环境命令</title>
-    <url>/2020/05/17/Spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/</url>
+    <url>/2020/05/17/Spider/Spider_id_18/</url>
     <content><![CDATA[<h2 id="1、安装虚拟环境"><a href="#1、安装虚拟环境" class="headerlink" title="1、安装虚拟环境"></a>1、安装虚拟环境</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令：pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line">    https://pypi.tuna.tsinghua.edu.cn/simple网址是清华源网址，-i 加清华源网址会提高下载速度</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -561,7 +561,7 @@
   </entry>
   <entry>
     <title>网页请求</title>
-    <url>/2020/05/17/Spider/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82/</url>
+    <url>/2020/05/17/Spider/Spider_id_16/</url>
     <content><![CDATA[<h2 id="1、请求过程"><a href="#1、请求过程" class="headerlink" title="1、请求过程"></a>1、请求过程</h2><a id="more"></a>
 
 <h2 id="1、1-URL介绍"><a href="#1、1-URL介绍" class="headerlink" title="1、1  URL介绍"></a>1、1  URL介绍</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">URL作用：用于定位服务器资源</span><br><span class="line">    <span class="comment"># 结构：</span></span><br><span class="line">        <span class="number">1</span>)协议：Protocol</span><br><span class="line">        <span class="number">2</span>)域名：domain</span><br><span class="line">        <span class="number">3</span>)端口：port</span><br></pre></td></tr></table></figure>
@@ -620,7 +620,7 @@
   </entry>
   <entry>
     <title>爬虫的介绍</title>
-    <url>/2020/05/17/Spider/%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%8B%E7%BB%8D/</url>
+    <url>/2020/05/17/Spider/Spider_id_15/</url>
     <content><![CDATA[<h2 id="1、爬虫的概念："><a href="#1、爬虫的概念：" class="headerlink" title="1、爬虫的概念："></a>1、爬虫的概念：</h2><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="comment"># 爬虫又称网页蜘蛛和网络机器人</span></span><br><span class="line"><span class="number">2</span>、<span class="comment"># 爬虫是模拟人操作客户端(浏览器，APP)，向服务器发起请求，抓取数据的自动化程序或脚本</span></span><br><span class="line">  <span class="comment"># 说明：</span></span><br><span class="line">    <span class="number">1</span>)模拟：用爬虫程序伪装出人的行为，避免被服务器识别为爬虫程序或脚本</span><br><span class="line">    <span class="number">2</span>)客户端：浏览器，APP都可以实现人与服务器之间交互的行为，应用客户端从服务器获取数据</span><br><span class="line">    <span class="number">3</span>)自动化：数量较小时可以人为的从服务端获取数据，但公司需求高达百万甚至千万条以上时，就需要程序自动从服务端获取数据</span><br></pre></td></tr></table></figure>
@@ -663,7 +663,7 @@
   </entry>
   <entry>
     <title>文件的操作</title>
-    <url>/2020/05/17/Spider/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <url>/2020/05/17/Spider/Spider_id_17/</url>
     <content><![CDATA[<h2 id="1、json文件的操作"><a href="#1、json文件的操作" class="headerlink" title="1、json文件的操作"></a>1、json文件的操作</h2><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">las = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    las.append(&#123;<span class="string">"name"</span>:<span class="string">"这是第%d几个json对象"</span>%i,<span class="string">"age"</span>:<span class="string">"今年%d岁了"</span> %i&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"json_file.json"</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(json.dumps(las,ensure_ascii=<span class="literal">False</span>,indent=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
@@ -684,7 +684,7 @@
   </entry>
   <entry>
     <title>打码平台</title>
-    <url>/2020/05/17/Spider/%E6%89%93%E7%A0%81%E5%B9%B3%E5%8F%B0/</url>
+    <url>/2020/05/17/Spider/Spider_id_09/</url>
     <content><![CDATA[<h2 id="1、打码平台"><a href="#1、打码平台" class="headerlink" title="1、打码平台"></a>1、打码平台</h2><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用流程:</span></span><br><span class="line">	- 注册账号:</span><br><span class="line">        普通账户: 充钱的</span><br><span class="line">        开发账户: 调接口进行打码</span><br><span class="line">	- 登陆普通用户: 查询剩余积分, 在线充值</span><br><span class="line">	- 开发者登陆:</span><br><span class="line">        我的软件--&gt;创建新软件: 名字随便, 秘钥不要改---&gt;软件代码 + 通讯秘钥</span><br><span class="line">		开发文档:PythonHTTP操作示例</span><br></pre></td></tr></table></figure>
@@ -703,7 +703,7 @@
   </entry>
   <entry>
     <title>多线程爬虫</title>
-    <url>/2020/05/17/Spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/</url>
+    <url>/2020/05/17/Spider/Spider_id_12/</url>
     <content><![CDATA[<h2 id="1、整体思路"><a href="#1、整体思路" class="headerlink" title="1、整体思路"></a>1、整体思路</h2><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt; 队列保存变化的参数，即之前构建的类似页码的东西。</span><br><span class="line"></span><br><span class="line">&gt; 一个类实现：三个线程进行数据采集，依次从队列中获取参数，拼接url，请求到的网	页源码保存到新队列。</span><br><span class="line"></span><br><span class="line">&gt; 一个类实现 ：<span class="number">1.</span>  三个线程进行数据处理，依次从队列中获取源码，xpath定位元素	取出文本，构建字典。<span class="number">2.</span> 定义函数数据入库，pymongon数据插入数据即可</span><br></pre></td></tr></table></figure>
@@ -799,7 +799,7 @@
   </entry>
   <entry>
     <title>xpath使用</title>
-    <url>/2020/05/17/Spider/xpath%E4%BD%BF%E7%94%A8/</url>
+    <url>/2020/05/17/Spider/Spider_id_07/</url>
     <content><![CDATA[<h2 id="1、xpath解析库"><a href="#1、xpath解析库" class="headerlink" title="1、xpath解析库"></a>1、xpath解析库</h2><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Xpath解析库介绍:</span></span><br><span class="line">	数据解析的过程中使用过正则表达式, 但正则表达式想要进准匹配难度较高, 一旦正则表达式书写错误, 匹配的数据也会出错.</span><br><span class="line">    网页由三部分组成: HTML, Css, JavaScript, HTML页面标签存在层级关系, 即DOM树, 在获取目标数据时可以根据网页层次关系定位标签, 在获取标签的文本或属性.</span><br></pre></td></tr></table></figure>
@@ -830,7 +830,7 @@
   </entry>
   <entry>
     <title>selenuim模块的使用</title>
-    <url>/2020/05/17/Spider/selenuim%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <url>/2020/05/17/Spider/Spider_id_06/</url>
     <content><![CDATA[<h2 id="1、selenium介绍"><a href="#1、selenium介绍" class="headerlink" title="1、selenium介绍"></a>1、selenium介绍</h2><a id="more"></a>
 
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>selenium是一个web自动化测试用的框架. 程序员可以通过代码实现对浏览器的控制, 比如打开网页, 点击网页中的元素, 实现鼠标滚动等操作.</span><br><span class="line"><span class="number">2.</span>它支持多款浏览器, 如谷歌浏览器, 火狐浏览器等等, 当然也支持无头浏览器.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目的:</span></span><br><span class="line">在爬取数据的过程中, 经常遇到动态数据加载, 一般动态数据加载有两种, 一种通过ajax请求加载数据, 另一种通过js代码加载动态数据. selenium可以模拟人操作真实浏览器, 获取加载完成的页面数据</span><br><span class="line">ajax:</span><br><span class="line">    url有规律且未加密, 直接构建url连接请求</span><br><span class="line">    url加密过无法破解规律 --&gt; selenium</span><br><span class="line">js动态数据加载 --&gt;  selenium</span><br></pre></td></tr></table></figure>
@@ -865,7 +865,7 @@
   </entry>
   <entry>
     <title>sceapy框架</title>
-    <url>/2020/05/17/Spider/sceapy%E6%A1%86%E6%9E%B6/</url>
+    <url>/2020/05/17/Spider/Spider_id_05/</url>
     <content><![CDATA[<h2 id="1、scrapy安装与环境依赖"><a href="#1、scrapy安装与环境依赖" class="headerlink" title="1、scrapy安装与环境依赖"></a>1、scrapy安装与环境依赖</h2><p>　　1.在安装scrapy前需要安装好相应的依赖库, 再安装scrapy, 具体安装步骤如下:</p>
 <a id="more"></a>
 
@@ -923,7 +923,7 @@
   </entry>
   <entry>
     <title>requests高级部分 &amp; urllib简单介绍 &amp; 正则</title>
-    <url>/2020/05/17/Spider/requests%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/</url>
+    <url>/2020/05/17/Spider/Spider_id_04/</url>
     <content><![CDATA[<h2 id="1、requests高级用法"><a href="#1、requests高级用法" class="headerlink" title="1、requests高级用法"></a>1、requests高级用法</h2><a id="more"></a>
 
 <h2 id="1、1-文件上传功能"><a href="#1、1-文件上传功能" class="headerlink" title="1、1  文件上传功能"></a>1、1  文件上传功能</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义上传文件数据, 键为file, 值为文件句柄</span></span><br><span class="line">files = &#123;</span><br><span class="line"><span class="string">'file'</span>: open(<span class="string">'favicon.ico'</span>, <span class="string">'rb'</span>)</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(<span class="string">'http://httpbin.org/post'</span>, files=files)</span><br><span class="line">print(res.text)</span><br></pre></td></tr></table></figure>
@@ -974,7 +974,7 @@
   </entry>
   <entry>
     <title>MongoDB的使用</title>
-    <url>/2020/05/17/Spider/MongoDB%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</url>
+    <url>/2020/05/17/Spider/Spider_id_02/</url>
     <content><![CDATA[<h2 id="1、MongoDB数据库操作"><a href="#1、MongoDB数据库操作" class="headerlink" title="1、MongoDB数据库操作"></a>1、MongoDB数据库操作</h2><a id="more"></a>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;常用操作:</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1.查看数据库</span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2.创建并使用数据库</span><br><span class="line">use tst</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 3.查看当前工作的数据库</span><br><span class="line">db</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建表</span><br><span class="line">db.createCollection(&#39;表名&#39;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 4.创建集合并插入一条数据</span><br><span class="line">db.goods.insert(&#123;&quot;name&quot;:&quot;辣条&quot;, &quot;price&quot;:0.5&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 5.查看所有表</span><br><span class="line">show tables</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 6.查询表中所有数据</span><br><span class="line">db.goods.find()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 格式化输出查询数据(可以按格式输出查询数据)</span><br><span class="line">db.goods.find().pretty()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 7.删除表操作</span><br><span class="line">db.goods.drop()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 8.删除数据库</span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
@@ -999,7 +999,7 @@
   </entry>
   <entry>
     <title>BS4模块的使用</title>
-    <url>/2020/05/17/Spider/bs4%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <url>/2020/05/17/Spider/Spider_id_01/</url>
     <content><![CDATA[<h2 id="1、BS4库介绍及安装"><a href="#1、BS4库介绍及安装" class="headerlink" title="1、BS4库介绍及安装"></a>1、BS4库介绍及安装</h2><a id="more"></a>
 
 <p>　　BeautifulSoup库介绍:<br>　　BeautifulSoup也是一个解析库<br>　　BS解析数据是依赖解析器的, BS支持的解析器有html.parser, lxml, xml, html5lib等, 其中lxml解析器解析速度快, 容错能力强.<br>　　BS现阶段应用的解析器多数是lxml<br>　　安装bs4：pip install bs4</p>
@@ -1035,7 +1035,7 @@
   </entry>
   <entry>
     <title>简单的购物车</title>
-    <url>/2020/05/17/Django/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B4%AD%E7%89%A9%E8%BD%A6/</url>
+    <url>/2020/05/17/Django/Django_id_26/</url>
     <content><![CDATA[<p>　加入购物车，进入购物车，你感觉哪个简单？对，相对于加入购物车，进入购物车只需要一个简简单单的a标签就可以搞定了</p>
 <a id="more"></a>
 <p>今天要写的是一个保存到localStorage中的简单购物车逻辑</p>
@@ -1063,7 +1063,7 @@
   </entry>
   <entry>
     <title>基于Redis的排行榜</title>
-    <url>/2020/05/17/Python/%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C/</url>
+    <url>/2020/05/17/Python/Python_id_03/</url>
     <content><![CDATA[<p>　　所谓排行榜，就是要将一组数据根据某种条件来进行排序，就好比游戏，可以根据经验值，等级来进行递减排行，电影，可以根据热度或者评分来进行排行<br>今天我们学习的内容就是做一个基于redis的商品点击量排行榜</p>
 <a id="more"></a>
 
@@ -1090,7 +1090,7 @@
   </entry>
   <entry>
     <title>国际化语言操作</title>
-    <url>/2020/05/17/Vue/%E5%9B%BD%E9%99%85%E5%8C%96%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/</url>
+    <url>/2020/05/17/Vue/Vue_id_11/</url>
     <content><![CDATA[<p>　　好记性不如一颗烂笔头，古人诚不欺我也<br>之前一直没有写笔记，从而课堂上有些bug都差不多忘记了，从今天开始，每天一记</p>
 <a id="more"></a>
 
@@ -1119,7 +1119,7 @@
   </entry>
   <entry>
     <title>商品检索智能提示功能</title>
-    <url>/2020/05/17/Django/%E5%95%86%E5%93%81%E6%A3%80%E7%B4%A2%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD/</url>
+    <url>/2020/05/17/Django/Django_id_01/</url>
     <content><![CDATA[<p>　　今天主要做的是商品的<strong>检索功能</strong>，其实检索功能你可以直接理解为<strong>搜索功能</strong>，而像我们在淘宝或者京东等等搜索需要购买的东西时，还有我们在百度搜索问题时，<br>都会根据你输入的内容，来为你推荐相关的商品或者问题，这个就是智能提示功能，这个功能是基于<strong>HeyUI</strong>第三方库<strong>AutoComplete 模糊匹配</strong>来实现的，<a href="https://www.heyui.top/component/data/plugin/autocomplete" target="_blank" rel="noopener">点击跳转</a>到HeyUI<br>查看效果</p>
 <a id="more"></a>
 
@@ -1150,7 +1150,7 @@
   </entry>
   <entry>
     <title>Vue中的自定义过滤器</title>
-    <url>/2020/05/17/Vue/Vue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
+    <url>/2020/05/17/Vue/Vue_id_07/</url>
     <content><![CDATA[<p>　　现在很多页面显示的时间、金钱等等都需要转换格式后再进行展示，而如何进行转换呢？我想很多人都想到了—自定义过滤器</p>
 <a id="more"></a>
 
@@ -1173,7 +1173,7 @@
   </entry>
   <entry>
     <title>CentOS8查看监听端口</title>
-    <url>/2020/05/17/CentOS/CentOS%208%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3/</url>
+    <url>/2020/05/17/CentOS/CentOS_id_02/</url>
     <content><![CDATA[<h4 id="1、CentOS-8停用、启用、查看当前启用的端口"><a href="#1、CentOS-8停用、启用、查看当前启用的端口" class="headerlink" title="1、CentOS 8停用、启用、查看当前启用的端口"></a>1、CentOS 8停用、启用、查看当前启用的端口</h4><a id="more"></a>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=5672/tcp --permanent   <span class="comment"># 开放5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --remove-port=5672/tcp --permanent  <span class="comment">#关闭5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --reload   <span class="comment"># 配置立即生效</span></span><br></pre></td></tr></table></figure>
@@ -1202,7 +1202,7 @@
   </entry>
   <entry>
     <title>Ubuntu18.04配置mysql</title>
-    <url>/2020/05/16/Ubuntu/Ubuntu18.04%E9%85%8D%E7%BD%AEmysql/</url>
+    <url>/2020/05/16/Ubuntu/Ubuntu_id_03/</url>
     <content><![CDATA[<p>　　设置Ubuntu 18.04版本系统配置mysql</p>
 <a id="more"></a>
 
@@ -1228,13 +1228,13 @@
         <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>Ubuntu</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
     <title>Ubuntu18.04系统一些常见问题</title>
-    <url>/2020/05/16/Ubuntu/Ubuntu18.04%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <url>/2020/05/16/Ubuntu/Ubuntu_id_02/</url>
     <content><![CDATA[<p>　　Ubuntu 18.04版本系统的一些常见问题</p>
 <a id="more"></a>
 
@@ -1250,7 +1250,7 @@
   </entry>
   <entry>
     <title>Ubuntu18.04设置分辨率</title>
-    <url>/2020/05/16/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%88%86%E8%BE%A8%E7%8E%87/</url>
+    <url>/2020/05/16/Ubuntu/Ubuntu_id_04/</url>
     <content><![CDATA[<p>　　设置Ubuntu 18.04版本系统的分辨率为1920x1080</p>
 <a id="more"></a>
 
@@ -1280,7 +1280,7 @@
   </entry>
   <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
-    <url>/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEredis%E4%B8%BB%E4%BB%8E%E4%B8%8E%E5%93%A8%E5%85%B5/</url>
+    <url>/2020/05/11/CentOS/CentOS_id_03/</url>
     <content><![CDATA[<h2 id="这次是配置redis主从"><a href="#这次是配置redis主从" class="headerlink" title="这次是配置redis主从"></a>这次是配置redis主从</h2><a id="more"></a>
 
 <ol>
@@ -1365,7 +1365,7 @@ redis-server sentinel.conf --sentinel</code></pre></li>
   </entry>
   <entry>
     <title>CentOS7服务器配置汇总</title>
-    <url>/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%B1%87%E6%80%BB/</url>
+    <url>/2020/05/11/CentOS/CentOS_id_04/</url>
     <content><![CDATA[<ol>
 <li><p>构建centos7环境</p>
 <p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
@@ -1412,8 +1412,79 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/2020/05/10/CentOS/CentOS_id_06/</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS7服务器配置主从</title>
-    <url>/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</url>
+    <url>/2020/05/10/CentOS/CentOS_id_05/</url>
     <content><![CDATA[<h2 id="Centos7-环境下配置mysql主从服务"><a href="#Centos7-环境下配置mysql主从服务" class="headerlink" title="Centos7 环境下配置mysql主从服务"></a>Centos7 环境下配置mysql主从服务</h2><a id="more"></a>
 
 <ol>
@@ -1493,79 +1564,8 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
-
-<ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
-</li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
-</li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
-</ol>
-</li>
-</ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Datetime模块常用方法</title>
-    <url>/2020/05/07/Python/Datetime%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <url>/2020/05/07/Python/Python_id_01/</url>
     <content><![CDATA[<p>　　<strong>Datetime模块常用方法</strong></p>
 <a id="more"></a>
 
@@ -1581,7 +1581,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>支付宝沙箱支付</title>
-    <url>/2020/04/29/Python/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/</url>
+    <url>/2020/04/29/Python/Python_id_05/</url>
     <content><![CDATA[<p>　　Python支付宝沙箱支付代码接口</p>
 <a id="more"></a>
 
@@ -1603,7 +1603,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Ubuntu命令大全</title>
-    <url>/2020/04/23/Ubuntu/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
+    <url>/2020/04/23/Ubuntu/Ubuntu_id_06/</url>
     <content><![CDATA[<p>cd .. // 返回上一级目录</p>
 <a id="more"></a>
 
@@ -1836,7 +1836,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Ubuntu18.04设置国内源</title>
-    <url>/2020/04/23/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <url>/2020/04/23/Ubuntu/Ubuntu_id_05/</url>
     <content><![CDATA[<p>　　Ubuntu本身的源使用的是国内的源，下载速度比较慢，不像CentOS一样yum安装的时候对镜像站点进项选择， </p>
 <a id="more"></a>
 
@@ -1861,7 +1861,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>axios封装</title>
-    <url>/2020/04/21/Vue/axios%E5%B0%81%E8%A3%85/</url>
+    <url>/2020/04/21/Vue/Vue_id_02/</url>
     <content><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>　　封装请求的方式有多种多样，目的是可以管理vue项目中axios请求的路由。</p>
 <a id="more"></a>
 
@@ -1882,7 +1882,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Git配置密钥</title>
-    <url>/2020/04/21/Git/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/</url>
+    <url>/2020/04/21/Git/Git_id_05/</url>
     <content><![CDATA[<p>1.本地安装好git；</p>
 <p>2.桌面右键 Git Bash Here 打开git命令行；</p>
 <a id="more"></a>
@@ -1902,7 +1902,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Git常用命令</title>
-    <url>/2020/04/21/Git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2020/04/21/Git/Git_id_04/</url>
     <content><![CDATA[<h3 id="1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）"><a href="#1-强制推送（慎用，除非你认为其他冲突等可以丢弃-或者不是很重要）" class="headerlink" title="1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）"></a>1.强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）</h3><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">git push <span class="comment">-- force</span></span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -1957,7 +1957,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>MarkDown语法</title>
-    <url>/2020/04/21/Other/MarkDown%E8%AF%AD%E6%B3%95/</url>
+    <url>/2020/04/21/Other/Other_id_01/</url>
     <content><![CDATA[<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
 <a id="more"></a>
 
@@ -2071,7 +2071,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>文明上网实现正常访问google网站</title>
-    <url>/2020/04/02/Google/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/</url>
+    <url>/2020/04/02/Google/Google_id_01/</url>
     <content><![CDATA[<p>　　国内文明上网，实现正常访问Google网站</p>
 <a id="more"></a>
 <p>　　你们知道在国内为什么无法访问Google网站么？有兴趣的小伙伴可以百度搜索一下，我这里就不多说了<br>我们都知道，Google是搜索引擎界的大哥大，而我们在国内却无法使用，是不是感觉非常遗憾？在这里，我来告诉大家，<br>在国内，同样可以正常访问Google旗下的所有网站的方法：</p>
@@ -2115,7 +2115,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>七牛云文件上传</title>
-    <url>/2020/03/31/Vue/%E4%B8%83%E7%89%9B%E4%BA%91%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <url>/2020/03/31/Vue/Vue_id_12/</url>
     <content><![CDATA[<p>‘’’</p>
 <h2 id="七牛云密钥接口"><a href="#七牛云密钥接口" class="headerlink" title="七牛云密钥接口"></a>七牛云密钥接口</h2><a id="more"></a>
 <h2 id="获取七牛云仓库密钥"><a href="#获取七牛云仓库密钥" class="headerlink" title="获取七牛云仓库密钥"></a>获取七牛云仓库密钥</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> qiniu <span class="keyword">import</span> Auth</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QiNiu</span><span class="params">(APIView)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">    </span><br><span class="line">    	<span class="comment"># 生命一个密钥对象</span></span><br><span class="line">    	<span class="comment"># Auth(access_key,secret_key)</span></span><br><span class="line">    	q = Auth(<span class="string">'FrZcNsgzftewSOxOugEoFgQq93VQhHDv_UMAJ0P2'</span>,<span class="string">'30fYKbfMJEHaa9iBgvWHK0JdUyX_CMEtelS_RwXx'</span>)</span><br><span class="line">    	<span class="comment"># 生成令牌</span></span><br><span class="line">    	token = q.upload_token(<span class="string">'my-data-for-fcg'</span>,expires=<span class="number">30000</span>)</span><br><span class="line">    </span><br><span class="line">    	<span class="keyword">return</span> Response(&#123;<span class="string">'uptoken'</span>:token&#125;)</span><br></pre></td></tr></table></figure>
@@ -2138,7 +2138,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>自定义购物车系统</title>
-    <url>/2020/03/30/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B4%AD%E7%89%A9%E8%BD%A6%E7%B3%BB%E7%BB%9F/</url>
+    <url>/2020/03/30/Vue/Vue_id_14/</url>
     <content><![CDATA[<h2 id="七牛云文件上传"><a href="#七牛云文件上传" class="headerlink" title="七牛云文件上传"></a>七牛云文件上传</h2><a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 将商品添加到购物车</span></span><br><span class="line">add_cart()&#123;</span><br><span class="line">    <span class="keyword">let</span> find = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 遍历购物车</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>,l=<span class="keyword">this</span>.cartlist.length;i++)&#123;</span><br><span class="line">        <span class="comment">// 如果找到了</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.id == <span class="keyword">this</span>.cartlist[i][<span class="string">'id'</span>])&#123;</span><br><span class="line">            <span class="comment">// 将该商品的数量+1</span></span><br><span class="line">            <span class="keyword">this</span>.cartlist[i][<span class="string">'num'</span>]++;</span><br><span class="line">            find = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果没找到</span></span><br><span class="line">    <span class="keyword">if</span>(find == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">// 将该商品放入购物车列表</span></span><br><span class="line">        <span class="keyword">this</span>.cartlist.push(&#123;</span><br><span class="line">            name:<span class="keyword">this</span>.name,</span><br><span class="line">            id: <span class="keyword">this</span>.id,</span><br><span class="line">            price: <span class="keyword">this</span>.price,</span><br><span class="line">            num: <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.cartlist)</span><br><span class="line">	<span class="comment">// 将购物车信息存储到LocalStorage</span></span><br><span class="line">	LocalStorage.setItem(<span class="string">'cart'</span>, <span class="built_in">JSON</span>.Stringify(<span class="keyword">this</span>.cartlist))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2157,7 +2157,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Hexo主题如何将文章置顶</title>
-    <url>/2020/03/15/Hexo/Hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</url>
+    <url>/2020/03/15/Hexo/Hexo_id_02/</url>
     <content><![CDATA[<p>　　想将写好的一些文章置顶，但是hexo好像默认不提供这个功能，希望以后的版本会有。</p>
 <a id="more"></a>
 <p>这里简单写一下实现hexo文章置顶功能</p>
@@ -2182,7 +2182,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>如何创建vue脚手架</title>
-    <url>/2020/03/13/Vue/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
+    <url>/2020/03/13/Vue/Vue_id_13/</url>
     <content><![CDATA[<p>　　这是一篇教你如何设置国内源来快速安装Vue脚手架的教程</p>
 <a id="more"></a>
 
@@ -2236,7 +2236,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Gitee取消输入用户名及密码</title>
-    <url>/2020/03/13/Git/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</url>
+    <url>/2020/03/13/Git/Git_id_01/</url>
     <content><![CDATA[<p>　　每次提交项目时，都会被要求输入用户名及密码，那么，我们应该如何跳过这一步骤呢？</p>
 <a id="more"></a>
 <p>本篇文章为您揭晓…</p>
@@ -2259,7 +2259,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Hexo常用命令</title>
-    <url>/2020/03/13/Hexo/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2020/03/13/Hexo/Hexo_id_01/</url>
     <content><![CDATA[<p>　　Hexo是一款非常流行且好用的个人博客模板，下面我们一起来看一下Hexo的常用命令是什么吧……</p>
 <a id="more"></a>
 
@@ -2287,7 +2287,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>GitHub访问及clone缓慢的方法</title>
-    <url>/2020/03/12/Git/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <url>/2020/03/12/Git/Git_id_02/</url>
     <content><![CDATA[<p>　　你们在访问GitHub网站时有没有出现加载缓慢，甚至加载失败的情况呢？</p>
 <a id="more"></a>
 <p>那么，这种情况该如何杜绝呢？请继续往下阅读……</p>
@@ -2317,7 +2317,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>阿里云旗下ecs云服务器配置使用详情</title>
-    <url>/2019/12/23/CentOS/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/</url>
+    <url>/2019/12/23/CentOS/CentOS_id_08/</url>
     <content><![CDATA[<h2 id="前段时间-与朋友在阿里云平台上一起购买了一台云服务器"><a href="#前段时间-与朋友在阿里云平台上一起购买了一台云服务器" class="headerlink" title="前段时间,与朋友在阿里云平台上一起购买了一台云服务器"></a>前段时间,与朋友在阿里云平台上一起购买了一台云服务器</h2><h2 id="原定计划是安装ubuntu系统来使用-方便配置-后面因为我们两个侧重点都在python上-于是选择了本身自带python环境的centos系统-在这个过程中-遇到了各种各样的问题"><a href="#原定计划是安装ubuntu系统来使用-方便配置-后面因为我们两个侧重点都在python上-于是选择了本身自带python环境的centos系统-在这个过程中-遇到了各种各样的问题" class="headerlink" title="原定计划是安装ubuntu系统来使用,方便配置,后面因为我们两个侧重点都在python上,于是选择了本身自带python环境的centos系统,在这个过程中,遇到了各种各样的问题"></a>原定计划是安装ubuntu系统来使用,方便配置,后面因为我们两个侧重点都在python上,于是选择了本身自带python环境的centos系统,在这个过程中,遇到了各种各样的问题</h2><a id="more"></a>
 
 <h2 id="我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总"><a href="#我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总" class="headerlink" title="我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总"></a>我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总</h2><h2 id="看到这篇文章的朋友如果有什么疑问-可以给作者发私信"><a href="#看到这篇文章的朋友如果有什么疑问-可以给作者发私信" class="headerlink" title="看到这篇文章的朋友如果有什么疑问,可以给作者发私信"></a>看到这篇文章的朋友如果有什么疑问,可以给作者发私信</h2><ol>
@@ -2368,7 +2368,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>CentOS 8安装nodejs</title>
-    <url>/2019/06/08/CentOS/CentOS8%E5%AE%89%E8%A3%85node/</url>
+    <url>/2019/06/08/CentOS/CentOS_id_07/</url>
     <content><![CDATA[<p>curl -sL <a href="https://rpm.nodesource.com/setup_10.x" target="_blank" rel="noopener">https://rpm.nodesource.com/setup_10.x</a> | bash -</p>
 <p>yum install -y nodejs</p>
 <p>[root@localhost /]# node -v<br>v10.9.0<br>[root@localhost /]# npm -v<br>6.2.0</p>
@@ -2382,7 +2382,7 @@ show slave status\G  </code></pre>
   </entry>
   <entry>
     <title>Ubuntu配置数据库踩坑记录</title>
-    <url>/2019/06/08/Ubuntu/Ububtu%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
+    <url>/2019/06/08/Ubuntu/Ubuntu_id_01/</url>
     <content><![CDATA[<h2 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h2><a id="more"></a>
 <p>ubuntu环境下安装MySQL数据库:</p>
 <ul>
@@ -2450,7 +2450,7 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   </entry>
   <entry>
     <title>进程线程协程</title>
-    <url>/2019/05/27/Spider/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%8D%8F%E7%A8%8B/</url>
+    <url>/2019/05/27/Spider/Spider_id_14/</url>
     <content><![CDATA[<h2 id="异步多进程爬虫实现"><a href="#异步多进程爬虫实现" class="headerlink" title="异步多进程爬虫实现:"></a>异步多进程爬虫实现:</h2><a id="more"></a>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing.dummy <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># 创建线程池</span></span><br><span class="line">pool = Pool(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 准备网址列表</span></span><br><span class="line">url_list = [<span class="string">'www.baidu.com'</span>,<span class="string">'www.baidu.com'</span>,<span class="string">'www.baidu.com'</span>]</span><br><span class="line"><span class="comment"># 创建操作函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_requests</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="comment"># 函数返回获取到的网页源码的数据</span></span><br><span class="line">    <span class="keyword">return</span> requests.get(url).text</span><br><span class="line"><span class="comment"># 将返回的页面源码数据接收</span></span><br><span class="line">request_text_list = pool.map(get_requests,url_list)</span><br></pre></td></tr></table></figure>
 
@@ -2480,7 +2480,7 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   </entry>
   <entry>
     <title>分布式爬虫实现原理与运行机制</title>
-    <url>/2019/05/16/Spider/%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+    <url>/2019/05/16/Spider/Spider_id_13/</url>
     <content><![CDATA[<h2 id="分布式爬虫"><a href="#分布式爬虫" class="headerlink" title="分布式爬虫"></a>分布式爬虫</h2><a id="more"></a>
 <h2 id="什么是分布式爬虫"><a href="#什么是分布式爬虫" class="headerlink" title="什么是分布式爬虫:"></a>什么是分布式爬虫:</h2><ul>
 <li><h5 id="基于多台电脑组建一个分布式机群-然后让集群中的每一台电脑执行同一组程序-然后让他们对同一个网站的数据进行分布爬取"><a href="#基于多台电脑组建一个分布式机群-然后让集群中的每一台电脑执行同一组程序-然后让他们对同一个网站的数据进行分布爬取" class="headerlink" title="基于多台电脑组建一个分布式机群,然后让集群中的每一台电脑执行同一组程序,然后让他们对同一个网站的数据进行分布爬取"></a>基于多台电脑组建一个分布式机群,然后让集群中的每一台电脑执行同一组程序,然后让他们对同一个网站的数据进行分布爬取</h5></li>
@@ -2592,7 +2592,7 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
   </entry>
   <entry>
     <title>百度AI项目解析与使用</title>
-    <url>/2019/05/12/Spider/%E7%99%BE%E5%BA%A6AI%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <url>/2019/05/12/Spider/Spider_id_08/</url>
     <content><![CDATA[<h2 id="百度AI"><a href="#百度AI" class="headerlink" title="百度AI"></a>百度AI</h2><a id="more"></a>
 <p>百度ai是开放性的库,在其中实现了包括文本识别,语言识别,声音识别,指纹识别,虹膜识别等各式各样基于人工智能AI的识别方法:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipNlp</span><br><span class="line"></span><br><span class="line"><span class="string">""" 你的 APPID AK SK """</span></span><br><span class="line">APP_ID = <span class="string">'18141048'</span></span><br><span class="line">API_KEY = <span class="string">'CPKSpk7Up1aATfxAaP9xln1O'</span></span><br><span class="line">SECRET_KEY = <span class="string">'miR2GGKYfx214xEGUO0i83cgFmD3T1Z3'</span></span><br><span class="line"></span><br><span class="line">client = AipNlp(APP_ID, API_KEY, SECRET_KEY)</span><br></pre></td></tr></table></figure>
@@ -2675,7 +2675,7 @@ client.ecnet(text);
   </entry>
   <entry>
     <title>redis概览</title>
-    <url>/2019/05/02/Redis/redis%E6%A6%82%E8%A7%88/</url>
+    <url>/2019/05/02/Redis/Redis_id_02/</url>
     <content><![CDATA[<h2 id="redis数据库安装与使用"><a href="#redis数据库安装与使用" class="headerlink" title="redis数据库安装与使用:"></a>redis数据库安装与使用:</h2><a id="more"></a>
 <ul>
 <li>前往github下载要使用的版本的压缩包</li>
@@ -2803,7 +2803,7 @@ client.ecnet(text);
   </entry>
   <entry>
     <title>基于crawlSpider进行的全栈数据爬取</title>
-    <url>/2019/04/27/Spider/crawlSpider%E4%BD%BF%E7%94%A8/</url>
+    <url>/2019/04/27/Spider/Spider_id_03/</url>
     <content><![CDATA[<h2 id="基于crawlSpider进行的全栈数据爬取"><a href="#基于crawlSpider进行的全栈数据爬取" class="headerlink" title="基于crawlSpider进行的全栈数据爬取"></a>基于crawlSpider进行的全栈数据爬取</h2><a id="more"></a>
 <h2 id="crawlspider是爬虫类中spider的一个子类"><a href="#crawlspider是爬虫类中spider的一个子类" class="headerlink" title="crawlspider是爬虫类中spider的一个子类"></a>crawlspider是爬虫类中spider的一个子类</h2><h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><p>创建一个基于crawlspider的爬虫文件</p>
 <ul>
@@ -2832,7 +2832,7 @@ client.ecnet(text);
   </entry>
   <entry>
     <title>增量式爬虫使用</title>
-    <url>/2019/04/27/Spider/%E5%A2%9E%E9%87%8F%E5%BC%8F%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8/</url>
+    <url>/2019/04/27/Spider/Spider_id_19/</url>
     <content><![CDATA[<h2 id="1—增量式爬虫简介"><a href="#1—增量式爬虫简介" class="headerlink" title="1—增量式爬虫简介"></a>1—增量式爬虫简介</h2><a id="more"></a>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念:"></a>概念:</h3><p>​    检测网站数据更新情况</p>
 <h3 id="核心"><a href="#核心" class="headerlink" title="核心:"></a>核心:</h3><p>​    去重</p>
@@ -2855,7 +2855,7 @@ client.ecnet(text);
   </entry>
   <entry>
     <title>代理ip</title>
-    <url>/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/</url>
+    <url>/2019/02/13/Spider/Spider_id_10/</url>
     <content><![CDATA[<p>[TOC]</p>
 <h2 id="代理IP"><a href="#代理IP" class="headerlink" title="代理IP"></a>代理IP</h2><a id="more"></a>
 <h2 id="代理IP与代理服务器"><a href="#代理IP与代理服务器" class="headerlink" title="代理IP与代理服务器:"></a>代理IP与代理服务器:</h2><ol>
@@ -2917,7 +2917,7 @@ print(res.text)
   </entry>
   <entry>
     <title>动态获取数据</title>
-    <url>/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</url>
+    <url>/2019/02/13/Spider/Spider_id_11/</url>
     <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
 <ol>
 <li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
@@ -2933,7 +2933,7 @@ print(res.text)
   </entry>
   <entry>
     <title>flask文件上传</title>
-    <url>/2018/10/24/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <url>/2018/10/24/Flask/Flask_id_11/</url>
     <content><![CDATA[<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传:"></a>文件上传:</h2><a id="more"></a>
 <ul>
 <li><pre><code class="python"><span class="comment">#导入必须的模块包</span>
@@ -2966,7 +2966,7 @@ print(res.text)
   </entry>
   <entry>
     <title>flask常用钩子函数</title>
-    <url>/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/</url>
+    <url>/2018/10/14/Flask/Flask_id_09/</url>
     <content><![CDATA[<h2 id="常用钩子函数"><a href="#常用钩子函数" class="headerlink" title="常用钩子函数"></a>常用钩子函数</h2><a id="more"></a>
 <ol>
 <li><h3 id="errorhandler"><a href="#errorhandler" class="headerlink" title="errorhandler"></a>errorhandler</h3><ol>
@@ -3019,8 +3019,20 @@ print(res.text)
       </tags>
   </entry>
   <entry>
+    <title>flask文件下载</title>
+    <url>/2018/10/14/Flask/Flask_id_12/</url>
+    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
+<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flask中g定向</title>
-    <url>/2018/10/14/Flask/g%E5%AE%9A%E5%90%91/</url>
+    <url>/2018/10/14/Flask/Flask_id_13/</url>
     <content><![CDATA[<h2 id="g定向"><a href="#g定向" class="headerlink" title="g定向"></a>g定向</h2><a id="more"></a>
 <ul>
 <li><p>g定向使用</p>
@@ -3055,20 +3067,8 @@ def func():
       </tags>
   </entry>
   <entry>
-    <title>flask文件下载</title>
-    <url>/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h2 id="文件下载模块"><a href="#文件下载模块" class="headerlink" title="文件下载模块"></a>文件下载模块</h2><a id="more"></a>
-<h2 id="send-file"><a href="#send-file" class="headerlink" title="send_file"></a>send_file</h2><h4 id="return-send-file-文件路径-as-attachment-True-cache-timeout-1"><a href="#return-send-file-文件路径-as-attachment-True-cache-timeout-1" class="headerlink" title="return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)"></a>return send_file(文件路径,,==as_attachment=True==,==cache_timeout=1==)</h4>]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>flask_wtf</title>
-    <url>/2018/09/30/Flask/flask_WTF/</url>
+    <url>/2018/09/30/Flask/Flask_id_08/</url>
     <content><![CDATA[<h2 id="flask-wtf简介"><a href="#flask-wtf简介" class="headerlink" title="flask_wtf简介:"></a><em>flask_wtf简介:</em></h2><a id="more"></a>
 <ul>
 <li>​    flask_wtf模块下载安装<ul>
@@ -3220,7 +3220,7 @@ print(uuid4())
   </entry>
   <entry>
     <title>flask_sqlalchemy</title>
-    <url>/2018/09/27/Flask/flask_sqlalchemy/</url>
+    <url>/2018/09/27/Flask/Flask_id_07/</url>
     <content><![CDATA[<h2 id="flask-sqlalchemy"><a href="#flask-sqlalchemy" class="headerlink" title="flask_sqlalchemy"></a>flask_sqlalchemy</h2><a id="more"></a>
 
 
@@ -3251,7 +3251,7 @@ print(uuid4())
   </entry>
   <entry>
     <title>flask_session</title>
-    <url>/2018/09/23/Flask/flask_session/</url>
+    <url>/2018/09/23/Flask/Flask_id_06/</url>
     <content><![CDATA[<h2 id="cookie创建"><a href="#cookie创建" class="headerlink" title="cookie创建:"></a>cookie创建:</h2><a id="more"></a>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Response</span><br><span class="line"></span><br><span class="line">res = Response(<span class="string">'示例'</span>)</span><br><span class="line"></span><br><span class="line">res.set_cookie(<span class="string">'username'</span>,<span class="string">'root'</span>,</span><br><span class="line">               max_age=<span class="number">60</span>,</span><br><span class="line">               expires=datetime(year,month,day,hour,minute,second),</span><br><span class="line">              domain=<span class="string">'.fcg.com'</span>)</span><br><span class="line"><span class="comment">#创建cookie时需要导入以下几项,</span></span><br><span class="line"><span class="comment">#	1.cookies名字 + cookies值 (必传)</span></span><br><span class="line"><span class="comment">#	2.max_age从当前开始计算的过期时间,单位为秒,不添加的时候默认过期时间为关闭浏览器过期</span></span><br><span class="line"><span class="comment">#	3.expires设定过期时间,以格林尼治标准时间计算,换算到北京时间需要减八,这个参数如果设置的话,需要传入六个参数分别是--(year,month,day,hour,minute,second)</span></span><br><span class="line"><span class="comment">#	4.domain设定cookie作用范围,在主域名前面加上.即为将此cookie应用于所有子域名</span></span><br><span class="line"><span class="comment">#	5.设定作用范围,需要先绑定好主域名和子域名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#cookie删除</span></span><br><span class="line">res = Response(<span class="string">'删除'</span>)</span><br><span class="line">res.delete_cookie(<span class="string">'username'</span>)</span><br></pre></td></tr></table></figure>
 
@@ -3297,7 +3297,7 @@ print(uuid4())
   </entry>
   <entry>
     <title>flask中app上下文机制</title>
-    <url>/2018/09/15/Flask/app%E4%B8%8A%E4%B8%8B%E6%96%87%E6%9C%BA%E5%88%B6/</url>
+    <url>/2018/09/15/Flask/Flask_id_01/</url>
     <content><![CDATA[<h2 id="app上下文"><a href="#app上下文" class="headerlink" title="app上下文"></a>app上下文</h2><a id="more"></a>
 <p>应用上下文和请求上下文都是存放到一个’LocalStack’的栈中</p>
 <p>和应用app相关的操作就必须用到应用上下文,比如通过current_app获取当前这个app</p>
@@ -3340,7 +3340,7 @@ print(uuid4())
   </entry>
   <entry>
     <title>flask信号机制</title>
-    <url>/2018/09/08/Flask/%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6/</url>
+    <url>/2018/09/08/Flask/Flask_id_16/</url>
     <content><![CDATA[<h2 id="flask信号"><a href="#flask信号" class="headerlink" title="flask信号"></a>flask信号</h2><a id="more"></a>
 <h3 id="信号使用详解"><a href="#信号使用详解" class="headerlink" title="信号使用详解:"></a>信号使用详解:</h3><ul>
 <li><p>信号使用分为三步</p>
@@ -3403,7 +3403,7 @@ got_request_exception.connect(request_exception_log)
   </entry>
   <entry>
     <title>flask分页</title>
-    <url>/2018/08/31/Flask/%E5%88%86%E9%A1%B5/</url>
+    <url>/2018/08/31/Flask/Flask_id_15/</url>
     <content><![CDATA[<h2 id="flask-分页"><a href="#flask-分页" class="headerlink" title="flask 分页"></a>flask 分页</h2><a id="more"></a>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> goods.has_prev %&#125;</span><br><span class="line">    &lt;a href="/show?page=&#123;&#123; goods.prev_num &#125;&#125;"&gt;上一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">&#123;% <span class="keyword">for</span> foo <span class="keyword">in</span> goods.iter_pages() %&#125;</span><br><span class="line">    &lt;a href="/show?page=&#123;&#123; foo &#125;&#125;"&gt;&#123;&#123; foo &#125;&#125;&lt;/a&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> goods.has_next %&#125;</span><br><span class="line">    &lt;a href="/show?page=&#123;&#123; goods.next_num &#125;&#125;"&gt;下一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3447,7 +3447,7 @@ return send_file(&quot;static/data.json&quot;, as_attachment=True, cache_timeout
   </entry>
   <entry>
     <title>flask数据库迁移</title>
-    <url>/2018/08/26/Flask/flask%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/</url>
+    <url>/2018/08/26/Flask/Flask_id_10/</url>
     <content><![CDATA[<h2 id="flask数据库迁移"><a href="#flask数据库迁移" class="headerlink" title="flask数据库迁移"></a><code>flask</code>数据库迁移</h2><a id="more"></a>
 <hr>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm.orm <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.dialects.mysql <span class="keyword">import</span> LONGTEXT,DECIMAL,DATETIME</span><br><span class="line"></span><br><span class="line">Host = <span class="string">'127.0.0.1'</span></span><br><span class="line">Port = <span class="string">'3306'</span></span><br><span class="line">User = <span class="string">'root'</span></span><br><span class="line">Password = <span class="string">'000000'</span></span><br><span class="line">Database = 要使用的数据库名称</span><br><span class="line">DB_URI = <span class="string">'mysql+mysqlconnector://&#123;user&#125;:&#123;password&#125;@&#123;host&#125;:&#123;port&#125;/&#123;database&#125;'</span>.format(user=User,password=Password,host=Host,port=Port,database=Database)</span><br><span class="line">engine = create_engine(DB_URI)</span><br><span class="line">Base = declarative_base(engine)</span><br><span class="line">session = sessionmaker(engine)()</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span><span class="params">(Base)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">'person'</span></span><br><span class="line">    id = Column(Integer,primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = Column(String(<span class="number">100</span>))</span><br><span class="line">Base.metadata.drop_all()</span><br><span class="line">Base.metadata.create_all()</span><br></pre></td></tr></table></figure>
@@ -3596,7 +3596,7 @@ target_metadata = app.db.Model.metadata</code></pre>
   </entry>
   <entry>
     <title>flask文件上传</title>
-    <url>/2018/08/16/Flask/lask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <url>/2018/08/16/Flask/Flask_id_14/</url>
     <content><![CDATA[<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传:"></a>文件上传:</h2><a id="more"></a>
 <ul>
 <li><pre><code class="python"><span class="comment">#导入必须的模块包</span>
@@ -3629,7 +3629,7 @@ target_metadata = app.db.Model.metadata</code></pre>
   </entry>
   <entry>
     <title>flask_script</title>
-    <url>/2018/08/13/Flask/flask_script/</url>
+    <url>/2018/08/13/Flask/Flask_id_05/</url>
     <content><![CDATA[<h2 id="flask-script"><a href="#flask-script" class="headerlink" title="*flask_script*"></a><strong>*<u>flask_script*</u></strong></h2><h2 id="flask-script安装"><a href="#flask-script安装" class="headerlink" title="flask_script安装:"></a>flask_script安装:</h2><a id="more"></a>
 
 <ol>
@@ -3677,7 +3677,7 @@ manager.add_command(<span class="string">'db'</span>,db_script)
   </entry>
   <entry>
     <title>flask_migrate</title>
-    <url>/2018/08/07/Flask/flask_migrate/</url>
+    <url>/2018/08/07/Flask/Flask_id_03/</url>
     <content><![CDATA[<h2 id="flask-migrate"><a href="#flask-migrate" class="headerlink" title="*flask_migrate*"></a><strong>*<u>flask_migrate*</u></strong></h2><hr>
 <h2 id="flask-migrate初试"><a href="#flask-migrate初试" class="headerlink" title="flask_migrate初试:"></a>flask_migrate初试:</h2><a id="more"></a>
 <ul>
@@ -3740,7 +3740,7 @@ form models <span class="keyword">import</span> Person
   </entry>
   <entry>
     <title>flask开端</title>
-    <url>/2018/08/03/Flask/flask/</url>
+    <url>/2018/08/03/Flask/Flask_id_02/</url>
     <content><![CDATA[<h2 id="—————————–flask开端——————————–"><a href="#—————————–flask开端——————————–" class="headerlink" title="—————————–flask开端——————————–"></a>—————————–flask开端——————————–</h2><hr>
 <h2 id="flask安装"><a href="#flask安装" class="headerlink" title="flask安装:"></a>flask安装:</h2><a id="more"></a>
 <ul>
@@ -3783,7 +3783,7 @@ if __name__ = &apos;__main__&apos;:
   </entry>
   <entry>
     <title>flask_route</title>
-    <url>/2018/08/03/Flask/flask_route/</url>
+    <url>/2018/08/03/Flask/Flask_id_04/</url>
     <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
 <ul>
 <li><p>创建app主体</p>
@@ -3817,7 +3817,7 @@ app = Flask(__name__)
   </entry>
   <entry>
     <title>DRF自定义错误捕获</title>
-    <url>/2018/04/28/Django/DRF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E6%8D%95%E8%8E%B7%E6%9C%BA%E5%88%B6/</url>
+    <url>/2018/04/28/Django/Django_id_10/</url>
     <content><![CDATA[<h2 id="自定义错误捕获"><a href="#自定义错误捕获" class="headerlink" title="自定义错误捕获:"></a>自定义错误捕获:</h2><a id="more"></a>
 <p>在drf和django框架中,仅仅内置了一些常见的错误捕获,如:</p>
 <ul>
@@ -3850,7 +3850,7 @@ app = Flask(__name__)
   </entry>
   <entry>
     <title>DRF中generics</title>
-    <url>/2018/04/25/Django/DRF%E4%B8%ADgenerics/</url>
+    <url>/2018/04/25/Django/Django_id_08/</url>
     <content><![CDATA[<h2 id="generics"><a href="#generics" class="headerlink" title="generics"></a>generics</h2><a id="more"></a>
 <ol>
 <li><p>这模块中封装着GenericsAPIViews类,对APIViews进行了进一步的封装,比起APIViews,它的功能进一步扩展</p>
@@ -3874,7 +3874,7 @@ app = Flask(__name__)
   </entry>
   <entry>
     <title>DRF中的APIViews视图类</title>
-    <url>/2018/04/21/Django/DRF%E4%B8%AD%E7%9A%84APIViews%E8%A7%86%E5%9B%BE%E7%B1%BB/</url>
+    <url>/2018/04/21/Django/Django_id_09/</url>
     <content><![CDATA[<h2 id="from-rest-framework-views-import-APIViews"><a href="#from-rest-framework-views-import-APIViews" class="headerlink" title="from rest_framework.views import APIViews"></a>from rest_framework.views import APIViews</h2><a id="more"></a>
 <ol>
 <li><p>封装在DRF中的视图模块,相比直接使用django中的views模块,这个模块的使用更加的严谨,功能更多,更好用</p>
@@ -3895,7 +3895,7 @@ app = Flask(__name__)
   </entry>
   <entry>
     <title>DRF验证器机制使用</title>
-    <url>/2018/04/18/Django/DRF%E9%AA%8C%E8%AF%81%E5%99%A8%E6%9C%BA%E5%88%B6%E4%BD%BF%E7%94%A8/</url>
+    <url>/2018/04/18/Django/Django_id_07/</url>
     <content><![CDATA[<h2 id="DRF验证器机制"><a href="#DRF验证器机制" class="headerlink" title="DRF验证器机制"></a>DRF验证器机制</h2><a id="more"></a>
 <ol>
 <li><p>创建基于drf框架的验证器</p>
@@ -3997,7 +3997,7 @@ app = Flask(__name__)
   </entry>
   <entry>
     <title>Git操作</title>
-    <url>/2018/04/14/Git/Git%E6%93%8D%E4%BD%9C/</url>
+    <url>/2018/04/14/Git/Git_id_03/</url>
     <content><![CDATA[<h2 id="git-bash操作实例"><a href="#git-bash操作实例" class="headerlink" title="git bash操作实例:"></a>git bash操作实例:</h2><a id="more"></a>
 <ul>
 <li><p>​    在文件夹中打开git(在文件页面上方的路径里面输入git bash即可快速打开git编辑界面)</p>
@@ -4042,7 +4042,7 @@ git config --global credential.helper store
   </entry>
   <entry>
     <title>DRF文件上传与静态文件访问</title>
-    <url>/2018/04/13/Django/DRF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/</url>
+    <url>/2018/04/13/Django/Django_id_06/</url>
     <content><![CDATA[<h2 id="DRF文件上传及访问"><a href="#DRF文件上传及访问" class="headerlink" title="DRF文件上传及访问"></a>DRF文件上传及访问</h2><a id="more"></a>
 <h2 id="关于DRF文件上传"><a href="#关于DRF文件上传" class="headerlink" title="关于DRF文件上传:"></a>关于DRF文件上传:</h2><p>​    其实我的掌握并不强,目前也只能完成非前后端分离的状态提交的数据,在前后端分离的状态,我提交的数据不知道为什么始终无法传上来,查验代码之后提示是我的上传数据格式不一致,但是查了好久都没找到具体的解决办法</p>
 <p>​    那么,先演示一下使用drf进行的django工程内部的提交:</p>
@@ -4071,7 +4071,7 @@ git config --global credential.helper store
   </entry>
   <entry>
     <title>DRF数据分页器</title>
-    <url>/2018/04/07/Django/DRF%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%99%A8/</url>
+    <url>/2018/04/07/Django/Django_id_05/</url>
     <content><![CDATA[<h2 id="分页器类书写"><a href="#分页器类书写" class="headerlink" title="分页器类书写"></a>分页器类书写</h2><a id="more"></a>
 <ol>
 <li><pre><code class="python"><span class="comment"># 废话不多说,直接上代码</span>
@@ -4113,7 +4113,7 @@ size为单页显示的最大数量
   </entry>
   <entry>
     <title>vue路由配置</title>
-    <url>/2018/04/01/Vue/vue%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/</url>
+    <url>/2018/04/01/Vue/Vue_id_04/</url>
     <content><![CDATA[<h2 id="配置vue路由"><a href="#配置vue路由" class="headerlink" title="配置vue路由"></a>配置vue路由</h2><a id="more"></a>
 <ol>
 <li><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><ul>
@@ -4160,7 +4160,7 @@ size为单页显示的最大数量
   </entry>
   <entry>
     <title>关于vue的配置</title>
-    <url>/2018/04/01/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <url>/2018/04/01/Vue/Vue_id_09/</url>
     <content><![CDATA[<h2 id="Vue配置"><a href="#Vue配置" class="headerlink" title="Vue配置"></a>Vue配置</h2><a id="more"></a>
 
 
@@ -4198,7 +4198,7 @@ rimraf node_modules</code></pre></li>
   </entry>
   <entry>
     <title>关于哈希加密算法</title>
-    <url>/2018/03/30/Python/%E5%85%B3%E4%BA%8E%E5%93%88%E5%B8%8C%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</url>
+    <url>/2018/03/30/Python/Python_id_02/</url>
     <content><![CDATA[<h2 id="哈希加密"><a href="#哈希加密" class="headerlink" title="哈希加密"></a>哈希加密</h2><a id="more"></a>
 <ul>
 <li><p>该加密算法对于相同的字符串将会是一致的,同时,这种加密是单向的,无法反向编译出来,也就是说,想要对 加密后的数据进行比较,你需要将要比较的数据先进行加密,然后才能进行比较,当两者内容一致时,才会通过验证</p>
@@ -4231,8 +4231,50 @@ print(h1.digest())</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Django数据库关系属性</title>
+    <url>/2018/03/18/Django/Django_id_19/</url>
+    <content><![CDATA[<h2 id="数据库关系属性"><a href="#数据库关系属性" class="headerlink" title="数据库关系属性"></a>数据库关系属性</h2><a id="more"></a>
+<ul>
+<li><h2 id="一对多关系"><a href="#一对多关系" class="headerlink" title="一对多关系"></a>一对多关系</h2><ul>
+<li><p>ForeignKey</p>
+</li>
+<li><p>外键专属,一对多关系设定,通常情况下,这个属性设置在多类属性中,关联一类属性</p>
+</li>
+<li><pre><code class="python">news_type = models.ForeignKey(<span class="string">'NewsTypeInfo'</span>,on_delete=models.CASCADE)
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">- ## 多对多关系</span><br><span class="line"></span><br><span class="line">  - ManyToManyField</span><br><span class="line"></span><br><span class="line">  - 多对多关系建立字段,这个字段可以写在任意一个里面,并不影响使用</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    news_type = models.ManyToManyField('NewsInfo')</span><br></pre></td></tr></table></figure>
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h2 id="一对一关系"><a href="#一对一关系" class="headerlink" title="一对一关系"></a>一对一关系</h2><ul>
+<li>OneToOneField</li>
+</ul>
+</li>
+</ul>
+<h2 id="通过模型类实现关联查询语句"><a href="#通过模型类实现关联查询语句" class="headerlink" title="通过模型类实现关联查询语句:"></a>通过模型类实现关联查询语句:</h2><p>​    </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Two.models <span class="keyword">import</span> *</span><br><span class="line">b = HeroInfo.objects.filter(hbook__id=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#通过一对多关系获取对象的方法</span></span><br><span class="line"><span class="comment">#关系字段加上双下划线加上对应表中的字段即可进行查询,但需要注意</span></span><br><span class="line">b = HeroInfo.object.get(id=<span class="number">1</span>)</span><br><span class="line">b.hbook</span><br><span class="line"><span class="comment">#以上两种方法都能进行查询,但是第一种方法查询出来的结果是一个查询集,第二种拿到的是一个对象</span></span><br></pre></td></tr></table></figure>
+
+<p>在没有关系的情况下查询的话,就不能使用关系属性字段进行查询,这个这时候,就需要用模型类的名字进行查询,用模型类的名字代替关系属性字段的名字</p>
+<h2 id="自关联属性字段查询"><a href="#自关联属性字段查询" class="headerlink" title="自关联属性字段查询:"></a>自关联属性字段查询:</h2><h3 id="设定自关联属性字段"><a href="#设定自关联属性字段" class="headerlink" title="设定自关联属性字段:"></a>设定自关联属性字段:</h3><p>​            </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AreaInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	a_title = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="comment">#设置关联属性字段,关联自身,即self</span></span><br><span class="line">    <span class="comment">#这个字段即意味着与自身关联</span></span><br><span class="line">    a_parent = models.ForeignKey(<span class="string">'self'</span>,on_delete=models.CASCADE,null=<span class="literal">True</span>,blank=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="自关联属于特殊的一对多"><a href="#自关联属于特殊的一对多" class="headerlink" title="自关联属于特殊的一对多"></a>自关联属于特殊的一对多</h4><h4 id="在查询时遵循一对多的查询方式"><a href="#在查询时遵循一对多的查询方式" class="headerlink" title="在查询时遵循一对多的查询方式"></a>在查询时遵循一对多的查询方式</h4><p>由一查多时使用字段名__set.all()进行查询</p>
+<p>由多查一时使用字段名查询</p>
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django中cookie和session</title>
-    <url>/2018/03/18/Django/Django%E4%B8%ADcookie%E5%92%8Csession/</url>
+    <url>/2018/03/18/Django/Django_id_22/</url>
     <content><![CDATA[<h2 id="COOKIES"><a href="#COOKIES" class="headerlink" title="COOKIES"></a>COOKIES</h2><a id="more"></a>
 <ol>
 <li><p>设置cookie</p>
@@ -4316,50 +4358,8 @@ print(h1.digest())</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Django数据库关系属性</title>
-    <url>/2018/03/18/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E7%B3%BB%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<h2 id="数据库关系属性"><a href="#数据库关系属性" class="headerlink" title="数据库关系属性"></a>数据库关系属性</h2><a id="more"></a>
-<ul>
-<li><h2 id="一对多关系"><a href="#一对多关系" class="headerlink" title="一对多关系"></a>一对多关系</h2><ul>
-<li><p>ForeignKey</p>
-</li>
-<li><p>外键专属,一对多关系设定,通常情况下,这个属性设置在多类属性中,关联一类属性</p>
-</li>
-<li><pre><code class="python">news_type = models.ForeignKey(<span class="string">'NewsTypeInfo'</span>,on_delete=models.CASCADE)
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">- ## 多对多关系</span><br><span class="line"></span><br><span class="line">  - ManyToManyField</span><br><span class="line"></span><br><span class="line">  - 多对多关系建立字段,这个字段可以写在任意一个里面,并不影响使用</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    news_type = models.ManyToManyField('NewsInfo')</span><br></pre></td></tr></table></figure>
-
-
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h2 id="一对一关系"><a href="#一对一关系" class="headerlink" title="一对一关系"></a>一对一关系</h2><ul>
-<li>OneToOneField</li>
-</ul>
-</li>
-</ul>
-<h2 id="通过模型类实现关联查询语句"><a href="#通过模型类实现关联查询语句" class="headerlink" title="通过模型类实现关联查询语句:"></a>通过模型类实现关联查询语句:</h2><p>​    </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Two.models <span class="keyword">import</span> *</span><br><span class="line">b = HeroInfo.objects.filter(hbook__id=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#通过一对多关系获取对象的方法</span></span><br><span class="line"><span class="comment">#关系字段加上双下划线加上对应表中的字段即可进行查询,但需要注意</span></span><br><span class="line">b = HeroInfo.object.get(id=<span class="number">1</span>)</span><br><span class="line">b.hbook</span><br><span class="line"><span class="comment">#以上两种方法都能进行查询,但是第一种方法查询出来的结果是一个查询集,第二种拿到的是一个对象</span></span><br></pre></td></tr></table></figure>
-
-<p>在没有关系的情况下查询的话,就不能使用关系属性字段进行查询,这个这时候,就需要用模型类的名字进行查询,用模型类的名字代替关系属性字段的名字</p>
-<h2 id="自关联属性字段查询"><a href="#自关联属性字段查询" class="headerlink" title="自关联属性字段查询:"></a>自关联属性字段查询:</h2><h3 id="设定自关联属性字段"><a href="#设定自关联属性字段" class="headerlink" title="设定自关联属性字段:"></a>设定自关联属性字段:</h3><p>​            </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AreaInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	a_title = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="comment">#设置关联属性字段,关联自身,即self</span></span><br><span class="line">    <span class="comment">#这个字段即意味着与自身关联</span></span><br><span class="line">    a_parent = models.ForeignKey(<span class="string">'self'</span>,on_delete=models.CASCADE,null=<span class="literal">True</span>,blank=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="自关联属于特殊的一对多"><a href="#自关联属于特殊的一对多" class="headerlink" title="自关联属于特殊的一对多"></a>自关联属于特殊的一对多</h4><h4 id="在查询时遵循一对多的查询方式"><a href="#在查询时遵循一对多的查询方式" class="headerlink" title="在查询时遵循一对多的查询方式"></a>在查询时遵循一对多的查询方式</h4><p>由一查多时使用字段名__set.all()进行查询</p>
-<p>由多查一时使用字段名查询</p>
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Django视图管理</title>
-    <url>/2018/03/17/Django/Django%E8%A7%86%E5%9B%BE%E7%AE%A1%E7%90%86/</url>
+    <url>/2018/03/17/Django/Django_id_27/</url>
     <content><![CDATA[<h2 id="Django视图管理"><a href="#Django视图管理" class="headerlink" title="Django视图管理"></a>Django视图管理</h2><h2 id="视图函数在views-py文件中进行定义"><a href="#视图函数在views-py文件中进行定义" class="headerlink" title="#视图函数在views.py文件中进行定义"></a>#视图函数在views.py文件中进行定义</h2><h2 id="1-定义视图函数"><a href="#1-定义视图函数" class="headerlink" title="1).定义视图函数"></a>1).定义视图函数</h2><p>​    <a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'视图函数成功'</span>)</span><br></pre></td></tr></table></figure>
 
@@ -4417,7 +4417,7 @@ urlatterns = [
   </entry>
   <entry>
     <title>DRF初试</title>
-    <url>/2018/03/16/Django/DRF%E4%BD%BF%E7%94%A8/</url>
+    <url>/2018/03/16/Django/Django_id_02/</url>
     <content><![CDATA[<h2 id="DRF初试"><a href="#DRF初试" class="headerlink" title="DRF初试"></a>DRF初试</h2><a id="more"></a>
 <ol>
 <li><p>创建一个新的序列化器</p>
@@ -4467,7 +4467,7 @@ urlpatterns = [
   </entry>
   <entry>
     <title>Django中间件</title>
-    <url>/2018/03/15/Django/Django%E4%B8%AD%E9%97%B4%E4%BB%B6/</url>
+    <url>/2018/03/15/Django/Django_id_23/</url>
     <content><![CDATA[<h2 id="django中间件"><a href="#django中间件" class="headerlink" title="django中间件"></a>django中间件</h2><a id="more"></a>
 <p>中间件需要使用request参数的META属性</p>
 <ul>
@@ -4532,7 +4532,7 @@ urlpatterns = [
   </entry>
   <entry>
     <title>DRF框架的权限验证器与限流</title>
-    <url>/2018/03/14/Django/DRF%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81%E5%99%A8%E4%B8%8E%E9%99%90%E6%B5%81/</url>
+    <url>/2018/03/14/Django/Django_id_03/</url>
     <content><![CDATA[<h2 id="DRF框架权限验证器"><a href="#DRF框架权限验证器" class="headerlink" title="DRF框架权限验证器:"></a>DRF框架权限验证器:</h2><a id="more"></a>
 <p>基础验证器</p>
 <ol>
@@ -4620,7 +4620,7 @@ class MyPermissions(APIView):
   </entry>
   <entry>
     <title>Django数据库操作</title>
-    <url>/2018/03/14/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/</url>
+    <url>/2018/03/14/Django/Django_id_30/</url>
     <content><![CDATA[<h2 id="Django数据库操作"><a href="#Django数据库操作" class="headerlink" title="Django数据库操作"></a>Django数据库操作</h2><h2 id="Django中不需要定义id字段"><a href="#Django中不需要定义id字段" class="headerlink" title="#Django中不需要定义id字段"></a>#Django中不需要定义id字段</h2><a id="more"></a>
 
 <h3 id="数据库创建–基础字段"><a href="#数据库创建–基础字段" class="headerlink" title="数据库创建–基础字段:"></a>数据库创建–基础字段:</h3><ul>
@@ -4904,7 +4904,7 @@ h.hbook = b
   </entry>
   <entry>
     <title>Django-filter过滤器的使用</title>
-    <url>/2018/03/10/Django/Django-filter%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <url>/2018/03/10/Django/Django_id_04/</url>
     <content><![CDATA[<h2 id="Django-filter模块使用"><a href="#Django-filter模块使用" class="headerlink" title="Django-filter模块使用:"></a>Django-filter模块使用:</h2><a id="more"></a>
 <h2 id="目前-过滤器django-filter只能在ListAPIView的子类中使用"><a href="#目前-过滤器django-filter只能在ListAPIView的子类中使用" class="headerlink" title="目前,过滤器django_filter只能在ListAPIView的子类中使用"></a>目前,过滤器django_filter只能在ListAPIView的子类中使用</h2><ol>
 <li><h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><ul>
@@ -4937,7 +4937,7 @@ h.hbook = b
   </entry>
   <entry>
     <title>Django模型管理器</title>
-    <url>/2018/03/09/Django/Django%E6%A8%A1%E5%9E%8B%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+    <url>/2018/03/09/Django/Django_id_18/</url>
     <content><![CDATA[<h2 id="模型管理器详解"><a href="#模型管理器详解" class="headerlink" title="模型管理器详解"></a>模型管理器详解</h2><a id="more"></a>
 <ol>
 <li><h2 id="objects模型管理器"><a href="#objects模型管理器" class="headerlink" title="objects模型管理器"></a>objects模型管理器</h2><ol>
@@ -5024,7 +5024,7 @@ BookInfo.book.all()
   </entry>
   <entry>
     <title>API接口生成</title>
-    <url>/2018/03/09/Vue/API%E6%8E%A5%E5%8F%A3%E7%94%9F%E6%88%90/</url>
+    <url>/2018/03/09/Vue/Vue_id_01/</url>
     <content><![CDATA[<h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
 <li><p>下载模块</p>
@@ -5053,7 +5053,7 @@ BookInfo.book.all()
   </entry>
   <entry>
     <title>axios请求与跨域</title>
-    <url>/2018/03/09/Vue/axios%E8%AF%B7%E6%B1%82%E4%B8%8E%E8%B7%A8%E5%9F%9F/</url>
+    <url>/2018/03/09/Vue/Vue_id_03/</url>
     <content><![CDATA[<h2 id="axios请求与跨域"><a href="#axios请求与跨域" class="headerlink" title="axios请求与跨域."></a>axios请求与跨域.</h2><a id="more"></a>
 <ol>
 <li><p>创建一个django工程并运行</p>
@@ -5134,7 +5134,7 @@ this.django_message = response.data.message</code></pre>
   </entry>
   <entry>
     <title>Django模板使用</title>
-    <url>/2018/03/08/Django/Django%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE/</url>
+    <url>/2018/03/08/Django/Django_id_17/</url>
     <content><![CDATA[<h2 id="Django模板使用"><a href="#Django模板使用" class="headerlink" title="Django模板使用"></a>Django模板使用</h2><a id="more"></a>
 <ol>
 <li><pre><code>for foo in msg
@@ -5178,7 +5178,7 @@ endcomment
   </entry>
   <entry>
     <title>关于vue的一些问题</title>
-    <url>/2018/03/08/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
+    <url>/2018/03/08/Vue/Vue_id_10/</url>
     <content><![CDATA[<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><a id="more"></a>
 <h2 id="第一点"><a href="#第一点" class="headerlink" title="第一点"></a>第一点</h2><p>​    最初老师教的其实是2.0版本,相比起来,更加高端的vue/cli3的代码更加简洁高效,我也不知道为啥学校不叫最新的,反正当初这个坑是被我踩到了</p>
 <p>​    这其中有着很多的问题,如缺少依赖包,缺少必备的代码库,林林总总的红色报错在当时直接把我惊呆了</p>
@@ -5239,7 +5239,7 @@ endcomment
   </entry>
   <entry>
     <title>Django路由参数捕获</title>
-    <url>/2018/03/07/Django/Django%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0%E6%8D%95%E8%8E%B7/</url>
+    <url>/2018/03/07/Django/Django_id_16/</url>
     <content><![CDATA[<h2 id="URL参数捕获"><a href="#URL参数捕获" class="headerlink" title="URL参数捕获"></a>URL参数捕获</h2><ol>
 <li><p>参数捕获的方法有两种</p>
 <a id="more"></a>
@@ -5273,7 +5273,7 @@ urlpatterns = [
   </entry>
   <entry>
     <title>Django后台管理操作</title>
-    <url>/2018/03/06/Django/Django%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</url>
+    <url>/2018/03/06/Django/Django_id_15/</url>
     <content><![CDATA[<h2 id="Django后台管理操作"><a href="#Django后台管理操作" class="headerlink" title="Django后台管理操作"></a>Django后台管理操作</h2><a id="more"></a>
 <p>#后台管理系统为admin.py文件</p>
 <h2 id="1-本地化"><a href="#1-本地化" class="headerlink" title="1).本地化"></a>1).本地化</h2><ul>
@@ -5358,7 +5358,7 @@ urlpatterns = [
   </entry>
   <entry>
     <title>Django关闭debug模式之后的静态文件访问</title>
-    <url>/2018/03/05/Django/Django%E5%85%B3%E9%97%ADdebug%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%90%8E%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/</url>
+    <url>/2018/03/05/Django/Django_id_14/</url>
     <content><![CDATA[<h2 id="Django关闭debug模式之后的静态文件访问"><a href="#Django关闭debug模式之后的静态文件访问" class="headerlink" title="Django关闭debug模式之后的静态文件访问"></a>Django关闭debug模式之后的静态文件访问</h2><a id="more"></a>
 <ol>
 <li><pre><code>STATIC_URL = &apos;/static/&apos;
@@ -5388,7 +5388,7 @@ STATICFILES_DIRS = [
   </entry>
   <entry>
     <title>Django反转url</title>
-    <url>/2018/03/04/Django/Django%E5%8F%8D%E8%BD%AC%E8%B7%AF%E7%94%B1/</url>
+    <url>/2018/03/04/Django/Django_id_13/</url>
     <content><![CDATA[<h2 id="Django反转url"><a href="#Django反转url" class="headerlink" title="Django反转url"></a>Django反转url</h2><a id="more"></a>
 <ol>
 <li><h3 id="反转url"><a href="#反转url" class="headerlink" title="反转url:"></a>反转url:</h3><ol>
@@ -5449,7 +5449,7 @@ url ‘index’ 参数名=参数数值
   </entry>
   <entry>
     <title>Django表单提交</title>
-    <url>/2018/03/03/Django/DJango%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E6%8F%90%E4%BA%A4/</url>
+    <url>/2018/03/03/Django/Django_id_12/</url>
     <content><![CDATA[<h2 id="Django表单提交"><a href="#Django表单提交" class="headerlink" title="Django表单提交"></a>Django表单提交</h2><a id="more"></a>
 <ul>
 <li>Django表单数据提交涉及到视图函数中的request参数<ul>
@@ -5619,7 +5619,7 @@ $.ajax({
   </entry>
   <entry>
     <title>Django编辑页选项</title>
-    <url>/2018/03/02/Django/Django%E7%BC%96%E8%BE%91%E9%A1%B5%E9%80%89%E9%A1%B9/</url>
+    <url>/2018/03/02/Django/Django_id_11/</url>
     <content><![CDATA[<h2 id="Django编辑页选项"><a href="#Django编辑页选项" class="headerlink" title="Django编辑页选项"></a>Django编辑页选项</h2><a id="more"></a>
 <ol>
 <li><h3 id="设定编辑页数据显示"><a href="#设定编辑页数据显示" class="headerlink" title="设定编辑页数据显示"></a>设定编辑页数据显示</h3><ul>
@@ -5668,7 +5668,7 @@ Inlines = [Power_list_StackedInline]
   </entry>
   <entry>
     <title>ORM框架</title>
-    <url>/2018/03/02/Django/%E5%85%B3%E4%BA%8EORM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/</url>
+    <url>/2018/03/02/Django/Django_id_25/</url>
     <content><![CDATA[<h2 id="ORM框架"><a href="#ORM框架" class="headerlink" title="ORM框架"></a>ORM框架</h2><h3 id="orm的全称"><a href="#orm的全称" class="headerlink" title="orm的全称:"></a>orm的全称:</h3><ul>
 <li>​    O <ul>
 <li>object</li>
@@ -5699,7 +5699,7 @@ Inlines = [Power_list_StackedInline]
   </entry>
   <entry>
     <title>Django元选项</title>
-    <url>/2018/03/01/Django/Django%E5%85%83%E9%80%89%E9%A1%B9/</url>
+    <url>/2018/03/01/Django/Django_id_21/</url>
     <content><![CDATA[<h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h2><a id="more"></a>
 <h3 id="通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字"><a href="#通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字" class="headerlink" title="通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字"></a>通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookInfo</span><span class="params">(models.Manager)</span>:</span></span><br><span class="line">    btitle = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">'bookinfo'</span></span><br></pre></td></tr></table></figure>
 
@@ -5734,7 +5734,7 @@ Inlines = [Power_list_StackedInline]
   </entry>
   <entry>
     <title>关于mvc</title>
-    <url>/2018/03/01/Django/%E5%85%B3%E4%BA%8Emvc/</url>
+    <url>/2018/03/01/Django/Django_id_24/</url>
     <content><![CDATA[<h2 id="web设计模式"><a href="#web设计模式" class="headerlink" title="==web设计模式=="></a>==web设计模式==</h2><h2 id="—web-mvc—"><a href="#—web-mvc—" class="headerlink" title="—web mvc—"></a>—web mvc—</h2><h4 id="mvc基本概念"><a href="#mvc基本概念" class="headerlink" title="mvc基本概念:"></a>mvc基本概念:</h4><a id="more"></a>
 <ol>
 <li>​    mvc的产生理念是: ==分工==</li>
@@ -5804,7 +5804,7 @@ Inlines = [Power_list_StackedInline]
   </entry>
   <entry>
     <title>Django首次使用</title>
-    <url>/2018/02/27/Django/Django%E6%96%87%E4%BB%B6%E5%88%9D%E5%88%9B/</url>
+    <url>/2018/02/27/Django/Django_id_20/</url>
     <content><![CDATA[<h2 id="Django首次使用"><a href="#Django首次使用" class="headerlink" title="Django首次使用"></a>Django首次使用</h2><a id="more"></a>
 <p>创建django项目:</p>
 <h4 id="django-admin-startproect-项目名"><a href="#django-admin-startproect-项目名" class="headerlink" title="django-admin startproect 项目名"></a>django-admin startproect 项目名</h4><p>创建一个完整的django项目</p>

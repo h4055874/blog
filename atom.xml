@@ -18,8 +18,8 @@
   
   <entry>
     <title>Vue中router-link的点击事件</title>
-    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%ADrouter-link%E7%9A%84%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
-    <id>https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%ADrouter-link%E7%9A%84%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</id>
+    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue_id_06/"/>
+    <id>https://onlyyu.cn/2020/05/28/Vue/Vue_id_06/</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-05-27T18:01:31.133Z</updated>
     
@@ -38,30 +38,9 @@
   </entry>
   
   <entry>
-    <title>Vue引入百度地图</title>
-    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue%E5%BC%95%E5%85%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
-    <id>https://onlyyu.cn/2020/05/28/Vue/Vue%E5%BC%95%E5%85%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-05-27T17:54:27.811Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　Vue中引入百度地图&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="百度地图" scheme="https://onlyyu.cn/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%AD%E8%AF%A6%E7%BB%86%E7%9A%84%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E8%A7%A3%E6%9E%90/"/>
-    <id>https://onlyyu.cn/2020/05/28/Vue/Vue%E4%B8%AD%E8%AF%A6%E7%BB%86%E7%9A%84%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E8%A7%A3%E6%9E%90/</id>
+    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue_id_08/"/>
+    <id>https://onlyyu.cn/2020/05/28/Vue/Vue_id_08/</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-05-27T18:03:41.318Z</updated>
     
@@ -80,9 +59,30 @@
   </entry>
   
   <entry>
+    <title>Vue引入百度地图</title>
+    <link href="https://onlyyu.cn/2020/05/28/Vue/Vue_id_05/"/>
+    <id>https://onlyyu.cn/2020/05/28/Vue/Vue_id_05/</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-05-27T17:54:27.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Vue中引入百度地图&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="百度地图" scheme="https://onlyyu.cn/categories/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算某年某月某一天是第几天</title>
-    <link href="https://onlyyu.cn/2020/05/25/Python/%E8%AE%A1%E7%AE%97%E6%9F%90%E5%B9%B4%E6%9F%90%E6%9C%88%E6%9F%90%E4%B8%80%E5%A4%A9%E6%98%AF%E7%AC%AC%E5%87%A0%E5%A4%A9/"/>
-    <id>https://onlyyu.cn/2020/05/25/Python/%E8%AE%A1%E7%AE%97%E6%9F%90%E5%B9%B4%E6%9F%90%E6%9C%88%E6%9F%90%E4%B8%80%E5%A4%A9%E6%98%AF%E7%AC%AC%E5%87%A0%E5%A4%A9/</id>
+    <link href="https://onlyyu.cn/2020/05/25/Python/Python_id_04/"/>
+    <id>https://onlyyu.cn/2020/05/25/Python/Python_id_04/</id>
     <published>2020-05-24T16:00:00.000Z</published>
     <updated>2020-05-25T05:37:29.965Z</updated>
     
@@ -101,9 +101,30 @@
   </entry>
   
   <entry>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/2020/05/24/Redis/Redis_id_03/"/>
+    <id>https://onlyyu.cn/2020/05/24/Redis/Redis_id_03/</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:23:26.780Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>redis优化</title>
-    <link href="https://onlyyu.cn/2020/05/24/Redis/redis%E4%BC%98%E5%8C%96/"/>
-    <id>https://onlyyu.cn/2020/05/24/Redis/redis%E4%BC%98%E5%8C%96/</id>
+    <link href="https://onlyyu.cn/2020/05/24/Redis/Redis_id_05/"/>
+    <id>https://onlyyu.cn/2020/05/24/Redis/Redis_id_05/</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:27:46.871Z</updated>
     
@@ -123,8 +144,8 @@
   
   <entry>
     <title>redis持久化</title>
-    <link href="https://onlyyu.cn/2020/05/24/Redis/redis%E6%8C%81%E4%B9%85%E5%8C%96/"/>
-    <id>https://onlyyu.cn/2020/05/24/Redis/redis%E6%8C%81%E4%B9%85%E5%8C%96/</id>
+    <link href="https://onlyyu.cn/2020/05/24/Redis/Redis_id_01/"/>
+    <id>https://onlyyu.cn/2020/05/24/Redis/Redis_id_01/</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:17:41.790Z</updated>
     
@@ -143,30 +164,9 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/2020/05/24/Redis/redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6/"/>
-    <id>https://onlyyu.cn/2020/05/24/Redis/redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6/</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/2020/05/24/Redis/redis%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E7%A9%BF%E9%80%8F/"/>
-    <id>https://onlyyu.cn/2020/05/24/Redis/redis%E9%9B%AA%E5%B4%A9%E3%80%81%E5%87%BB%E7%A9%BF%E3%80%81%E7%A9%BF%E9%80%8F/</id>
+    <link href="https://onlyyu.cn/2020/05/24/Redis/Redis_id_04/"/>
+    <id>https://onlyyu.cn/2020/05/24/Redis/Redis_id_04/</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:18:24.377Z</updated>
     
@@ -186,8 +186,8 @@
   
   <entry>
     <title>RBAC用户权限管理设计思路</title>
-    <link href="https://onlyyu.cn/2020/05/21/Django/RBAC%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
-    <id>https://onlyyu.cn/2020/05/21/Django/RBAC%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
+    <link href="https://onlyyu.cn/2020/05/21/Django/Django_id_29/"/>
+    <id>https://onlyyu.cn/2020/05/21/Django/Django_id_29/</id>
     <published>2020-05-20T16:00:00.000Z</published>
     <updated>2020-05-24T10:45:40.026Z</updated>
     
@@ -207,8 +207,8 @@
   
   <entry>
     <title>Django中mysql的联合唯一索引</title>
-    <link href="https://onlyyu.cn/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
-    <id>https://onlyyu.cn/2020/05/19/Django/Django%E4%B8%ADmysql%E7%9A%84%E8%81%94%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/</id>
+    <link href="https://onlyyu.cn/2020/05/19/Django/Django_id_28/"/>
+    <id>https://onlyyu.cn/2020/05/19/Django/Django_id_28/</id>
     <published>2020-05-19T13:13:03.148Z</published>
     <updated>2020-05-19T13:22:40.303Z</updated>
     
@@ -228,8 +228,8 @@
   
   <entry>
     <title>CentOS 8安装mysql8.0</title>
-    <link href="https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/"/>
-    <id>https://onlyyu.cn/2020/05/18/CentOS/CentOS%208%E5%AE%89%E8%A3%85mysql8.0/</id>
+    <link href="https://onlyyu.cn/2020/05/18/CentOS/CentOS_id_01/"/>
+    <id>https://onlyyu.cn/2020/05/18/CentOS/CentOS_id_01/</id>
     <published>2020-05-18T15:54:15.000Z</published>
     <updated>2020-05-18T15:54:05.833Z</updated>
     
@@ -249,8 +249,8 @@
   
   <entry>
     <title>虚拟环境命令</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_18/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_18/</id>
     <published>2020-05-17T06:27:30.443Z</published>
     <updated>2020-05-17T07:32:51.213Z</updated>
     
@@ -270,8 +270,8 @@
   
   <entry>
     <title>网页请求</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_16/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_16/</id>
     <published>2020-05-17T06:27:30.432Z</published>
     <updated>2020-05-17T07:31:26.538Z</updated>
     
@@ -291,8 +291,8 @@
   
   <entry>
     <title>爬虫的介绍</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_15/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_15/</id>
     <published>2020-05-17T06:27:30.410Z</published>
     <updated>2020-05-17T07:31:10.802Z</updated>
     
@@ -312,8 +312,8 @@
   
   <entry>
     <title>文件的操作</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_17/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_17/</id>
     <published>2020-05-17T06:27:30.402Z</published>
     <updated>2020-05-17T07:31:50.768Z</updated>
     
@@ -333,8 +333,8 @@
   
   <entry>
     <title>打码平台</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E6%89%93%E7%A0%81%E5%B9%B3%E5%8F%B0/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E6%89%93%E7%A0%81%E5%B9%B3%E5%8F%B0/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_09/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_09/</id>
     <published>2020-05-17T06:27:30.389Z</published>
     <updated>2020-05-17T07:30:26.341Z</updated>
     
@@ -354,8 +354,8 @@
   
   <entry>
     <title>多线程爬虫</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_12/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_12/</id>
     <published>2020-05-17T06:27:30.380Z</published>
     <updated>2020-05-17T07:30:49.530Z</updated>
     
@@ -375,8 +375,8 @@
   
   <entry>
     <title>xpath使用</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/xpath%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/xpath%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_07/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_07/</id>
     <published>2020-05-17T06:27:30.369Z</published>
     <updated>2020-05-17T07:30:06.814Z</updated>
     
@@ -396,8 +396,8 @@
   
   <entry>
     <title>selenuim模块的使用</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/selenuim%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/selenuim%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_06/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_06/</id>
     <published>2020-05-17T06:27:30.360Z</published>
     <updated>2020-05-17T07:29:40.991Z</updated>
     
@@ -417,8 +417,8 @@
   
   <entry>
     <title>sceapy框架</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/sceapy%E6%A1%86%E6%9E%B6/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/sceapy%E6%A1%86%E6%9E%B6/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_05/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_05/</id>
     <published>2020-05-17T06:27:30.350Z</published>
     <updated>2020-05-17T07:29:09.915Z</updated>
     
@@ -438,8 +438,8 @@
   
   <entry>
     <title>requests高级部分 &amp; urllib简单介绍 &amp; 正则</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/requests%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/requests%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_04/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_04/</id>
     <published>2020-05-17T06:27:30.325Z</published>
     <updated>2020-05-17T07:28:36.587Z</updated>
     
@@ -459,8 +459,8 @@
   
   <entry>
     <title>MongoDB的使用</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/MongoDB%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/MongoDB%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_02/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_02/</id>
     <published>2020-05-17T06:27:30.306Z</published>
     <updated>2020-05-17T07:28:06.867Z</updated>
     
@@ -480,8 +480,8 @@
   
   <entry>
     <title>BS4模块的使用</title>
-    <link href="https://onlyyu.cn/2020/05/17/Spider/bs4%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2020/05/17/Spider/bs4%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Spider/Spider_id_01/"/>
+    <id>https://onlyyu.cn/2020/05/17/Spider/Spider_id_01/</id>
     <published>2020-05-17T06:27:30.280Z</published>
     <updated>2020-05-17T07:27:33.027Z</updated>
     
@@ -501,8 +501,8 @@
   
   <entry>
     <title>简单的购物车</title>
-    <link href="https://onlyyu.cn/2020/05/17/Django/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B4%AD%E7%89%A9%E8%BD%A6/"/>
-    <id>https://onlyyu.cn/2020/05/17/Django/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B4%AD%E7%89%A9%E8%BD%A6/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Django/Django_id_26/"/>
+    <id>https://onlyyu.cn/2020/05/17/Django/Django_id_26/</id>
     <published>2020-05-17T06:27:30.254Z</published>
     <updated>2020-05-17T07:10:04.121Z</updated>
     
@@ -522,8 +522,8 @@
   
   <entry>
     <title>基于Redis的排行榜</title>
-    <link href="https://onlyyu.cn/2020/05/17/Python/%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C/"/>
-    <id>https://onlyyu.cn/2020/05/17/Python/%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Python/Python_id_03/"/>
+    <id>https://onlyyu.cn/2020/05/17/Python/Python_id_03/</id>
     <published>2020-05-17T06:27:30.238Z</published>
     <updated>2020-05-17T07:20:11.236Z</updated>
     
@@ -545,8 +545,8 @@
   
   <entry>
     <title>国际化语言操作</title>
-    <link href="https://onlyyu.cn/2020/05/17/Vue/%E5%9B%BD%E9%99%85%E5%8C%96%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2020/05/17/Vue/%E5%9B%BD%E9%99%85%E5%8C%96%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Vue/Vue_id_11/"/>
+    <id>https://onlyyu.cn/2020/05/17/Vue/Vue_id_11/</id>
     <published>2020-05-17T06:27:30.220Z</published>
     <updated>2020-04-12T14:31:35.054Z</updated>
     
@@ -566,8 +566,8 @@
   
   <entry>
     <title>商品检索智能提示功能</title>
-    <link href="https://onlyyu.cn/2020/05/17/Django/%E5%95%86%E5%93%81%E6%A3%80%E7%B4%A2%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD/"/>
-    <id>https://onlyyu.cn/2020/05/17/Django/%E5%95%86%E5%93%81%E6%A3%80%E7%B4%A2%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Django/Django_id_01/"/>
+    <id>https://onlyyu.cn/2020/05/17/Django/Django_id_01/</id>
     <published>2020-05-17T06:27:30.202Z</published>
     <updated>2020-04-12T14:33:55.633Z</updated>
     
@@ -589,8 +589,8 @@
   
   <entry>
     <title>Vue中的自定义过滤器</title>
-    <link href="https://onlyyu.cn/2020/05/17/Vue/Vue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
-    <id>https://onlyyu.cn/2020/05/17/Vue/Vue%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/</id>
+    <link href="https://onlyyu.cn/2020/05/17/Vue/Vue_id_07/"/>
+    <id>https://onlyyu.cn/2020/05/17/Vue/Vue_id_07/</id>
     <published>2020-05-17T06:27:30.176Z</published>
     <updated>2020-04-12T14:41:22.669Z</updated>
     
@@ -612,8 +612,8 @@
   
   <entry>
     <title>CentOS8查看监听端口</title>
-    <link href="https://onlyyu.cn/2020/05/17/CentOS/CentOS%208%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3/"/>
-    <id>https://onlyyu.cn/2020/05/17/CentOS/CentOS%208%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3/</id>
+    <link href="https://onlyyu.cn/2020/05/17/CentOS/CentOS_id_02/"/>
+    <id>https://onlyyu.cn/2020/05/17/CentOS/CentOS_id_02/</id>
     <published>2020-05-17T05:32:15.000Z</published>
     <updated>2020-05-17T09:59:39.241Z</updated>
     
@@ -633,8 +633,8 @@
   
   <entry>
     <title>Ubuntu18.04配置mysql</title>
-    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E9%85%8D%E7%BD%AEmysql/"/>
-    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E9%85%8D%E7%BD%AEmysql/</id>
+    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_03/"/>
+    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_03/</id>
     <published>2020-05-16T09:39:15.000Z</published>
     <updated>2020-05-19T14:18:19.310Z</updated>
     
@@ -648,16 +648,16 @@
       <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
-    
       <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
+    
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04系统一些常见问题</title>
-    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
+    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_02/"/>
+    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_02/</id>
     <published>2020-05-16T08:51:15.000Z</published>
     <updated>2020-05-19T14:18:07.630Z</updated>
     
@@ -677,8 +677,8 @@
   
   <entry>
     <title>Ubuntu18.04设置分辨率</title>
-    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%88%86%E8%BE%A8%E7%8E%87/"/>
-    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%88%86%E8%BE%A8%E7%8E%87/</id>
+    <link href="https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_04/"/>
+    <id>https://onlyyu.cn/2020/05/16/Ubuntu/Ubuntu_id_04/</id>
     <published>2020-05-16T07:56:15.000Z</published>
     <updated>2020-05-19T14:17:57.561Z</updated>
     
@@ -698,8 +698,8 @@
   
   <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
-    <link href="https://onlyyu.cn/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEredis%E4%B8%BB%E4%BB%8E%E4%B8%8E%E5%93%A8%E5%85%B5/"/>
-    <id>https://onlyyu.cn/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEredis%E4%B8%BB%E4%BB%8E%E4%B8%8E%E5%93%A8%E5%85%B5/</id>
+    <link href="https://onlyyu.cn/2020/05/11/CentOS/CentOS_id_03/"/>
+    <id>https://onlyyu.cn/2020/05/11/CentOS/CentOS_id_03/</id>
     <published>2020-05-10T16:00:00.000Z</published>
     <updated>2020-05-17T10:00:09.065Z</updated>
     
@@ -719,8 +719,8 @@
   
   <entry>
     <title>CentOS7服务器配置汇总</title>
-    <link href="https://onlyyu.cn/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%B1%87%E6%80%BB/"/>
-    <id>https://onlyyu.cn/2020/05/11/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%B1%87%E6%80%BB/</id>
+    <link href="https://onlyyu.cn/2020/05/11/CentOS/CentOS_id_04/"/>
+    <id>https://onlyyu.cn/2020/05/11/CentOS/CentOS_id_04/</id>
     <published>2020-05-10T16:00:00.000Z</published>
     <updated>2020-05-17T10:00:22.301Z</updated>
     
@@ -741,30 +741,9 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E/</id>
-    <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:36.718Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
-    
-    
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2020/05/10/CentOS/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%BB%E4%BB%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/CentOS_id_06/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/CentOS_id_06/</id>
     <published>2020-05-09T16:00:00.000Z</published>
     <updated>2020-05-17T10:11:29.387Z</updated>
     
@@ -783,9 +762,30 @@
   </entry>
   
   <entry>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/2020/05/10/CentOS/CentOS_id_05/"/>
+    <id>https://onlyyu.cn/2020/05/10/CentOS/CentOS_id_05/</id>
+    <published>2020-05-09T16:00:00.000Z</published>
+    <updated>2020-05-17T10:00:36.718Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Datetime模块常用方法</title>
-    <link href="https://onlyyu.cn/2020/05/07/Python/Datetime%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>https://onlyyu.cn/2020/05/07/Python/Datetime%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+    <link href="https://onlyyu.cn/2020/05/07/Python/Python_id_01/"/>
+    <id>https://onlyyu.cn/2020/05/07/Python/Python_id_01/</id>
     <published>2020-05-07T13:36:15.000Z</published>
     <updated>2020-05-27T16:52:26.475Z</updated>
     
@@ -805,8 +805,8 @@
   
   <entry>
     <title>支付宝沙箱支付</title>
-    <link href="https://onlyyu.cn/2020/04/29/Python/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/"/>
-    <id>https://onlyyu.cn/2020/04/29/Python/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%AE%B1%E6%94%AF%E4%BB%98/</id>
+    <link href="https://onlyyu.cn/2020/04/29/Python/Python_id_05/"/>
+    <id>https://onlyyu.cn/2020/04/29/Python/Python_id_05/</id>
     <published>2020-04-28T17:00:15.000Z</published>
     <updated>2020-05-17T06:31:55.790Z</updated>
     
@@ -826,8 +826,8 @@
   
   <entry>
     <title>Ubuntu命令大全</title>
-    <link href="https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
-    <id>https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</id>
+    <link href="https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu_id_06/"/>
+    <id>https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu_id_06/</id>
     <published>2020-04-23T13:17:15.000Z</published>
     <updated>2020-05-19T14:17:43.459Z</updated>
     
@@ -847,8 +847,8 @@
   
   <entry>
     <title>Ubuntu18.04设置国内源</title>
-    <link href="https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/"/>
-    <id>https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu18.04%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/</id>
+    <link href="https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu_id_05/"/>
+    <id>https://onlyyu.cn/2020/04/23/Ubuntu/Ubuntu_id_05/</id>
     <published>2020-04-23T13:05:15.000Z</published>
     <updated>2020-05-17T07:23:29.846Z</updated>
     
@@ -868,8 +868,8 @@
   
   <entry>
     <title>axios封装</title>
-    <link href="https://onlyyu.cn/2020/04/21/Vue/axios%E5%B0%81%E8%A3%85/"/>
-    <id>https://onlyyu.cn/2020/04/21/Vue/axios%E5%B0%81%E8%A3%85/</id>
+    <link href="https://onlyyu.cn/2020/04/21/Vue/Vue_id_02/"/>
+    <id>https://onlyyu.cn/2020/04/21/Vue/Vue_id_02/</id>
     <published>2020-04-21T10:15:15.000Z</published>
     <updated>2020-04-21T10:17:51.301Z</updated>
     
@@ -889,8 +889,8 @@
   
   <entry>
     <title>Git配置密钥</title>
-    <link href="https://onlyyu.cn/2020/04/21/Git/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/"/>
-    <id>https://onlyyu.cn/2020/04/21/Git/git%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5/</id>
+    <link href="https://onlyyu.cn/2020/04/21/Git/Git_id_05/"/>
+    <id>https://onlyyu.cn/2020/04/21/Git/Git_id_05/</id>
     <published>2020-04-21T10:05:15.000Z</published>
     <updated>2020-05-17T07:15:10.231Z</updated>
     
@@ -911,8 +911,8 @@
   
   <entry>
     <title>Git常用命令</title>
-    <link href="https://onlyyu.cn/2020/04/21/Git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://onlyyu.cn/2020/04/21/Git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <link href="https://onlyyu.cn/2020/04/21/Git/Git_id_04/"/>
+    <id>https://onlyyu.cn/2020/04/21/Git/Git_id_04/</id>
     <published>2020-04-21T09:50:15.000Z</published>
     <updated>2020-05-17T07:15:24.620Z</updated>
     
@@ -932,8 +932,8 @@
   
   <entry>
     <title>MarkDown语法</title>
-    <link href="https://onlyyu.cn/2020/04/21/Other/MarkDown%E8%AF%AD%E6%B3%95/"/>
-    <id>https://onlyyu.cn/2020/04/21/Other/MarkDown%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://onlyyu.cn/2020/04/21/Other/Other_id_01/"/>
+    <id>https://onlyyu.cn/2020/04/21/Other/Other_id_01/</id>
     <published>2020-04-21T09:26:15.000Z</published>
     <updated>2020-05-17T07:19:32.461Z</updated>
     
@@ -953,8 +953,8 @@
   
   <entry>
     <title>文明上网实现正常访问google网站</title>
-    <link href="https://onlyyu.cn/2020/04/02/Google/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/"/>
-    <id>https://onlyyu.cn/2020/04/02/Google/%E6%96%87%E6%98%8E%E4%B8%8A%E7%BD%91%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AEgoogle%E7%BD%91%E7%AB%99/</id>
+    <link href="https://onlyyu.cn/2020/04/02/Google/Google_id_01/"/>
+    <id>https://onlyyu.cn/2020/04/02/Google/Google_id_01/</id>
     <published>2020-04-02T12:54:15.000Z</published>
     <updated>2020-05-17T06:32:46.369Z</updated>
     
@@ -974,8 +974,8 @@
   
   <entry>
     <title>七牛云文件上传</title>
-    <link href="https://onlyyu.cn/2020/03/31/Vue/%E4%B8%83%E7%89%9B%E4%BA%91%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://onlyyu.cn/2020/03/31/Vue/%E4%B8%83%E7%89%9B%E4%BA%91%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</id>
+    <link href="https://onlyyu.cn/2020/03/31/Vue/Vue_id_12/"/>
+    <id>https://onlyyu.cn/2020/03/31/Vue/Vue_id_12/</id>
     <published>2020-03-30T16:00:00.000Z</published>
     <updated>2020-05-17T07:06:24.038Z</updated>
     
@@ -996,8 +996,8 @@
   
   <entry>
     <title>自定义购物车系统</title>
-    <link href="https://onlyyu.cn/2020/03/30/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B4%AD%E7%89%A9%E8%BD%A6%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://onlyyu.cn/2020/03/30/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B4%AD%E7%89%A9%E8%BD%A6%E7%B3%BB%E7%BB%9F/</id>
+    <link href="https://onlyyu.cn/2020/03/30/Vue/Vue_id_14/"/>
+    <id>https://onlyyu.cn/2020/03/30/Vue/Vue_id_14/</id>
     <published>2020-03-29T16:00:00.000Z</published>
     <updated>2020-05-17T07:06:45.056Z</updated>
     
@@ -1017,8 +1017,8 @@
   
   <entry>
     <title>Hexo主题如何将文章置顶</title>
-    <link href="https://onlyyu.cn/2020/03/15/Hexo/Hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/"/>
-    <id>https://onlyyu.cn/2020/03/15/Hexo/Hexo%E4%B8%BB%E9%A2%98%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/</id>
+    <link href="https://onlyyu.cn/2020/03/15/Hexo/Hexo_id_02/"/>
+    <id>https://onlyyu.cn/2020/03/15/Hexo/Hexo_id_02/</id>
     <published>2020-03-14T16:54:41.000Z</published>
     <updated>2020-05-17T07:16:39.309Z</updated>
     
@@ -1038,8 +1038,8 @@
   
   <entry>
     <title>如何创建vue脚手架</title>
-    <link href="https://onlyyu.cn/2020/03/13/Vue/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/"/>
-    <id>https://onlyyu.cn/2020/03/13/Vue/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAvue%E8%84%9A%E6%89%8B%E6%9E%B6/</id>
+    <link href="https://onlyyu.cn/2020/03/13/Vue/Vue_id_13/"/>
+    <id>https://onlyyu.cn/2020/03/13/Vue/Vue_id_13/</id>
     <published>2020-03-13T11:46:08.000Z</published>
     <updated>2020-05-17T07:11:50.794Z</updated>
     
@@ -1059,8 +1059,8 @@
   
   <entry>
     <title>Gitee取消输入用户名及密码</title>
-    <link href="https://onlyyu.cn/2020/03/13/Git/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/"/>
-    <id>https://onlyyu.cn/2020/03/13/Git/gitee%E5%8F%96%E6%B6%88%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/</id>
+    <link href="https://onlyyu.cn/2020/03/13/Git/Git_id_01/"/>
+    <id>https://onlyyu.cn/2020/03/13/Git/Git_id_01/</id>
     <published>2020-03-13T04:30:10.000Z</published>
     <updated>2020-05-17T07:15:39.460Z</updated>
     
@@ -1080,8 +1080,8 @@
   
   <entry>
     <title>Hexo常用命令</title>
-    <link href="https://onlyyu.cn/2020/03/13/Hexo/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://onlyyu.cn/2020/03/13/Hexo/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <link href="https://onlyyu.cn/2020/03/13/Hexo/Hexo_id_01/"/>
+    <id>https://onlyyu.cn/2020/03/13/Hexo/Hexo_id_01/</id>
     <published>2020-03-13T04:17:47.000Z</published>
     <updated>2020-05-17T07:16:25.277Z</updated>
     
@@ -1101,8 +1101,8 @@
   
   <entry>
     <title>GitHub访问及clone缓慢的方法</title>
-    <link href="https://onlyyu.cn/2020/03/12/Git/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://onlyyu.cn/2020/03/12/Git/GitHub%E8%AE%BF%E9%97%AE%E5%8F%8Aclone%E7%BC%93%E6%85%A2%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <link href="https://onlyyu.cn/2020/03/12/Git/Git_id_02/"/>
+    <id>https://onlyyu.cn/2020/03/12/Git/Git_id_02/</id>
     <published>2020-03-12T09:16:28.000Z</published>
     <updated>2020-05-17T07:15:48.771Z</updated>
     
@@ -1122,8 +1122,8 @@
   
   <entry>
     <title>阿里云旗下ecs云服务器配置使用详情</title>
-    <link href="https://onlyyu.cn/2019/12/23/CentOS/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/"/>
-    <id>https://onlyyu.cn/2019/12/23/CentOS/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%97%E4%B8%8Becs%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E8%AF%A6%E6%83%85/</id>
+    <link href="https://onlyyu.cn/2019/12/23/CentOS/CentOS_id_08/"/>
+    <id>https://onlyyu.cn/2019/12/23/CentOS/CentOS_id_08/</id>
     <published>2019-12-22T16:00:00.000Z</published>
     <updated>2020-05-17T10:02:46.410Z</updated>
     
@@ -1143,8 +1143,8 @@
   
   <entry>
     <title>CentOS 8安装nodejs</title>
-    <link href="https://onlyyu.cn/2019/06/08/CentOS/CentOS8%E5%AE%89%E8%A3%85node/"/>
-    <id>https://onlyyu.cn/2019/06/08/CentOS/CentOS8%E5%AE%89%E8%A3%85node/</id>
+    <link href="https://onlyyu.cn/2019/06/08/CentOS/CentOS_id_07/"/>
+    <id>https://onlyyu.cn/2019/06/08/CentOS/CentOS_id_07/</id>
     <published>2019-06-07T16:00:00.000Z</published>
     <updated>2020-05-17T10:00:57.273Z</updated>
     
@@ -1167,8 +1167,8 @@
   
   <entry>
     <title>Ubuntu配置数据库踩坑记录</title>
-    <link href="https://onlyyu.cn/2019/06/08/Ubuntu/Ububtu%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
-    <id>https://onlyyu.cn/2019/06/08/Ubuntu/Ububtu%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://onlyyu.cn/2019/06/08/Ubuntu/Ubuntu_id_01/"/>
+    <id>https://onlyyu.cn/2019/06/08/Ubuntu/Ubuntu_id_01/</id>
     <published>2019-06-07T16:00:00.000Z</published>
     <updated>2020-05-17T07:04:57.073Z</updated>
     
@@ -1188,8 +1188,8 @@
   
   <entry>
     <title>进程线程协程</title>
-    <link href="https://onlyyu.cn/2019/05/27/Spider/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%8D%8F%E7%A8%8B/"/>
-    <id>https://onlyyu.cn/2019/05/27/Spider/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%8D%8F%E7%A8%8B/</id>
+    <link href="https://onlyyu.cn/2019/05/27/Spider/Spider_id_14/"/>
+    <id>https://onlyyu.cn/2019/05/27/Spider/Spider_id_14/</id>
     <published>2019-05-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:54:24.706Z</updated>
     
@@ -1209,8 +1209,8 @@
   
   <entry>
     <title>分布式爬虫实现原理与运行机制</title>
-    <link href="https://onlyyu.cn/2019/05/16/Spider/%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-    <id>https://onlyyu.cn/2019/05/16/Spider/%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</id>
+    <link href="https://onlyyu.cn/2019/05/16/Spider/Spider_id_13/"/>
+    <id>https://onlyyu.cn/2019/05/16/Spider/Spider_id_13/</id>
     <published>2019-05-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:54:50.122Z</updated>
     
@@ -1230,8 +1230,8 @@
   
   <entry>
     <title>百度AI项目解析与使用</title>
-    <link href="https://onlyyu.cn/2019/05/12/Spider/%E7%99%BE%E5%BA%A6AI%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2019/05/12/Spider/%E7%99%BE%E5%BA%A6AI%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2019/05/12/Spider/Spider_id_08/"/>
+    <id>https://onlyyu.cn/2019/05/12/Spider/Spider_id_08/</id>
     <published>2019-05-11T16:00:00.000Z</published>
     <updated>2020-05-17T06:56:49.463Z</updated>
     
@@ -1251,8 +1251,8 @@
   
   <entry>
     <title>redis概览</title>
-    <link href="https://onlyyu.cn/2019/05/02/Redis/redis%E6%A6%82%E8%A7%88/"/>
-    <id>https://onlyyu.cn/2019/05/02/Redis/redis%E6%A6%82%E8%A7%88/</id>
+    <link href="https://onlyyu.cn/2019/05/02/Redis/Redis_id_02/"/>
+    <id>https://onlyyu.cn/2019/05/02/Redis/Redis_id_02/</id>
     <published>2019-05-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:58:32.066Z</updated>
     
@@ -1272,8 +1272,8 @@
   
   <entry>
     <title>基于crawlSpider进行的全栈数据爬取</title>
-    <link href="https://onlyyu.cn/2019/04/27/Spider/crawlSpider%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2019/04/27/Spider/crawlSpider%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2019/04/27/Spider/Spider_id_03/"/>
+    <id>https://onlyyu.cn/2019/04/27/Spider/Spider_id_03/</id>
     <published>2019-04-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:55:42.561Z</updated>
     
@@ -1293,8 +1293,8 @@
   
   <entry>
     <title>增量式爬虫使用</title>
-    <link href="https://onlyyu.cn/2019/04/27/Spider/%E5%A2%9E%E9%87%8F%E5%BC%8F%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2019/04/27/Spider/%E5%A2%9E%E9%87%8F%E5%BC%8F%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2019/04/27/Spider/Spider_id_19/"/>
+    <id>https://onlyyu.cn/2019/04/27/Spider/Spider_id_19/</id>
     <published>2019-04-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:55:18.214Z</updated>
     
@@ -1314,8 +1314,8 @@
   
   <entry>
     <title>代理ip</title>
-    <link href="https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/"/>
-    <id>https://onlyyu.cn/2019/02/13/Spider/%E4%BB%A3%E7%90%86IP/</id>
+    <link href="https://onlyyu.cn/2019/02/13/Spider/Spider_id_10/"/>
+    <id>https://onlyyu.cn/2019/02/13/Spider/Spider_id_10/</id>
     <published>2019-02-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:56:57.582Z</updated>
     
@@ -1336,8 +1336,8 @@
   
   <entry>
     <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
-    <id>https://onlyyu.cn/2019/02/13/Spider/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</id>
+    <link href="https://onlyyu.cn/2019/02/13/Spider/Spider_id_11/"/>
+    <id>https://onlyyu.cn/2019/02/13/Spider/Spider_id_11/</id>
     <published>2019-02-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:57:10.458Z</updated>
     
@@ -1357,8 +1357,8 @@
   
   <entry>
     <title>flask文件上传</title>
-    <link href="https://onlyyu.cn/2018/10/24/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://onlyyu.cn/2018/10/24/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</id>
+    <link href="https://onlyyu.cn/2018/10/24/Flask/Flask_id_11/"/>
+    <id>https://onlyyu.cn/2018/10/24/Flask/Flask_id_11/</id>
     <published>2018-10-23T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:34.149Z</updated>
     
@@ -1378,8 +1378,8 @@
   
   <entry>
     <title>flask常用钩子函数</title>
-    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/"/>
-    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/</id>
+    <link href="https://onlyyu.cn/2018/10/14/Flask/Flask_id_09/"/>
+    <id>https://onlyyu.cn/2018/10/14/Flask/Flask_id_09/</id>
     <published>2018-10-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:25.232Z</updated>
     
@@ -1398,30 +1398,9 @@
   </entry>
   
   <entry>
-    <title>flask中g定向</title>
-    <link href="https://onlyyu.cn/2018/10/14/Flask/g%E5%AE%9A%E5%90%91/"/>
-    <id>https://onlyyu.cn/2018/10/14/Flask/g%E5%AE%9A%E5%90%91/</id>
-    <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:43.825Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>flask文件下载</title>
-    <link href="https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
-    <id>https://onlyyu.cn/2018/10/14/Flask/flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</id>
+    <link href="https://onlyyu.cn/2018/10/14/Flask/Flask_id_12/"/>
+    <id>https://onlyyu.cn/2018/10/14/Flask/Flask_id_12/</id>
     <published>2018-10-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:38.230Z</updated>
     
@@ -1440,9 +1419,30 @@
   </entry>
   
   <entry>
+    <title>flask中g定向</title>
+    <link href="https://onlyyu.cn/2018/10/14/Flask/Flask_id_13/"/>
+    <id>https://onlyyu.cn/2018/10/14/Flask/Flask_id_13/</id>
+    <published>2018-10-13T16:00:00.000Z</published>
+    <updated>2020-05-17T06:48:43.825Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>flask_wtf</title>
-    <link href="https://onlyyu.cn/2018/09/30/Flask/flask_WTF/"/>
-    <id>https://onlyyu.cn/2018/09/30/Flask/flask_WTF/</id>
+    <link href="https://onlyyu.cn/2018/09/30/Flask/Flask_id_08/"/>
+    <id>https://onlyyu.cn/2018/09/30/Flask/Flask_id_08/</id>
     <published>2018-09-29T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:19.905Z</updated>
     
@@ -1462,8 +1462,8 @@
   
   <entry>
     <title>flask_sqlalchemy</title>
-    <link href="https://onlyyu.cn/2018/09/27/Flask/flask_sqlalchemy/"/>
-    <id>https://onlyyu.cn/2018/09/27/Flask/flask_sqlalchemy/</id>
+    <link href="https://onlyyu.cn/2018/09/27/Flask/Flask_id_07/"/>
+    <id>https://onlyyu.cn/2018/09/27/Flask/Flask_id_07/</id>
     <published>2018-09-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:15.318Z</updated>
     
@@ -1483,8 +1483,8 @@
   
   <entry>
     <title>flask_session</title>
-    <link href="https://onlyyu.cn/2018/09/23/Flask/flask_session/"/>
-    <id>https://onlyyu.cn/2018/09/23/Flask/flask_session/</id>
+    <link href="https://onlyyu.cn/2018/09/23/Flask/Flask_id_06/"/>
+    <id>https://onlyyu.cn/2018/09/23/Flask/Flask_id_06/</id>
     <published>2018-09-22T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:10.995Z</updated>
     
@@ -1504,8 +1504,8 @@
   
   <entry>
     <title>flask中app上下文机制</title>
-    <link href="https://onlyyu.cn/2018/09/15/Flask/app%E4%B8%8A%E4%B8%8B%E6%96%87%E6%9C%BA%E5%88%B6/"/>
-    <id>https://onlyyu.cn/2018/09/15/Flask/app%E4%B8%8A%E4%B8%8B%E6%96%87%E6%9C%BA%E5%88%B6/</id>
+    <link href="https://onlyyu.cn/2018/09/15/Flask/Flask_id_01/"/>
+    <id>https://onlyyu.cn/2018/09/15/Flask/Flask_id_01/</id>
     <published>2018-09-14T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:44.313Z</updated>
     
@@ -1525,8 +1525,8 @@
   
   <entry>
     <title>flask信号机制</title>
-    <link href="https://onlyyu.cn/2018/09/08/Flask/%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6/"/>
-    <id>https://onlyyu.cn/2018/09/08/Flask/%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6/</id>
+    <link href="https://onlyyu.cn/2018/09/08/Flask/Flask_id_16/"/>
+    <id>https://onlyyu.cn/2018/09/08/Flask/Flask_id_16/</id>
     <published>2018-09-07T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:10.521Z</updated>
     
@@ -1546,8 +1546,8 @@
   
   <entry>
     <title>flask分页</title>
-    <link href="https://onlyyu.cn/2018/08/31/Flask/%E5%88%86%E9%A1%B5/"/>
-    <id>https://onlyyu.cn/2018/08/31/Flask/%E5%88%86%E9%A1%B5/</id>
+    <link href="https://onlyyu.cn/2018/08/31/Flask/Flask_id_15/"/>
+    <id>https://onlyyu.cn/2018/08/31/Flask/Flask_id_15/</id>
     <published>2018-08-30T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:03.804Z</updated>
     
@@ -1567,8 +1567,8 @@
   
   <entry>
     <title>flask数据库迁移</title>
-    <link href="https://onlyyu.cn/2018/08/26/Flask/flask%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/"/>
-    <id>https://onlyyu.cn/2018/08/26/Flask/flask%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/</id>
+    <link href="https://onlyyu.cn/2018/08/26/Flask/Flask_id_10/"/>
+    <id>https://onlyyu.cn/2018/08/26/Flask/Flask_id_10/</id>
     <published>2018-08-25T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:29.501Z</updated>
     
@@ -1588,8 +1588,8 @@
   
   <entry>
     <title>flask文件上传</title>
-    <link href="https://onlyyu.cn/2018/08/16/Flask/lask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>https://onlyyu.cn/2018/08/16/Flask/lask%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</id>
+    <link href="https://onlyyu.cn/2018/08/16/Flask/Flask_id_14/"/>
+    <id>https://onlyyu.cn/2018/08/16/Flask/Flask_id_14/</id>
     <published>2018-08-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:48.758Z</updated>
     
@@ -1609,8 +1609,8 @@
   
   <entry>
     <title>flask_script</title>
-    <link href="https://onlyyu.cn/2018/08/13/Flask/flask_script/"/>
-    <id>https://onlyyu.cn/2018/08/13/Flask/flask_script/</id>
+    <link href="https://onlyyu.cn/2018/08/13/Flask/Flask_id_05/"/>
+    <id>https://onlyyu.cn/2018/08/13/Flask/Flask_id_05/</id>
     <published>2018-08-12T16:00:00.000Z</published>
     <updated>2020-05-17T07:38:30.289Z</updated>
     
@@ -1630,8 +1630,8 @@
   
   <entry>
     <title>flask_migrate</title>
-    <link href="https://onlyyu.cn/2018/08/07/Flask/flask_migrate/"/>
-    <id>https://onlyyu.cn/2018/08/07/Flask/flask_migrate/</id>
+    <link href="https://onlyyu.cn/2018/08/07/Flask/Flask_id_03/"/>
+    <id>https://onlyyu.cn/2018/08/07/Flask/Flask_id_03/</id>
     <published>2018-08-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:57.062Z</updated>
     
@@ -1652,8 +1652,8 @@
   
   <entry>
     <title>flask开端</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask/</id>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/Flask_id_02/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/Flask_id_02/</id>
     <published>2018-08-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:51.366Z</updated>
     
@@ -1674,8 +1674,8 @@
   
   <entry>
     <title>flask_route</title>
-    <link href="https://onlyyu.cn/2018/08/03/Flask/flask_route/"/>
-    <id>https://onlyyu.cn/2018/08/03/Flask/flask_route/</id>
+    <link href="https://onlyyu.cn/2018/08/03/Flask/Flask_id_04/"/>
+    <id>https://onlyyu.cn/2018/08/03/Flask/Flask_id_04/</id>
     <published>2018-08-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:01.847Z</updated>
     
@@ -1695,8 +1695,8 @@
   
   <entry>
     <title>DRF自定义错误捕获</title>
-    <link href="https://onlyyu.cn/2018/04/28/Django/DRF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E6%8D%95%E8%8E%B7%E6%9C%BA%E5%88%B6/"/>
-    <id>https://onlyyu.cn/2018/04/28/Django/DRF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E6%8D%95%E8%8E%B7%E6%9C%BA%E5%88%B6/</id>
+    <link href="https://onlyyu.cn/2018/04/28/Django/Django_id_10/"/>
+    <id>https://onlyyu.cn/2018/04/28/Django/Django_id_10/</id>
     <published>2018-04-27T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:36.601Z</updated>
     
@@ -1716,8 +1716,8 @@
   
   <entry>
     <title>DRF中generics</title>
-    <link href="https://onlyyu.cn/2018/04/25/Django/DRF%E4%B8%ADgenerics/"/>
-    <id>https://onlyyu.cn/2018/04/25/Django/DRF%E4%B8%ADgenerics/</id>
+    <link href="https://onlyyu.cn/2018/04/25/Django/Django_id_08/"/>
+    <id>https://onlyyu.cn/2018/04/25/Django/Django_id_08/</id>
     <published>2018-04-24T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:28.106Z</updated>
     
@@ -1737,8 +1737,8 @@
   
   <entry>
     <title>DRF中的APIViews视图类</title>
-    <link href="https://onlyyu.cn/2018/04/21/Django/DRF%E4%B8%AD%E7%9A%84APIViews%E8%A7%86%E5%9B%BE%E7%B1%BB/"/>
-    <id>https://onlyyu.cn/2018/04/21/Django/DRF%E4%B8%AD%E7%9A%84APIViews%E8%A7%86%E5%9B%BE%E7%B1%BB/</id>
+    <link href="https://onlyyu.cn/2018/04/21/Django/Django_id_09/"/>
+    <id>https://onlyyu.cn/2018/04/21/Django/Django_id_09/</id>
     <published>2018-04-20T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:32.339Z</updated>
     
@@ -1758,8 +1758,8 @@
   
   <entry>
     <title>DRF验证器机制使用</title>
-    <link href="https://onlyyu.cn/2018/04/18/Django/DRF%E9%AA%8C%E8%AF%81%E5%99%A8%E6%9C%BA%E5%88%B6%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2018/04/18/Django/DRF%E9%AA%8C%E8%AF%81%E5%99%A8%E6%9C%BA%E5%88%B6%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2018/04/18/Django/Django_id_07/"/>
+    <id>https://onlyyu.cn/2018/04/18/Django/Django_id_07/</id>
     <published>2018-04-17T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:23.243Z</updated>
     
@@ -1779,8 +1779,8 @@
   
   <entry>
     <title>Git操作</title>
-    <link href="https://onlyyu.cn/2018/04/14/Git/Git%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2018/04/14/Git/Git%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://onlyyu.cn/2018/04/14/Git/Git_id_03/"/>
+    <id>https://onlyyu.cn/2018/04/14/Git/Git_id_03/</id>
     <published>2018-04-13T16:00:00.000Z</published>
     <updated>2020-05-17T07:07:12.212Z</updated>
     
@@ -1800,8 +1800,8 @@
   
   <entry>
     <title>DRF文件上传与静态文件访问</title>
-    <link href="https://onlyyu.cn/2018/04/13/Django/DRF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/"/>
-    <id>https://onlyyu.cn/2018/04/13/Django/DRF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/</id>
+    <link href="https://onlyyu.cn/2018/04/13/Django/Django_id_06/"/>
+    <id>https://onlyyu.cn/2018/04/13/Django/Django_id_06/</id>
     <published>2018-04-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:18.825Z</updated>
     
@@ -1821,8 +1821,8 @@
   
   <entry>
     <title>DRF数据分页器</title>
-    <link href="https://onlyyu.cn/2018/04/07/Django/DRF%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%99%A8/"/>
-    <id>https://onlyyu.cn/2018/04/07/Django/DRF%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%99%A8/</id>
+    <link href="https://onlyyu.cn/2018/04/07/Django/Django_id_05/"/>
+    <id>https://onlyyu.cn/2018/04/07/Django/Django_id_05/</id>
     <published>2018-04-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:13.937Z</updated>
     
@@ -1842,8 +1842,8 @@
   
   <entry>
     <title>vue路由配置</title>
-    <link href="https://onlyyu.cn/2018/04/01/Vue/vue%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/"/>
-    <id>https://onlyyu.cn/2018/04/01/Vue/vue%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://onlyyu.cn/2018/04/01/Vue/Vue_id_04/"/>
+    <id>https://onlyyu.cn/2018/04/01/Vue/Vue_id_04/</id>
     <published>2018-03-31T16:00:00.000Z</published>
     <updated>2020-05-17T07:07:37.138Z</updated>
     
@@ -1863,8 +1863,8 @@
   
   <entry>
     <title>关于vue的配置</title>
-    <link href="https://onlyyu.cn/2018/04/01/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>https://onlyyu.cn/2018/04/01/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://onlyyu.cn/2018/04/01/Vue/Vue_id_09/"/>
+    <id>https://onlyyu.cn/2018/04/01/Vue/Vue_id_09/</id>
     <published>2018-03-31T16:00:00.000Z</published>
     <updated>2020-05-17T07:07:52.380Z</updated>
     
@@ -1884,8 +1884,8 @@
   
   <entry>
     <title>关于哈希加密算法</title>
-    <link href="https://onlyyu.cn/2018/03/30/Python/%E5%85%B3%E4%BA%8E%E5%93%88%E5%B8%8C%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
-    <id>https://onlyyu.cn/2018/03/30/Python/%E5%85%B3%E4%BA%8E%E5%93%88%E5%B8%8C%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</id>
+    <link href="https://onlyyu.cn/2018/03/30/Python/Python_id_02/"/>
+    <id>https://onlyyu.cn/2018/03/30/Python/Python_id_02/</id>
     <published>2018-03-29T16:00:00.000Z</published>
     <updated>2020-05-17T07:08:12.610Z</updated>
     
@@ -1904,30 +1904,9 @@
   </entry>
   
   <entry>
-    <title>Django中cookie和session</title>
-    <link href="https://onlyyu.cn/2018/03/18/Django/Django%E4%B8%ADcookie%E5%92%8Csession/"/>
-    <id>https://onlyyu.cn/2018/03/18/Django/Django%E4%B8%ADcookie%E5%92%8Csession/</id>
-    <published>2018-03-17T16:00:00.000Z</published>
-    <updated>2020-05-17T06:50:49.250Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;COOKIES&quot;&gt;&lt;a href=&quot;#COOKIES&quot; class=&quot;headerlink&quot; title=&quot;COOKIES&quot;&gt;&lt;/a&gt;COOKIES&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Django数据库关系属性</title>
-    <link href="https://onlyyu.cn/2018/03/18/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E7%B3%BB%E5%B1%9E%E6%80%A7/"/>
-    <id>https://onlyyu.cn/2018/03/18/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E7%B3%BB%E5%B1%9E%E6%80%A7/</id>
+    <link href="https://onlyyu.cn/2018/03/18/Django/Django_id_19/"/>
+    <id>https://onlyyu.cn/2018/03/18/Django/Django_id_19/</id>
     <published>2018-03-17T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:36.944Z</updated>
     
@@ -1946,9 +1925,30 @@
   </entry>
   
   <entry>
+    <title>Django中cookie和session</title>
+    <link href="https://onlyyu.cn/2018/03/18/Django/Django_id_22/"/>
+    <id>https://onlyyu.cn/2018/03/18/Django/Django_id_22/</id>
+    <published>2018-03-17T16:00:00.000Z</published>
+    <updated>2020-05-17T06:50:49.250Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;COOKIES&quot;&gt;&lt;a href=&quot;#COOKIES&quot; class=&quot;headerlink&quot; title=&quot;COOKIES&quot;&gt;&lt;/a&gt;COOKIES&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django视图管理</title>
-    <link href="https://onlyyu.cn/2018/03/17/Django/Django%E8%A7%86%E5%9B%BE%E7%AE%A1%E7%90%86/"/>
-    <id>https://onlyyu.cn/2018/03/17/Django/Django%E8%A7%86%E5%9B%BE%E7%AE%A1%E7%90%86/</id>
+    <link href="https://onlyyu.cn/2018/03/17/Django/Django_id_27/"/>
+    <id>https://onlyyu.cn/2018/03/17/Django/Django_id_27/</id>
     <published>2018-03-16T16:00:00.000Z</published>
     <updated>2020-05-17T07:39:03.333Z</updated>
     
@@ -1968,8 +1968,8 @@
   
   <entry>
     <title>DRF初试</title>
-    <link href="https://onlyyu.cn/2018/03/16/Django/DRF%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2018/03/16/Django/DRF%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2018/03/16/Django/Django_id_02/"/>
+    <id>https://onlyyu.cn/2018/03/16/Django/Django_id_02/</id>
     <published>2018-03-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:41:57.547Z</updated>
     
@@ -1989,8 +1989,8 @@
   
   <entry>
     <title>Django中间件</title>
-    <link href="https://onlyyu.cn/2018/03/15/Django/Django%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-    <id>https://onlyyu.cn/2018/03/15/Django/Django%E4%B8%AD%E9%97%B4%E4%BB%B6/</id>
+    <link href="https://onlyyu.cn/2018/03/15/Django/Django_id_23/"/>
+    <id>https://onlyyu.cn/2018/03/15/Django/Django_id_23/</id>
     <published>2018-03-14T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:53.330Z</updated>
     
@@ -2010,8 +2010,8 @@
   
   <entry>
     <title>DRF框架的权限验证器与限流</title>
-    <link href="https://onlyyu.cn/2018/03/14/Django/DRF%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81%E5%99%A8%E4%B8%8E%E9%99%90%E6%B5%81/"/>
-    <id>https://onlyyu.cn/2018/03/14/Django/DRF%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81%E5%99%A8%E4%B8%8E%E9%99%90%E6%B5%81/</id>
+    <link href="https://onlyyu.cn/2018/03/14/Django/Django_id_03/"/>
+    <id>https://onlyyu.cn/2018/03/14/Django/Django_id_03/</id>
     <published>2018-03-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:03.980Z</updated>
     
@@ -2031,8 +2031,8 @@
   
   <entry>
     <title>Django数据库操作</title>
-    <link href="https://onlyyu.cn/2018/03/14/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/"/>
-    <id>https://onlyyu.cn/2018/03/14/Django/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://onlyyu.cn/2018/03/14/Django/Django_id_30/"/>
+    <id>https://onlyyu.cn/2018/03/14/Django/Django_id_30/</id>
     <published>2018-03-13T16:00:00.000Z</published>
     <updated>2020-05-27T10:43:29.179Z</updated>
     
@@ -2052,8 +2052,8 @@
   
   <entry>
     <title>Django-filter过滤器的使用</title>
-    <link href="https://onlyyu.cn/2018/03/10/Django/Django-filter%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://onlyyu.cn/2018/03/10/Django/Django-filter%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://onlyyu.cn/2018/03/10/Django/Django_id_04/"/>
+    <id>https://onlyyu.cn/2018/03/10/Django/Django_id_04/</id>
     <published>2018-03-09T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:09.330Z</updated>
     
@@ -2073,8 +2073,8 @@
   
   <entry>
     <title>Django模型管理器</title>
-    <link href="https://onlyyu.cn/2018/03/09/Django/Django%E6%A8%A1%E5%9E%8B%E7%AE%A1%E7%90%86%E5%99%A8/"/>
-    <id>https://onlyyu.cn/2018/03/09/Django/Django%E6%A8%A1%E5%9E%8B%E7%AE%A1%E7%90%86%E5%99%A8/</id>
+    <link href="https://onlyyu.cn/2018/03/09/Django/Django_id_18/"/>
+    <id>https://onlyyu.cn/2018/03/09/Django/Django_id_18/</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:21.392Z</updated>
     
@@ -2094,8 +2094,8 @@
   
   <entry>
     <title>API接口生成</title>
-    <link href="https://onlyyu.cn/2018/03/09/Vue/API%E6%8E%A5%E5%8F%A3%E7%94%9F%E6%88%90/"/>
-    <id>https://onlyyu.cn/2018/03/09/Vue/API%E6%8E%A5%E5%8F%A3%E7%94%9F%E6%88%90/</id>
+    <link href="https://onlyyu.cn/2018/03/09/Vue/Vue_id_01/"/>
+    <id>https://onlyyu.cn/2018/03/09/Vue/Vue_id_01/</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-05-17T07:08:21.254Z</updated>
     
@@ -2115,8 +2115,8 @@
   
   <entry>
     <title>axios请求与跨域</title>
-    <link href="https://onlyyu.cn/2018/03/09/Vue/axios%E8%AF%B7%E6%B1%82%E4%B8%8E%E8%B7%A8%E5%9F%9F/"/>
-    <id>https://onlyyu.cn/2018/03/09/Vue/axios%E8%AF%B7%E6%B1%82%E4%B8%8E%E8%B7%A8%E5%9F%9F/</id>
+    <link href="https://onlyyu.cn/2018/03/09/Vue/Vue_id_03/"/>
+    <id>https://onlyyu.cn/2018/03/09/Vue/Vue_id_03/</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-05-17T07:08:28.439Z</updated>
     
@@ -2136,8 +2136,8 @@
   
   <entry>
     <title>Django模板使用</title>
-    <link href="https://onlyyu.cn/2018/03/08/Django/Django%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE/"/>
-    <id>https://onlyyu.cn/2018/03/08/Django/Django%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE/</id>
+    <link href="https://onlyyu.cn/2018/03/08/Django/Django_id_17/"/>
+    <id>https://onlyyu.cn/2018/03/08/Django/Django_id_17/</id>
     <published>2018-03-07T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:16.738Z</updated>
     
@@ -2157,8 +2157,8 @@
   
   <entry>
     <title>关于vue的一些问题</title>
-    <link href="https://onlyyu.cn/2018/03/08/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
-    <id>https://onlyyu.cn/2018/03/08/Vue/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
+    <link href="https://onlyyu.cn/2018/03/08/Vue/Vue_id_10/"/>
+    <id>https://onlyyu.cn/2018/03/08/Vue/Vue_id_10/</id>
     <published>2018-03-07T16:00:00.000Z</published>
     <updated>2020-05-17T07:08:37.850Z</updated>
     
@@ -2178,8 +2178,8 @@
   
   <entry>
     <title>Django路由参数捕获</title>
-    <link href="https://onlyyu.cn/2018/03/07/Django/Django%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0%E6%8D%95%E8%8E%B7/"/>
-    <id>https://onlyyu.cn/2018/03/07/Django/Django%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0%E6%8D%95%E8%8E%B7/</id>
+    <link href="https://onlyyu.cn/2018/03/07/Django/Django_id_16/"/>
+    <id>https://onlyyu.cn/2018/03/07/Django/Django_id_16/</id>
     <published>2018-03-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:12.263Z</updated>
     
@@ -2200,8 +2200,8 @@
   
   <entry>
     <title>Django后台管理操作</title>
-    <link href="https://onlyyu.cn/2018/03/06/Django/Django%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
-    <id>https://onlyyu.cn/2018/03/06/Django/Django%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</id>
+    <link href="https://onlyyu.cn/2018/03/06/Django/Django_id_15/"/>
+    <id>https://onlyyu.cn/2018/03/06/Django/Django_id_15/</id>
     <published>2018-03-05T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:08.406Z</updated>
     
@@ -2221,8 +2221,8 @@
   
   <entry>
     <title>Django关闭debug模式之后的静态文件访问</title>
-    <link href="https://onlyyu.cn/2018/03/05/Django/Django%E5%85%B3%E9%97%ADdebug%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%90%8E%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/"/>
-    <id>https://onlyyu.cn/2018/03/05/Django/Django%E5%85%B3%E9%97%ADdebug%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%90%8E%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE/</id>
+    <link href="https://onlyyu.cn/2018/03/05/Django/Django_id_14/"/>
+    <id>https://onlyyu.cn/2018/03/05/Django/Django_id_14/</id>
     <published>2018-03-04T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:04.616Z</updated>
     
@@ -2242,8 +2242,8 @@
   
   <entry>
     <title>Django反转url</title>
-    <link href="https://onlyyu.cn/2018/03/04/Django/Django%E5%8F%8D%E8%BD%AC%E8%B7%AF%E7%94%B1/"/>
-    <id>https://onlyyu.cn/2018/03/04/Django/Django%E5%8F%8D%E8%BD%AC%E8%B7%AF%E7%94%B1/</id>
+    <link href="https://onlyyu.cn/2018/03/04/Django/Django_id_13/"/>
+    <id>https://onlyyu.cn/2018/03/04/Django/Django_id_13/</id>
     <published>2018-03-03T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:57.178Z</updated>
     
@@ -2263,8 +2263,8 @@
   
   <entry>
     <title>Django表单提交</title>
-    <link href="https://onlyyu.cn/2018/03/03/Django/DJango%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E6%8F%90%E4%BA%A4/"/>
-    <id>https://onlyyu.cn/2018/03/03/Django/DJango%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E6%8F%90%E4%BA%A4/</id>
+    <link href="https://onlyyu.cn/2018/03/03/Django/Django_id_12/"/>
+    <id>https://onlyyu.cn/2018/03/03/Django/Django_id_12/</id>
     <published>2018-03-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:52.569Z</updated>
     
@@ -2284,8 +2284,8 @@
   
   <entry>
     <title>Django编辑页选项</title>
-    <link href="https://onlyyu.cn/2018/03/02/Django/Django%E7%BC%96%E8%BE%91%E9%A1%B5%E9%80%89%E9%A1%B9/"/>
-    <id>https://onlyyu.cn/2018/03/02/Django/Django%E7%BC%96%E8%BE%91%E9%A1%B5%E9%80%89%E9%A1%B9/</id>
+    <link href="https://onlyyu.cn/2018/03/02/Django/Django_id_11/"/>
+    <id>https://onlyyu.cn/2018/03/02/Django/Django_id_11/</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:42.855Z</updated>
     
@@ -2305,8 +2305,8 @@
   
   <entry>
     <title>ORM框架</title>
-    <link href="https://onlyyu.cn/2018/03/02/Django/%E5%85%B3%E4%BA%8EORM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://onlyyu.cn/2018/03/02/Django/%E5%85%B3%E4%BA%8EORM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/</id>
+    <link href="https://onlyyu.cn/2018/03/02/Django/Django_id_25/"/>
+    <id>https://onlyyu.cn/2018/03/02/Django/Django_id_25/</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:51:01.838Z</updated>
     
@@ -2329,8 +2329,8 @@
   
   <entry>
     <title>Django元选项</title>
-    <link href="https://onlyyu.cn/2018/03/01/Django/Django%E5%85%83%E9%80%89%E9%A1%B9/"/>
-    <id>https://onlyyu.cn/2018/03/01/Django/Django%E5%85%83%E9%80%89%E9%A1%B9/</id>
+    <link href="https://onlyyu.cn/2018/03/01/Django/Django_id_21/"/>
+    <id>https://onlyyu.cn/2018/03/01/Django/Django_id_21/</id>
     <published>2018-02-28T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:45.302Z</updated>
     
@@ -2350,8 +2350,8 @@
   
   <entry>
     <title>关于mvc</title>
-    <link href="https://onlyyu.cn/2018/03/01/Django/%E5%85%B3%E4%BA%8Emvc/"/>
-    <id>https://onlyyu.cn/2018/03/01/Django/%E5%85%B3%E4%BA%8Emvc/</id>
+    <link href="https://onlyyu.cn/2018/03/01/Django/Django_id_24/"/>
+    <id>https://onlyyu.cn/2018/03/01/Django/Django_id_24/</id>
     <published>2018-02-28T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:57.612Z</updated>
     
@@ -2371,8 +2371,8 @@
   
   <entry>
     <title>Django首次使用</title>
-    <link href="https://onlyyu.cn/2018/02/27/Django/Django%E6%96%87%E4%BB%B6%E5%88%9D%E5%88%9B/"/>
-    <id>https://onlyyu.cn/2018/02/27/Django/Django%E6%96%87%E4%BB%B6%E5%88%9D%E5%88%9B/</id>
+    <link href="https://onlyyu.cn/2018/02/27/Django/Django_id_20/"/>
+    <id>https://onlyyu.cn/2018/02/27/Django/Django_id_20/</id>
     <published>2018-02-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:41.289Z</updated>
     
