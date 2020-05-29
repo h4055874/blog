@@ -26,30 +26,6 @@
       </tags>
   </entry>
   <entry>
-    <title>v-charts趋势图</title>
-    <url>/Vue/Vue_id_16.html</url>
-    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
-<p>使用工具：v-charts</p>
-<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
-<a id="more"></a>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure>
-
-<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue,v-charts</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue实现Excel文件下载</title>
     <url>/Vue/Vue_id_17.html</url>
     <content><![CDATA[<p>在vue中实现数据下载，保存为Excel文件</p>
@@ -77,6 +53,30 @@
       </tags>
   </entry>
   <entry>
+    <title>v-charts趋势图</title>
+    <url>/Vue/Vue_id_16.html</url>
+    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
+<p>使用工具：v-charts</p>
+<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue,v-charts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue引入百度地图</title>
     <url>/Vue/Vue_id_05.html</url>
     <content><![CDATA[<p>　　Vue中引入百度地图</p>
@@ -97,21 +97,6 @@
       </categories>
       <tags>
         <tag>Vue,百度地图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue中router-link的点击事件</title>
-    <url>/Vue/Vue_id_06.html</url>
-    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
-<a id="more"></a>
-
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>点击事件</tag>
       </tags>
   </entry>
   <entry>
@@ -265,6 +250,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue中router-link的点击事件</title>
+    <url>/Vue/Vue_id_06.html</url>
+    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
+<a id="more"></a>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>点击事件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算某年某月某一天是第几天</title>
     <url>/Python/Python_id_04.html</url>
     <content><![CDATA[<p>　实现输入某年某月某日计算出这一天是该年第几天的方法</p>
@@ -378,6 +378,35 @@
       </tags>
   </entry>
   <entry>
+    <title>redis雪崩、击穿、穿透</title>
+    <url>/Redis/Redis_id_04.html</url>
+    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
+<a id="more"></a>
+
+<p>　　<strong>发生场景：</strong></p>
+<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
+<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
+　　</p>
+<p><strong>解决方案</strong></p>
+<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
+<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>redis数据淘汰机制</title>
     <url>/Redis/Redis_id_03.html</url>
     <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
@@ -423,35 +452,6 @@
 <p>redis.conf中的maxmemory选项，该选项是告诉Redis当使用了多少物理内存后就开始拒绝后续的写入请求，该参数能很好的保护好你的Redis不会因为使用了过多的物理内存而导致swap,最终严重影响性能甚至崩溃。</p>
 <p>redis.conf文件中 vm-enabled 为 no</p>
 <p>以上这篇Redis优化经验总结(必看篇)就是小编分享给大家的全部内容了，希望能给大家一个参考，也希望大家多多支持脚本之家。</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <url>/Redis/Redis_id_04.html</url>
-    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
-<a id="more"></a>
-
-<p>　　<strong>发生场景：</strong></p>
-<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
-<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
-　　</p>
-<p><strong>解决方案</strong></p>
-<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
-<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -1303,8 +1303,8 @@
         <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>Ubuntu</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1351,6 +1351,54 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置汇总</title>
+    <url>/CentOS/CentOS_id_04.html</url>
+    <content><![CDATA[<ol>
+<li><p>构建centos7环境</p>
+<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
+<a id="more"></a>
+
+<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
+<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
+<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
+<p>还是重装系统吧</p>
+</li>
+<li><p>配置python环境</p>
+<ol>
+<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
+</li>
+<li><p>如果有需要升级的话,可以参考下列操作</p>
+<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
+</li>
+</ol>
+</li>
+<li><p>配置mysql数据库 + 主从复制</p>
+<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
+</li>
+<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
+<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
+</li>
+<li><p>配置node环境</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure>
+
+<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>重启服务器:  reboot</p>
+</li>
+</ol>
+<p>以上.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1433,54 +1481,6 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 ]]></content>
       <categories>
         <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS7服务器配置汇总</title>
-    <url>/CentOS/CentOS_id_04.html</url>
-    <content><![CDATA[<ol>
-<li><p>构建centos7环境</p>
-<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
-<a id="more"></a>
-
-<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
-<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
-<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
-<p>还是重装系统吧</p>
-</li>
-<li><p>配置python环境</p>
-<ol>
-<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
-</li>
-<li><p>如果有需要升级的话,可以参考下列操作</p>
-<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
-</li>
-</ol>
-</li>
-<li><p>配置mysql数据库 + 主从复制</p>
-<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
-</li>
-<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
-<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
-</li>
-<li><p>配置node环境</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure>
-
-<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure>
-
-<p>重启服务器:  reboot</p>
-</li>
-</ol>
-<p>以上.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
       </categories>
       <tags>
         <tag>CentOS</tag>
@@ -2951,22 +2951,6 @@ client.ecnet(text);
       </tags>
   </entry>
   <entry>
-    <title>动态获取数据</title>
-    <url>/Spider/Spider_id_11.html</url>
-    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
-<ol>
-<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
-<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>代理ip</title>
     <url>/Spider/Spider_id_10.html</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -3019,6 +3003,22 @@ print(res.text)
 </li>
 <li><p>代理ip池写法,创建一个列表,存储准备好的IP,然后使用随机模块进行随即调用,这样可以确保每次都会随机抽取一个代理ip来发送请求</p>
 </li>
+</ol>
+]]></content>
+      <categories>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态获取数据</title>
+    <url>/Spider/Spider_id_11.html</url>
+    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
+<ol>
+<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
+<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
 </ol>
 ]]></content>
       <categories>
