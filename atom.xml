@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-05-29T12:52:05.186Z</updated>
+  <updated>2020-05-29T17:45:42.558Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,73 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Echarts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-05-29T17:45:42.558Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个趋势展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：Echarts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://echarts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Echarts官网&lt;/a&gt;跳转&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue,Echarts" scheme="https://onlyyu.cn/tags/Vue-Echarts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue实现Excel文件下载</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_17.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_17.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-05-29T18:12:38.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue,文件下载" scheme="https://onlyyu.cn/tags/Vue-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>v-charts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-05-29T17:58:28.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个折线展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：v-charts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://v-charts.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;v-charts官网&lt;/a&gt;跳转&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue,v-charts" scheme="https://onlyyu.cn/tags/Vue-v-charts/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue引入百度地图</title>
@@ -101,27 +168,6 @@
   </entry>
   
   <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>redis持久化</title>
     <link href="https://onlyyu.cn/Redis/Redis_id_01.html"/>
     <id>https://onlyyu.cn/Redis/Redis_id_01.html</id>
@@ -185,6 +231,27 @@
   </entry>
   
   <entry>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:27:46.871Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RBAC用户权限管理设计思路</title>
     <link href="https://onlyyu.cn/Django/Django_id_29.html"/>
     <id>https://onlyyu.cn/Django/Django_id_29.html</id>
@@ -231,7 +298,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_01.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_01.html</id>
     <published>2020-05-18T15:54:15.000Z</published>
-    <updated>2020-05-29T12:56:53.528Z</updated>
+    <updated>2020-05-29T19:07:03.765Z</updated>
     
     <summary type="html">
     
@@ -613,7 +680,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_02.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_02.html</id>
     <published>2020-05-17T05:32:15.000Z</published>
-    <updated>2020-05-17T09:59:39.241Z</updated>
+    <updated>2020-05-29T19:07:16.024Z</updated>
     
     <summary type="html">
     
@@ -646,9 +713,9 @@
       <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
-    
       <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
+    
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
@@ -695,29 +762,6 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置汇总</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
-    <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:22.301Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;构建centos7环境&lt;/p&gt;
-&lt;p&gt;服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://onlyyu.cn/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
     <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
@@ -739,20 +783,22 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
-    <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-29T12:56:28.763Z</updated>
+    <title>CentOS7服务器配置汇总</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
+    <published>2020-05-10T16:00:00.000Z</published>
+    <updated>2020-05-17T10:00:22.301Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;构建centos7环境&lt;/p&gt;
+&lt;p&gt;服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.&lt;/p&gt;
     
     </summary>
     
     
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+      <category term="Linux" scheme="https://onlyyu.cn/categories/Linux/"/>
     
     
       <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
@@ -781,11 +827,32 @@
   </entry>
   
   <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
+    <published>2020-05-09T16:00:00.000Z</published>
+    <updated>2020-05-29T12:56:28.763Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Datetime模块常用方法</title>
     <link href="https://onlyyu.cn/Python/Python_id_01.html"/>
     <id>https://onlyyu.cn/Python/Python_id_01.html</id>
     <published>2020-05-07T13:36:15.000Z</published>
-    <updated>2020-05-29T12:49:23.620Z</updated>
+    <updated>2020-05-29T19:06:07.858Z</updated>
     
     <summary type="html">
     
@@ -806,7 +873,7 @@
     <link href="https://onlyyu.cn/Python/Python_id_05.html"/>
     <id>https://onlyyu.cn/Python/Python_id_05.html</id>
     <published>2020-04-28T17:00:15.000Z</published>
-    <updated>2020-05-29T12:51:34.544Z</updated>
+    <updated>2020-05-29T19:06:47.360Z</updated>
     
     <summary type="html">
     
@@ -848,7 +915,7 @@
     <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_05.html"/>
     <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_05.html</id>
     <published>2020-04-23T13:05:15.000Z</published>
-    <updated>2020-05-17T07:23:29.846Z</updated>
+    <updated>2020-05-29T19:07:52.490Z</updated>
     
     <summary type="html">
     
@@ -1313,15 +1380,16 @@
   </entry>
   
   <entry>
-    <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
+    <title>代理ip</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:57:10.458Z</updated>
+    <updated>2020-05-17T06:56:57.582Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
     
     </summary>
     
@@ -1334,16 +1402,15 @@
   </entry>
   
   <entry>
-    <title>代理ip</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
+    <title>动态获取数据</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:57.582Z</updated>
+    <updated>2020-05-17T06:57:10.458Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
+      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
     
     </summary>
     

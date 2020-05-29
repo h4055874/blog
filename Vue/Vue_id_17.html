@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在vue中实现数据下载，保存为Excel文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue实现Excel文件下载">
+<meta property="og:url" content="https://onlyyu.cn/Vue/Vue_id_17.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="在vue中实现数据下载，保存为Excel文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-29T18:12:38.377Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Vue,文件下载">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://onlyyu.cn/Vue/Vue_id_17.html">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>Vue实现Excel文件下载 | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script> -->
+
+   <!-- 不知道是什么玩意 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+<!-- <body itemscope itemtype="http://schema.org/WebPage" style="background-color: #C1C1C1"> -->
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">38</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">115</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Vue/Vue_id_17.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue实现Excel文件下载
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-30 00:00:00 / 修改时间：02:12:38" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00+08:00">2020-05-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Vue/Vue_id_17.html" class="post-meta-item leancloud_visitors" data-flag-title="Vue实现Excel文件下载" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Vue/Vue_id_17.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Vue/Vue_id_17.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在vue中实现数据下载，保存为Excel文件</p>
+<a id="more"></a>
+
+<h4 id="安装依赖插件"><a href="#安装依赖插件" class="headerlink" title="安装依赖插件"></a>安装依赖插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -S file-saver</span><br><span class="line">npm install -S xlsx</span><br><span class="line">npm install -D script-loader</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入js文件"><a href="#导入js文件" class="headerlink" title="导入js文件"></a>导入js文件</h4><p>　　<strong>在src目录中创建lib文件夹(文件夹名字可以自己设置)，导入以下js文件</strong><br>　　注意：这两个js文件需放在一个文件中，否则在Export2Excel.js文件中导入Blob.js会出现找不到的情况，导致配置失败、当然、也可修改导入路径</p>
+<p><strong>Blob.js:</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* eslint-disable */</span></span><br><span class="line"><span class="comment">/* Blob.js</span></span><br><span class="line"><span class="comment"> * A Blob implementation.</span></span><br><span class="line"><span class="comment"> * 2014-05-27</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * By Eli Grey, http://eligrey.com</span></span><br><span class="line"><span class="comment"> * By Devin Samarin, https://github.com/eboyjr</span></span><br><span class="line"><span class="comment"> * License: X11/MIT</span></span><br><span class="line"><span class="comment"> *   See LICENSE.md</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*global self, unescape */</span></span><br><span class="line"><span class="comment">/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,</span></span><br><span class="line"><span class="comment"> plusplus: true */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*! @source http://purl.eligrey.com/github/Blob.js/blob/master/Blob.js */</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">view</span>) </span>&#123;</span><br><span class="line"><span class="meta">    "use strict"</span>;</span><br><span class="line"></span><br><span class="line">    view.URL = view.URL || view.webkitURL;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (view.Blob &amp;&amp; view.URL) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">new</span> Blob;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Internally we use a BlobBuilder implementation to base Blob off of</span></span><br><span class="line">    <span class="comment">// in order to support older browsers that only have BlobBuilder</span></span><br><span class="line">    <span class="keyword">var</span> BlobBuilder = view.BlobBuilder || view.WebKitBlobBuilder || view.MozBlobBuilder || (<span class="function"><span class="keyword">function</span>(<span class="params">view</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span></span><br><span class="line">                get_class = <span class="function"><span class="keyword">function</span>(<span class="params">object</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).match(<span class="regexp">/^\[object\s(.*)\]$/</span>)[<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                , FakeBlobBuilder = <span class="function"><span class="keyword">function</span> <span class="title">BlobBuilder</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>.data = [];</span><br><span class="line">                &#125;</span><br><span class="line">                , FakeBlob = <span class="function"><span class="keyword">function</span> <span class="title">Blob</span>(<span class="params">data, type, encoding</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>.data = data;</span><br><span class="line">                    <span class="keyword">this</span>.size = data.length;</span><br><span class="line">                    <span class="keyword">this</span>.type = type;</span><br><span class="line">                    <span class="keyword">this</span>.encoding = encoding;</span><br><span class="line">                &#125;</span><br><span class="line">                , FBB_proto = FakeBlobBuilder.prototype</span><br><span class="line">                , FB_proto = FakeBlob.prototype</span><br><span class="line">                , FileReaderSync = view.FileReaderSync</span><br><span class="line">                , FileException = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>.code = <span class="keyword">this</span>[<span class="keyword">this</span>.name = type];</span><br><span class="line">                &#125;</span><br><span class="line">                , file_ex_codes = (</span><br><span class="line">                    <span class="string">"NOT_FOUND_ERR SECURITY_ERR ABORT_ERR NOT_READABLE_ERR ENCODING_ERR "</span></span><br><span class="line">                    + <span class="string">"NO_MODIFICATION_ALLOWED_ERR INVALID_STATE_ERR SYNTAX_ERR"</span></span><br><span class="line">                ).split(<span class="string">" "</span>)</span><br><span class="line">                , file_ex_code = file_ex_codes.length</span><br><span class="line">                , real_URL = view.URL || view.webkitURL || view</span><br><span class="line">                , real_create_object_URL = real_URL.createObjectURL</span><br><span class="line">                , real_revoke_object_URL = real_URL.revokeObjectURL</span><br><span class="line">                , URL = real_URL</span><br><span class="line">                , btoa = view.btoa</span><br><span class="line">                , atob = view.atob</span><br><span class="line"></span><br><span class="line">                , <span class="built_in">ArrayBuffer</span> = view.ArrayBuffer</span><br><span class="line">                , <span class="built_in">Uint8Array</span> = view.Uint8Array</span><br><span class="line">                ;</span><br><span class="line">            FakeBlob.fake = FB_proto.fake = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">while</span> (file_ex_code--) &#123;</span><br><span class="line">                FileException.prototype[file_ex_codes[file_ex_code]] = file_ex_code + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!real_URL.createObjectURL) &#123;</span><br><span class="line">                URL = view.URL = &#123;&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            URL.createObjectURL = <span class="function"><span class="keyword">function</span>(<span class="params">blob</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span></span><br><span class="line">                    type = blob.type</span><br><span class="line">                    , data_URI_header</span><br><span class="line">                    ;</span><br><span class="line">                <span class="keyword">if</span> (type === <span class="literal">null</span>) &#123;</span><br><span class="line">                    type = <span class="string">"application/octet-stream"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (blob <span class="keyword">instanceof</span> FakeBlob) &#123;</span><br><span class="line">                    data_URI_header = <span class="string">"data:"</span> + type;</span><br><span class="line">                    <span class="keyword">if</span> (blob.encoding === <span class="string">"base64"</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> data_URI_header + <span class="string">";base64,"</span> + blob.data;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (blob.encoding === <span class="string">"URI"</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> data_URI_header + <span class="string">","</span> + <span class="built_in">decodeURIComponent</span>(blob.data);</span><br><span class="line">                    &#125; <span class="keyword">if</span> (btoa) &#123;</span><br><span class="line">                        <span class="keyword">return</span> data_URI_header + <span class="string">";base64,"</span> + btoa(blob.data);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> data_URI_header + <span class="string">","</span> + <span class="built_in">encodeURIComponent</span>(blob.data);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (real_create_object_URL) &#123;</span><br><span class="line">                    <span class="keyword">return</span> real_create_object_URL.call(real_URL, blob);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            URL.revokeObjectURL = <span class="function"><span class="keyword">function</span>(<span class="params">object_URL</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (object_URL.substring(<span class="number">0</span>, <span class="number">5</span>) !== <span class="string">"data:"</span> &amp;&amp; real_revoke_object_URL) &#123;</span><br><span class="line">                    real_revoke_object_URL.call(real_URL, object_URL);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.append = <span class="function"><span class="keyword">function</span>(<span class="params">data<span class="regexp">/*, endings*/</span></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> bb = <span class="keyword">this</span>.data;</span><br><span class="line">                <span class="comment">// decode data to a binary string</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">Uint8Array</span> &amp;&amp; (data <span class="keyword">instanceof</span> <span class="built_in">ArrayBuffer</span> || data <span class="keyword">instanceof</span> <span class="built_in">Uint8Array</span>)) &#123;</span><br><span class="line">                    <span class="keyword">var</span></span><br><span class="line">                        str = <span class="string">""</span></span><br><span class="line">                        , buf = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(data)</span><br><span class="line">                        , i = <span class="number">0</span></span><br><span class="line">                        , buf_len = buf.length</span><br><span class="line">                        ;</span><br><span class="line">                    <span class="keyword">for</span> (; i &lt; buf_len; i++) &#123;</span><br><span class="line">                        str += <span class="built_in">String</span>.fromCharCode(buf[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    bb.push(str);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (get_class(data) === <span class="string">"Blob"</span> || get_class(data) === <span class="string">"File"</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (FileReaderSync) &#123;</span><br><span class="line">                        <span class="keyword">var</span> fr = <span class="keyword">new</span> FileReaderSync;</span><br><span class="line">                        bb.push(fr.readAsBinaryString(data));</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">// async FileReader won't work as BlobBuilder is sync</span></span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> FileException(<span class="string">"NOT_READABLE_ERR"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data <span class="keyword">instanceof</span> FakeBlob) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (data.encoding === <span class="string">"base64"</span> &amp;&amp; atob) &#123;</span><br><span class="line">                        bb.push(atob(data.data));</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.encoding === <span class="string">"URI"</span>) &#123;</span><br><span class="line">                        bb.push(<span class="built_in">decodeURIComponent</span>(data.data));</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.encoding === <span class="string">"raw"</span>) &#123;</span><br><span class="line">                        bb.push(data.data);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> data !== <span class="string">"string"</span>) &#123;</span><br><span class="line">                        data += <span class="string">""</span>; <span class="comment">// convert unsupported types to strings</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// decode UTF-16 to binary string</span></span><br><span class="line">                    bb.push(<span class="built_in">unescape</span>(<span class="built_in">encodeURIComponent</span>(data)));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.getBlob = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) &#123;</span><br><span class="line">                    type = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> FakeBlob(<span class="keyword">this</span>.data.join(<span class="string">""</span>), type, <span class="string">"raw"</span>);</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"[object BlobBuilder]"</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.slice = <span class="function"><span class="keyword">function</span>(<span class="params">start, end, type</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> args = <span class="built_in">arguments</span>.length;</span><br><span class="line">                <span class="keyword">if</span> (args &lt; <span class="number">3</span>) &#123;</span><br><span class="line">                    type = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> FakeBlob(</span><br><span class="line">                    <span class="keyword">this</span>.data.slice(start, args &gt; <span class="number">1</span> ? end : <span class="keyword">this</span>.data.length)</span><br><span class="line">                    , type</span><br><span class="line">                    , <span class="keyword">this</span>.encoding</span><br><span class="line">                );</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"[object Blob]"</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.close = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.size = <span class="keyword">this</span>.data.length = <span class="number">0</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">return</span> FakeBlobBuilder;</span><br><span class="line">        &#125;(view));</span><br><span class="line"></span><br><span class="line">    view.Blob = <span class="function"><span class="keyword">function</span> <span class="title">Blob</span>(<span class="params">blobParts, options</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> type = options ? (options.type || <span class="string">""</span>) : <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">var</span> builder = <span class="keyword">new</span> BlobBuilder();</span><br><span class="line">        <span class="keyword">if</span> (blobParts) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = blobParts.length; i &lt; len; i++) &#123;</span><br><span class="line">                builder.append(blobParts[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> builder.getBlob(type);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;(<span class="keyword">typeof</span> self !== <span class="string">"undefined"</span> &amp;&amp; self || <span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">"undefined"</span> &amp;&amp; <span class="built_in">window</span> || <span class="keyword">this</span>.content || <span class="keyword">this</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>Export2Excel.js:</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* eslint-disable */</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'script-loader!file-saver'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'script-loader!./Blob'</span>);  <span class="comment">//引用当前目录下的Blob.js模块</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'script-loader!xlsx/dist/xlsx.core.min'</span>);</span><br><span class="line"><span class="comment">//由于这几个文件不支持import引入，所以我们需要`script-loader`来将他们挂载到全局环境下</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateArray</span>(<span class="params">table</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> out = [];</span><br><span class="line">    <span class="keyword">var</span> rows = table.querySelectorAll(<span class="string">'tr'</span>);</span><br><span class="line">    <span class="keyword">var</span> ranges = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> R = <span class="number">0</span>; R &lt; rows.length; ++R) &#123;</span><br><span class="line">        <span class="keyword">var</span> outRow = [];</span><br><span class="line">        <span class="keyword">var</span> row = rows[R];</span><br><span class="line">        <span class="keyword">var</span> columns = row.querySelectorAll(<span class="string">'td'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> C = <span class="number">0</span>; C &lt; columns.length; ++C) &#123;</span><br><span class="line">            <span class="keyword">var</span> cell = columns[C];</span><br><span class="line">            <span class="keyword">var</span> colspan = cell.getAttribute(<span class="string">'colspan'</span>);</span><br><span class="line">            <span class="keyword">var</span> rowspan = cell.getAttribute(<span class="string">'rowspan'</span>);</span><br><span class="line">            <span class="keyword">var</span> cellValue = cell.innerText;</span><br><span class="line">            <span class="keyword">if</span> (cellValue !== <span class="string">""</span> &amp;&amp; cellValue == +cellValue) cellValue = +cellValue;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Skip ranges</span></span><br><span class="line">            ranges.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">range</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (R &gt;= range.s.r &amp;&amp; R &lt;= range.e.r &amp;&amp; outRow.length &gt;= range.s.c &amp;&amp; outRow.length &lt;= range.e.c) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= range.e.c - range.s.c; ++i) outRow.push(<span class="literal">null</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Handle Row Span</span></span><br><span class="line">            <span class="keyword">if</span> (rowspan || colspan) &#123;</span><br><span class="line">                rowspan = rowspan || <span class="number">1</span>;</span><br><span class="line">                colspan = colspan || <span class="number">1</span>;</span><br><span class="line">                ranges.push(&#123;<span class="attr">s</span>: &#123;<span class="attr">r</span>: R, <span class="attr">c</span>: outRow.length&#125;, <span class="attr">e</span>: &#123;<span class="attr">r</span>: R + rowspan - <span class="number">1</span>, <span class="attr">c</span>: outRow.length + colspan - <span class="number">1</span>&#125;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Handle Value</span></span><br><span class="line">            outRow.push(cellValue !== <span class="string">""</span> ? cellValue : <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Handle Colspan</span></span><br><span class="line">            <span class="keyword">if</span> (colspan) <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; colspan - <span class="number">1</span>; ++k) outRow.push(<span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        out.push(outRow);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [out, ranges];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">datenum</span>(<span class="params">v, date1904</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (date1904) v += <span class="number">1462</span>;</span><br><span class="line">    <span class="keyword">var</span> epoch = <span class="built_in">Date</span>.parse(v);</span><br><span class="line">    <span class="keyword">return</span> (epoch - <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.UTC(<span class="number">1899</span>, <span class="number">11</span>, <span class="number">30</span>))) / (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sheet_from_array_of_arrays</span>(<span class="params">data, opts</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ws = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> range = &#123;<span class="attr">s</span>: &#123;<span class="attr">c</span>: <span class="number">10000000</span>, <span class="attr">r</span>: <span class="number">10000000</span>&#125;, <span class="attr">e</span>: &#123;<span class="attr">c</span>: <span class="number">0</span>, <span class="attr">r</span>: <span class="number">0</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> R = <span class="number">0</span>; R != data.length; ++R) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> C = <span class="number">0</span>; C != data[R].length; ++C) &#123;</span><br><span class="line">            <span class="keyword">if</span> (range.s.r &gt; R) range.s.r = R;</span><br><span class="line">            <span class="keyword">if</span> (range.s.c &gt; C) range.s.c = C;</span><br><span class="line">            <span class="keyword">if</span> (range.e.r &lt; R) range.e.r = R;</span><br><span class="line">            <span class="keyword">if</span> (range.e.c &lt; C) range.e.c = C;</span><br><span class="line">            <span class="keyword">var</span> cell = &#123;<span class="attr">v</span>: data[R][C]&#125;;</span><br><span class="line">            <span class="keyword">if</span> (cell.v == <span class="literal">null</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">var</span> cell_ref = XLSX.utils.encode_cell(&#123;<span class="attr">c</span>: C, <span class="attr">r</span>: R&#125;);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> cell.v === <span class="string">'number'</span>) cell.t = <span class="string">'n'</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> cell.v === <span class="string">'boolean'</span>) cell.t = <span class="string">'b'</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cell.v <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</span><br><span class="line">                cell.t = <span class="string">'n'</span>;</span><br><span class="line">                cell.z = XLSX.SSF._table[<span class="number">14</span>];</span><br><span class="line">                cell.v = datenum(cell.v);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> cell.t = <span class="string">'s'</span>;</span><br><span class="line"></span><br><span class="line">            ws[cell_ref] = cell;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (range.s.c &lt; <span class="number">10000000</span>) ws[<span class="string">'!ref'</span>] = XLSX.utils.encode_range(range);</span><br><span class="line">    <span class="keyword">return</span> ws;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Workbook</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Workbook)) <span class="keyword">return</span> <span class="keyword">new</span> Workbook();</span><br><span class="line">    <span class="keyword">this</span>.SheetNames = [];</span><br><span class="line">    <span class="keyword">this</span>.Sheets = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">s2ab</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(s.length);</span><br><span class="line">    <span class="keyword">var</span> view = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(buf);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i != s.length; ++i) view[i] = s.charCodeAt(i) &amp; <span class="number">0xFF</span>;</span><br><span class="line">    <span class="keyword">return</span> buf;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">export_table_to_excel</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> theTable = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">var</span> oo = generateArray(theTable);</span><br><span class="line">    <span class="keyword">var</span> ranges = oo[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* original data */</span></span><br><span class="line">    <span class="keyword">var</span> data = oo[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> ws_name = <span class="string">"SheetJS"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wb = <span class="keyword">new</span> Workbook(), ws = sheet_from_array_of_arrays(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* add ranges to worksheet */</span></span><br><span class="line">    <span class="comment">// ws['!cols'] = ['apple', 'banan'];</span></span><br><span class="line">    ws[<span class="string">'!merges'</span>] = ranges;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* add worksheet to workbook */</span></span><br><span class="line">    wb.SheetNames.push(ws_name);</span><br><span class="line">    wb.Sheets[ws_name] = ws;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wbout = XLSX.write(wb, &#123;<span class="attr">bookType</span>: <span class="string">'xlsx'</span>, <span class="attr">bookSST</span>: <span class="literal">false</span>, <span class="attr">type</span>: <span class="string">'binary'</span>&#125;);</span><br><span class="line"></span><br><span class="line">    saveAs(<span class="keyword">new</span> Blob([s2ab(wbout)], &#123;<span class="attr">type</span>: <span class="string">"application/octet-stream"</span>&#125;), <span class="string">"test.xlsx"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatJson</span>(<span class="params">jsonData</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(jsonData)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">export_json_to_excel</span>(<span class="params">th, jsonData, defaultTitle</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* original data */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data = jsonData;</span><br><span class="line">    data.unshift(th);</span><br><span class="line">    <span class="keyword">var</span> ws_name = <span class="string">"SheetJS"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wb = <span class="keyword">new</span> Workbook(), ws = sheet_from_array_of_arrays(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* add worksheet to workbook */</span></span><br><span class="line">    wb.SheetNames.push(ws_name);</span><br><span class="line">    wb.Sheets[ws_name] = ws;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> wbout = XLSX.write(wb, &#123;<span class="attr">bookType</span>: <span class="string">'xlsx'</span>, <span class="attr">bookSST</span>: <span class="literal">false</span>, <span class="attr">type</span>: <span class="string">'binary'</span>&#125;);</span><br><span class="line">    <span class="keyword">var</span> title = defaultTitle || <span class="string">'列表'</span></span><br><span class="line">    saveAs(<span class="keyword">new</span> Blob([s2ab(wbout)], &#123;<span class="attr">type</span>: <span class="string">"application/octet-stream"</span>&#125;), title + <span class="string">".xlsx"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="在需要下载的vue页面methods中创建方法"><a href="#在需要下载的vue页面methods中创建方法" class="headerlink" title="在需要下载的vue页面methods中创建方法"></a>在需要下载的vue页面methods中创建方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件下载</span></span><br><span class="line">ExcelLog() &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], () =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; export_json_to_excel &#125; = <span class="built_in">require</span>(<span class="string">'../../lib/Export2Excel'</span>)	<span class="comment">// 导入你创建的js文件</span></span><br><span class="line">        <span class="keyword">const</span> tHeader = [<span class="string">'Order ID'</span>, <span class="string">'Date Time'</span>, <span class="string">'Tempear(℃)'</span>]   <span class="comment">// 自定义标题</span></span><br><span class="line">        <span class="keyword">const</span> filterVal = [<span class="string">'oid'</span>, <span class="string">'create_time'</span>, <span class="string">'tempera'</span>]   <span class="comment">// 对应表字段</span></span><br><span class="line">        <span class="keyword">const</span> list = <span class="keyword">this</span>.TemperLog   <span class="comment">// 需要下载的数据</span></span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">this</span>.formatJson(filterVal, list);</span><br><span class="line">        export_json_to_excel(tHeader, data, <span class="string">'运单'</span> + <span class="keyword">this</span>.orderID + <span class="string">'温度详情'</span>);  <span class="comment">//导出文件名称</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">    <span class="comment">// 文件下载所调用函数</span></span><br><span class="line">    formatJson(filterVal, jsonData) &#123;</span><br><span class="line">        <span class="built_in">console</span>.info(jsonData)</span><br><span class="line">        <span class="keyword">return</span> jsonData.map(<span class="function"><span class="params">v</span> =&gt;</span> filterVal.map(<span class="function"><span class="params">j</span> =&gt;</span> v[j]))</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="在button中绑定点击事件"><a href="#在button中绑定点击事件" class="headerlink" title="在button中绑定点击事件"></a>在button中绑定点击事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button size&#x3D;&quot;small&quot; type&#x3D;&quot;primary&quot; @click&#x3D;&quot;ExcelLog&quot;&gt;下载温度&lt;&#x2F;el-button&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+      
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" rel="tag">分类： Vue,文件下载</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Vue/Vue_id_16.html" rel="prev" title="v-charts趋势图">
+      <i class="fa fa-chevron-left"></i> v-charts趋势图
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Vue/Vue_id_15.html" rel="next" title="Echarts趋势图">
+      Echarts趋势图 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装依赖插件"><span class="nav-text">安装依赖插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入js文件"><span class="nav-text">导入js文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在需要下载的vue页面methods中创建方法"><span class="nav-text">在需要下载的vue页面methods中创建方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在button中绑定点击事件"><span class="nav-text">在button中绑定点击事件</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.missbless.cn/" title="http:&#x2F;&#x2F;www.missbless.cn&#x2F;" rel="noopener" target="_blank">ISSAC　LOVELESS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.f322.xyz/" title="https:&#x2F;&#x2F;www.f322.xyz&#x2F;" rel="noopener" target="_blank">逆の神様</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">220k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:20</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
