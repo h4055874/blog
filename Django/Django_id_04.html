@@ -392,12 +392,12 @@ input[type="radio"]:not(:checked) + label:after {
     filter_backends = [DjangoFilterBackend]
     filter_fields = (<span class="string">"id"</span>,)
     <span class="comment">#注意,filter_fields的值必须是一个元组!!!!</span>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>使用方法</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ASCIIDOC"><figure class="iseeu highlight /asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>使用方法</span><br></pre></td></tr></table></figure></div>
 在网址url之后追加-------/?id=1
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">2. ### 排序</span><br><span class="line"></span><br><span class="line">   - ```python</span><br><span class="line">     from rest_framework.filters import OrderingFilter</span><br><span class="line">     from rest_framework.generics import ListAPIView</span><br><span class="line">     class MYfilter(ListAPIView):</span><br><span class="line">         queryset = Students.objects.all()</span><br><span class="line">         serializer_class = StudentsSerializer</span><br><span class="line">         filter_backends = [OrderingFilter]</span><br><span class="line">         ordering_fields = ['id']</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 <li><p>使用方法</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在网址url之后追加------/?<span class="attribute">ordering</span>=xx</span><br><span class="line">xx为ordering_fields中准备的用来作为排序基准的字段</span><br><span class="line">倒序为在xx前加上-号</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在网址url之后追加------/?<span class="attribute">ordering</span>=xx</span><br><span class="line">xx为ordering_fields中准备的用来作为排序基准的字段</span><br><span class="line">倒序为在xx前加上-号</span><br></pre></td></tr></table></figure></div>
 
 </li>
 </ul>
@@ -438,10 +438,10 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
     </li>
   </ul>
 

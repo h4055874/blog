@@ -389,7 +389,7 @@ input[type="radio"]:not(:checked) + label:after {
 <li>​        如下所示</li>
 <li></li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">request</span><span class="selector-class">.META</span><span class="selector-attr">[<span class="string">'REMOTE_ADDR'</span>]</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">request</span><span class="selector-class">.META</span><span class="selector-attr">[<span class="string">'REMOTE_ADDR'</span>]</span></span><br></pre></td></tr></table></figure></div>
 
 
 
@@ -410,7 +410,7 @@ input[type="radio"]:not(:checked) + label:after {
         user_ip = request.META[<span class="string">'REMOTE_ADDR'</span>]
         <span class="keyword">if</span> user_ip <span class="keyword">in</span> BlockedIPSMiddleware.EXCLUDE:
             <span class="keyword">return</span> HttpResponse(<span class="string">"拒绝访问"</span>)
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 注意,<span class="number">2.0</span>以后无法使用以上的方法进行中间价创建</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">from</span> django.utils.deprecation <span class="keyword">import</span> MiddlewareMixin</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">BlockedIPSMiddleware</span><span class="params">(MiddlewareMixin)</span>:</span></span><br><span class="line">      EXCLUDE = [<span class="string">'192.168.1.238'</span>,<span class="string">'127.0.0.1'</span>]</span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">process_view</span><span class="params">(self,request,view_func,*view_args,**view_keargs)</span>:</span></span><br><span class="line">          user_ip = request.META[<span class="string">'REMOTE_ADDR'</span>]</span><br><span class="line">          <span class="keyword">if</span> user_ip <span class="keyword">in</span> BlockedIPSMiddleware.EXCLUDE:</span><br><span class="line">              <span class="keyword">return</span> HttpResponse(<span class="string">"拒绝访问"</span>)</span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 注意,<span class="number">2.0</span>以后无法使用以上的方法进行中间价创建</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">from</span> django.utils.deprecation <span class="keyword">import</span> MiddlewareMixin</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">BlockedIPSMiddleware</span><span class="params">(MiddlewareMixin)</span>:</span></span><br><span class="line">      EXCLUDE = [<span class="string">'192.168.1.238'</span>,<span class="string">'127.0.0.1'</span>]</span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">process_view</span><span class="params">(self,request,view_func,*view_args,**view_keargs)</span>:</span></span><br><span class="line">          user_ip = request.META[<span class="string">'REMOTE_ADDR'</span>]</span><br><span class="line">          <span class="keyword">if</span> user_ip <span class="keyword">in</span> BlockedIPSMiddleware.EXCLUDE:</span><br><span class="line">              <span class="keyword">return</span> HttpResponse(<span class="string">"拒绝访问"</span>)</span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 </ul>
 </li>
@@ -464,16 +464,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

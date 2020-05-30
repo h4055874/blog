@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-05-29T17:45:42.558Z</updated>
+  <updated>2020-05-30T05:44:11.633Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-05-29T17:45:42.558Z</updated>
+    <updated>2020-05-30T05:44:11.633Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,29 @@
     
     
       <category term="Vue,Echarts" scheme="https://onlyyu.cn/tags/Vue-Echarts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>v-charts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-05-29T17:58:28.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个折线展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：v-charts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://v-charts.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;v-charts官网&lt;/a&gt;跳转&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue,v-charts" scheme="https://onlyyu.cn/tags/Vue-v-charts/"/>
     
   </entry>
   
@@ -61,17 +84,15 @@
   </entry>
   
   <entry>
-    <title>v-charts趋势图</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-05-29T17:58:28.927Z</updated>
+    <title>Vue中router-link的点击事件</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_06.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_06.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-05-27T18:01:31.133Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个折线展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用工具：v-charts&lt;/p&gt;
-&lt;p&gt;官网：点击&lt;a href=&quot;https://v-charts.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;v-charts官网&lt;/a&gt;跳转&lt;/p&gt;
+      &lt;p&gt;　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件&lt;/p&gt;
     
     </summary>
     
@@ -79,7 +100,7 @@
       <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue,v-charts" scheme="https://onlyyu.cn/tags/Vue-v-charts/"/>
+      <category term="点击事件" scheme="https://onlyyu.cn/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
@@ -126,27 +147,6 @@
   </entry>
   
   <entry>
-    <title>Vue中router-link的点击事件</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_06.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_06.html</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-05-27T18:01:31.133Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="点击事件" scheme="https://onlyyu.cn/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算某年某月某一天是第几天</title>
     <link href="https://onlyyu.cn/Python/Python_id_04.html"/>
     <id>https://onlyyu.cn/Python/Python_id_04.html</id>
@@ -189,15 +189,15 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -210,15 +210,15 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
@@ -762,6 +762,27 @@
   </entry>
   
   <entry>
+    <title>CentOS7服务器配置redis主从与哨兵</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
+    <published>2020-05-10T16:00:00.000Z</published>
+    <updated>2020-05-17T10:00:09.065Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CentOS7服务器配置汇总</title>
     <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
@@ -778,27 +799,6 @@
     
     
       <category term="Linux" scheme="https://onlyyu.cn/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7服务器配置redis主从与哨兵</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
-    <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:09.065Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
       <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
@@ -1300,7 +1300,7 @@
     <link href="https://onlyyu.cn/Spider/Spider_id_08.html"/>
     <id>https://onlyyu.cn/Spider/Spider_id_08.html</id>
     <published>2019-05-11T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:49.463Z</updated>
+    <updated>2020-05-30T02:42:42.359Z</updated>
     
     <summary type="html">
     
@@ -2160,15 +2160,15 @@
   </entry>
   
   <entry>
-    <title>API接口生成</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_01.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_01.html</id>
+    <title>axios请求与跨域</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_03.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_03.html</id>
     <published>2018-03-08T16:00:00.000Z</published>
-    <updated>2020-05-17T07:08:21.254Z</updated>
+    <updated>2020-05-17T07:08:28.439Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;自动创建api接口的文档&quot;&gt;&lt;a href=&quot;#自动创建api接口的文档&quot; class=&quot;headerlink&quot; title=&quot;自动创建api接口的文档&quot;&gt;&lt;/a&gt;自动创建api接口的文档&lt;/h2&gt;
+      &lt;h2 id=&quot;axios请求与跨域&quot;&gt;&lt;a href=&quot;#axios请求与跨域&quot; class=&quot;headerlink&quot; title=&quot;axios请求与跨域.&quot;&gt;&lt;/a&gt;axios请求与跨域.&lt;/h2&gt;
     
     </summary>
     
@@ -2181,15 +2181,15 @@
   </entry>
   
   <entry>
-    <title>axios请求与跨域</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_03.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_03.html</id>
+    <title>API接口生成</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_01.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_01.html</id>
     <published>2018-03-08T16:00:00.000Z</published>
-    <updated>2020-05-17T07:08:28.439Z</updated>
+    <updated>2020-05-17T07:08:21.254Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;axios请求与跨域&quot;&gt;&lt;a href=&quot;#axios请求与跨域&quot; class=&quot;headerlink&quot; title=&quot;axios请求与跨域.&quot;&gt;&lt;/a&gt;axios请求与跨域.&lt;/h2&gt;
+      &lt;h2 id=&quot;自动创建api接口的文档&quot;&gt;&lt;a href=&quot;#自动创建api接口的文档&quot; class=&quot;headerlink&quot; title=&quot;自动创建api接口的文档&quot;&gt;&lt;/a&gt;自动创建api接口的文档&lt;/h2&gt;
     
     </summary>
     

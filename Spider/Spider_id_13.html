@@ -413,7 +413,7 @@ input[type="radio"]:not(:checked) + label:after {
 <li><p>导入组件</p>
 <ul>
 <li><pre><code class="python"><span class="keyword">from</span> scrapy_redis.spider <span class="keyword">import</span> RedisSpider,RedisCrawlSpider
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 将创建好的爬虫文件类的父类修改为新导入的scrapy_redis的子类</span><br><span class="line"></span><br><span class="line">  - 将start_url替换掉,换成redis_key</span><br><span class="line"></span><br><span class="line">- ###### 修改settings</span><br><span class="line"></span><br><span class="line">  - 指定管道</span><br><span class="line"></span><br><span class="line">    - ```python</span><br><span class="line">      # 开启可被共享的管道</span><br><span class="line">      ITEM_PIPELINES = &#123;</span><br><span class="line">          <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CLEAN"><figure class="iseeu highlight /clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 将创建好的爬虫文件类的父类修改为新导入的scrapy_redis的子类</span><br><span class="line"></span><br><span class="line">  - 将start_url替换掉,换成redis_key</span><br><span class="line"></span><br><span class="line">- ###### 修改settings</span><br><span class="line"></span><br><span class="line">  - 指定管道</span><br><span class="line"></span><br><span class="line">    - ```python</span><br><span class="line">      # 开启可被共享的管道</span><br><span class="line">      ITEM_PIPELINES = &#123;</span><br><span class="line">          <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 </ul>
 </li>
@@ -430,7 +430,7 @@ SCHEDULER = <span class="string">'scrapy_redis.scheduler.Scheduler'</span>
 <span class="comment"># 增量式的概念就是:</span>
     <span class="comment"># 在创建爬虫之后,每次运行都会进行对比,紧紧对网站的更新内容进行爬取,而不会进行重复数据的重复获取,减少内存占用,同时也更加合理</span>
 SCHEDULER_PERSIST = <span class="literal">True</span>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 置定redis服务</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    # REDIS_HOST = 'redis 服务器地址'</span><br><span class="line">    REDIS_HOST = '<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>'</span><br><span class="line">    REDIS_PORT = <span class="number">6379</span></span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 置定redis服务</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    # REDIS_HOST = 'redis 服务器地址'</span><br><span class="line">    REDIS_HOST = '<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>'</span><br><span class="line">    REDIS_PORT = <span class="number">6379</span></span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 <li><p>redis配置文件redis.windows.conf</p>
 <ul>
@@ -511,16 +511,16 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

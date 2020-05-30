@@ -398,7 +398,7 @@ input[type="radio"]:not(:checked) + label:after {
 <li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
 </li>
 <li><p>如果有需要升级的话,可以参考下列操作</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
 
 <p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
 </li>
@@ -411,10 +411,10 @@ input[type="radio"]:not(:checked) + label:after {
 <p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
 </li>
 <li><p>配置node环境</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
 
 <p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
 
 <p>重启服务器:  reboot</p>
 </li>
@@ -446,16 +446,16 @@ input[type="radio"]:not(:checked) + label:after {
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_02.html" rel="bookmark">CentOS8查看监听端口</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_02.html" rel="bookmark">CentOS8查看监听端口</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_06.html" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>
@@ -499,12 +499,12 @@ input[type="radio"]:not(:checked) + label:after {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/CentOS/CentOS_id_03.html" rel="prev" title="CentOS7服务器配置redis主从与哨兵">
-      <i class="fa fa-chevron-left"></i> CentOS7服务器配置redis主从与哨兵
+    <a href="/CentOS/CentOS_id_05.html" rel="prev" title="CentOS7服务器配置主从">
+      <i class="fa fa-chevron-left"></i> CentOS7服务器配置主从
     </a></div>
       <div class="post-nav-item">
-    <a href="/Ubuntu/Ubuntu_id_04.html" rel="next" title="Ubuntu18.04设置分辨率">
-      Ubuntu18.04设置分辨率 <i class="fa fa-chevron-right"></i>
+    <a href="/CentOS/CentOS_id_03.html" rel="next" title="CentOS7服务器配置redis主从与哨兵">
+      CentOS7服务器配置redis主从与哨兵 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

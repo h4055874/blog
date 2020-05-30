@@ -383,23 +383,23 @@ input[type="radio"]:not(:checked) + label:after {
       
         <h4 id="1、CentOS-8停用、启用、查看当前启用的端口"><a href="#1、CentOS-8停用、启用、查看当前启用的端口" class="headerlink" title="1、CentOS 8停用、启用、查看当前启用的端口"></a>1、CentOS 8停用、启用、查看当前启用的端口</h4><a id="more"></a>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=5672/tcp --permanent   <span class="comment"># 开放5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --remove-port=5672/tcp --permanent  <span class="comment">#关闭5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --reload   <span class="comment"># 配置立即生效</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=5672/tcp --permanent   <span class="comment"># 开放5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --remove-port=5672/tcp --permanent  <span class="comment">#关闭5672端口</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --reload   <span class="comment"># 配置立即生效</span></span><br></pre></td></tr></table></figure></div>
 
-<h4 id="2、查看防火墙所有开放的端口"><a href="#2、查看防火墙所有开放的端口" class="headerlink" title="2、查看防火墙所有开放的端口"></a>2、查看防火墙所有开放的端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+<h4 id="2、查看防火墙所有开放的端口"><a href="#2、查看防火墙所有开放的端口" class="headerlink" title="2、查看防火墙所有开放的端口"></a>2、查看防火墙所有开放的端口</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure></div>
 
 <h4 id="3-、关闭防火墙"><a href="#3-、关闭防火墙" class="headerlink" title="3.、关闭防火墙"></a>3.、关闭防火墙</h4><p>如果要开放的端口太多，嫌麻烦，可以关闭防火墙，安全性自行评估</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="4、查看防火墙状态"><a href="#4、查看防火墙状态" class="headerlink" title="4、查看防火墙状态"></a>4、查看防火墙状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure>
+<h4 id="4、查看防火墙状态"><a href="#4、查看防火墙状态" class="headerlink" title="4、查看防火墙状态"></a>4、查看防火墙状态</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="5、查看监听的端口"><a href="#5、查看监听的端口" class="headerlink" title="5、查看监听的端口"></a>5、查看监听的端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnpt</span><br></pre></td></tr></table></figure>
+<h4 id="5、查看监听的端口"><a href="#5、查看监听的端口" class="headerlink" title="5、查看监听的端口"></a>5、查看监听的端口</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnpt</span><br></pre></td></tr></table></figure></div>
 
 <p><strong>PS:centos7默认没有 netstat 命令，需要安装 net-tools 工具，yum install -y net-tools</strong></p>
-<h4 id="6、检查端口被哪个进程占用"><a href="#6、检查端口被哪个进程占用" class="headerlink" title="6、检查端口被哪个进程占用"></a>6、检查端口被哪个进程占用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnpt |grep 5672</span><br></pre></td></tr></table></figure>
+<h4 id="6、检查端口被哪个进程占用"><a href="#6、检查端口被哪个进程占用" class="headerlink" title="6、检查端口被哪个进程占用"></a>6、检查端口被哪个进程占用</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnpt |grep 5672</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="7、查看进程的详细信息"><a href="#7、查看进程的详细信息" class="headerlink" title="7、查看进程的详细信息"></a>7、查看进程的详细信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps 6832</span><br></pre></td></tr></table></figure>
+<h4 id="7、查看进程的详细信息"><a href="#7、查看进程的详细信息" class="headerlink" title="7、查看进程的详细信息"></a>7、查看进程的详细信息</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps 6832</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="8、中止进程"><a href="#8、中止进程" class="headerlink" title="8、中止进程"></a>8、中止进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 6832</span><br></pre></td></tr></table></figure>
+<h4 id="8、中止进程"><a href="#8、中止进程" class="headerlink" title="8、中止进程"></a>8、中止进程</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 6832</span><br></pre></td></tr></table></figure></div>
     </div>
 
     
@@ -457,13 +457,13 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_04.html" rel="bookmark">CentOS7服务器配置汇总</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_06.html" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>

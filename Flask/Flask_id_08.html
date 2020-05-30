@@ -409,14 +409,14 @@ app = Flask(__name__)
 </li>
 </ul>
 <p>  @app.route(‘/‘)<br>  def hello_world():<br>      return ‘Hello World!’<br>  #创建form表单提交页面<br>  @app.route(‘/regist’,methods=[‘GET’,’POST’])<br>  def regist():<br>      #判断请求方式并给出相应回复<br>      if request.method == ‘GET’:<br>          return render_template(‘regist.html’)<br>      else:<br>          #实例化表单类<br>          regist_form = RegistForm(request.form)<br>          #判断类中的validate是否正常,即验证是否通过<br>          #根据判定结果进行不同的返回情况<br>          if regist_form.validate():<br>              return ‘True’<br>          else:<br>              print(regist_form.errors())<br>              return “false”</p>
-  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在length函数中,可以添加一个新的参数,message,用来设定报错之后的</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  username = <span class="constructor">StringField(<span class="params">validators</span>=[Length(<span class="params">min</span>=3,<span class="params">max</span>=8,<span class="params">message</span>='您所输入的账户名称不符合要求.请重新输入')</span>])</span><br></pre></td></tr></table></figure>
+  <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="REASONML"><figure class="iseeu highlight /reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在length函数中,可以添加一个新的参数,message,用来设定报错之后的</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  username = <span class="constructor">StringField(<span class="params">validators</span>=[Length(<span class="params">min</span>=3,<span class="params">max</span>=8,<span class="params">message</span>='您所输入的账户名称不符合要求.请重新输入')</span>])</span><br></pre></td></tr></table></figure></div>
 
 <ul>
 <li>这个message所储存的参数将会体现在类的errors方法里面,可以通过直接输出来查看</li>
 </ul>
 <hr>
 <h2 id="flask-wtf常用验证器"><a href="#flask-wtf常用验证器" class="headerlink" title="flask_wtf常用验证器:"></a>flask_wtf常用验证器:</h2><p>验证器导入方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> EqualTo</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Length</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> NumberRange</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Email</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> InputRequired</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Regexp</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> URL</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> UUID</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> EqualTo</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Length</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> NumberRange</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Email</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> InputRequired</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> Regexp</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> URL</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> UUID</span><br></pre></td></tr></table></figure></div>
 
 
 
@@ -464,7 +464,7 @@ app = Flask(__name__)
 <ul>
 <li><pre><code class="python">form uuid <span class="keyword">import</span> uuid4
 print(uuid4())
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"><span class="comment">## 自定义验证器:</span></span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">validate_</span></span>字段名 (<span class="keyword">self</span>,filed)<span class="symbol">:</span></span><br><span class="line">      <span class="comment">#通过这个方法定义的验证器,将会自行调用进行判断,</span></span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ELIXIR"><figure class="iseeu highlight /elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"><span class="comment">## 自定义验证器:</span></span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">validate_</span></span>字段名 (<span class="keyword">self</span>,filed)<span class="symbol">:</span></span><br><span class="line">      <span class="comment">#通过这个方法定义的验证器,将会自行调用进行判断,</span></span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 </ul>
 </li>
@@ -551,16 +551,16 @@ print(uuid4())
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

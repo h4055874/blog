@@ -386,20 +386,20 @@ input[type="radio"]:not(:checked) + label:after {
 <li><p>设置cookie</p>
 <ol>
 <li><p>创建一个全新的HttpResponse对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response = HttpResponse(<span class="string">'设置cookie'</span>)</span><br><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,max_age=<span class="number">10</span>*<span class="number">24</span>*<span class="number">3600</span>)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response = HttpResponse(<span class="string">'设置cookie'</span>)</span><br><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,max_age=<span class="number">10</span>*<span class="number">24</span>*<span class="number">3600</span>)</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>获取cookie</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = request.COOKIES[<span class="string">'num'</span>]</span><br><span class="line"><span class="keyword">return</span> HttpResponse(num)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = request.COOKIES[<span class="string">'num'</span>]</span><br><span class="line"><span class="keyword">return</span> HttpResponse(num)</span><br></pre></td></tr></table></figure></div>
 </li>
 </ol>
 </li>
 <li><p>设置过期时间</p>
 <ol>
 <li><p>max_age,设置单位为秒</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,max_age=<span class="number">10</span>*<span class="number">24</span>*<span class="number">3600</span>)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,max_age=<span class="number">10</span>*<span class="number">24</span>*<span class="number">3600</span>)</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>exprice,设置较为复杂,但是适合长期设置</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse,HttpResponse</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime,timedelta</span><br><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,expires=datetime.now() + timedelta(days=<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse,HttpResponse</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime,timedelta</span><br><span class="line">response.set_cookie(<span class="string">'num'</span>,<span class="number">1</span>,expires=datetime.now() + timedelta(days=<span class="number">10</span>))</span><br></pre></td></tr></table></figure></div>
 
 
 
@@ -416,29 +416,29 @@ input[type="radio"]:not(:checked) + label:after {
     request.session[<span class="string">'username'</span>] = <span class="string">'root'</span>
     request.session[<span class="string">'age'</span>] = <span class="string">'000000'</span>
     <span class="keyword">return</span> HttpResponse(<span class="string">'设置成功'</span>)
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> 获取<span class="keyword">session</span></span><br><span class="line"></span><br><span class="line">   <span class="number">1.</span> ```python</span><br><span class="line">      #获取<span class="keyword">session</span></span><br><span class="line">      def get_session(request):</span><br><span class="line">          username = request.<span class="keyword">session</span>[<span class="string">'username'</span>]</span><br><span class="line">          age = request.<span class="keyword">session</span>[<span class="string">'age'</span>]</span><br><span class="line">          <span class="keyword">return</span> HttpResponse(username + <span class="string">':'</span> + str(age))</span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PGSQL"><figure class="iseeu highlight /pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> 获取<span class="keyword">session</span></span><br><span class="line"></span><br><span class="line">   <span class="number">1.</span> ```python</span><br><span class="line">      #获取<span class="keyword">session</span></span><br><span class="line">      def get_session(request):</span><br><span class="line">          username = request.<span class="keyword">session</span>[<span class="string">'username'</span>]</span><br><span class="line">          age = request.<span class="keyword">session</span>[<span class="string">'age'</span>]</span><br><span class="line">          <span class="keyword">return</span> HttpResponse(username + <span class="string">':'</span> + str(age))</span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 </ol>
 </li>
 <li><p>session使用方法</p>
 <ol>
 <li><p>直接使用字典的键值对获取方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session[<span class="string">'cookie名'</span>]</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session[<span class="string">'cookie名'</span>]</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>使用get方法获取,可以设置默认值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.get(<span class="string">'cookie名,default="默认值")</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.get(<span class="string">'cookie名,default="默认值")</span></span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>clear,删除session中保存的数据,但是删除掉的只是值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.clear()</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.clear()</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>flash,删除整条数据,完全删除所有数据,数据表完全清除</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.flash()</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.flash()</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>del    删除目标数据的所有内容</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> request.session[<span class="string">'cookie'</span>]</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> request.session[<span class="string">'cookie'</span>]</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>设置session过期时间</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.set_expiry(value)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.set_expiry(value)</span><br></pre></td></tr></table></figure></div>
 
 <ul>
 <li>当没有设置过期时间的时候,默认将会在两周之后过期</li>
@@ -447,7 +447,7 @@ input[type="radio"]:not(:checked) + label:after {
 </ul>
 </li>
 <li><p>has_key   判断session中有没有对应的cookie</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.has_key(<span class="string">'username'</span>)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.session.has_key(<span class="string">'username'</span>)</span><br></pre></td></tr></table></figure></div>
 
 
 
@@ -484,16 +484,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

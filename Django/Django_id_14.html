@@ -389,7 +389,7 @@ STATIC_ROOT = &apos;static&apos;
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,&apos;/static/&apos;)
 ]
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ### 设置setting</span><br><span class="line"></span><br><span class="line">2. 设置url</span><br><span class="line"></span><br><span class="line">   1. ```.</span><br><span class="line">      <span class="keyword">from</span> django.views import static ##新增</span><br><span class="line">      <span class="keyword">from</span> django.conf import<span class="built_in"> settings </span>##新增</span><br><span class="line">      <span class="keyword">from</span> django.conf.urls import url ##新增</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">          url(r<span class="string">'^static/(?P&lt;path&gt;.*)$'</span>, static.serve,</span><br><span class="line">            &#123;<span class="string">'document_root'</span>: settings.STATIC_ROOT&#125;, <span class="attribute">name</span>=<span class="string">'static'</span>),</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ### 设置setting</span><br><span class="line"></span><br><span class="line">2. 设置url</span><br><span class="line"></span><br><span class="line">   1. ```.</span><br><span class="line">      <span class="keyword">from</span> django.views import static ##新增</span><br><span class="line">      <span class="keyword">from</span> django.conf import<span class="built_in"> settings </span>##新增</span><br><span class="line">      <span class="keyword">from</span> django.conf.urls import url ##新增</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">          url(r<span class="string">'^static/(?P&lt;path&gt;.*)$'</span>, static.serve,</span><br><span class="line">            &#123;<span class="string">'document_root'</span>: settings.STATIC_ROOT&#125;, <span class="attribute">name</span>=<span class="string">'static'</span>),</span><br></pre></td></tr></table></figure></div>
 
 2. 固定公式可以直接使用</code></pre></li>
 <li><p>模板中渲染</p>
@@ -429,16 +429,16 @@ STATICFILES_DIRS = [
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

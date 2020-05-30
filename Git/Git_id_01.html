@@ -385,12 +385,12 @@ input[type="radio"]:not(:checked) + label:after {
 <a id="more"></a>
 <p>本篇文章为您揭晓…</p>
 <h2 id="第一步、查看通信方式"><a href="#第一步、查看通信方式" class="headerlink" title="第一步、查看通信方式"></a>第一步、查看通信方式</h2><p>　　在你的本地仓库中,打开命令窗口,执行以下代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure></div>
 
 <p>　　如果是：<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (fetch)<br>　　　　origin  <a href="https://gitee.com/fortunamajor/um.git" target="_blank" rel="noopener">https://gitee.com/fortunamajor/um.git</a> (push)<br>　　则证明是https 通信，这样每次都会提示输入用户名和密码，然后我们将其修改为ssh绑定gitee仓库服务端</p>
-<h2 id="第二步、通过以下命令删除原有origin的通信方式"><a href="#第二步、通过以下命令删除原有origin的通信方式" class="headerlink" title="第二步、通过以下命令删除原有origin的通信方式"></a>第二步、通过以下命令删除原有origin的通信方式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+<h2 id="第二步、通过以下命令删除原有origin的通信方式"><a href="#第二步、通过以下命令删除原有origin的通信方式" class="headerlink" title="第二步、通过以下命令删除原有origin的通信方式"></a>第二步、通过以下命令删除原有origin的通信方式</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="第三步、重新add-，通过ssh绑定gitee仓库服务端"><a href="#第三步、重新add-，通过ssh绑定gitee仓库服务端" class="headerlink" title="第三步、重新add ，通过ssh绑定gitee仓库服务端"></a>第三步、重新add ，通过ssh绑定gitee仓库服务端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@gitee.com:USERNAME/UM.git</span><br></pre></td></tr></table></figure>
+<h2 id="第三步、重新add-，通过ssh绑定gitee仓库服务端"><a href="#第三步、重新add-，通过ssh绑定gitee仓库服务端" class="headerlink" title="第三步、重新add ，通过ssh绑定gitee仓库服务端"></a>第三步、重新add ，通过ssh绑定gitee仓库服务端</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@gitee.com:USERNAME/UM.git</span><br></pre></td></tr></table></figure></div>
 
 <p>　　username填写gitee户名，um.git 填写仓库名.git<br>　　若怕输错，也可以去仓库里【克隆/下载】的地方，直接复制SSH路由</p>
 
@@ -419,13 +419,13 @@ input[type="radio"]:not(:checked) + label:after {
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Git\Git_id_02.html" rel="bookmark">GitHub访问及clone缓慢的方法</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Git\Git_id_04.html" rel="bookmark">Git常用命令</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Git\Git_id_05.html" rel="bookmark">Git配置密钥</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Git\Git_id_02.html" rel="bookmark">GitHub访问及clone缓慢的方法</a></div>
     </li>
   </ul>
 

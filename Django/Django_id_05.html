@@ -399,7 +399,7 @@ input[type="radio"]:not(:checked) + label:after {
 </code></pre>
 </li>
 </ol>
-<p>   #注意,在使用分页的时候,可以不传入每页展示数量,默认将会使用设定好的page_size<br>   <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> 创建好分页器类之后,进行使用</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   from rest_framework.views <span class="keyword">import</span> ModelAPIView</span><br><span class="line"><span class="class">   <span class="keyword">class</span> <span class="type">MyPaginations</span>(<span class="type">ModelAPIView</span>):</span></span><br><span class="line"><span class="class">       queryset = <span class="type">Students</span>.objects.all()</span></span><br><span class="line"><span class="class">   	serializer_class = <span class="type">MySerializers</span></span></span><br><span class="line"><span class="class">       pagination_class = <span class="type">PaginationStudents</span></span></span><br></pre></td></tr></table></figure></p>
+<p>   #注意,在使用分页的时候,可以不传入每页展示数量,默认将会使用设定好的page_size<br>   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HASKELL"><figure class="iseeu highlight /haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> 创建好分页器类之后,进行使用</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   from rest_framework.views <span class="keyword">import</span> ModelAPIView</span><br><span class="line"><span class="class">   <span class="keyword">class</span> <span class="type">MyPaginations</span>(<span class="type">ModelAPIView</span>):</span></span><br><span class="line"><span class="class">       queryset = <span class="type">Students</span>.objects.all()</span></span><br><span class="line"><span class="class">   	serializer_class = <span class="type">MySerializers</span></span></span><br><span class="line"><span class="class">       pagination_class = <span class="type">PaginationStudents</span></span></span><br></pre></td></tr></table></figure></div></p>
 <ol start="3">
 <li><p>使用时的传参方式</p>
 <ul>
@@ -441,16 +441,16 @@ size为单页显示的最大数量
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
     </li>
   </ul>
 

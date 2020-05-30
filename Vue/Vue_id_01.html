@@ -386,13 +386,13 @@ input[type="radio"]:not(:checked) + label:after {
         <h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
 <li><p>下载模块</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>配置SCHEMA_CLASS</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>在主路由中注册使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
 
 </li>
 </ol>
@@ -430,16 +430,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 
@@ -480,12 +480,12 @@ input[type="radio"]:not(:checked) + label:after {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Vue/Vue_id_03.html" rel="prev" title="axios请求与跨域">
-      <i class="fa fa-chevron-left"></i> axios请求与跨域
+    <a href="/Django/Django_id_17.html" rel="prev" title="Django模板使用">
+      <i class="fa fa-chevron-left"></i> Django模板使用
     </a></div>
       <div class="post-nav-item">
-    <a href="/Django/Django_id_18.html" rel="next" title="Django模型管理器">
-      Django模型管理器 <i class="fa fa-chevron-right"></i>
+    <a href="/Vue/Vue_id_03.html" rel="next" title="axios请求与跨域">
+      axios请求与跨域 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

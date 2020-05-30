@@ -404,11 +404,11 @@ input[type="radio"]:not(:checked) + label:after {
 </li>
 </ul>
 <h2 id="通过模型类实现关联查询语句"><a href="#通过模型类实现关联查询语句" class="headerlink" title="通过模型类实现关联查询语句:"></a>通过模型类实现关联查询语句:</h2><p>​    </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Two.models <span class="keyword">import</span> *</span><br><span class="line">b = HeroInfo.objects.filter(hbook__id=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#通过一对多关系获取对象的方法</span></span><br><span class="line"><span class="comment">#关系字段加上双下划线加上对应表中的字段即可进行查询,但需要注意</span></span><br><span class="line">b = HeroInfo.object.get(id=<span class="number">1</span>)</span><br><span class="line">b.hbook</span><br><span class="line"><span class="comment">#以上两种方法都能进行查询,但是第一种方法查询出来的结果是一个查询集,第二种拿到的是一个对象</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Two.models <span class="keyword">import</span> *</span><br><span class="line">b = HeroInfo.objects.filter(hbook__id=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#通过一对多关系获取对象的方法</span></span><br><span class="line"><span class="comment">#关系字段加上双下划线加上对应表中的字段即可进行查询,但需要注意</span></span><br><span class="line">b = HeroInfo.object.get(id=<span class="number">1</span>)</span><br><span class="line">b.hbook</span><br><span class="line"><span class="comment">#以上两种方法都能进行查询,但是第一种方法查询出来的结果是一个查询集,第二种拿到的是一个对象</span></span><br></pre></td></tr></table></figure></div>
 
 <p>在没有关系的情况下查询的话,就不能使用关系属性字段进行查询,这个这时候,就需要用模型类的名字进行查询,用模型类的名字代替关系属性字段的名字</p>
 <h2 id="自关联属性字段查询"><a href="#自关联属性字段查询" class="headerlink" title="自关联属性字段查询:"></a>自关联属性字段查询:</h2><h3 id="设定自关联属性字段"><a href="#设定自关联属性字段" class="headerlink" title="设定自关联属性字段:"></a>设定自关联属性字段:</h3><p>​            </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AreaInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	a_title = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="comment">#设置关联属性字段,关联自身,即self</span></span><br><span class="line">    <span class="comment">#这个字段即意味着与自身关联</span></span><br><span class="line">    a_parent = models.ForeignKey(<span class="string">'self'</span>,on_delete=models.CASCADE,null=<span class="literal">True</span>,blank=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AreaInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	a_title = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="comment">#设置关联属性字段,关联自身,即self</span></span><br><span class="line">    <span class="comment">#这个字段即意味着与自身关联</span></span><br><span class="line">    a_parent = models.ForeignKey(<span class="string">'self'</span>,on_delete=models.CASCADE,null=<span class="literal">True</span>,blank=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h4 id="自关联属于特殊的一对多"><a href="#自关联属于特殊的一对多" class="headerlink" title="自关联属于特殊的一对多"></a>自关联属于特殊的一对多</h4><h4 id="在查询时遵循一对多的查询方式"><a href="#在查询时遵循一对多的查询方式" class="headerlink" title="在查询时遵循一对多的查询方式"></a>在查询时遵循一对多的查询方式</h4><p>由一查多时使用字段名__set.all()进行查询</p>
 <p>由多查一时使用字段名查询</p>
@@ -441,16 +441,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

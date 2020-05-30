@@ -450,7 +450,7 @@ class MyPermissions(APIView):
         <span class="string">'user'</span>:<span class="string">'1/second'</span>
     }
 }
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在进行局部限流时,不需要导入自带的限流模块</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line">  <span class="keyword">from</span> rest_framework.throttling <span class="keyword">import</span> UserRateThrottle</span><br><span class="line">  <span class="keyword">class</span> <span class="symbol">Mythrottling</span>(<span class="symbol">APIView</span>):</span><br><span class="line">      <span class="symbol">throttling_class</span> = [<span class="symbol">UserRateThrottle</span>]</span><br><span class="line">      <span class="symbol">def</span> <span class="symbol">get</span>(<span class="symbol">self,<span class="symbol">request</span></span>):</span><br><span class="line">          <span class="symbol">return</span> <span class="symbol">Response</span>('这是投票页面')</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在进行局部限流时,不需要导入自带的限流模块</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  <span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line">  <span class="keyword">from</span> rest_framework.throttling <span class="keyword">import</span> UserRateThrottle</span><br><span class="line">  <span class="keyword">class</span> <span class="symbol">Mythrottling</span>(<span class="symbol">APIView</span>):</span><br><span class="line">      <span class="symbol">throttling_class</span> = [<span class="symbol">UserRateThrottle</span>]</span><br><span class="line">      <span class="symbol">def</span> <span class="symbol">get</span>(<span class="symbol">self,<span class="symbol">request</span></span>):</span><br><span class="line">          <span class="symbol">return</span> <span class="symbol">Response</span>('这是投票页面')</span><br></pre></td></tr></table></figure></div>
 
 
 </code></pre>
@@ -493,10 +493,10 @@ class MyPermissions(APIView):
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
     </li>
   </ul>
 

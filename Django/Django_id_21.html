@@ -382,15 +382,15 @@ input[type="radio"]:not(:checked) + label:after {
 
       
         <h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h2><a id="more"></a>
-<h3 id="通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字"><a href="#通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字" class="headerlink" title="通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字"></a>通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookInfo</span><span class="params">(models.Manager)</span>:</span></span><br><span class="line">    btitle = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">'bookinfo'</span></span><br></pre></td></tr></table></figure>
+<h3 id="通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字"><a href="#通过在模型类中定义元类来对创建好的数据库表进行约束-以确保生成的数据表不依赖于应用文件的名字" class="headerlink" title="通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字"></a>通过在模型类中定义元类来对创建好的数据库表进行约束,以确保生成的数据表不依赖于应用文件的名字</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookInfo</span><span class="params">(models.Manager)</span>:</span></span><br><span class="line">    btitle = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">'bookinfo'</span></span><br></pre></td></tr></table></figure></div>
 
 <h4 id="定义元类Meta-设定好创建的数据库的名字之后-执行数据库迁移"><a href="#定义元类Meta-设定好创建的数据库的名字之后-执行数据库迁移" class="headerlink" title="定义元类Meta,设定好创建的数据库的名字之后,执行数据库迁移"></a>定义元类Meta,设定好创建的数据库的名字之后,执行数据库迁移</h4><h4 id="产生的数据库名字将不会安装应用名-模型类名的规则进行创建"><a href="#产生的数据库名字将不会安装应用名-模型类名的规则进行创建" class="headerlink" title="产生的数据库名字将不会安装应用名_模型类名的规则进行创建"></a>产生的数据库名字将不会安装应用名_模型类名的规则进行创建</h4><h2 id="模板错误试图"><a href="#模板错误试图" class="headerlink" title="模板错误试图:"></a>模板错误试图:</h2><h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式:"></a>调试模式:</h3><ul>
 <li><p>​    在网站上线时,应关闭DE_BUG模式,该选项在setting文件中进行配置,默认为true</p>
 <p>​        默认选项</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">ALLOWED_HOSTS = []</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">ALLOWED_HOSTS = []</span><br></pre></td></tr></table></figure></div>
 
 <p>​        修改选项</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">'*'</span>]</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">'*'</span>]</span><br></pre></td></tr></table></figure></div>
 
 </li>
 </ul>
@@ -434,16 +434,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 

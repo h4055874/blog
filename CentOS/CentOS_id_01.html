@@ -383,15 +383,15 @@ input[type="radio"]:not(:checked) + label:after {
       
         <h3 id="CentOS-8-安装MySQL-8-0"><a href="#CentOS-8-安装MySQL-8-0" class="headerlink" title="CentOS 8 安装MySQL 8.0"></a>CentOS 8 安装MySQL 8.0</h3><a id="more"></a>
 
-<h4 id="1、使用最新的包管理器安装MySQL"><a href="#1、使用最新的包管理器安装MySQL" class="headerlink" title="1、使用最新的包管理器安装MySQL"></a>1、使用最新的包管理器安装MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure>
+<h4 id="1、使用最新的包管理器安装MySQL"><a href="#1、使用最新的包管理器安装MySQL" class="headerlink" title="1、使用最新的包管理器安装MySQL"></a>1、使用最新的包管理器安装MySQL</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure></div>
 
 <h4 id="2、开启启动"><a href="#2、开启启动" class="headerlink" title="2、开启启动"></a>2、开启启动</h4><p><strong>安装完成后，运行以下命令来启动MySQL服务并使它在启动时自动启动：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now mysqld</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now mysqld</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="3、要检查MySQL服务器是否正在运行"><a href="#3、要检查MySQL服务器是否正在运行" class="headerlink" title="3、要检查MySQL服务器是否正在运行"></a>3、要检查MySQL服务器是否正在运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure>
+<h4 id="3、要检查MySQL服务器是否正在运行"><a href="#3、要检查MySQL服务器是否正在运行" class="headerlink" title="3、要检查MySQL服务器是否正在运行"></a>3、要检查MySQL服务器是否正在运行</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure></div>
 
 <h4 id="4、添加密码及安全设置"><a href="#4、添加密码及安全设置" class="headerlink" title="4、添加密码及安全设置"></a>4、添加密码及安全设置</h4><p><strong>运行mysql_secure_installation脚本，该脚本执行一些与安全性相关的操作并设置MySQL根密码：**</strong></p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo mysql_secure_installation</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo mysql_secure_installation</span></span><br></pre></td></tr></table></figure></div>
 
 <p>步骤如下：</p>
 <p>1、要求你配置VALIDATE PASSWORD component（验证密码组件）： 输入y ，回车进入该配置</p>
@@ -405,20 +405,20 @@ input[type="radio"]:not(:checked) + label:after {
 <p>2、移除test数据库？ 输入y ，回车</p>
 <p>3、重新载入权限表？ 输入y ，回车</p>
 <h4 id="5、配置远程登陆"><a href="#5、配置远程登陆" class="headerlink" title="5、配置远程登陆"></a>5、配置远程登陆</h4><p>如果需要设置root账户远程登陆，上一步骤中，<code>不允许root远程登陆？</code>这一步需要设为n。<br>接下来本机登录MySQL，将root用户的host字段设为’%’，意为接受root所有IP地址的登录请求：<br>本机登录MySQL:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&lt;上面步骤中设置的密码&gt;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&lt;上面步骤中设置的密码&gt;</span><br></pre></td></tr></table></figure></div>
 
 <p><strong>接着继续执行mysql语句，将将root用户的host字段设为’%’：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">'%'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">'%'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></div>
 
 <p>设置完成后输入exit退出mysql，回到终端shell界面，接着开启系统防火墙的3306端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --add-port=3306/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --add-port=3306/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></div>
 
 <h4 id="6、关闭MySQL主机查询dns"><a href="#6、关闭MySQL主机查询dns" class="headerlink" title="6、关闭MySQL主机查询dns"></a>6、关闭MySQL主机查询dns</h4><p>MySQL会反向解析远程连接地址的dns记录，如果MySQL主机无法连接外网，则dns可能无法解析成功，</p>
 <p>导致第一次连接MySQL速度很慢，所以在配置中可以关闭该功能。</p>
 <p>打开<code>/etc/my.cnf</code>文件，添加以下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="7、重启服务"><a href="#7、重启服务" class="headerlink" title="7、重启服务"></a>7、重启服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+<h4 id="7、重启服务"><a href="#7、重启服务" class="headerlink" title="7、重启服务"></a>7、重启服务</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mysqld</span><br></pre></td></tr></table></figure></div>
 
 <p><strong>本机测试安装后，MySQL8.0默认已经是utf8mb4字符集，所以字符集不再修改</strong></p>
 
@@ -479,13 +479,13 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_02.html" rel="bookmark">CentOS8查看监听端口</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_04.html" rel="bookmark">CentOS7服务器配置汇总</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_06.html" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>

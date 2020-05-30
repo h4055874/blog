@@ -396,7 +396,7 @@ book = models.manger()
 <span class="comment">#而是使用book来进行查询</span>
 BookInfo.book.all()
 <span class="comment">#在进行定义之后,将无法使用原本的objects</span>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="comment">## 常用的重写模型管理器方法</span></span><br><span class="line"></span><br><span class="line">   <span class="number">1.</span> 创建一个模型类来进行重写</span><br><span class="line"></span><br><span class="line">      <span class="number">1.</span> ```python</span><br><span class="line">         <span class="class"><span class="keyword">class</span> <span class="title">BookInfoManger</span><span class="params">(models.Manager)</span>:</span></span><br><span class="line">             <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="comment">## 常用的重写模型管理器方法</span></span><br><span class="line"></span><br><span class="line">   <span class="number">1.</span> 创建一个模型类来进行重写</span><br><span class="line"></span><br><span class="line">      <span class="number">1.</span> ```python</span><br><span class="line">         <span class="class"><span class="keyword">class</span> <span class="title">BookInfoManger</span><span class="params">(models.Manager)</span>:</span></span><br><span class="line">             <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 <li><p>这是最简单得到重写Manager的方法</p>
 </li>
@@ -417,7 +417,7 @@ BookInfo.book.all()
     books = books.filter(id__gt=<span class="number">1</span>)
     <span class="comment">#将结果返回</span>
     <span class="keyword">return</span> books
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 这样处理过的all方法在调用时将不会返回全部的数据,而是会根据这个重新定义的all方法对数据进行处理之后才会返回,</span><br><span class="line"></span><br><span class="line">- 最终返回结果为</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  &gt;&gt;&gt; BookInfo.a.all()</span><br><span class="line">  &gt;&gt;&gt; &lt;QuerySet <span class="meta">[&lt;BookInfo: 神墓&gt;, &lt;BookInfo: 龙蛇演义&gt;, &lt;BookInfo: 那年那兔那些事儿&gt;, &lt;BookInfo: 亮剑&gt;, &lt;BookInfo: 秒速五厘米&gt;, &lt;BookInfo: 你的名字&gt;]</span>&gt;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="FSHARP"><figure class="iseeu highlight /fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 这样处理过的all方法在调用时将不会返回全部的数据,而是会根据这个重新定义的all方法对数据进行处理之后才会返回,</span><br><span class="line"></span><br><span class="line">- 最终返回结果为</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  &gt;&gt;&gt; BookInfo.a.all()</span><br><span class="line">  &gt;&gt;&gt; &lt;QuerySet <span class="meta">[&lt;BookInfo: 神墓&gt;, &lt;BookInfo: 龙蛇演义&gt;, &lt;BookInfo: 那年那兔那些事儿&gt;, &lt;BookInfo: 亮剑&gt;, &lt;BookInfo: 秒速五厘米&gt;, &lt;BookInfo: 你的名字&gt;]</span>&gt;</span><br></pre></td></tr></table></figure></div>
 
 返回结果为一个返回集</code></pre>
 </li>
@@ -437,14 +437,14 @@ BookInfo.book.all()
     obj.cate_id = cate_id
     obj.save()
     <span class="keyword">return</span> obj
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 重写添加信息方法</span><br><span class="line"></span><br><span class="line">- 在模型类中的写法,此方法不适合写在模型类中,因为过多的类方法会使模型类变得臃肿,不方便使用,所以我们一般将这些方法定义在我们重写的manager模型管理器中</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  def create_book(<span class="keyword">self,btitle,bpub_date,cate_id):</span></span><br><span class="line"><span class="keyword"> </span>     obj = <span class="keyword">BookInfo()</span></span><br><span class="line"><span class="keyword"> </span>     obj.<span class="keyword">btitle </span>= <span class="keyword">btitle</span></span><br><span class="line"><span class="keyword"> </span>     obj.<span class="keyword">bpub_date </span>= <span class="keyword">bpub_date</span></span><br><span class="line"><span class="keyword"> </span>     obj.cate_id = cate_id</span><br><span class="line">      obj.save()</span><br><span class="line">      return objpython</span><br></pre></td></tr></table></figure></code></pre>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ARMASM"><figure class="iseeu highlight /armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 重写添加信息方法</span><br><span class="line"></span><br><span class="line">- 在模型类中的写法,此方法不适合写在模型类中,因为过多的类方法会使模型类变得臃肿,不方便使用,所以我们一般将这些方法定义在我们重写的manager模型管理器中</span><br><span class="line"></span><br><span class="line">- ```python</span><br><span class="line">  def create_book(<span class="keyword">self,btitle,bpub_date,cate_id):</span></span><br><span class="line"><span class="keyword"> </span>     obj = <span class="keyword">BookInfo()</span></span><br><span class="line"><span class="keyword"> </span>     obj.<span class="keyword">btitle </span>= <span class="keyword">btitle</span></span><br><span class="line"><span class="keyword"> </span>     obj.<span class="keyword">bpub_date </span>= <span class="keyword">bpub_date</span></span><br><span class="line"><span class="keyword"> </span>     obj.cate_id = cate_id</span><br><span class="line">      obj.save()</span><br><span class="line">      return objpython</span><br></pre></td></tr></table></figure></div></code></pre>
 </li>
 <li><p>这两种方法都可以使用,</p>
 </li>
 <li><p>重写封装的方法适用于增删改查的所有方法</p>
 </li>
 <li><p>在manager函数中,封装好了一个model方法,这个方法返回的是调用这个方法的模型类</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.model()</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRYSTAL"><figure class="iseeu highlight /crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.model()</span><br></pre></td></tr></table></figure></div>
 
 <p>使用这个方法之后,就不会出现换一个模型类就无法调用的情况了</p>
 </li>
@@ -486,16 +486,16 @@ BookInfo.book.all()
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_08.html" rel="bookmark">DRF中generics</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
     </li>
   </ul>
 
@@ -536,8 +536,8 @@ BookInfo.book.all()
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Vue/Vue_id_01.html" rel="prev" title="API接口生成">
-      <i class="fa fa-chevron-left"></i> API接口生成
+    <a href="/Vue/Vue_id_03.html" rel="prev" title="axios请求与跨域">
+      <i class="fa fa-chevron-left"></i> axios请求与跨域
     </a></div>
       <div class="post-nav-item">
     <a href="/Django/Django_id_04.html" rel="next" title="Django-filter过滤器的使用">

@@ -385,22 +385,22 @@ input[type="radio"]:not(:checked) + label:after {
 
 <h2 id="我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总"><a href="#我本身是负责服务器搭建这一块儿的-服务器这边的各种问题基本都是我一个人在折腾-到今天-基本已经完成架构-前后端项目也已经在服务器上跑了起来-于是腾出手来-把之前遇到的一些问题进行一下汇总" class="headerlink" title="我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总"></a>我本身是负责服务器搭建这一块儿的,服务器这边的各种问题基本都是我一个人在折腾,到今天,基本已经完成架构,前后端项目也已经在服务器上跑了起来,于是腾出手来,把之前遇到的一些问题进行一下汇总</h2><h2 id="看到这篇文章的朋友如果有什么疑问-可以给作者发私信"><a href="#看到这篇文章的朋友如果有什么疑问-可以给作者发私信" class="headerlink" title="看到这篇文章的朋友如果有什么疑问,可以给作者发私信"></a>看到这篇文章的朋友如果有什么疑问,可以给作者发私信</h2><ol>
 <li><h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>下载redis安装包</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget hhhttp:<span class="regexp">//</span>downloac.redis.io<span class="regexp">/releases/</span>redis-<span class="number">4.0</span>.<span class="number">6</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget hhhttp:<span class="regexp">//</span>downloac.redis.io<span class="regexp">/releases/</span>redis-<span class="number">4.0</span>.<span class="number">6</span>.tar.gz</span><br></pre></td></tr></table></figure></div>
 
 <p>解压压缩包</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">redis-4</span><span class="selector-class">.0</span><span class="selector-class">.6</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">redis-4</span><span class="selector-class">.0</span><span class="selector-class">.6</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></div>
 
 <p>yum 安装gcc依赖</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> gcc</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CMAKE"><figure class="iseeu highlight /cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> gcc</span><br></pre></td></tr></table></figure></div>
 
 <p>跳转到redis解压目录下</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd redis<span class="number">-4.0</span><span class="number">.6</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd redis<span class="number">-4.0</span><span class="number">.6</span></span><br></pre></td></tr></table></figure></div>
 
 <p>编译安装</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span> MAKKOC=libc</span><br><span class="line"><span class="meta"># 将/usr/local/redis-4.0.6/src目录下的文件添加到/usr/local/bin 目录</span></span><br><span class="line">cd src &amp;&amp; <span class="built_in">make</span> install</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAUSS"><figure class="iseeu highlight /gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span> MAKKOC=libc</span><br><span class="line"><span class="meta"># 将/usr/local/redis-4.0.6/src目录下的文件添加到/usr/local/bin 目录</span></span><br><span class="line">cd src &amp;&amp; <span class="built_in">make</span> install</span><br></pre></td></tr></table></figure></div>
 
 <p>修改配置文件</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将原本绑定的ip127<span class="number">.0</span><span class="number">.0</span><span class="number">.1</span>修改为<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">bind <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"># 关闭保护模式</span><br><span class="line"><span class="keyword">protected</span>-mode yes 修改为no</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将原本绑定的ip127<span class="number">.0</span><span class="number">.0</span><span class="number">.1</span>修改为<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">bind <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"># 关闭保护模式</span><br><span class="line"><span class="keyword">protected</span>-mode yes 修改为no</span><br></pre></td></tr></table></figure></div>
 
 <p>在服务器安全策略中开放6379端口</p>
 </li>
@@ -415,7 +415,7 @@ input[type="radio"]:not(:checked) + label:after {
 <p>端口的话可以随意设定,当然,设定完记得在服务器安全策略中开放对应的端口,以免出现端口无法访问的情况</p>
 </li>
 <li><h1 id="部署Django"><a href="#部署Django" class="headerlink" title="部署Django"></a>部署Django</h1><p>Django的部署,需要在settings设置中添加</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ALLOWED_HOSTS</span> = [<span class="string">'*'</span>]</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ALLOWED_HOSTS</span> = [<span class="string">'*'</span>]</span><br></pre></td></tr></table></figure></div>
 
 <p>即允许任何ip访问,部署时使用 python manage.py runserver 0.0.0.0:8000 的形式进行启动</p>
 </li>
@@ -447,19 +447,19 @@ input[type="radio"]:not(:checked) + label:after {
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_02.html" rel="bookmark">CentOS8查看监听端口</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
+      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\CentOS\CentOS_id_04.html" rel="bookmark">CentOS7服务器配置汇总</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_03.html" rel="bookmark">CentOS7服务器配置redis主从与哨兵</a></div>
     </li>
   </ul>
 
