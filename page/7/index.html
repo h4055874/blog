@@ -155,7 +155,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">139</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -1156,7 +1156,7 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/CentOS/CentOS_id_07.html">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_28.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1170,7 +1170,7 @@ input[type="radio"]:not(:checked) + label:after {
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/CentOS/CentOS_id_07.html" class="post-title-link" itemprop="url">CentOS 8安装nodejs</a>
+            <a href="/Python/Python_id_28.html" class="post-title-link" itemprop="url">python基础知识(十三)</a>
         </h1>
 
         <div class="post-meta">
@@ -1180,14 +1180,14 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-06-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-08T00:00:00+08:00">2019-06-08</time>
+              <time title="创建时间：2019-07-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-26T00:00:00+08:00">2019-07-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-29 21:00:32" itemprop="dateModified" datetime="2020-05-29T21:00:32+08:00">2020-05-29</time>
+                <time title="修改时间：2020-06-01 20:00:18" itemprop="dateModified" datetime="2020-06-01T20:00:18+08:00">2020-06-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1195,12 +1195,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node-js/" itemprop="url" rel="index"><span itemprop="name">Node.js</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/CentOS/CentOS_id_07.html" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 8安装nodejs" title="阅读次数">
+            <span id="/Python/Python_id_28.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(十三)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1215,8 +1215,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/CentOS/CentOS_id_07.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/CentOS/CentOS_id_07.html" itemprop="commentCount"></span>
+    <a title="valine" href="/Python/Python_id_28.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_28.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1226,14 +1226,14 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>127</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -1245,9 +1245,104 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>curl -sL <a href="https://rpm.nodesource.com/setup_10.x" target="_blank" rel="noopener">https://rpm.nodesource.com/setup_10.x</a> | bash -</p>
-<p>yum install -y nodejs</p>
-<p>[root@localhost /]# node -v<br>v10.9.0<br>[root@localhost /]# npm -v<br>6.2.0</p>
+          <h2 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h2><p>Python的字符串格式化有两种方式</p>
+<ul>
+<li>%格式符方式</li>
+<li>format方式</li>
+</ul>
+<p>事实上，格式化借助的是对象的魔术方法。<br>实现了<code>__format__</code>的对象才适用于format方式格式化输出，<br>实现了<code>__str__</code>，<code>__repr__</code>的对象才分别适用于格式符<code>%s</code>和<code>%r</code>输出。<br>在面向对象章节有给对象定义魔术方法的示例。</p>
+<h3 id="格式符"><a href="#格式符" class="headerlink" title="%格式符"></a><code>%</code>格式符</h3><p>一般格式为 <code>%(name)</code> + <a href="https://docs.python.org/zh-cn/3/library/string.html#formatspec" target="_blank" rel="noopener">format_spec</a></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[fill]align][sign][#][0][width][grouping_option][.precision][type]</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>可选，用于选择指定的key</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"%(name)s——%(age)d"</span>%&#123;<span class="string">'name'</span>:<span class="string">'宝钟玛琳'</span>,<span class="string">'age'</span>:<span class="number">17</span>&#125;</span><br><span class="line"><span class="string">'宝钟玛琳——17'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>s 和 d 属于 [<code>type</code>]</p>
+<p>format_spec规则的常用组分：</p>
+<h4 id="sign"><a href="#sign" class="headerlink" title="sign"></a>sign</h4><p>可选，数字和字符串可供选择的值有：</p>
+<ul>
+<li><code>+</code> 右对齐；正数负数前加正负号</li>
+<li><code>-</code> 左对齐；负数前加负号</li>
+<li>空格 右对齐；负数前加负号</li>
+<li><code>0</code> 右对齐；正数前无符号，负数前加负号；用0填充空白处</li>
+</ul>
+<h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><p>可选，占有宽度</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"%(name)+7s——%(age)-5d"</span>%&#123;<span class="string">'name'</span>:<span class="string">'宝钟玛琳'</span>,<span class="string">'age'</span>:<span class="number">17</span>&#125;</span><br><span class="line"><span class="string">'   宝钟玛琳——17   '</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="precision"><a href="#precision" class="headerlink" title=".precision"></a>.precision</h4><p>可选，小数点后保留的位数 默认6位</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>类型，必选</p>
+<p>任意对象：</p>
+<ul>
+<li><code>%s</code> 字符串 (采用<code>str()</code>的显示)</li>
+<li><code>%r</code> 字符串 (采用<code>repr()</code>的显示)</li>
+<li><code>%c</code> 单个字符</li>
+</ul>
+<p>字符串和整数：</p>
+<ul>
+<li><code>%b</code> 二进制整数</li>
+<li><code>%%</code> 字符”%”转义</li>
+</ul>
+<p>数字：</p>
+<ul>
+<li><code>%d</code> 十进制整数</li>
+<li><code>%i</code> 十进制整数</li>
+<li><code>%o</code> 八进制整数</li>
+<li><code>%x</code> 十六进制整数</li>
+<li><code>%e</code> 指数 (基底写为e)</li>
+<li><code>%E</code> 指数 (基底写为E)</li>
+<li><code>%f</code> 浮点数</li>
+<li><code>%F</code> 浮点数，与上相同</li>
+<li><code>%g</code> 科学计数法(e)或浮点数 (根据显示长度)</li>
+<li><code>%G</code> 科学计数法(E)或浮点数 (根据显示长度)</li>
+<li><code>%%</code> 字符”%”</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'——%(p).2f'</span>%&#123;<span class="string">'p'</span>:<span class="number">0.1</span>+<span class="number">0.2</span>&#125;</span><br><span class="line"><span class="string">'——0.30'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'——%(p).2g'</span>%&#123;<span class="string">'p'</span>:<span class="number">0.1</span>+<span class="number">0.2</span>&#125;</span><br><span class="line"><span class="string">'——0.3'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="终端字体颜色"><a href="#终端字体颜色" class="headerlink" title="终端字体颜色"></a>终端字体颜色</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">#格式：</span></span><br><span class="line"><span class="string">　　设置颜色开始 ：\033[显示方式;前景色;背景色m</span></span><br><span class="line"><span class="string">　　</span></span><br><span class="line"><span class="string">#说明：</span></span><br><span class="line"><span class="string">前景色            背景色           颜色</span></span><br><span class="line"><span class="string">---------------------------------------</span></span><br><span class="line"><span class="string">30                40              黑色</span></span><br><span class="line"><span class="string">31                41              红色</span></span><br><span class="line"><span class="string">32                42              绿色</span></span><br><span class="line"><span class="string">33                43              黃色</span></span><br><span class="line"><span class="string">34                44              蓝色</span></span><br><span class="line"><span class="string">35                45              紫红色</span></span><br><span class="line"><span class="string">36                46              青蓝色</span></span><br><span class="line"><span class="string">37                47              白色</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">显示方式           意义</span></span><br><span class="line"><span class="string">-------------------------</span></span><br><span class="line"><span class="string">0                终端默认设置</span></span><br><span class="line"><span class="string">1                高亮显示</span></span><br><span class="line"><span class="string">4                使用下划线</span></span><br><span class="line"><span class="string">5                闪烁</span></span><br><span class="line"><span class="string">7                反白显示</span></span><br><span class="line"><span class="string">8                不可见</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例子：</span></span><br><span class="line">\<span class="number">033</span>[<span class="number">1</span>;<span class="number">31</span>;<span class="number">40</span>m    <span class="comment">#1-高亮显示 31-前景色红色  40-背景色黑色</span></span><br><span class="line">\<span class="number">033</span>[<span class="number">0</span>m          <span class="comment">#采用终端默认设置，即取消颜色设置</span></span><br></pre></td></tr></table></figure></div>
+
+<p>可以使用第三方模块termcolor来简化语句：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> termcolor <span class="keyword">import</span> colored</span><br><span class="line"></span><br><span class="line">print(colored(<span class="string">"helloworld"</span>, <span class="string">"red"</span>))</span><br></pre></td></tr></table></figure></div>
+
+<p>第三方模块在使用前需要用pip安装</p>
+<p>系统支持</p>
+<p>Windows7及以下无法解析颜色代码<br>使用termcolor模块也无效<br>可以使用第三方模块colorama来显示颜色</p>
+<p>colorama模块兼容更好：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> colorama <span class="keyword">import</span>  init, Fore</span><br><span class="line"></span><br><span class="line">init(autoreset=<span class="literal">False</span>) <span class="comment">#给True的时候print时无需+Fore.RESET</span></span><br><span class="line">print(Fore.RED + <span class="string">"helloworld"</span> + Fore.RESET)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数format"><a href="#内置函数format" class="headerlink" title="内置函数format()"></a>内置函数<code>format()</code></h3><p>内置函数<code>format</code>(<em>value</em>[, <em>format_spec</em>])<br>第二个参数即format_spec格式规格迷你语言<br>实现了魔术方法<code>__format__</code>的对象都可以使用</p>
+<p>以数字对象的格式化为例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(<span class="number">12</span>,<span class="string">'+.3f'</span>) <span class="comment">#保留3位小数</span></span><br><span class="line"><span class="string">'+12.000'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(<span class="number">3</span>,<span class="string">'b'</span>) <span class="comment">#二进制转化</span></span><br><span class="line"><span class="string">'11'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其他实现了魔术方法<code>__format__</code>的对象，这里以<code>datetime.time</code>对象为例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>night = datetime.time(<span class="number">22</span>,<span class="number">30</span>,tzinfo=datetime.timezone(</span><br><span class="line"><span class="meta">... </span>    datetime.timedelta(hours=<span class="number">8</span>), name = <span class="string">'北京'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(night,<span class="string">'现在是%Z时间%H点%M分'</span>)</span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>datetime</code>模块后续会介绍。</p>
+<h3 id="str-format"><a href="#str-format" class="headerlink" title="str.format()"></a><code>str.format()</code></h3><p>涉及到函数的传参方式，将在后面章节介绍。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">' &#123;&#125;  &#123;&#125;  &#123;&#125; '</span>.format(a,b,c)     </span><br><span class="line"><span class="string">' &#123;0&#125;  &#123;1&#125;  &#123;2&#125; '</span>.format(a,b,c)</span><br><span class="line"><span class="string">' &#123;0&#125;  &#123;1&#125;  &#123;2&#125; '</span>.format(*[a,b,c])</span><br><span class="line"><span class="string">' &#123;a&#125;  &#123;b&#125;  &#123;c&#125; '</span>.format(a=a,b=b,c=c)</span><br><span class="line"><span class="string">' &#123;a&#125;  &#123;b&#125;  &#123;c&#125; '</span>.format(**&#123;<span class="string">"a"</span>:a,<span class="string">"b"</span>:b,<span class="string">"c"</span>:c&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<p><code>{!s}</code>是默认的</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'&#123;!s&#125;、&#123;!a&#125;、&#123;!r&#125;'</span> <span class="comment">#分别表示str、ascii和repr方法。</span></span><br></pre></td></tr></table></figure></div>
+
+<p>实现了魔术方法<code>__format__</code>的对象可以使用冒号 <code>: format_spec</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'0x&#123;:x&#125;'</span>.format(<span class="number">255</span>)</span><br><span class="line"><span class="string">'0xff'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>以<code>datetime.time</code>对象为例的其他实现了魔术方法<code>__format__</code>的对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'现在是&#123;:%Z&#125;时间&#123;:%H&#125;点&#123;:%M&#125;分'</span>.format(night,night,night)</span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="f字符串"><a href="#f字符串" class="headerlink" title="f字符串"></a>f字符串</h3><p>在python3.6以上，<code>str.format()</code>可以直接使用<strong>f字符串</strong>的写法<br>用<code>f&#39;{a}{b}{c}&#39;</code>即可代替<code>&#39;{a}{b}{c}&#39;.format(a=a,b=b,c=c)</code>。<br>f字符串中不允许使用<code>\</code>转义字符。</p>
+<p>与<code>%</code>格式符的不同：<br>Sign对齐使用<code>&lt;</code>，<code>&gt;</code> 和 <code>^</code> 而不是 <code>+</code> 和 <code>-</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%-6d000'</span>%<span class="number">233</span></span><br><span class="line"><span class="number">233</span>   <span class="number">000</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'<span class="subst">&#123;<span class="number">233</span>:&lt;<span class="number">6</span>d&#125;</span>000'</span></span><br><span class="line"><span class="number">233</span>   <span class="number">000</span></span><br></pre></td></tr></table></figure></div>
+
+<p>以<code>datetime.time</code>对象为例的其他实现了魔术方法<code>__format__</code>的对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'现在是<span class="subst">&#123;night:%Z&#125;</span>时间<span class="subst">&#123;night:%H&#125;</span>点<span class="subst">&#123;night:%M&#125;</span>分'</span></span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在python3.8以上</p>
+<p>f字符串中可以直接使用说明符<code>=</code>调试，</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python = <span class="number">3.8</span>	</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;python=&#125;</span>"</span>	</span><br><span class="line"><span class="string">'python=3.8'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数str-和repr"><a href="#内置函数str-和repr" class="headerlink" title="内置函数str()和repr()"></a>内置函数<code>str()</code>和<code>repr()</code></h3><p><code>str()</code>不止是构造函数（<code>class</code>）实例化一个<code>str</code>对象，<br><code>str(o)</code>它也是对参数对象进行魔术方法的调用：<code>o.__str__()</code>，将参数转换为了<code>str</code>对象<br>无论是<code>print(o)</code>，<code>f&#39;{o}&#39;</code>, <code>&quot;%s&quot;%o</code>，它们都是对魔术方法 <code>o.__str__()</code>的调用</p>
+<hr>
+<p>而<code>repr(o)</code>，<code>f&#39;{o!r}&#39;</code>, <code>&quot;%r&quot;%o</code>则是对魔术方法 <code>o.__repr__()</code>的调用，<br>它会以字面量的形式呈现对象，即字符串带有引号，列表变成<code>&#39;[&#39;+ repr(成员) + &#39;,]&#39;</code><br><strong>f字符串</strong>中<code>f&#39;{o=}&#39;</code>就相当于<code>f&#39;o={repr(o)}&#39;</code></p>
 
       
     </div>
@@ -1275,7 +1370,7 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_27.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1289,7 +1384,7 @@ input[type="radio"]:not(:checked) + label:after {
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/Ubuntu/Ubuntu_id_01.html" class="post-title-link" itemprop="url">Ubuntu配置数据库踩坑记录</a>
+            <a href="/Python/Python_id_27.html" class="post-title-link" itemprop="url">python基础知识(十二)</a>
         </h1>
 
         <div class="post-meta">
@@ -1299,14 +1394,14 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-06-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-08T00:00:00+08:00">2019-06-08</time>
+              <time title="创建时间：2019-07-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-23T00:00:00+08:00">2019-07-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 15:04:57" itemprop="dateModified" datetime="2020-05-17T15:04:57+08:00">2020-05-17</time>
+                <time title="修改时间：2020-06-01 20:00:33" itemprop="dateModified" datetime="2020-06-01T20:00:33+08:00">2020-06-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1314,12 +1409,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/Ubuntu/Ubuntu_id_01.html" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu配置数据库踩坑记录" title="阅读次数">
+            <span id="/Python/Python_id_27.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(十二)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1334,8 +1429,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Ubuntu/Ubuntu_id_01.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Ubuntu/Ubuntu_id_01.html" itemprop="commentCount"></span>
+    <a title="valine" href="/Python/Python_id_27.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_27.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1345,7 +1440,7 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>996</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1364,15 +1459,89 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Ubuntu/Ubuntu_id_01.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h2 id="字典和集合"><a href="#字典和集合" class="headerlink" title="字典和集合"></a>字典和集合</h2><blockquote>
+<p>几种数据类型在内存中的访问方式</p>
+<ul>
+<li>直接访问：数字</li>
+<li>顺序访问：字符串 列表 元组</li>
+<li>映射访问：字典</li>
+</ul>
+</blockquote>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><blockquote>
+<h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>可迭代类型 可变类型 无序类型 一系列键值对key-value用冒号分割，格式如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'key1'</span> : <span class="string">'value1'</span>, <span class="string">'key2'</span> : <span class="string">'value2'</span> &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>key必须是<strong>不可变类型</strong>的数据（否则报错unhashable）<br>value可以是任意数据类型<br>如果key使用布尔值会被转换为1和0</p>
+</blockquote>
+<p>在python3.6以上版本中，字典默认按插入的顺序排列了键值对。<br>在python3.8以上版本中，字典可以使用 <code>reversed()</code>按插入顺序反向迭代</p>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h5 id="in成员运算符"><a href="#in成员运算符" class="headerlink" title="in成员运算符"></a>in成员运算符</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'key1'</span> <span class="keyword">in</span> d <span class="comment">#判断键是否存在 返回布尔值</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="getitem操作"><a href="#getitem操作" class="headerlink" title="getitem操作"></a>getitem操作</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'key1'</span>]</span><br><span class="line"><span class="string">'value1'</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="setitem操作"><a href="#setitem操作" class="headerlink" title="setitem操作"></a>setitem操作</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d[<span class="string">'key1'</span>] = <span class="string">'debu'</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="有关的内置函数"><a href="#有关的内置函数" class="headerlink" title="有关的内置函数"></a>有关的内置函数</h4><p><code>len(dict)</code>返回键的数目</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROLOG"><figure class="iseeu highlight /prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zip()<span class="string">`以拉链法**惰性**生成键值对：`</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>),(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)<span class="string">` -&gt;`</span>[(<span class="string">'a'</span>,<span class="number">1</span>),(<span class="string">'b'</span>,<span class="number">2</span>)(<span class="string">'c'</span>,<span class="number">3</span>)]</span><br><span class="line">dict()<span class="string">` 以键值对生成字典：`</span>[(<span class="string">'a'</span>,<span class="number">1</span>),(<span class="string">'b'</span>,<span class="number">2</span>),(<span class="string">'c'</span>,<span class="number">3</span>)]<span class="string">` -&gt; `</span>&#123;<span class="string">'a'</span>:<span class="number">1</span>,<span class="string">'b'</span>:<span class="number">2</span>,<span class="string">'c'</span>:<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><p><code>dict.fromkeys(可迭代对象,value)</code>静态方法生成字典，所有键的值都为value</p>
+<p><code>.copy()</code> 浅拷贝</p>
+<h5 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h5><p><code>.setdefault(key, value)</code>已存在则返回已存在的value，不存在则设置。</p>
+<p><code>.update(key=value)</code> <code>.update(dict)</code>设置或覆盖，这里可对比之后章节函数的剩余参数。</p>
+<p><code>.pop(key, None)</code>删除并返回其value，不存在则返回第二个参数，第二个参数默认为None。</p>
+<p><code>.popitem()</code>随机删一个并返回其键值对。</p>
+<p><code>.clear()</code>清空。</p>
+<p><code>del d[key1]</code> 删除一组键值对。</p>
+<p><code>.get(key, None)</code>查找 不存在则返回第二个参数 默认为None。</p>
+<p><code>.items()</code>返回键值对组成的列表。功能与<code>dict()</code>相反。</p>
+<p><code>.keys()</code>返回键组成的列表。</p>
+<p><code>.values()</code>返回值组成的列表。</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><blockquote>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>可迭代类型 可变类型 无序类型 , 元素不重复</p>
+<p>生成方式:</p>
+<ol>
+<li><code>{1,2,3,4,5}</code></li>
+<li><code>set(可迭代对象)</code></li>
+</ol>
+</blockquote>
+<p>规范的初始化</p>
+<p>创建一个空字典或空集合的时候使用<code>dict()</code>和<code>set()</code><br>而不是使用<code>{}</code></p>
+<h4 id="增删方法"><a href="#增删方法" class="headerlink" title="增删方法"></a>增删方法</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s1.add(p_obj)</span><br><span class="line">s1.update(s2) </span><br><span class="line">s.claer()<span class="comment">#清空</span></span><br><span class="line">s.pop()<span class="comment">#随机删除一个并返回其值</span></span><br><span class="line">s.remove(value) <span class="comment">#删除 没有=&gt;报错</span></span><br><span class="line">s.discard(value)<span class="comment">#删除 没有不报错</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.copy()          <span class="comment">#如果是list直接使用切片就可以浅拷贝arr2=arr[:]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="集合之间运算"><a href="#集合之间运算" class="headerlink" title="集合之间运算"></a>集合之间运算</h4><table>
+<thead>
+<tr>
+<th align="left">运算</th>
+<th align="left">运算符表示</th>
+<th align="left">对象方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">交集</td>
+<td align="left">s1&amp;s2</td>
+<td align="left">s1.intersection(s2)</td>
+</tr>
+<tr>
+<td align="left">并集</td>
+<td align="left">s1|s2</td>
+<td align="left">s1.union(s2)</td>
+</tr>
+<tr>
+<td align="left">差集</td>
+<td align="left">s1-s2</td>
+<td align="left">s1.difference(s2)</td>
+</tr>
+<tr>
+<td align="left">交叉补集</td>
+<td align="left"></td>
+<td align="left">s1.symmetric_difference(s2)</td>
+</tr>
+</tbody></table>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1.issubset(s2)   <span class="comment">#s1是否是s2子集</span></span><br><span class="line">s1.issuperset(s2)   <span class="comment">#s1是否是s2超集</span></span><br><span class="line">s1.intersection_update(s2)  </span><br><span class="line">s1.difference_update(s2)</span><br><span class="line">s1.symmetric_difference_update(s2)</span><br></pre></td></tr></table></figure></div>
+
+<p>内置函数 <code>set()</code>和 <code>frozenset()</code>分别用来生成可变和不可变的集合</p>
+
       
     </div>
 
@@ -1399,7 +1568,7 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Spider/Spider_id_14.html">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_26.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1413,7 +1582,7 @@ input[type="radio"]:not(:checked) + label:after {
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/Spider/Spider_id_14.html" class="post-title-link" itemprop="url">进程线程协程</a>
+            <a href="/Python/Python_id_26.html" class="post-title-link" itemprop="url">python基础知识(十一)</a>
         </h1>
 
         <div class="post-meta">
@@ -1423,14 +1592,14 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-27T00:00:00+08:00">2019-05-27</time>
+              <time title="创建时间：2019-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-13T00:00:00+08:00">2019-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 14:54:24" itemprop="dateModified" datetime="2020-05-17T14:54:24+08:00">2020-05-17</time>
+                <time title="修改时间：2020-06-01 20:00:27" itemprop="dateModified" datetime="2020-06-01T20:00:27+08:00">2020-06-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1438,12 +1607,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Scrapy/" itemprop="url" rel="index"><span itemprop="name">Scrapy</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/Spider/Spider_id_14.html" class="post-meta-item leancloud_visitors" data-flag-title="进程线程协程" title="阅读次数">
+            <span id="/Python/Python_id_26.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(十一)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1458,8 +1627,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Spider/Spider_id_14.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Spider/Spider_id_14.html" itemprop="commentCount"></span>
+    <a title="valine" href="/Python/Python_id_26.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_26.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1469,7 +1638,7 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1488,15 +1657,95 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="异步多进程爬虫实现"><a href="#异步多进程爬虫实现" class="headerlink" title="异步多进程爬虫实现:"></a>异步多进程爬虫实现:</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Spider/Spider_id_14.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h2 id="列表和元组"><a href="#列表和元组" class="headerlink" title="列表和元组"></a>列表和元组</h2><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><blockquote>
+<h4 id="list"><a href="#list" class="headerlink" title="#list"></a><a href="http://nanarino.metoyun.com/py/5-列表和元组.html#list" target="_blank" rel="noopener">#</a>list</h4><p>可迭代类型 可变类型 有序类型</p>
+<p>使用方括号来创建列表</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;li[<span class="number">0</span>]</span><br><span class="line"><span class="string">'a'</span></span><br><span class="line">&gt;&gt;&gt;li[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>与字符串切片功能不同之处：</p>
+<ul>
+<li>进行获取、切片、赋值给其他变量等 （getitem）得到的是其浅拷贝</li>
+<li>进行直接赋值（setitem）则会改变原列表</li>
+</ul>
+<h4 id="getitem操作"><a href="#getitem操作" class="headerlink" title="getitem操作"></a>getitem操作</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">a[:<span class="number">1</span>][<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment">#打印结果[1,2]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="setitem操作"><a href="#setitem操作" class="headerlink" title="setitem操作"></a>setitem操作</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">a[:<span class="number">1</span>] = [<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment">#打印结果[5,2]</span></span><br></pre></td></tr></table></figure></div>
+
+<p>关于切片</p>
+<p>可以在学习面向对象的魔术方法后再深入研究</p>
+<h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[]+[]  <span class="comment">#拼合</span></span><br><span class="line">[]*int  <span class="comment">#重复</span></span><br><span class="line">item <span class="keyword">in</span> [] <span class="comment">#判断成员是否存在 返回布尔值</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h4><ul>
+<li><code>len(list)</code> 获取长度</li>
+<li><code>list()</code> 转化为列表类型</li>
+<li><code>max()</code>/<code>min()</code>求最值，可选参数key进行操作</li>
+<li><code>reversed(list)</code>临时翻转，不限于列表</li>
+<li><code>sorted(iterable)</code>临时排序，不限于列表 ，可选key和倒序。</li>
+<li><code>sum</code>所有成员是数字的时候可用，求和，不限于列表</li>
+</ul>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><code>&#39;&#39;.join(list)</code> 将列表转为字符串</li>
+<li><code>.count(value)</code>计次</li>
+<li><code>.copy()</code>浅拷贝，和切片<code>[:]</code>等效</li>
+</ul>
+<h5 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h5><ul>
+<li><code>.append(p)</code> 追加</li>
+<li><code>.extend(iterable)</code>迭代追加</li>
+<li><code>.insert(index,obj)</code>插入</li>
+<li><code>.pop(index=-1)</code> 删除默认最后一个 并返回它的值</li>
+<li><code>.remove(value)</code> 删除</li>
+<li><code>del</code> 删除 索引/切片</li>
+<li><code>.clear()</code> 清空</li>
+<li><code>.index(value)</code>查询是否存在,不存在会报错</li>
+</ul>
+<h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><p><code>.sort()</code>永久排序<br><code>.reverse()</code>倒序，相当于<code>li[:] = li[::-1]</code>的效果</p>
+<p>.sort()即list.sort(self)方法，和全局函数sorted(iterable)</p>
+<p>它们本质是<strong>快排算法</strong>两两比较大小<br>它们的参数完全一致（sorted不限于列表）。不同的是：<br>列表的sort方法无返回值，直接修改self<br>内置函数sorted，返回临时排序后的列表</p>
+<h3 id="成员赋值"><a href="#成员赋值" class="headerlink" title="成员赋值"></a>成员赋值</h3><h4 id="逐个赋值"><a href="#逐个赋值" class="headerlink" title="逐个赋值"></a>逐个赋值</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c = arr</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="获取剩余"><a href="#获取剩余" class="headerlink" title="获取剩余"></a>获取剩余</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c, *d, e = arr1</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e</span><br><span class="line"><span class="number">9</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>此方法不限于列表</p>
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><blockquote>
+<h4 id="tuple"><a href="#tuple" class="headerlink" title="#tuple"></a><a href="http://nanarino.metoyun.com/py/5-列表和元组.html#tuple" target="_blank" rel="noopener">#</a>tuple</h4><p>可迭代类型 不可变类型 有序类型</p>
+<p>元组中只包含一个元素时，必须在末尾元素后面添加逗号 （推荐所有情况都加逗号）<br>创建元组使用小括号</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tup = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>,)</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="索引和切片-1"><a href="#索引和切片-1" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;tup[<span class="number">1</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line">&gt;&gt;&gt;tup[:<span class="number">1</span>]</span><br><span class="line">(<span class="number">1</span>,)</span><br></pre></td></tr></table></figure></div>
+
+<p>和字符串的索引和切片操作几乎一样。<br>元组的切片和索引<strong>只读</strong>（只有getitem操作）。</p>
+<p>内置函数<code>tuple()</code>可以将对象转化为元组</p>
+<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><code>.count()</code></li>
+<li><code>.index()</code></li>
+</ul>
+<p>对象方法是返回新的对象还是修改对象本身</p>
+<p>一般来说，对于可变类型 对象方法如<code>list.sort()</code>会影响到self本身<br>而对于不可变类型，对象方法如<code>str.replace()</code>会返回一个预期的新对象</p>
+<h3 id="内置函数enumerate"><a href="#内置函数enumerate" class="headerlink" title="内置函数enumerate()"></a>内置函数enumerate()</h3><p><code>for i in 列表</code> 只能遍历出列表成员，如果需要同时遍历出索引可以使用：<br><code>enumerate(sequence, [start=0])</code> 意为枚举，将一个可迭代的对象，同时列出数据和数据下标<br>可以用list()函数把enumerate()返回的枚举对象转为一个列表</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;li = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]</span><br><span class="line">&gt;&gt;&gt;list(enumerate(li))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">'a'</span>), (<span class="number">1</span>, <span class="string">'b'</span>), (<span class="number">2</span>, <span class="string">'c'</span>)]</span><br></pre></td></tr></table></figure></div>
+
+<p>一般直接在for循环中使用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">namelist = [<span class="string">'夏色祭'</span>,<span class="string">'赤井心'</span>,<span class="string">'湊阿夸'</span>]</span><br><span class="line"><span class="keyword">for</span> i, name <span class="keyword">in</span> enumerate(namelist):</span><br><span class="line">	print(i,name)</span><br><span class="line"></span><br><span class="line"><span class="string">'''打印内容</span></span><br><span class="line"><span class="string">0 夏色祭</span></span><br><span class="line"><span class="string">1 赤井心</span></span><br><span class="line"><span class="string">2 湊阿夸</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数slice"><a href="#内置函数slice" class="headerlink" title="内置函数slice()"></a>内置函数slice()</h3><p>意为切片<br><code>slice(stop)</code><br><code>slice(start, stop[, step])</code></p>
+<p>实例化一个切片对象，用来代替切片中的中括号内的内容</p>
+<ul>
+<li>start – 起始位置</li>
+<li>stop – 结束位置</li>
+<li>step – 间距</li>
+</ul>
+<p>切片对象用索引的写法<code>[slice(1,2)]</code>可以达到切片的效果<code>[1:2]</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = slice(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">slice(<span class="literal">None</span>, <span class="number">10</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = slice(<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">slice(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.start)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.stop)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.step)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li[slice(<span class="number">2</span>,<span class="number">6</span>)]</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数range"><a href="#内置函数range" class="headerlink" title="内置函数range()"></a>内置函数range()</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="keyword">stop</span>)<span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="keyword">range</span>(<span class="keyword">start</span>, <span class="keyword">stop</span>[, step])</span><br></pre></td></tr></table></figure></div>
+
+<p>参数类似切片，可创建一个整数列表，可以很方便的用在for循环中，<br>一般用来固定循环for次数，与其他语言中的`for(i=0; i效果相似</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Python3.x 中 range() 函数返回的结果是一个整数序列的可迭代对象,而不是列表</span></span><br><span class="line"><span class="string">可以用list()函数把range()返回的可迭代对象转为一个列表 </span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>打印一个九九乘法表，来试试吧，例如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        a+=(str(j)+<span class="string">"×"</span>+str(i)+<span class="string">"="</span>+str(j*i)+<span class="string">" "</span>)</span><br><span class="line">    a+=<span class="string">"\n"</span>   </span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></div>
       
     </div>
 
@@ -1523,7 +1772,7 @@ input[type="radio"]:not(:checked) + label:after {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1568,7 +1817,7 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">139</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1951,13 +2200,13 @@ input[type="radio"]:not(:checked) + label:after {
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">270k</span>
+    <span title="站点总字数">304k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:06</span>
+    <span title="站点阅读时长">4:37</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>

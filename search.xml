@@ -1316,6 +1316,22 @@
       </tags>
   </entry>
   <entry>
+    <title>redis数据淘汰机制</title>
+    <url>/Redis/Redis_id_03.html</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+<a id="more"></a>
+
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>redis优化</title>
     <url>/Redis/Redis_id_05.html</url>
     <content><![CDATA[<h4 id="内存管理优化"><a href="#内存管理优化" class="headerlink" title="内存管理优化"></a>内存管理优化</h4><p>Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：</p>
@@ -1345,22 +1361,6 @@
 <p>redis.conf中的maxmemory选项，该选项是告诉Redis当使用了多少物理内存后就开始拒绝后续的写入请求，该参数能很好的保护好你的Redis不会因为使用了过多的物理内存而导致swap,最终严重影响性能甚至崩溃。</p>
 <p>redis.conf文件中 vm-enabled 为 no</p>
 <p>以上这篇Redis优化经验总结(必看篇)就是小编分享给大家的全部内容了，希望能给大家一个参考，也希望大家多多支持脚本之家。</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/Redis/Redis_id_03.html</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
-<a id="more"></a>
-
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2263,54 +2263,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置汇总</title>
-    <url>/CentOS/CentOS_id_04.html</url>
-    <content><![CDATA[<ol>
-<li><p>构建centos7环境</p>
-<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
-<a id="more"></a>
-
-<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
-<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
-<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
-<p>还是重装系统吧</p>
-</li>
-<li><p>配置python环境</p>
-<ol>
-<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
-</li>
-<li><p>如果有需要升级的话,可以参考下列操作</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
-
-<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
-</li>
-</ol>
-</li>
-<li><p>配置mysql数据库 + 主从复制</p>
-<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
-</li>
-<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
-<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
-</li>
-<li><p>配置node环境</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
-
-<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
-
-<p>重启服务器:  reboot</p>
-</li>
-</ol>
-<p>以上.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
     <url>/CentOS/CentOS_id_03.html</url>
     <content><![CDATA[<h2 id="这次是配置redis主从"><a href="#这次是配置redis主从" class="headerlink" title="这次是配置redis主从"></a>这次是配置redis主从</h2><a id="more"></a>
@@ -2396,71 +2348,48 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/CentOS/CentOS_id_06.html</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+    <title>CentOS7服务器配置汇总</title>
+    <url>/CentOS/CentOS_id_04.html</url>
+    <content><![CDATA[<ol>
+<li><p>构建centos7环境</p>
+<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
+<a id="more"></a>
 
+<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
+<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
+<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
+<p>还是重装系统吧</p>
+</li>
+<li><p>配置python环境</p>
 <ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
 </li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+<li><p>如果有需要升级的话,可以参考下列操作</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
+
+<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
 </li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
 </ol>
 </li>
+<li><p>配置mysql数据库 + 主从复制</p>
+<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
+</li>
+<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
+<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
+</li>
+<li><p>配置node环境</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
+
+<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
+
+<p>重启服务器:  reboot</p>
+</li>
 </ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
+<p>以上.</p>
 ]]></content>
       <categories>
-        <category>MySQL</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>CentOS</tag>
@@ -2539,6 +2468,77 @@ show slave status\G  </code></pre>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/CentOS/CentOS_id_06.html</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>MySQL</category>
@@ -3372,6 +3372,693 @@ show slave status\G  </code></pre>
       </tags>
   </entry>
   <entry>
+    <title>python基础知识(十三)</title>
+    <url>/Python/Python_id_28.html</url>
+    <content><![CDATA[<h2 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h2><p>Python的字符串格式化有两种方式</p>
+<ul>
+<li>%格式符方式</li>
+<li>format方式</li>
+</ul>
+<p>事实上，格式化借助的是对象的魔术方法。<br>实现了<code>__format__</code>的对象才适用于format方式格式化输出，<br>实现了<code>__str__</code>，<code>__repr__</code>的对象才分别适用于格式符<code>%s</code>和<code>%r</code>输出。<br>在面向对象章节有给对象定义魔术方法的示例。</p>
+<h3 id="格式符"><a href="#格式符" class="headerlink" title="%格式符"></a><code>%</code>格式符</h3><p>一般格式为 <code>%(name)</code> + <a href="https://docs.python.org/zh-cn/3/library/string.html#formatspec" target="_blank" rel="noopener">format_spec</a></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="code"><pre><span class="line">[[fill]align][sign][#][0][width][grouping_option][.precision][type]</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>可选，用于选择指定的key</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"%(name)s——%(age)d"</span>%&#123;<span class="string">'name'</span>:<span class="string">'宝钟玛琳'</span>,<span class="string">'age'</span>:<span class="number">17</span>&#125;</span><br><span class="line"><span class="string">'宝钟玛琳——17'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>s 和 d 属于 [<code>type</code>]</p>
+<p>format_spec规则的常用组分：</p>
+<h4 id="sign"><a href="#sign" class="headerlink" title="sign"></a>sign</h4><p>可选，数字和字符串可供选择的值有：</p>
+<ul>
+<li><code>+</code> 右对齐；正数负数前加正负号</li>
+<li><code>-</code> 左对齐；负数前加负号</li>
+<li>空格 右对齐；负数前加负号</li>
+<li><code>0</code> 右对齐；正数前无符号，负数前加负号；用0填充空白处</li>
+</ul>
+<h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><p>可选，占有宽度</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"%(name)+7s——%(age)-5d"</span>%&#123;<span class="string">'name'</span>:<span class="string">'宝钟玛琳'</span>,<span class="string">'age'</span>:<span class="number">17</span>&#125;</span><br><span class="line"><span class="string">'   宝钟玛琳——17   '</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="precision"><a href="#precision" class="headerlink" title=".precision"></a>.precision</h4><p>可选，小数点后保留的位数 默认6位</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>类型，必选</p>
+<p>任意对象：</p>
+<ul>
+<li><code>%s</code> 字符串 (采用<code>str()</code>的显示)</li>
+<li><code>%r</code> 字符串 (采用<code>repr()</code>的显示)</li>
+<li><code>%c</code> 单个字符</li>
+</ul>
+<p>字符串和整数：</p>
+<ul>
+<li><code>%b</code> 二进制整数</li>
+<li><code>%%</code> 字符”%”转义</li>
+</ul>
+<p>数字：</p>
+<ul>
+<li><code>%d</code> 十进制整数</li>
+<li><code>%i</code> 十进制整数</li>
+<li><code>%o</code> 八进制整数</li>
+<li><code>%x</code> 十六进制整数</li>
+<li><code>%e</code> 指数 (基底写为e)</li>
+<li><code>%E</code> 指数 (基底写为E)</li>
+<li><code>%f</code> 浮点数</li>
+<li><code>%F</code> 浮点数，与上相同</li>
+<li><code>%g</code> 科学计数法(e)或浮点数 (根据显示长度)</li>
+<li><code>%G</code> 科学计数法(E)或浮点数 (根据显示长度)</li>
+<li><code>%%</code> 字符”%”</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'——%(p).2f'</span>%&#123;<span class="string">'p'</span>:<span class="number">0.1</span>+<span class="number">0.2</span>&#125;</span><br><span class="line"><span class="string">'——0.30'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'——%(p).2g'</span>%&#123;<span class="string">'p'</span>:<span class="number">0.1</span>+<span class="number">0.2</span>&#125;</span><br><span class="line"><span class="string">'——0.3'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="终端字体颜色"><a href="#终端字体颜色" class="headerlink" title="终端字体颜色"></a>终端字体颜色</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">#格式：</span></span><br><span class="line"><span class="string">　　设置颜色开始 ：\033[显示方式;前景色;背景色m</span></span><br><span class="line"><span class="string">　　</span></span><br><span class="line"><span class="string">#说明：</span></span><br><span class="line"><span class="string">前景色            背景色           颜色</span></span><br><span class="line"><span class="string">---------------------------------------</span></span><br><span class="line"><span class="string">30                40              黑色</span></span><br><span class="line"><span class="string">31                41              红色</span></span><br><span class="line"><span class="string">32                42              绿色</span></span><br><span class="line"><span class="string">33                43              黃色</span></span><br><span class="line"><span class="string">34                44              蓝色</span></span><br><span class="line"><span class="string">35                45              紫红色</span></span><br><span class="line"><span class="string">36                46              青蓝色</span></span><br><span class="line"><span class="string">37                47              白色</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">显示方式           意义</span></span><br><span class="line"><span class="string">-------------------------</span></span><br><span class="line"><span class="string">0                终端默认设置</span></span><br><span class="line"><span class="string">1                高亮显示</span></span><br><span class="line"><span class="string">4                使用下划线</span></span><br><span class="line"><span class="string">5                闪烁</span></span><br><span class="line"><span class="string">7                反白显示</span></span><br><span class="line"><span class="string">8                不可见</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例子：</span></span><br><span class="line">\<span class="number">033</span>[<span class="number">1</span>;<span class="number">31</span>;<span class="number">40</span>m    <span class="comment">#1-高亮显示 31-前景色红色  40-背景色黑色</span></span><br><span class="line">\<span class="number">033</span>[<span class="number">0</span>m          <span class="comment">#采用终端默认设置，即取消颜色设置</span></span><br></pre></td></tr></table></figure></div>
+
+<p>可以使用第三方模块termcolor来简化语句：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> termcolor <span class="keyword">import</span> colored</span><br><span class="line"></span><br><span class="line">print(colored(<span class="string">"helloworld"</span>, <span class="string">"red"</span>))</span><br></pre></td></tr></table></figure></div>
+
+<p>第三方模块在使用前需要用pip安装</p>
+<p>系统支持</p>
+<p>Windows7及以下无法解析颜色代码<br>使用termcolor模块也无效<br>可以使用第三方模块colorama来显示颜色</p>
+<p>colorama模块兼容更好：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> colorama <span class="keyword">import</span>  init, Fore</span><br><span class="line"></span><br><span class="line">init(autoreset=<span class="literal">False</span>) <span class="comment">#给True的时候print时无需+Fore.RESET</span></span><br><span class="line">print(Fore.RED + <span class="string">"helloworld"</span> + Fore.RESET)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数format"><a href="#内置函数format" class="headerlink" title="内置函数format()"></a>内置函数<code>format()</code></h3><p>内置函数<code>format</code>(<em>value</em>[, <em>format_spec</em>])<br>第二个参数即format_spec格式规格迷你语言<br>实现了魔术方法<code>__format__</code>的对象都可以使用</p>
+<p>以数字对象的格式化为例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(<span class="number">12</span>,<span class="string">'+.3f'</span>) <span class="comment">#保留3位小数</span></span><br><span class="line"><span class="string">'+12.000'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(<span class="number">3</span>,<span class="string">'b'</span>) <span class="comment">#二进制转化</span></span><br><span class="line"><span class="string">'11'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其他实现了魔术方法<code>__format__</code>的对象，这里以<code>datetime.time</code>对象为例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>night = datetime.time(<span class="number">22</span>,<span class="number">30</span>,tzinfo=datetime.timezone(</span><br><span class="line"><span class="meta">... </span>    datetime.timedelta(hours=<span class="number">8</span>), name = <span class="string">'北京'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format(night,<span class="string">'现在是%Z时间%H点%M分'</span>)</span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>datetime</code>模块后续会介绍。</p>
+<h3 id="str-format"><a href="#str-format" class="headerlink" title="str.format()"></a><code>str.format()</code></h3><p>涉及到函数的传参方式，将在后面章节介绍。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">' &#123;&#125;  &#123;&#125;  &#123;&#125; '</span>.format(a,b,c)     </span><br><span class="line"><span class="string">' &#123;0&#125;  &#123;1&#125;  &#123;2&#125; '</span>.format(a,b,c)</span><br><span class="line"><span class="string">' &#123;0&#125;  &#123;1&#125;  &#123;2&#125; '</span>.format(*[a,b,c])</span><br><span class="line"><span class="string">' &#123;a&#125;  &#123;b&#125;  &#123;c&#125; '</span>.format(a=a,b=b,c=c)</span><br><span class="line"><span class="string">' &#123;a&#125;  &#123;b&#125;  &#123;c&#125; '</span>.format(**&#123;<span class="string">"a"</span>:a,<span class="string">"b"</span>:b,<span class="string">"c"</span>:c&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<p><code>{!s}</code>是默认的</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">'&#123;!s&#125;、&#123;!a&#125;、&#123;!r&#125;'</span> <span class="comment">#分别表示str、ascii和repr方法。</span></span><br></pre></td></tr></table></figure></div>
+
+<p>实现了魔术方法<code>__format__</code>的对象可以使用冒号 <code>: format_spec</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'0x&#123;:x&#125;'</span>.format(<span class="number">255</span>)</span><br><span class="line"><span class="string">'0xff'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>以<code>datetime.time</code>对象为例的其他实现了魔术方法<code>__format__</code>的对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'现在是&#123;:%Z&#125;时间&#123;:%H&#125;点&#123;:%M&#125;分'</span>.format(night,night,night)</span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="f字符串"><a href="#f字符串" class="headerlink" title="f字符串"></a>f字符串</h3><p>在python3.6以上，<code>str.format()</code>可以直接使用<strong>f字符串</strong>的写法<br>用<code>f&#39;{a}{b}{c}&#39;</code>即可代替<code>&#39;{a}{b}{c}&#39;.format(a=a,b=b,c=c)</code>。<br>f字符串中不允许使用<code>\</code>转义字符。</p>
+<p>与<code>%</code>格式符的不同：<br>Sign对齐使用<code>&lt;</code>，<code>&gt;</code> 和 <code>^</code> 而不是 <code>+</code> 和 <code>-</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%-6d000'</span>%<span class="number">233</span></span><br><span class="line"><span class="number">233</span>   <span class="number">000</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'<span class="subst">&#123;<span class="number">233</span>:&lt;<span class="number">6</span>d&#125;</span>000'</span></span><br><span class="line"><span class="number">233</span>   <span class="number">000</span></span><br></pre></td></tr></table></figure></div>
+
+<p>以<code>datetime.time</code>对象为例的其他实现了魔术方法<code>__format__</code>的对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'现在是<span class="subst">&#123;night:%Z&#125;</span>时间<span class="subst">&#123;night:%H&#125;</span>点<span class="subst">&#123;night:%M&#125;</span>分'</span></span><br><span class="line"><span class="string">'现在是北京时间22点30分'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在python3.8以上</p>
+<p>f字符串中可以直接使用说明符<code>=</code>调试，</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python = <span class="number">3.8</span>	</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;python=&#125;</span>"</span>	</span><br><span class="line"><span class="string">'python=3.8'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数str-和repr"><a href="#内置函数str-和repr" class="headerlink" title="内置函数str()和repr()"></a>内置函数<code>str()</code>和<code>repr()</code></h3><p><code>str()</code>不止是构造函数（<code>class</code>）实例化一个<code>str</code>对象，<br><code>str(o)</code>它也是对参数对象进行魔术方法的调用：<code>o.__str__()</code>，将参数转换为了<code>str</code>对象<br>无论是<code>print(o)</code>，<code>f&#39;{o}&#39;</code>, <code>&quot;%s&quot;%o</code>，它们都是对魔术方法 <code>o.__str__()</code>的调用</p>
+<hr>
+<p>而<code>repr(o)</code>，<code>f&#39;{o!r}&#39;</code>, <code>&quot;%r&quot;%o</code>则是对魔术方法 <code>o.__repr__()</code>的调用，<br>它会以字面量的形式呈现对象，即字符串带有引号，列表变成<code>&#39;[&#39;+ repr(成员) + &#39;,]&#39;</code><br><strong>f字符串</strong>中<code>f&#39;{o=}&#39;</code>就相当于<code>f&#39;o={repr(o)}&#39;</code></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(十二)</title>
+    <url>/Python/Python_id_27.html</url>
+    <content><![CDATA[<h2 id="字典和集合"><a href="#字典和集合" class="headerlink" title="字典和集合"></a>字典和集合</h2><blockquote>
+<p>几种数据类型在内存中的访问方式</p>
+<ul>
+<li>直接访问：数字</li>
+<li>顺序访问：字符串 列表 元组</li>
+<li>映射访问：字典</li>
+</ul>
+</blockquote>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><blockquote>
+<h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>可迭代类型 可变类型 无序类型 一系列键值对key-value用冒号分割，格式如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">d = &#123;<span class="string">'key1'</span> : <span class="string">'value1'</span>, <span class="string">'key2'</span> : <span class="string">'value2'</span> &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>key必须是<strong>不可变类型</strong>的数据（否则报错unhashable）<br>value可以是任意数据类型<br>如果key使用布尔值会被转换为1和0</p>
+</blockquote>
+<p>在python3.6以上版本中，字典默认按插入的顺序排列了键值对。<br>在python3.8以上版本中，字典可以使用 <code>reversed()</code>按插入顺序反向迭代</p>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h5 id="in成员运算符"><a href="#in成员运算符" class="headerlink" title="in成员运算符"></a>in成员运算符</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">'key1'</span> <span class="keyword">in</span> d <span class="comment">#判断键是否存在 返回布尔值</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="getitem操作"><a href="#getitem操作" class="headerlink" title="getitem操作"></a>getitem操作</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'key1'</span>]</span><br><span class="line"><span class="string">'value1'</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="setitem操作"><a href="#setitem操作" class="headerlink" title="setitem操作"></a>setitem操作</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">d[<span class="string">'key1'</span>] = <span class="string">'debu'</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="有关的内置函数"><a href="#有关的内置函数" class="headerlink" title="有关的内置函数"></a>有关的内置函数</h4><p><code>len(dict)</code>返回键的数目</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROLOG"><figure class="iseeu highlight /prolog"><table><tr><td class="code"><pre><span class="line">zip()<span class="string">`以拉链法**惰性**生成键值对：`</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>),(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)<span class="string">` -&gt;`</span>[(<span class="string">'a'</span>,<span class="number">1</span>),(<span class="string">'b'</span>,<span class="number">2</span>)(<span class="string">'c'</span>,<span class="number">3</span>)]</span><br><span class="line">dict()<span class="string">` 以键值对生成字典：`</span>[(<span class="string">'a'</span>,<span class="number">1</span>),(<span class="string">'b'</span>,<span class="number">2</span>),(<span class="string">'c'</span>,<span class="number">3</span>)]<span class="string">` -&gt; `</span>&#123;<span class="string">'a'</span>:<span class="number">1</span>,<span class="string">'b'</span>:<span class="number">2</span>,<span class="string">'c'</span>:<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><p><code>dict.fromkeys(可迭代对象,value)</code>静态方法生成字典，所有键的值都为value</p>
+<p><code>.copy()</code> 浅拷贝</p>
+<h5 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h5><p><code>.setdefault(key, value)</code>已存在则返回已存在的value，不存在则设置。</p>
+<p><code>.update(key=value)</code> <code>.update(dict)</code>设置或覆盖，这里可对比之后章节函数的剩余参数。</p>
+<p><code>.pop(key, None)</code>删除并返回其value，不存在则返回第二个参数，第二个参数默认为None。</p>
+<p><code>.popitem()</code>随机删一个并返回其键值对。</p>
+<p><code>.clear()</code>清空。</p>
+<p><code>del d[key1]</code> 删除一组键值对。</p>
+<p><code>.get(key, None)</code>查找 不存在则返回第二个参数 默认为None。</p>
+<p><code>.items()</code>返回键值对组成的列表。功能与<code>dict()</code>相反。</p>
+<p><code>.keys()</code>返回键组成的列表。</p>
+<p><code>.values()</code>返回值组成的列表。</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><blockquote>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>可迭代类型 可变类型 无序类型 , 元素不重复</p>
+<p>生成方式:</p>
+<ol>
+<li><code>{1,2,3,4,5}</code></li>
+<li><code>set(可迭代对象)</code></li>
+</ol>
+</blockquote>
+<p>规范的初始化</p>
+<p>创建一个空字典或空集合的时候使用<code>dict()</code>和<code>set()</code><br>而不是使用<code>{}</code></p>
+<h4 id="增删方法"><a href="#增删方法" class="headerlink" title="增删方法"></a>增删方法</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">s1.add(p_obj)</span><br><span class="line">s1.update(s2) </span><br><span class="line">s.claer()<span class="comment">#清空</span></span><br><span class="line">s.pop()<span class="comment">#随机删除一个并返回其值</span></span><br><span class="line">s.remove(value) <span class="comment">#删除 没有=&gt;报错</span></span><br><span class="line">s.discard(value)<span class="comment">#删除 没有不报错</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">s.copy()          <span class="comment">#如果是list直接使用切片就可以浅拷贝arr2=arr[:]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="集合之间运算"><a href="#集合之间运算" class="headerlink" title="集合之间运算"></a>集合之间运算</h4><table>
+<thead>
+<tr>
+<th align="left">运算</th>
+<th align="left">运算符表示</th>
+<th align="left">对象方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">交集</td>
+<td align="left">s1&amp;s2</td>
+<td align="left">s1.intersection(s2)</td>
+</tr>
+<tr>
+<td align="left">并集</td>
+<td align="left">s1|s2</td>
+<td align="left">s1.union(s2)</td>
+</tr>
+<tr>
+<td align="left">差集</td>
+<td align="left">s1-s2</td>
+<td align="left">s1.difference(s2)</td>
+</tr>
+<tr>
+<td align="left">交叉补集</td>
+<td align="left"></td>
+<td align="left">s1.symmetric_difference(s2)</td>
+</tr>
+</tbody></table>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">s1.issubset(s2)   <span class="comment">#s1是否是s2子集</span></span><br><span class="line">s1.issuperset(s2)   <span class="comment">#s1是否是s2超集</span></span><br><span class="line">s1.intersection_update(s2)  </span><br><span class="line">s1.difference_update(s2)</span><br><span class="line">s1.symmetric_difference_update(s2)</span><br></pre></td></tr></table></figure></div>
+
+<p>内置函数 <code>set()</code>和 <code>frozenset()</code>分别用来生成可变和不可变的集合</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(十一)</title>
+    <url>/Python/Python_id_26.html</url>
+    <content><![CDATA[<h2 id="列表和元组"><a href="#列表和元组" class="headerlink" title="列表和元组"></a>列表和元组</h2><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><blockquote>
+<h4 id="list"><a href="#list" class="headerlink" title="#list"></a><a href="http://nanarino.metoyun.com/py/5-列表和元组.html#list" target="_blank" rel="noopener">#</a>list</h4><p>可迭代类型 可变类型 有序类型</p>
+<p>使用方括号来创建列表</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">li = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;li[<span class="number">0</span>]</span><br><span class="line"><span class="string">'a'</span></span><br><span class="line">&gt;&gt;&gt;li[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>与字符串切片功能不同之处：</p>
+<ul>
+<li>进行获取、切片、赋值给其他变量等 （getitem）得到的是其浅拷贝</li>
+<li>进行直接赋值（setitem）则会改变原列表</li>
+</ul>
+<h4 id="getitem操作"><a href="#getitem操作" class="headerlink" title="getitem操作"></a>getitem操作</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">a[:<span class="number">1</span>][<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment">#打印结果[1,2]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="setitem操作"><a href="#setitem操作" class="headerlink" title="setitem操作"></a>setitem操作</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">a[:<span class="number">1</span>] = [<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment">#打印结果[5,2]</span></span><br></pre></td></tr></table></figure></div>
+
+<p>关于切片</p>
+<p>可以在学习面向对象的魔术方法后再深入研究</p>
+<h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">[]+[]  <span class="comment">#拼合</span></span><br><span class="line">[]*int  <span class="comment">#重复</span></span><br><span class="line">item <span class="keyword">in</span> [] <span class="comment">#判断成员是否存在 返回布尔值</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h4><ul>
+<li><code>len(list)</code> 获取长度</li>
+<li><code>list()</code> 转化为列表类型</li>
+<li><code>max()</code>/<code>min()</code>求最值，可选参数key进行操作</li>
+<li><code>reversed(list)</code>临时翻转，不限于列表</li>
+<li><code>sorted(iterable)</code>临时排序，不限于列表 ，可选key和倒序。</li>
+<li><code>sum</code>所有成员是数字的时候可用，求和，不限于列表</li>
+</ul>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><code>&#39;&#39;.join(list)</code> 将列表转为字符串</li>
+<li><code>.count(value)</code>计次</li>
+<li><code>.copy()</code>浅拷贝，和切片<code>[:]</code>等效</li>
+</ul>
+<h5 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h5><ul>
+<li><code>.append(p)</code> 追加</li>
+<li><code>.extend(iterable)</code>迭代追加</li>
+<li><code>.insert(index,obj)</code>插入</li>
+<li><code>.pop(index=-1)</code> 删除默认最后一个 并返回它的值</li>
+<li><code>.remove(value)</code> 删除</li>
+<li><code>del</code> 删除 索引/切片</li>
+<li><code>.clear()</code> 清空</li>
+<li><code>.index(value)</code>查询是否存在,不存在会报错</li>
+</ul>
+<h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><p><code>.sort()</code>永久排序<br><code>.reverse()</code>倒序，相当于<code>li[:] = li[::-1]</code>的效果</p>
+<p>.sort()即list.sort(self)方法，和全局函数sorted(iterable)</p>
+<p>它们本质是<strong>快排算法</strong>两两比较大小<br>它们的参数完全一致（sorted不限于列表）。不同的是：<br>列表的sort方法无返回值，直接修改self<br>内置函数sorted，返回临时排序后的列表</p>
+<h3 id="成员赋值"><a href="#成员赋值" class="headerlink" title="成员赋值"></a>成员赋值</h3><h4 id="逐个赋值"><a href="#逐个赋值" class="headerlink" title="逐个赋值"></a>逐个赋值</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c = arr</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="获取剩余"><a href="#获取剩余" class="headerlink" title="获取剩余"></a>获取剩余</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c, *d, e = arr1</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e</span><br><span class="line"><span class="number">9</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>此方法不限于列表</p>
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><blockquote>
+<h4 id="tuple"><a href="#tuple" class="headerlink" title="#tuple"></a><a href="http://nanarino.metoyun.com/py/5-列表和元组.html#tuple" target="_blank" rel="noopener">#</a>tuple</h4><p>可迭代类型 不可变类型 有序类型</p>
+<p>元组中只包含一个元素时，必须在末尾元素后面添加逗号 （推荐所有情况都加逗号）<br>创建元组使用小括号</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">tup = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>,)</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="索引和切片-1"><a href="#索引和切片-1" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;tup[<span class="number">1</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line">&gt;&gt;&gt;tup[:<span class="number">1</span>]</span><br><span class="line">(<span class="number">1</span>,)</span><br></pre></td></tr></table></figure></div>
+
+<p>和字符串的索引和切片操作几乎一样。<br>元组的切片和索引<strong>只读</strong>（只有getitem操作）。</p>
+<p>内置函数<code>tuple()</code>可以将对象转化为元组</p>
+<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><code>.count()</code></li>
+<li><code>.index()</code></li>
+</ul>
+<p>对象方法是返回新的对象还是修改对象本身</p>
+<p>一般来说，对于可变类型 对象方法如<code>list.sort()</code>会影响到self本身<br>而对于不可变类型，对象方法如<code>str.replace()</code>会返回一个预期的新对象</p>
+<h3 id="内置函数enumerate"><a href="#内置函数enumerate" class="headerlink" title="内置函数enumerate()"></a>内置函数enumerate()</h3><p><code>for i in 列表</code> 只能遍历出列表成员，如果需要同时遍历出索引可以使用：<br><code>enumerate(sequence, [start=0])</code> 意为枚举，将一个可迭代的对象，同时列出数据和数据下标<br>可以用list()函数把enumerate()返回的枚举对象转为一个列表</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;li = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]</span><br><span class="line">&gt;&gt;&gt;list(enumerate(li))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">'a'</span>), (<span class="number">1</span>, <span class="string">'b'</span>), (<span class="number">2</span>, <span class="string">'c'</span>)]</span><br></pre></td></tr></table></figure></div>
+
+<p>一般直接在for循环中使用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">namelist = [<span class="string">'夏色祭'</span>,<span class="string">'赤井心'</span>,<span class="string">'湊阿夸'</span>]</span><br><span class="line"><span class="keyword">for</span> i, name <span class="keyword">in</span> enumerate(namelist):</span><br><span class="line">	print(i,name)</span><br><span class="line"></span><br><span class="line"><span class="string">'''打印内容</span></span><br><span class="line"><span class="string">0 夏色祭</span></span><br><span class="line"><span class="string">1 赤井心</span></span><br><span class="line"><span class="string">2 湊阿夸</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数slice"><a href="#内置函数slice" class="headerlink" title="内置函数slice()"></a>内置函数slice()</h3><p>意为切片<br><code>slice(stop)</code><br><code>slice(start, stop[, step])</code></p>
+<p>实例化一个切片对象，用来代替切片中的中括号内的内容</p>
+<ul>
+<li>start – 起始位置</li>
+<li>stop – 结束位置</li>
+<li>step – 间距</li>
+</ul>
+<p>切片对象用索引的写法<code>[slice(1,2)]</code>可以达到切片的效果<code>[1:2]</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = slice(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">slice(<span class="literal">None</span>, <span class="number">10</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = slice(<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">slice(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.start)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.stop)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.step)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li[slice(<span class="number">2</span>,<span class="number">6</span>)]</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内置函数range"><a href="#内置函数range" class="headerlink" title="内置函数range()"></a>内置函数range()</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="code"><pre><span class="line">range(<span class="keyword">stop</span>)<span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="keyword">range</span>(<span class="keyword">start</span>, <span class="keyword">stop</span>[, step])</span><br></pre></td></tr></table></figure></div>
+
+<p>参数类似切片，可创建一个整数列表，可以很方便的用在for循环中，<br>一般用来固定循环for次数，与其他语言中的`for(i=0; i效果相似</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Python3.x 中 range() 函数返回的结果是一个整数序列的可迭代对象,而不是列表</span></span><br><span class="line"><span class="string">可以用list()函数把range()返回的可迭代对象转为一个列表 </span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>打印一个九九乘法表，来试试吧，例如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a=<span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        a+=(str(j)+<span class="string">"×"</span>+str(i)+<span class="string">"="</span>+str(j*i)+<span class="string">" "</span>)</span><br><span class="line">    a+=<span class="string">"\n"</span>   </span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(十)</title>
+    <url>/Python/Python_id_25.html</url>
+    <content><![CDATA[<h2 id="数字和字符串"><a href="#数字和字符串" class="headerlink" title="数字和字符串"></a>数字和字符串</h2><h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><blockquote>
+<p>属于不可变类型</p>
+<p>使用字面量直接创建 包括：<br>十进制整型<code>int</code> 浮点型<code>float</code> 复数<code>complex</code> 布尔型<code>bool</code></p>
+</blockquote>
+<h4 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h4><p>和其他语言一样使用算术运算符<code>+</code>, <code>-</code>, <code>*</code> 和 <code>/</code> 取模<code>%</code><br>在整数除法中，除法 <code>/</code> 总是返回一个浮点数，<br>如果只想得到整数的结果，丢弃可能的分数部分，可以使用运算符 <code>//</code><br>使用 <code>**</code> 操作来进行幂运算<br>位运算符和其他语言一样 左移右移异或等</p>
+<blockquote>
+<p>利用位运算将变量a和b的值交换</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = a ^ b</span><br><span class="line">b = a ^ b</span><br><span class="line">a = a ^ b</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="常见属性"><a href="#常见属性" class="headerlink" title="常见属性"></a>常见属性</h4><p><code>.real</code> 实部<br><code>.imag</code> 虚部（字面量的虚数单位为<code>j</code>）。<br>整型：<code>.numerator</code> 分子 是它本身。<br>整型：<code>.denominator</code> 分母 恒为1。</p>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><p><code>.bit_length()</code> 得到指定数值的二进制的长度数</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">100</span></span><br><span class="line">print(i.bit_length())</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">                  bit_length</span></span><br><span class="line"><span class="string">1     0000 0001       1</span></span><br><span class="line"><span class="string">2     0000 0010       2</span></span><br><span class="line"><span class="string">3     0000 0011       2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h4><ul>
+<li><code>abs()</code>求绝对值 复数求模</li>
+<li><code>max()</code>/<code>min()</code>求最值</li>
+<li><code>int(x)</code> 将x转换为一个整数</li>
+<li><code>float(x)</code> 将x转换到一个浮点数</li>
+<li><code>pow(a,b)</code> 相当于<code>a**b</code></li>
+<li><code>pow(a,b,c)</code> 相当于<code>a**b%c</code></li>
+<li><code>round(num)</code> 四舍五入（实际是不是真正的四舍五入，是以5.0为界）</li>
+<li><code>divmod(被除数,除数)</code> 返回元组:<code>(商,余数)</code></li>
+<li><code>complex(x, y)</code> 以x为实部，y为虚部，实例化一个复数</li>
+</ul>
+<h4 id="有关进制"><a href="#有关进制" class="headerlink" title="有关进制"></a>有关进制</h4><p>其他进制的<strong>字面量</strong>可以直接转换为<code>int</code>类型，也可以相互运算</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0x29a</span></span><br><span class="line"><span class="number">666</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0x29a</span> - <span class="number">666</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其他进制的<strong>字符串字面量</strong>，无法直接由<code>str()</code>函数获得</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">0x29a</span>) == <span class="string">'0x29a'</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="number">0x29a</span>) == <span class="string">'666'</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></div>
+
+<p>进制转换</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">255</span>)</span><br><span class="line"><span class="string">'0b11111111'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>oct(<span class="number">255</span>)</span><br><span class="line"><span class="string">'0o377'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">255</span>)</span><br><span class="line"><span class="string">'0xff'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>若内置函数 <code>int()</code> 传入了两个参数，<br><code>int(x, base)</code> 则第一个参数必需是字符串类型，其第二个参数是原进制。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'0xff'</span>, <span class="number">16</span>)</span><br><span class="line"><span class="number">255</span></span><br></pre></td></tr></table></figure></div>
+
+<table>
+<thead>
+<tr>
+<th>转换为↓</th>
+<th>2进制</th>
+<th>8进制</th>
+<th>10进制</th>
+<th>16进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2进制</td>
+<td><code>x</code></td>
+<td><code>bin(int(x, 8))</code></td>
+<td><code>bin(int(x, 10))</code></td>
+<td><code>bin(int(x, 16))</code></td>
+</tr>
+<tr>
+<td>8进制</td>
+<td><code>oct(int(x, 2))</code></td>
+<td><code>x</code></td>
+<td><code>oct(int(x, 10))</code></td>
+<td><code>oct(int(x, 16))</code></td>
+</tr>
+<tr>
+<td>10进制</td>
+<td><code>int(x, 2)</code></td>
+<td><code>int(x, 8)</code></td>
+<td><code>x</code></td>
+<td><code>int(x, 16)</code></td>
+</tr>
+<tr>
+<td>16进制</td>
+<td><code>hex(int(x, 2))</code></td>
+<td><code>hex(int(x, 8))</code></td>
+<td><code>hex(int(x, 10))</code></td>
+<td><code>x</code></td>
+</tr>
+</tbody></table>
+<h4 id="有关模块"><a href="#有关模块" class="headerlink" title="有关模块"></a>有关模块</h4><p><code>decimal</code>模块提供了 <code>Decimal</code> 数据类型用于浮点数计算，拥有更高的精度用来解决如下情况：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0.1</span> + <span class="number">0.2</span></span><br><span class="line"><span class="number">0.30000000000000004</span></span><br></pre></td></tr></table></figure></div>
+
+<p>但是在精度要求不高的时候可以使用字符串格式化来解决。</p>
+<ul>
+<li><code>math</code>模块：提供基本的三角函数指数对数等方法,数域只到实数(负数不能用它开平方)</li>
+<li><code>cmath</code>模块：同<code>math</code>模块, 数域扩充到复数 ,还提供了转换极坐标系的方法</li>
+<li><code>numpy</code>模块：用于复杂的数学问题:排列组合 矩阵等 这里不过多讨论</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><blockquote>
+<h4 id="str"><a href="#str" class="headerlink" title="str"></a>str</h4><p>可迭代类型 不可变类型 有序类型.</p>
+<p>使用字面量引号(<code>&#39;</code>或<code>&quot;</code>)来创建字符串<br>在python3中，字符串都是Unicode字符，相当于python2中字面量前面加<code>u</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">var1 = <span class="string">'我想起高兴的事情!'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#python2中的中文字符最好在前面加u </span></span><br><span class="line"><span class="comment">#var1 = u'我想起高兴的事情!'</span></span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h4 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">var1[<span class="number">0</span>]</span><br><span class="line">var1[<span class="number">1</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>对于切片：</p>
+<ul>
+<li>切片遵循左闭右开原则。</li>
+<li>切片的冒号左边不写默认是0，右边不写默认是长度-1。</li>
+<li>切片还可以使用第二个冒号<code>[::step]</code>，代表间距，为-1时可以倒序。</li>
+</ul>
+<p>切片和索引<strong>只读</strong>（只有getitem操作）</p>
+<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><p><code>\n</code>换行、 <code>\t</code>制表符键盘的tab、 <code>\\</code>反斜线\ 、 <code>\/</code>斜线/</p>
+<p><code>\&#39;</code> <code>\&quot;</code>引号前面的\有时候必须有，有时候不能有，有时候是可有可无的。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第二个单引号前不能有\</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'\\\\\'</span></span><br><span class="line"><span class="string">SyntaxError: EOL while scanning string literal</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#第二个单引号前必须有\</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; eval("'</span>\\\\\<span class="string">'")</span></span><br><span class="line"><span class="string">'</span>\\<span class="string">'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>用原始字符串就能解决这个问题。</p>
+<p>关于换行</p>
+<p>换行风格有多种，转义字符组合各不相同，可以参阅有关文档</p>
+<h4 id="原始字符串"><a href="#原始字符串" class="headerlink" title="原始字符串"></a>原始字符串</h4><p>在字符串的前面加<code>r</code>可以显示原始字符串（Raw String）<br>原始字符串常被用来书写正则表达式</p>
+<p>内置函数<code>repr()</code>可以查看原始字符串</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">r"\n"</span></span><br><span class="line"><span class="string">'\\n'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">r"\n"</span>)</span><br><span class="line">\n</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>repr(<span class="string">r"\n"</span>)</span><br><span class="line"><span class="string">"'\\\\n'"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(repr(<span class="string">r"\n"</span>))</span><br><span class="line"><span class="string">'\\n'</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="二进制字符串"><a href="#二进制字符串" class="headerlink" title="二进制字符串"></a>二进制字符串</h4><p>实际上它已经不是<code>str</code>类型。二进制字符串字面量只包含ASCII字符。<br>在字符串的前面加<code>b</code>可以当成二进制字符串识别（Bytes String）<br>等价于使用内置函数<code>bytes()</code>和<code>str.encode()</code>。</p>
+<p><code>str</code>类型转化为<code>bytes</code>类型的方法如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">b'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span><span class="comment">#只包含ASCII字符 可直接在字符串前面加上b</span></span><br><span class="line"><span class="string">b'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes(<span class="string">"eJwLKs3NTNRRKC7NzgQAF/kEBw=="</span>,<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="string">b'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span>.encode() <span class="comment">#默认utf-8</span></span><br><span class="line"><span class="string">b'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str.encode(<span class="string">'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span>) <span class="comment">#同上，静态方法的形式调用</span></span><br><span class="line"><span class="string">b'eJwLKs3NTNRRKC7NzgQAF/kEBw=='</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>bytes</code>类型转化为<code>str</code>类型的方法如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="string">b'\xe4\xbd\xa0\xe5\xa5\xbd'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="string">'你好'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">b'\xe4\xbd\xa0\xe5\xa5\xbd'</span>.decode(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="string">'你好'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes.decode(<span class="string">b'\xe4\xbd\xa0\xe5\xa5\xbd'</span>,<span class="string">'utf-8'</span>)<span class="comment">#同上，静态方法的形式调用</span></span><br><span class="line"><span class="string">'你好'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>静态方法的方式来调用</p>
+<p>类上定义的对象方法以静态方法的形式调用，只需要第一个参数是实例对象（<code>self</code>）即可。<br>这将在会在之后面向对象章节中介绍。</p>
+<h4 id="运算符操作"><a href="#运算符操作" class="headerlink" title="运算符操作"></a>运算符操作</h4><ul>
+<li><code>str+str</code> 拼接</li>
+<li><code>str*int</code> 重复拼接</li>
+<li><code>in</code> <code>not in</code>是否包含给定的字符</li>
+<li><code>%</code> 格式化 后面专门讲</li>
+</ul>
+<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li><code>.encode()</code>编码，默认编码为utf-8，最终返回值是bytes类型</li>
+<li><code>.decode()</code>解码，<strong>已废弃</strong>，但python2中依然可用来转换中文等的编码</li>
+</ul>
+<h5 id="替换分割"><a href="#替换分割" class="headerlink" title="替换分割"></a>替换分割</h5><p>不会修改原字符串，只会返回预期的字符串。</p>
+<ul>
+<li><code>.split(str)</code>以str分割为list，不能传空字符串。</li>
+<li><code>.join(list)</code>(将可迭代对象)以字符串拼接</li>
+<li><code>.replace()</code> 替换</li>
+<li><code>.strip()</code> <code>.lstrip()</code> <code>.rstrip()</code>去掉两端空格/指定字符</li>
+<li><code>.partition(str)</code>分割返回元组</li>
+<li><code>.translate</code>(翻译表)过滤</li>
+</ul>
+<h5 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h5><ul>
+<li><code>.find(str)</code>找不到返回<code>-1</code></li>
+<li><code>.index(str)</code>找不到报错</li>
+<li><code>.count(str)</code>返回出现次数</li>
+</ul>
+<h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><ul>
+<li><code>.format()</code>格式化字符串 后面专门讲</li>
+<li><code>.expandtabs(int)</code>用制表符占位分组</li>
+<li><code>.zfill(2)</code> 不足两位开头补0，功能与<code>&#39;%02d&#39;%num</code>一样</li>
+<li><code>.center()</code> <code>.ljust()</code> <code>.rjust()</code> 几种填充方法</li>
+</ul>
+<h5 id="大小转换"><a href="#大小转换" class="headerlink" title="大小转换"></a>大小转换</h5><ul>
+<li><code>.swapcase()</code>大小写翻转</li>
+<li><code>.title()</code>首字母大写</li>
+<li><code>.capitalize()</code>首字母大写</li>
+<li><code>.upper()</code>全部罗马字大写</li>
+<li><code>.lower()</code>全部罗马字小写</li>
+<li><code>.casefold()</code>全部字符小写</li>
+</ul>
+<p>更多方法可以使用内置函数<code>dir()</code>来查看</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dir(str)</span><br><span class="line">[<span class="string">'__add__'</span>, <span class="string">'__class__'</span>, <span class="string">'__contains__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__dir__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__eq__'</span>,</span><br><span class="line"> <span class="string">'__format__'</span>, <span class="string">'__ge__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__getitem__'</span>, <span class="string">'__getnewargs__'</span>, <span class="string">'__gt__'</span>,</span><br><span class="line"> <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__init_subclass__'</span>, <span class="string">'__iter__'</span>, <span class="string">'__le__'</span>, <span class="string">'__len__'</span>, <span class="string">'__lt__'</span>,</span><br><span class="line"> <span class="string">'__mod__'</span>, <span class="string">'__mul__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>,</span><br><span class="line"> <span class="string">'__rmod__'</span>, <span class="string">'__rmul__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclasshook__'</span>,</span><br><span class="line"> <span class="string">'capitalize'</span>, <span class="string">'casefold'</span>, <span class="string">'center'</span>, <span class="string">'count'</span>, <span class="string">'encode'</span>, <span class="string">'endswith'</span>, <span class="string">'expandtabs'</span>, <span class="string">'find'</span>,</span><br><span class="line"> <span class="string">'format'</span>, <span class="string">'format_map'</span>, <span class="string">'index'</span>, <span class="string">'isalnum'</span>, <span class="string">'isalpha'</span>, <span class="string">'isascii'</span>, <span class="string">'isdecimal'</span>,</span><br><span class="line"> <span class="string">'isdigit'</span>, <span class="string">'isidentifier'</span>, <span class="string">'islower'</span>, <span class="string">'isnumeric'</span>, <span class="string">'isprintable'</span>, <span class="string">'isspace'</span>, <span class="string">'istitle'</span>,</span><br><span class="line"> <span class="string">'isupper'</span>, <span class="string">'join'</span>, <span class="string">'ljust'</span>, <span class="string">'lower'</span>, <span class="string">'lstrip'</span>, <span class="string">'maketrans'</span>, <span class="string">'partition'</span>, <span class="string">'replace'</span>,</span><br><span class="line"> <span class="string">'rfind'</span>, <span class="string">'rindex'</span>, <span class="string">'rjust'</span>, <span class="string">'rpartition'</span>, <span class="string">'rsplit'</span>, <span class="string">'rstrip'</span>, <span class="string">'split'</span>, <span class="string">'splitlines'</span>,</span><br><span class="line"> <span class="string">'startswith'</span>, <span class="string">'strip'</span>, <span class="string">'swapcase'</span>, <span class="string">'title'</span>, <span class="string">'translate'</span>, <span class="string">'upper'</span>, <span class="string">'zfill'</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p><code>isdigit()</code> 是否纯数字 <code>isascii()</code> 是否纯ascii字符 等。。。</p>
+<h4 id="相关的内置函数"><a href="#相关的内置函数" class="headerlink" title="相关的内置函数"></a>相关的内置函数</h4><ul>
+<li><code>repr()</code>转化为原始字符串类型（调用魔术方法<code>__repr__</code>）</li>
+<li><code>str()</code>转化为字符串类型（调用魔术方法<code>__str__</code>，不存在则调用<code>__repr__</code>）<br>将二进制字符串转为字符串类型：<code>str(msg,&#39;utf-8&#39;)</code></li>
+<li><code>len(var1)</code>返回字符串长度</li>
+<li><code>bytes(str, encoding=&#39;utf-8&#39;)</code>编码</li>
+<li><code>print()</code>在控制台中调用<code>__str__</code>并显示</li>
+</ul>
+<h4 id="for-in-中使用字符串"><a href="#for-in-中使用字符串" class="headerlink" title="for in 中使用字符串"></a>for in 中使用字符串</h4><p>循环字符串，将会逐个字符的打印：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">'你想吃桃子'</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> a:</span><br><span class="line">	print(char)</span><br></pre></td></tr></table></figure></div>
+
+<p>当然，你也可以：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'\n'</span>.join(<span class="string">'你想吃桃子'</span>))</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(九)</title>
+    <url>/Python/Python_id_24.html</url>
+    <content><![CDATA[<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h3 id="异常类"><a href="#异常类" class="headerlink" title="异常类"></a>异常类</h3><p>Python2在exceptions模块内建了很多的异常类型，通过使用dir函数来查看exceptions中的异常类型，如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python27</span></span><br><span class="line"><span class="keyword">import</span> exceptions</span><br><span class="line"><span class="keyword">print</span> dir(exceptions)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">===</span></span><br><span class="line"><span class="string">['ArithmeticError', 'AssertionError', 'AttributeError',</span></span><br><span class="line"><span class="string">'BaseException', 'BufferError', 'BytesWarning',</span></span><br><span class="line"><span class="string">'DeprecationWarning', 'EOFError', 'EnvironmentError',</span></span><br><span class="line"><span class="string">'Exception', 'FloatingPointError', 'FutureWarning',</span></span><br><span class="line"><span class="string">'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning',</span></span><br><span class="line"><span class="string">'IndentationError', 'IndexError', 'KeyError',</span></span><br><span class="line"><span class="string">'KeyboardInterrupt', 'LookupError', 'MemoryError',</span></span><br><span class="line"><span class="string">'NameError', 'NotImplementedError', 'OSError',</span></span><br><span class="line"><span class="string">'OverflowError', 'PendingDeprecationWarning',</span></span><br><span class="line"><span class="string">'ReferenceError', 'RuntimeError', 'RuntimeWarning',</span></span><br><span class="line"><span class="string">'StandardError', 'StopIteration', 'SyntaxError',</span></span><br><span class="line"><span class="string">'SyntaxWarning', 'SystemError', 'SystemExit',</span></span><br><span class="line"><span class="string">'TabError', 'TypeError', 'UnboundLocalError',</span></span><br><span class="line"><span class="string">'UnicodeDecodeError', 'UnicodeEncodeError',</span></span><br><span class="line"><span class="string">'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning',</span></span><br><span class="line"><span class="string">'UserWarning', 'ValueError', 'Warning',</span></span><br><span class="line"><span class="string">'ZeroDivisionError', '__doc__', '__name__', '__package__']</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在python3中它们是全局的。</p>
+<h4 id="捕获异常和获取异常信息"><a href="#捕获异常和获取异常信息" class="headerlink" title="捕获异常和获取异常信息"></a>捕获异常和获取异常信息</h4><p>和C#中的try/catch类似，Python中使用try/except关键字来捕捉异常，如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">2</span>/<span class="number">0</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    print(<span class="string">'除数不能为0'</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>在一个except语句只捕捉其后声明的异常类型，如果可能会抛出的是其他类型的异常就需要再增加一个except语句了，或者也可以指定一个更通用的异常类型比如：Exception，(也可以不接任何异常和参数直接捕获,但是pycharm会给出一个警告的) 如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">2</span>/<span class="string">'0'</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    print(<span class="string">'除数不能为0'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception:</span><br><span class="line">    print(<span class="string">'其他类型异常'</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>每个异常都会有一些异常信息，一般情况下我们应该把这些异常信息记录下来：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">2</span>/<span class="string">'0'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:    <span class="comment"># Exception位置也可以放一个错误类元组</span></span><br><span class="line">    <span class="comment"># unsupported operand type(s) for /: 'int' and 'str'</span></span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure></div>
+
+<p>finally子句和try子句联合使用但是和except语句不同，finally不管try子句内部是否有异常发生，都会执行finally子句内的代码。所有一般情况下，finally自己常常用于关闭文件或者在socket中。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">2</span>/<span class="string">'0'</span>)</span><br><span class="line"><span class="keyword">except</span> (ZeroDivisionError,Exception):</span><br><span class="line">    print(<span class="string">'发生了一个异常'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'正常得出了计算结果'</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'不管是否发生异常都执行'</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="抛出异常和自定义异常"><a href="#抛出异常和自定义异常" class="headerlink" title="抛出异常和自定义异常"></a>抛出异常和自定义异常</h4><p>Python中的raise关键字用于引发一个异常，基本上和C#和Java中的throw关键字相同，如下所示：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ThorwErr</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">"抛出一个异常"</span>) </span><br><span class="line"><span class="comment"># Exception: 抛出一个异常 </span></span><br><span class="line">ThorwErr()</span><br></pre></td></tr></table></figure></div>
+
+<p>raise关键字后面是抛出是一个通用的异常类型(Exception)，一般来说抛出的异常越详细越好。<br>捕捉到了异常，但是又想重新引发它(传递异常)，可以使用不带参数的raise语句即可：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MuffledCalculator</span>:</span></span><br><span class="line">    muffled = <span class="literal">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc</span><span class="params">(self,expr)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> eval(expr)</span><br><span class="line">        <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">            <span class="keyword">if</span> self.muffled:</span><br><span class="line">                print(<span class="string">'Division by zero is illegal'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">raise</span></span><br></pre></td></tr></table></figure></div>
+
+<p>Python中也可以自定义自己的特殊类型的异常，只需要要从Exception类继承(直接或间接)即可</p>
+<h3 id="警告类"><a href="#警告类" class="headerlink" title="警告类"></a>警告类</h3><p>和异常类的exceptions模块一样，警告类型在warnings模块中，<br>但是事实上Warning基类是Exception基类的子类。</p>
+<h4 id="发出警告"><a href="#发出警告" class="headerlink" title="发出警告"></a>发出警告</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.warn(<span class="string">'使用了已弃用功能'</span>, DeprecationWarning)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="忽略警告"><a href="#忽略警告" class="headerlink" title="忽略警告"></a>忽略警告</h4><p>调用 <code>filterwarnings()</code> 将规则添加到警告过滤器，<code>simplefilter()</code>是其简易版。<br>调用 <code>resetwarnings()</code> 将警告过滤器重置为默认状态。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.simplefilter(<span class="string">"ignore"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="警告上升为异常"><a href="#警告上升为异常" class="headerlink" title="警告上升为异常"></a>警告上升为异常</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.simplefilter(<span class="string">"error"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h3><p>以下内容可能超出理解，以后请回看。</p>
+<h4 id="with-as-语句"><a href="#with-as-语句" class="headerlink" title="with as 语句"></a>with as 语句</h4><p>在使用内置函数<code>open()</code>读写文件的时候需要繁琐的方法来捕获异常：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'1.txt'</span>)</span><br><span class="line">    f.read()</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure></div>
+
+<p>大可不必如此，<code>open()</code>返回的文件句柄对象实现了上下文管理，只需要：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read()</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="实现上下文协议"><a href="#实现上下文协议" class="headerlink" title="实现上下文协议"></a>实现上下文协议</h4><p>对任意对象实现上下文管理，可以通过实现魔术方法<code>__enter__</code>和<code>__exit__</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, exc_type, exc_value, traceback)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> exc_type:</span><br><span class="line">            print(traceback)</span><br></pre></td></tr></table></figure></div>
+
+<p><code>__enter__</code>和<code>__exit__</code>也可以借由内置模块<code>contextlib</code>的装饰来实现</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">open_a</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">yield</span> A(name)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="closing"><a href="#closing" class="headerlink" title="@closing"></a>@closing</h4><p>如果一个对象没有实现上下文，我们就不能把它用于<code>with</code>语句。这个时候，可以用<code>closing()</code>来把该对象变为上下文对象</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> closing</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> closing(urlopen(<span class="string">'https://www.python.org'</span>)) <span class="keyword">as</span> page:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> page:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="熔断器模式"><a href="#熔断器模式" class="headerlink" title="熔断器模式"></a>熔断器模式</h3><p>熔断器模式Circuit Breaker</p>
+<blockquote>
+<p>熔断器模式可以防止应用程序不断地尝试执行可能会失败的操作，使得应用程序继续执行而不用等待修正错误，或者浪费CPU时间去等到长时间的超时产生。熔断器模式也可以使应用程序能够诊断错误是否已经修正，如果已经修正，应用程序会再次尝试调用操作。</p>
+<p>熔断器模式就像是那些容易导致错误的操作的一种代理。这种代理能够记录最近调用发生错误的次数，然后决定使用允许操作继续，或者立即返回错误。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(八)</title>
+    <url>/Python/Python_id_23.html</url>
+    <content><![CDATA[<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+<li><p>成员运算符：<code>in</code>后面讲列表了会讲</p>
+</li>
+<li><p>比较运算符：<code>==</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code> <code>&lt;&gt;</code> <code>!=</code><br>对于<code>None</code>的判断除了比较运算符，更推荐用<code>is None</code> 和 <code>is not None</code><br>在python3中，是否不等于<code>&lt;&gt;</code>被取消了，想要使用需要先引入模块</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> barry_as_FLUFL</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>逻辑运算符：<code>and</code> <code>or</code> <code>not</code></p>
+</li>
+<li><p>位运算符：<code>|</code> <code>&amp;</code> <code>~</code> <code>^</code> <code>&gt;&gt;</code> <code>&lt;&lt;</code></p>
+</li>
+</ul>
+<p>内置模块<a href="https://docs.python.org/zh-cn/3/library/operator.html" target="_blank" rel="noopener"><code>operator</code></a>里的函数与运算符映射。</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>赋值运算符 <code>=</code> 用于给变量赋值。<br>在python中，声明和赋值都是等号 <code>=</code> ，赋值语句本身不会返回任何结果<br>在python3.8中新增的海象运算符（the walrus operator）<code>:=</code>，其表达式会赋值同时返回左值的引用。</p>
+<h4 id="连用"><a href="#连用" class="headerlink" title="连用"></a>连用</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">c = <span class="number">1</span></span><br><span class="line">a = b = c = <span class="number">1</span></span><br><span class="line">print(a,b,c)</span><br></pre></td></tr></table></figure></div>
+
+<p>赋予相当于起别名，多个变量表示的会是同一个内存地址</p>
+<h4 id="内置函数id"><a href="#内置函数id" class="headerlink" title="内置函数id()"></a>内置函数<code>id()</code></h4><p>使用内置函数<code>id()</code>可以查看内存地址的表示；<br>布尔表达式中也可以连用比较<code>==</code>，多个值全等的时候将返回<code>Ture</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">print(id(a) == id(b) == id(c))</span><br></pre></td></tr></table></figure></div>
+
+<p>当变量被修改的时候，内置函数<code>id()</code>也会重新指向。<br>对于可变的容器类型，其成员被修改，容器的<code>id()</code>将不会发生变化。</p>
+<h4 id="布尔表达式"><a href="#布尔表达式" class="headerlink" title="布尔表达式"></a>布尔表达式</h4><p>布尔表达式是逻辑运算的计算式。<br>逻辑运算符优先级为：<code>()</code>&gt; <code>not</code>&gt; <code>and</code> &gt; <code>or</code> 。同优先级进行从左往右先后计算。<br>二元逻辑运算符会先后将其两边的表达式结果，<strong>隐式地</strong>转化为<code>bool</code>类型后再参与逻辑运算</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">and</span> <span class="literal">True</span>    <span class="comment">#相当于 bool(1) and True</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></div>
+
+<p>内置函数<code>bool()</code>会<strong>显式地</strong>把其他类型转换为<code>bool</code>类型<br><code>bool</code>类型只有两个值：<code>True</code>和<code>False</code></p>
+<ul>
+<li>非零非空转换成布尔类型是 <code>True</code></li>
+<li>0 ，None等值转换成布尔类型是 <code>False</code></li>
+</ul>
+<p>值得注意的是：</p>
+<p>与JavaScript不同，python中如<code>bool([])</code>等空对象都是False。<br>而JavaScript中只要是对象都是true。<br>事实上，这是对象的魔术方法<code>__bool__</code>所定义的。</p>
+<h4 id="连用-1"><a href="#连用-1" class="headerlink" title="连用"></a>连用</h4><p>比较运算符可以连续使用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">2015</span> &gt; y &gt; <span class="number">2018</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="短路法"><a href="#短路法" class="headerlink" title="短路法"></a>短路法</h3><p>在计算布尔表达式结果时往往只判断左边就既定了结果：<br><code>x or y</code> 如果<code>x==True</code>，则返回x<br><code>x and y</code> 如果<code>x==True</code>，则返回y<br>短路之后，逻辑运算符右侧的<strong>隐式</strong>进行类型转换将不会进行，直接返回：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0</span> <span class="keyword">or</span> [] <span class="keyword">or</span> <span class="number">1</span> <span class="keyword">or</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0</span> <span class="keyword">or</span> [] <span class="keyword">or</span> <span class="number">3</span> <span class="keyword">or</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">and</span> <span class="literal">True</span> <span class="keyword">and</span> [] <span class="keyword">and</span> <span class="number">0</span></span><br><span class="line">[]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">and</span> <span class="literal">True</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">and</span> []</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>思考题</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;issubclass(bool, int) <span class="keyword">or</span> bool([]) <span class="keyword">and</span> <span class="number">2</span>&gt;&gt;<span class="number">3</span> <span class="keyword">or</span> (<span class="number">0.1</span>+<span class="number">0.2</span>==<span class="number">0.3</span>)</span><br><span class="line"><span class="comment">#??? 可以在后续的学习中思考</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="流程控制-1"><a href="#流程控制-1" class="headerlink" title="流程控制"></a>流程控制</h3><p><strong>python中 流程控制相关代码块都不具备独立的命名空间</strong><br>流程控制中的条件是布尔表达式，<code>if</code> <code>while</code>也能<strong>隐式</strong>地将结果转换为布尔值：</p>
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">    条件满足就...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    否则就...</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>if</code>…<code>elif</code>…<code>else</code>语句 可以并列多个条件</li>
+<li><code>pass</code> 表示空语句,一般起到占位作用</li>
+</ul>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p>终止循环的方式：</p>
+<ul>
+<li>改变条件，使其不成立。</li>
+<li><code>break</code></li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">    循环体</span><br></pre></td></tr></table></figure></div>
+
+<p><code>continue</code>可以跳过本轮循环</p>
+<h4 id="while也有else"><a href="#while也有else" class="headerlink" title="while也有else"></a>while也有else</h4><p>循环正常执行完（不<code>break</code>），或第一次就不满足时进入else分支。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt;= <span class="number">5</span>:</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"循环正常执行完"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="语句和表达式"><a href="#语句和表达式" class="headerlink" title="语句和表达式"></a>语句和表达式</h3><p>在python中，<code>a + b</code>是表达式，<code>a = b</code>是语句</p>
+<h4 id="内置函数eval-和exec"><a href="#内置函数eval-和exec" class="headerlink" title="内置函数eval()和exec()"></a>内置函数<code>eval()</code>和<code>exec()</code></h4><p><code>exec</code>可以将字符串或字节代码对象当作<strong>语句</strong>执行。<br><code>eval</code>可以将字符串或字节代码对象当作<strong>表达式</strong>执行得到返回值。<br>如果使用<code>eval</code>执行的原代码块是语句而不是表达式将会抛出<code>SyntaxError</code>异常。<br>异常处理将在下一章讲到。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#模拟python shell交互式</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    ex = input(<span class="string">'&gt;&gt;&gt; '</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            print(eval(ex))</span><br><span class="line">        <span class="keyword">except</span> SyntaxError <span class="keyword">as</span> e:</span><br><span class="line">            exec(ex)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">"Traceback (most recent call last):"</span>)</span><br><span class="line">        print(e)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="内置函数compile"><a href="#内置函数compile" class="headerlink" title="内置函数compile()"></a>内置函数<code>compile()</code></h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="code"><pre><span class="line">compile()` 函数将一个字符串编译为字节代码对象。</span><br><span class="line"><span class="keyword">mode</span>参数指定编译代码的种类。可以指定为 `<span class="string">'exec'</span>`, `<span class="string">'eval'</span>`, `<span class="string">'single'</span></span><br><span class="line">#模拟<span class="keyword">python</span> <span class="keyword">shell</span>交互式</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">ex</span> = <span class="built_in">input</span>(<span class="string">'&gt;&gt;&gt; '</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        exec(compile(<span class="keyword">ex</span>,<span class="string">''</span>,<span class="string">'single'</span>))</span><br><span class="line">    except Exception <span class="keyword">as</span> <span class="keyword">e</span>:</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"Traceback (most recent call last):"</span>)</span><br><span class="line">        <span class="keyword">print</span>(<span class="keyword">e</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>两种模拟交互的方式略有区别，前者可以返回<code>None</code>值，但这往往不符合预期。</p>
+<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h3><p>可以循环一个可迭代对象</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> 成员变量 <span class="keyword">in</span> 容器:</span><br><span class="line">	循环体</span><br></pre></td></tr></table></figure></div>
+
+<p>例如，打印名单，这里以列表为例：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">namelist = [<span class="string">'夏色祭'</span>,<span class="string">'赤井心'</span>,<span class="string">'湊阿夸'</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> namelist:</span><br><span class="line">	print(name)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="for也有else"><a href="#for也有else" class="headerlink" title="for也有else"></a>for也有else</h4><p>循环正常执行完（不<code>break</code>），或<code>for in 空容器</code>时进入else分支。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(七)</title>
+    <url>/Python/Python_id_22.html</url>
+    <content><![CDATA[<h2 id="python种类"><a href="#python种类" class="headerlink" title="python种类"></a>python种类</h2><h3 id="从实现"><a href="#从实现" class="headerlink" title="从实现:"></a>从实现:</h3><p>我们用的都是<code>CPython</code>就是用C语言实现的Python及其解释器（JIT编译器）<br>速度最快的是<code>pypy</code>是python自己实现的自己<br>其他版本:C++(<code>Pyston</code>) \ Java(<code>Jython</code>) \ C#(<code>IronPython</code>)</p>
+<p>从版本:</p>
+<ul>
+<li>python2</li>
+<li>python3</li>
+</ul>
+<p>区别：python2默认编码方式是ascii码，python3是Unicode<br>解决编码问题：在文件的首行：<code>#-*- encoding:utf-8 -*-</code></p>
+<p>SyntaxError: Non-UTF-8 code starting with …</p>
+<p>在python3中的中文也有小概率遇到这种情况<br>也是通过 <code>#-*- encoding:utf-8 -*-</code> 来解决</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量：就是将一些运算的中间结果暂存到内存中，以便后续代码调用。</p>
+<ul>
+<li><p>必须由数字，字母，下划线任意组合，且不能数字开头。</p>
+</li>
+<li><p>不能是python中的关键字 以下:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">[<span class="string">'and'</span>, <span class="string">'as'</span>, <span class="string">'assert'</span>, <span class="string">'break'</span>, <span class="string">'class'</span>, <span class="string">'continue'</span>,</span><br><span class="line">	<span class="string">'def'</span>, <span class="string">'del'</span>, <span class="string">'elif'</span>, <span class="string">'else'</span>, <span class="string">'except'</span>, <span class="string">'exec'</span>,</span><br><span class="line">	<span class="string">'finally'</span>, <span class="string">'for'</span>, <span class="string">'from'</span>, <span class="string">'global'</span>, <span class="string">'if'</span>, <span class="string">'import'</span>, </span><br><span class="line">	<span class="string">'in'</span>, <span class="string">'is'</span>, <span class="string">'lambda'</span>, <span class="string">'not'</span>, <span class="string">'or'</span>, <span class="string">'pass'</span>, <span class="string">'print'</span>, </span><br><span class="line">	<span class="string">'raise'</span>, <span class="string">'return'</span>, <span class="string">'try'</span>, <span class="string">'while'</span>, <span class="string">'with'</span>, <span class="string">'yield'</span>]</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>变量具有可描述性。</p>
+</li>
+<li><p>不能是汉字等字符。</p>
+</li>
+</ul>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>客观不变的量 或者程序员不希望它被修改的量。如:</p>
+<ul>
+<li>圆周率<code>π=3.14</code></li>
+<li>自然对数底数<code>e=2.71</code></li>
+<li><code>BIR_OF_CHINA = 1949</code></li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>方便自己方便他人理解代码。</p>
+<ul>
+<li><p>单行注释：<code>#</code></p>
+</li>
+<li><p>多行注释：<code>&#39;&#39;&#39;</code>被注释内容<code>&#39;&#39;&#39;</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">被注释内容:代码千万行,注释第一行,注释不规范,亲人两行泪</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ul>
+<p>它不仅是注释，也是带换行的字符串块</p>
+<h3 id="用户交互input"><a href="#用户交互input" class="headerlink" title="用户交互input"></a>用户交互<code>input</code></h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = input(<span class="string">"请输入"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>1，等待输入。 2，将输入的内容赋值给了前面变量。 3，<code>input</code>接受的数据类型全部是<code>str</code>类型（字符串类型）</p>
+<h3 id="基础数据类型初始"><a href="#基础数据类型初始" class="headerlink" title="基础数据类型初始"></a>基础数据类型初始</h3><p>基础数据类型有：数字，字符串，列表，元组，字典<br>内置函数<code>type()</code>返回变量的类型</p>
+<ul>
+<li>整型：<code>int</code>，十进制的整数类型<br>数字类型还有浮点型和复数类型，可以相互转换。<br>数字类型可以参与一些算数运算符：加减乘除<br>字符串转化成数字：<code>int(str)</code> 条件：str必须是数字组成的。<br>数字转化成字符串：<code>str(int)</code></li>
+<li>布尔值：<code>bool</code><br>True False 表示真假 是逻辑运算表达式的结果<br>布尔类型并不是基础数据类型 是<strong>继承</strong>的整型的<code>1</code>和<code>0</code></li>
+<li>字符串：<code>str</code><br>python当中凡是用引号引起来的都是字符串。<br>可相加：str + str 拼接<br>可相乘：str * int 复读</li>
+<li>列表：<code>list</code><br>一个具有顺序的容器，可以在里面放置其他类型<br>用花括号包裹，各个成员之间用逗号隔开：<br><code>[ 2019, &quot;春节&quot;]</code></li>
+<li>…</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS 8安装nodejs</title>
     <url>/CentOS/CentOS_id_07.html</url>
     <content><![CDATA[<p>curl -sL <a href="https://rpm.nodesource.com/setup_10.x" target="_blank" rel="noopener">https://rpm.nodesource.com/setup_10.x</a> | bash -</p>
@@ -3384,6 +4071,22 @@ show slave status\G  </code></pre>
       <tags>
         <tag>CentOS</tag>
         <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(六)</title>
+    <url>/Python/Python_id_21.html</url>
+    <content><![CDATA[<h2 id="Python-获取-100-以内的质数"><a href="#Python-获取-100-以内的质数" class="headerlink" title="Python - 获取 100 以内的质数"></a>Python - 获取 100 以内的质数</h2><p>题目： 获取 100 以内的质数。</p>
+<p><strong>程序分析：</strong>质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数，如：2、3、5、7、11、13、17、19。</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>#!/usr/bin/python # -<em>- coding: UTF-8 -</em>-  num=[]; i=2 for i in range(2,100):   j=2   for j in range(2,i):      if(i%j==0):         break   else:      num.append(i) print(num)</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>import math def func_get_prime(n):  return filter(lambda x: not [x%i for i in range(2, int(math.sqrt(x))+1) if x%i ==0], range(2,n+1))  print func_get_prime(100)</p>
+<p>输出结果为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="code"><pre><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>, <span class="number">97</span>]</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3455,6 +4158,356 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
       </tags>
   </entry>
   <entry>
+    <title>python基础知识(五)</title>
+    <url>/Python/Python_id_20.html</url>
+    <content><![CDATA[<h3 id="Python-JSON"><a href="#Python-JSON" class="headerlink" title="Python JSON"></a>Python JSON</h3><p>本章节我们将为大家介绍如何使用 Python 语言来编码和解码 JSON 对象。</p>
+<p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，易于人阅读和编写。</p>
+<hr>
+<h4 id="JSON-函数"><a href="#JSON-函数" class="headerlink" title="JSON 函数"></a>JSON 函数</h4><p>使用 JSON 函数需要导入 json 库：<strong>import json</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">json.dumps</td>
+<td align="left">将 Python 对象编码成 JSON 字符串</td>
+</tr>
+<tr>
+<td align="left">json.loads</td>
+<td align="left">将已编码的 JSON 字符串解码为 Python 对象</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="json-dumps"><a href="#json-dumps" class="headerlink" title="json.dumps"></a>json.dumps</h4><p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line">json.dumps(obj, <span class="attribute">skipkeys</span>=<span class="literal">False</span>, <span class="attribute">ensure_ascii</span>=<span class="literal">True</span>, <span class="attribute">check_circular</span>=<span class="literal">True</span>, <span class="attribute">allow_nan</span>=<span class="literal">True</span>, <span class="attribute">cls</span>=None, <span class="attribute">indent</span>=None, <span class="attribute">separators</span>=None, <span class="attribute">encoding</span>=<span class="string">"utf-8"</span>, <span class="attribute">default</span>=None, <span class="attribute">sort_keys</span>=<span class="literal">False</span>, **kw)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以下实例将数组编码为 JSON 格式数据：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="D"><figure class="iseeu highlight /d"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = [ &#123; <span class="string">'a'</span> : <span class="number">1</span>, <span class="string">'b'</span> : <span class="number">2</span>, <span class="string">'c'</span> : <span class="number">3</span>, <span class="string">'d'</span> : <span class="number">4</span>, <span class="string">'e'</span> : <span class="number">5</span> &#125; ]</span><br><span class="line"></span><br><span class="line">json = json.dumps(data)</span><br><span class="line">print json</span><br></pre></td></tr></table></figure></div>
+
+<p>以上代码执行结果为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="code"><pre><span class="line">[&#123;<span class="attr">"a"</span>: <span class="number">1</span>, <span class="attr">"c"</span>: <span class="number">3</span>, <span class="attr">"b"</span>: <span class="number">2</span>, <span class="attr">"e"</span>: <span class="number">5</span>, <span class="attr">"d"</span>: <span class="number">4</span>&#125;]</span><br></pre></td></tr></table></figure></div>
+
+<p>使用参数让 JSON 数据格式化输出：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import json</span><br><span class="line">&gt;&gt;&gt; <span class="builtin-name">print</span> json.dumps(&#123;<span class="string">'a'</span>: <span class="string">'Runoob'</span>, <span class="string">'b'</span>: 7&#125;, <span class="attribute">sort_keys</span>=<span class="literal">True</span>, <span class="attribute">indent</span>=4, separators=(<span class="string">','</span>, <span class="string">': '</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"a"</span>: <span class="string">"Runoob"</span>,</span><br><span class="line">    <span class="string">"b"</span>: 7</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>python 原始类型向 json 类型的转化对照表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Python</th>
+<th align="left">JSON</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">dict</td>
+<td align="left">object</td>
+</tr>
+<tr>
+<td align="left">list, tuple</td>
+<td align="left">array</td>
+</tr>
+<tr>
+<td align="left">str, unicode</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">int, long, float</td>
+<td align="left">number</td>
+</tr>
+<tr>
+<td align="left">True</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">False</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">None</td>
+<td align="left">null</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="json-loads"><a href="#json-loads" class="headerlink" title="json.loads"></a>json.loads</h4><p>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">json.loads(s<span class="comment">[, encoding<span class="comment">[, cls<span class="comment">[, object_hook<span class="comment">[, parse_float<span class="comment">[, parse_int<span class="comment">[, parse_constant<span class="comment">[, object_pairs_hook<span class="comment">[, **kw]</span>]</span>]</span>]</span>]</span>]</span>]</span>]</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h4><p>以下实例展示了Python 如何解码 JSON 对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NIX"><figure class="iseeu highlight /nix"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="built_in">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="attr">jsonData</span> = '&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:<span class="number">3</span>,<span class="string">"d"</span>:<span class="number">4</span>,<span class="string">"e"</span>:<span class="number">5</span>&#125;';</span><br><span class="line"></span><br><span class="line"><span class="attr">text</span> = json.loads(jsonData)</span><br><span class="line">print text</span><br></pre></td></tr></table></figure></div>
+
+<p>以上代码执行结果为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">u'a'</span>: <span class="number">1</span>, <span class="string">u'c'</span>: <span class="number">3</span>, <span class="string">u'b'</span>: <span class="number">2</span>, <span class="string">u'e'</span>: <span class="number">5</span>, <span class="string">u'd'</span>: <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>json 类型转换到 python 的类型对照表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">JSON</th>
+<th align="left">Python</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">object</td>
+<td align="left">dict</td>
+</tr>
+<tr>
+<td align="left">array</td>
+<td align="left">list</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">unicode</td>
+</tr>
+<tr>
+<td align="left">number (int)</td>
+<td align="left">int, long</td>
+</tr>
+<tr>
+<td align="left">number (real)</td>
+<td align="left">float</td>
+</tr>
+<tr>
+<td align="left">true</td>
+<td align="left">True</td>
+</tr>
+<tr>
+<td align="left">false</td>
+<td align="left">False</td>
+</tr>
+<tr>
+<td align="left">null</td>
+<td align="left">None</td>
+</tr>
+</tbody></table>
+<p>更多内容参考：<a href="https://docs.python.org/2/library/json.html。" target="_blank" rel="noopener">https://docs.python.org/2/library/json.html。</a></p>
+<hr>
+<h3 id="使用第三方库：Demjson"><a href="#使用第三方库：Demjson" class="headerlink" title="使用第三方库：Demjson"></a>使用第三方库：Demjson</h3><p>Demjson 是 python 的第三方模块库，可用于编码和解码 JSON 数据，包含了 JSONLint 的格式化及校验功能。</p>
+<p>Github 地址：<a href="https://github.com/dmeranda/demjson" target="_blank" rel="noopener">https://github.com/dmeranda/demjson</a></p>
+<p>官方地址：<a href="http://deron.meranda.us/python/demjson/" target="_blank" rel="noopener">http://deron.meranda.us/python/demjson/</a></p>
+<h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>在使用 Demjson 编码或解码 JSON 数据前，我们需要先安装 Demjson 模块。本教程我们会下载 <a href="http://deron.meranda.us/python/demjson/download" target="_blank" rel="noopener">Demjson</a> 并安装：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">$ tar -xvzf demjson<span class="number">-2.2</span><span class="number">.3</span>.tar.gz</span><br><span class="line">$ cd demjson<span class="number">-2.2</span><span class="number">.3</span></span><br><span class="line">$ python setup.py install</span><br></pre></td></tr></table></figure></div>
+
+<p>更多安装介绍查看：<a href="http://deron.meranda.us/python/demjson/install" target="_blank" rel="noopener">http://deron.meranda.us/python/demjson/install</a></p>
+<h3 id="JSON-函数-1"><a href="#JSON-函数-1" class="headerlink" title="JSON 函数"></a>JSON 函数</h3><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">encode</td>
+<td align="left">将 Python 对象编码成 JSON 字符串</td>
+</tr>
+<tr>
+<td align="left">decode</td>
+<td align="left">将已编码的 JSON 字符串解码为 Python 对象</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="encode"><a href="#encode" class="headerlink" title="encode"></a>encode</h3><p>Python encode() 函数用于将 Python 对象编码成 JSON 字符串。</p>
+<h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line">demjson.encode(self, obj, <span class="attribute">nest_level</span>=0)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h4><p>以下实例将数组编码为 JSON 格式数据：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="D"><figure class="iseeu highlight /d"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> demjson</span><br><span class="line"></span><br><span class="line">data = [ &#123; <span class="string">'a'</span> : <span class="number">1</span>, <span class="string">'b'</span> : <span class="number">2</span>, <span class="string">'c'</span> : <span class="number">3</span>, <span class="string">'d'</span> : <span class="number">4</span>, <span class="string">'e'</span> : <span class="number">5</span> &#125; ]</span><br><span class="line"></span><br><span class="line">json = demjson.encode(data)</span><br><span class="line">print json</span><br></pre></td></tr></table></figure></div>
+
+<p>以上代码执行结果为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="code"><pre><span class="line">[&#123;<span class="attr">"a"</span>:<span class="number">1</span>,<span class="attr">"b"</span>:<span class="number">2</span>,<span class="attr">"c"</span>:<span class="number">3</span>,<span class="attr">"d"</span>:<span class="number">4</span>,<span class="attr">"e"</span>:<span class="number">5</span>&#125;]</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h3 id="decode"><a href="#decode" class="headerlink" title="decode"></a>decode</h3><p>Python 可以使用 demjson.decode() 函数解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
+<h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ARMASM"><figure class="iseeu highlight /armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">demjson.decode</span>(<span class="keyword">self, </span>txt)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h4><p>以下实例展示了Python 如何解码 JSON 对象：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NIX"><figure class="iseeu highlight /nix"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="built_in">import</span> demjson</span><br><span class="line"></span><br><span class="line"><span class="attr">json</span> = '&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:<span class="number">3</span>,<span class="string">"d"</span>:<span class="number">4</span>,<span class="string">"e"</span>:<span class="number">5</span>&#125;';</span><br><span class="line"></span><br><span class="line"><span class="attr">text</span> = demjson.decode(json)</span><br><span class="line">print  text</span><br></pre></td></tr></table></figure></div>
+
+<p>以上代码执行结果为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">u'a'</span>: <span class="number">1</span>, <span class="string">u'c'</span>: <span class="number">3</span>, <span class="string">u'b'</span>: <span class="number">2</span>, <span class="string">u'e'</span>: <span class="number">5</span>, <span class="string">u'd'</span>: <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(四)</title>
+    <url>/Python/Python_id_19.html</url>
+    <content><![CDATA[<h3 id="Python2-x与3-x版本区别"><a href="#Python2-x与3-x版本区别" class="headerlink" title="Python2.x与3.x版本区别"></a>Python2.x与3.x版本区别</h3><p>Python的3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。</p>
+<p>为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下相容。</p>
+<p>许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。</p>
+<p>为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Python 3.0的迁移，允许使用部分Python 3.0的语法与函数。</p>
+<p>新的Python程式建议使用Python 3.0版本的语法。</p>
+<p>除非执行环境无法安装Python 3.0或者程式本身使用了不支援Python 3.0的第三方库。目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。</p>
+<p>大多数第三方库都正在努力地相容Python 3.0版本。即使无法立即使用Python 3.0，也建议编写相容Python 3.0版本的程式，然后使用Python 2.6, Python 2.7来执行。</p>
+<p>Python 3.0的变化主要在以下几个方面:</p>
+<hr>
+<h4 id="print-函数"><a href="#print-函数" class="headerlink" title="print 函数"></a>print 函数</h4><p>print语句没有了，取而代之的是print()函数。 Python 2.6与Python 2.7部分地支持这种形式的print语法。在Python 2.6与Python 2.7里面，以下三种形式是等价的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line"><span class="builtin-name">print</span> <span class="string">"fish"</span></span><br><span class="line"><span class="builtin-name">print</span> (<span class="string">"fish"</span>) #注意print后面有个空格</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"fish"</span>) #<span class="builtin-name">print</span>()不能带有任何其它参数</span><br></pre></td></tr></table></figure></div>
+
+<p>然而，Python 2.6实际已经支持新的print()语法：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ import print_function</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"fish"</span>, <span class="string">"panda"</span>, <span class="attribute">sep</span>=<span class="string">', '</span>)</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h4><p>Python 2 有 ASCII str() 类型，unicode() 是单独的，不是 byte 类型。</p>
+<p>现在， 在 Python 3，我们最终有了 Unicode (utf-8) 字符串，以及一个字节类：byte 和 bytearrays。</p>
+<p>由于 Python3.X 源码文件默认使用utf-8编码，这就使得以下代码是合法的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; 中国 = <span class="string">'china'</span> </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;print(中国) </span><br><span class="line">china</span><br></pre></td></tr></table></figure></div>
+
+<p>Python 2.x</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TAGGERSCRIPT"><figure class="iseeu highlight /taggerscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; str = "我爱北京天安门"</span><br><span class="line">&gt;&gt;&gt; str</span><br><span class="line">'<span class="symbol">\x</span>e6<span class="symbol">\x</span>88<span class="symbol">\x</span>91<span class="symbol">\x</span>e7<span class="symbol">\x</span>88<span class="symbol">\x</span>b1<span class="symbol">\x</span>e5<span class="symbol">\x</span>8c<span class="symbol">\x</span>97<span class="symbol">\x</span>e4<span class="symbol">\x</span>ba<span class="symbol">\x</span>ac<span class="symbol">\x</span>e5<span class="symbol">\x</span>a4<span class="symbol">\x</span>a9<span class="symbol">\x</span>e5<span class="symbol">\x</span>ae<span class="symbol">\x</span>89<span class="symbol">\x</span>e9<span class="symbol">\x</span>97<span class="symbol">\x</span>a8'</span><br><span class="line">&gt;&gt;&gt; str = u"我爱北京天安门"</span><br><span class="line">&gt;&gt;&gt; str</span><br><span class="line">u'<span class="symbol">\u</span>6211<span class="symbol">\u</span>7231<span class="symbol">\u</span>5317<span class="symbol">\u</span>4eac<span class="symbol">\u</span>5929<span class="symbol">\u</span>5b89<span class="symbol">\u</span>95e8'</span><br></pre></td></tr></table></figure></div>
+
+<p>Python 3.x</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; str = <span class="string">"我爱北京天安门"</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; str</span><br><span class="line"><span class="string">'我爱北京天安门'</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="除法运算"><a href="#除法运算" class="headerlink" title="除法运算"></a>除法运算</h4><p>Python中的除法较其它语言显得非常高端，有套很复杂的规则。Python中的除法有两个运算符，/和//</p>
+<p>首先来说/除法:</p>
+<p>在python 2.x中/除法就跟我们熟悉的大多数语言，比如Java啊C啊差不多，整数相除的结果是一个整数，把小数部分完全忽略掉，浮点数除法会保留小数点的部分得到一个浮点数的结果。</p>
+<p>在python 3.x中/除法不再这么做了，对于整数之间的相除，结果也会是浮点数。</p>
+<p>Python 2.x:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">1</span> / <span class="number">2</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line">&gt;&gt;&gt; <span class="number">1.0</span> / <span class="number">2.0</span></span><br><span class="line"><span class="number">0.5</span></span><br></pre></td></tr></table></figure></div>
+
+<p>Python 3.x:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">1</span>/<span class="number">2</span></span><br><span class="line"><span class="number">0.5</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而对于//除法，这种除法叫做floor除法，会对除法的结果自动进行一个floor操作，在python 2.x和python 3.x中是一致的。</p>
+<p>python 2.x:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">-1</span> <span class="comment">// 2</span></span><br><span class="line"><span class="number">-1</span></span><br></pre></td></tr></table></figure></div>
+
+<p>python 3.x:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">-1</span> <span class="comment">// 2</span></span><br><span class="line"><span class="number">-1</span></span><br></pre></td></tr></table></figure></div>
+
+<p>注意的是并不是舍弃小数部分，而是执行 floor 操作，如果要截取整数部分，那么需要使用 math 模块的 trunc 函数</p>
+<p>python 3.x:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="keyword">import</span> math</span><br><span class="line">&gt;&gt;&gt; math.trunc(<span class="number">1</span> / <span class="number">2</span>)</span><br><span class="line"><span class="number">0</span></span><br><span class="line">&gt;&gt;&gt; math.trunc(<span class="number">-1</span> / <span class="number">2</span>)</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>在 Python 3 中处理异常也轻微的改变了，在 Python 3 中我们现在使用 as 作为关键词。</p>
+<p>捕获异常的语法由 <strong>except exc, var</strong> 改为 <strong>except exc as var</strong>。</p>
+<p>使用语法except (exc1, exc2) as var可以同时捕获多种类别的异常。 Python 2.6已经支持这两种语法。</p>
+<ul>
+<li>\1. 在2.x时代，所有类型的对象都是可以被直接抛出的，在3.x时代，只有继承自BaseException的对象才可以被抛出。</li>
+<li>\2. 2.x raise语句使用逗号将抛出对象类型和参数分开，3.x取消了这种奇葩的写法，直接调用构造函数抛出对象即可。</li>
+</ul>
+<p>在2.x时代，异常在代码中除了表示程序错误，还经常做一些普通控制结构应该做的事情，在3.x中可以看出，设计者让异常变的更加专一，只有在错误发生的情况才能去用异常捕获语句来处理。</p>
+<hr>
+<h4 id="xrange"><a href="#xrange" class="headerlink" title="xrange"></a>xrange</h4><p>在 Python 2 中 xrange() 创建迭代对象的用法是非常流行的。比如： for 循环或者是列表/集合/字典推导式。</p>
+<p>这个表现十分像生成器（比如。”惰性求值”）。但是这个 xrange-iterable 是无穷的，意味着你可以无限遍历。</p>
+<p>由于它的惰性求值，如果你不得仅仅不遍历它一次，xrange() 函数 比 range() 更快（比如 for 循环）。尽管如此，对比迭代一次，不建议你重复迭代多次，因为生成器每次都从头开始。</p>
+<p>在 Python 3 中，range() 是像 xrange() 那样实现以至于一个专门的 xrange() 函数都不再存在（在 Python 3 中 xrange() 会抛出命名异常）。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> timeit</span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_range</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_xrange</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(n):</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></div>
+
+<p>Python 2</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SAS"><figure class="iseeu highlight /sas"><table><tr><td class="code"><pre><span class="line">print <span class="string">'Python'</span>, python_versi<span class="meta">on(</span>)</span><br><span class="line"></span><br><span class="line">print <span class="string">'\ntiming range()'</span> </span><br><span class="line"><span class="name">%timeit</span> test<span class="meta">_range(</span>n)</span><br><span class="line"></span><br><span class="line">print <span class="string">'\n\ntiming xrange()'</span> </span><br><span class="line"><span class="name">%timeit</span> test_<span class="meta">xrange(</span>n)</span><br><span class="line"></span><br><span class="line">Python 2.7.6</span><br><span class="line"></span><br><span class="line">timing<span class="meta"> range(</span>)</span><br><span class="line">1000 loops, best of 3: 433 µs per loop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">timing <span class="meta">xrange(</span>)</span><br><span class="line">1000 loops, best of 3: 350 µs per loop</span><br></pre></td></tr></table></figure></div>
+
+<p>Python 3</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SAS"><figure class="iseeu highlight /sas"><table><tr><td class="code"><pre><span class="line">p<span class="meta">rint(</span><span class="string">'Python'</span>, python_versi<span class="meta">on(</span>))</span><br><span class="line"></span><br><span class="line">p<span class="meta">rint(</span><span class="string">'\ntiming range()'</span>)</span><br><span class="line"><span class="name">%timeit</span> test<span class="meta">_range(</span>n)</span><br><span class="line"></span><br><span class="line">Python 3.4.1</span><br><span class="line"></span><br><span class="line">timing<span class="meta"> range(</span>)</span><br><span class="line">1000 loops, best of 3: 520 µs per loop</span><br><span class="line">p<span class="meta">rint(</span><span class="meta">xrange(</span>10))</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">NameError                                 Traceback (most recent <span class="meta">call</span> last)</span><br><span class="line">&lt;ipython-<span class="meta">input</span>-5-5d8f9b79ea70&gt; <span class="meta">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 p<span class="meta">rint(</span><span class="meta">xrange(</span>10))</span><br><span class="line"></span><br><span class="line">NameError: name <span class="string">'xrange'</span> is <span class="meta">not</span> defined</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="八进制字面量表示"><a href="#八进制字面量表示" class="headerlink" title="八进制字面量表示"></a>八进制字面量表示</h4><p>八进制数必须写成0o777，原来的形式0777不能用了；二进制必须写成0b111。</p>
+<p>新增了一个bin()函数用于将一个整数转换成二进制字串。 Python 2.6已经支持这两种语法。</p>
+<p>在Python 3.x中，表示八进制字面量的方式只有一种，就是0o1000。</p>
+<p>python 2.x</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">0</span>o1000</span><br><span class="line"><span class="number">512</span></span><br><span class="line">&gt;&gt;&gt; <span class="number">01000</span></span><br><span class="line"><span class="number">512</span></span><br></pre></td></tr></table></figure></div>
+
+<p>python 3.x</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="number">01000</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">    <span class="number">01000</span></span><br><span class="line">        ^</span><br><span class="line">SyntaxError: invalid token</span><br><span class="line">&gt;&gt;&gt; <span class="number">0</span>o1000</span><br><span class="line"><span class="number">512</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="不等运算符"><a href="#不等运算符" class="headerlink" title="不等运算符"></a>不等运算符</h4><p>Python 2.x中不等于有两种写法 != 和 &lt;&gt;</p>
+<p>Python 3.x中去掉了&lt;&gt;, 只有!=一种写法，还好，我从来没有使用&lt;&gt;的习惯</p>
+<hr>
+<h4 id="去掉了repr表达式"><a href="#去掉了repr表达式" class="headerlink" title="去掉了repr表达式``"></a>去掉了repr表达式``</h4><p>Python 2.x 中反引号``相当于repr函数的作用</p>
+<p>Python 3.x 中去掉了``这种写法，只允许使用repr函数，这样做的目的是为了使代码看上去更清晰么？不过我感觉用repr的机会很少，一般只在debug的时候才用，多数时候还是用str函数来用字符串描述对象。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="REASONML"><figure class="iseeu highlight /reasonml"><table><tr><td class="code"><pre><span class="line">def send<span class="constructor">Mail(<span class="params">from_</span>: <span class="params">str</span>, <span class="params">to</span>: <span class="params">str</span>, <span class="params">title</span>: <span class="params">str</span>, <span class="params">body</span>: <span class="params">str</span>)</span> -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="多个模块被改名（根据PEP8）"><a href="#多个模块被改名（根据PEP8）" class="headerlink" title="多个模块被改名（根据PEP8）"></a>多个模块被改名（根据PEP8）</h4><table>
+<thead>
+<tr>
+<th align="left">旧的名字</th>
+<th align="left">新的名字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">_winreg</td>
+<td align="left">winreg</td>
+</tr>
+<tr>
+<td align="left">ConfigParser</td>
+<td align="left">configparser</td>
+</tr>
+<tr>
+<td align="left">copy_reg</td>
+<td align="left">copyreg</td>
+</tr>
+<tr>
+<td align="left">Queue</td>
+<td align="left">queue</td>
+</tr>
+<tr>
+<td align="left">SocketServer</td>
+<td align="left">socketserver</td>
+</tr>
+<tr>
+<td align="left">repr</td>
+<td align="left">reprlib</td>
+</tr>
+</tbody></table>
+<p>StringIO模块现在被合并到新的io模组内。 new, md5, gopherlib等模块被删除。 Python 2.6已经支援新的io模组。</p>
+<p>httplib, BaseHTTPServer, CGIHTTPServer, SimpleHTTPServer, Cookie, cookielib被合并到http包内。</p>
+<p>取消了exec语句，只剩下exec()函数。 Python 2.6已经支援exec()函数。</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>1）Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long</p>
+<p>2）新增了bytes类型，对应于2.X版本的八位串，定义一个bytes字面量的方法如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; b = b<span class="string">'china'</span> </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; type(b) </span><br><span class="line">&lt;type <span class="string">'bytes'</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>str 对象和 bytes 对象可以使用 .encode() (<strong>str -&gt; bytes</strong>) 或 .decode() (<strong>bytes -&gt; str</strong>)方法相互转化。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; s = b.decode() </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; s </span><br><span class="line"><span class="string">'china'</span> </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; b1 = s.encode() </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; b1 </span><br><span class="line">b<span class="string">'china'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>3）dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有 dict.has_key()，用 in替代它吧 。</p>
+<h4 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h4><p>原：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAMS"><figure class="iseeu highlight /gams"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">file</span>(<span class="params"> ..... </span>)</span></span><br><span class="line">或 </span><br><span class="line"><span class="function"><span class="title">open</span>(<span class="params">.....</span>)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>改为只能用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAMS"><figure class="iseeu highlight /gams"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">open</span>(<span class="params">.....</span>)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>从键盘录入一个字符串</p>
+<p>原:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">raw_input</span><span class="params">( <span class="string">"提示信息"</span> )</span></span></span><br></pre></td></tr></table></figure></div>
+
+<p>改为:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">input</span><span class="params">( <span class="string">"提示信息"</span> )</span></span></span><br></pre></td></tr></table></figure></div>
+
+<p>在python2.x中raw_input()和input( )，两个函数都存在，其中区别为：</p>
+<ul>
+<li>raw_input()—将所有输入作为字符串看待，返回字符串类型</li>
+<li>input()—–只能接收”数字”的输入，在对待纯数字输入时具有自己的特性，它返回所输入的数字的类型（int, float ）</li>
+</ul>
+<p>在python3.x中raw_input()和input( )进行了整合，去除了raw_input()，仅保留了input()函数，其接收任意任性输入，将所有输入默认为字符串处理，并返回字符串类型。</p>
+<h4 id="map、filter-和-reduce"><a href="#map、filter-和-reduce" class="headerlink" title="map、filter 和 reduce"></a>map、filter 和 reduce</h4><p>这三个函数号称是函数式编程的代表。在 Python3.x 和 Python2.x 中也有了很大的差异。</p>
+<p>首先我们先简单的在 Python2.x 的交互下输入 map 和 filter,看到它们两者的类型是 built-in function(内置函数):</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; map</span><br><span class="line">&lt;built-in function map&gt;</span><br><span class="line">&gt;&gt;&gt; filter</span><br><span class="line">&lt;built-in function filter&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>它们输出的结果类型都是列表:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; map(lambda x:x *<span class="number">2</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</span><br><span class="line">&gt;&gt;&gt; filter(lambda x:x %<span class="number">2</span> ==<span class="number">0</span>,range(<span class="number">10</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>但是在Python 3.x中它们却不是这个样子了：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ANGELSCRIPT"><figure class="iseeu highlight /angelscript"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; map</span><br><span class="line">&lt;<span class="keyword">class</span> '<span class="symbol">map</span>'&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="symbol">map</span>(<span class="symbol">print,</span>[<span class="symbol">1,<span class="symbol">2</span>,<span class="symbol">3</span></span>])</span><br><span class="line">&lt;<span class="symbol">map</span> <span class="symbol">object</span> <span class="symbol">at</span> <span class="symbol">0x10d8bd400</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="symbol">filter</span></span><br><span class="line">&lt;<span class="symbol">class</span> '<span class="symbol">filter</span>'&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="symbol">filter</span>(<span class="symbol">lambda</span> <span class="symbol">x:<span class="symbol">x</span></span> % <span class="symbol">2</span> == <span class="symbol">0, <span class="symbol">range</span></span>(<span class="symbol">10</span>))</span><br><span class="line">&lt;<span class="symbol">filter</span> <span class="symbol">object</span> <span class="symbol">at</span> <span class="symbol">0x10d8bd3c8</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>首先它们从函数变成了类，其次，它们的返回结果也从当初的列表成了一个可迭代的对象, 我们尝试用 next 函数来进行手工迭代:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; f =filter(lambda <span class="symbol">x:</span>x %<span class="number">2</span> ==<span class="number">0</span>, range(<span class="number">10</span>))</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; next(f)</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; next(f)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; next(f)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; next(f)</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>对于比较高端的 reduce 函数，它在 Python 3.x 中已经不属于 built-in 了，被挪到 functools 模块当中。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进程线程协程</title>
     <url>/Spider/Spider_id_14.html</url>
     <content><![CDATA[<h2 id="异步多进程爬虫实现"><a href="#异步多进程爬虫实现" class="headerlink" title="异步多进程爬虫实现:"></a>异步多进程爬虫实现:</h2><a id="more"></a>
@@ -3479,6 +4532,206 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
 <h2 id="在通常情况下-不要使用asyncio"><a href="#在通常情况下-不要使用asyncio" class="headerlink" title="在通常情况下,不要使用asyncio!!!"></a>在通常情况下,不要使用asyncio!!!</h2><h2 id="在通常情况下-不要使用asyncio-1"><a href="#在通常情况下-不要使用asyncio-1" class="headerlink" title="在通常情况下,不要使用asyncio!!!"></a>在通常情况下,不要使用asyncio!!!</h2><h2 id="在通常情况下-不要使用asyncio-2"><a href="#在通常情况下-不要使用asyncio-2" class="headerlink" title="在通常情况下,不要使用asyncio!!!"></a>在通常情况下,不要使用asyncio!!!</h2><h3 id="在没有足够充足的代理与完善的伪装的时候-一定不要使用asyncio"><a href="#在没有足够充足的代理与完善的伪装的时候-一定不要使用asyncio" class="headerlink" title="在没有足够充足的代理与完善的伪装的时候,一定不要使用asyncio!"></a>在没有足够充足的代理与完善的伪装的时候,一定不要使用asyncio!</h3><h3 id="协程的恐怖性能足以让任何网站的程序发现-即使没有发现-过于高频的访问也足以击溃网站了"><a href="#协程的恐怖性能足以让任何网站的程序发现-即使没有发现-过于高频的访问也足以击溃网站了" class="headerlink" title="协程的恐怖性能足以让任何网站的程序发现,即使没有发现,过于高频的访问也足以击溃网站了!"></a>协程的恐怖性能足以让任何网站的程序发现,即使没有发现,过于高频的访问也足以击溃网站了!</h3>]]></content>
       <categories>
         <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(三)</title>
+    <url>/Python/Python_id_18.html</url>
+    <content><![CDATA[<h3 id="Python-基础语法"><a href="#Python-基础语法" class="headerlink" title="Python 基础语法"></a>Python 基础语法</h3><p>Python 语言与 Perl，C 和 Java 等语言有许多相似之处。但是，也存在一些差异。</p>
+<p>在本章中我们将来学习 Python 的基础语法，让你快速学会 Python 编程。</p>
+<hr>
+<h3 id="第一个-Python-程序"><a href="#第一个-Python-程序" class="headerlink" title="第一个 Python 程序"></a>第一个 Python 程序</h3><h4 id="交互式编程"><a href="#交互式编程" class="headerlink" title="交互式编程"></a>交互式编程</h4><p>交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。</p>
+<p>linux上你只需要在命令行中输入 Python 命令即可启动交互式编程,提示窗口如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line">Python 2.7.6 (default, Sep  9 2014, 15:04:36)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> **<span class="keyword">or</span>** <span class="string">"license"</span> *<span class="number">*f</span><span class="keyword">or</span>** more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(二)</title>
+    <url>/Python/Python_id_17.html</url>
+    <content><![CDATA[<h3 id="python环境搭建"><a href="#python环境搭建" class="headerlink" title="python环境搭建"></a>python环境搭建</h3><p>Python可应用于多平台包括 Linux 和 Mac OS X。</p>
+<p>你可以通过终端窗口输入 “python” 命令来查看本地是否已经安装Python以及Python的安装版本。</p>
+<ul>
+<li>Unix (Solaris, Linux, FreeBSD, AIX, HP/UX, SunOS, IRIX, 等等。)</li>
+<li>Win 9x/NT/2000</li>
+<li>Macintosh (Intel, PPC, 68K)</li>
+<li>OS/2</li>
+<li>DOS (多个DOS版本)</li>
+<li>PalmOS</li>
+<li>Nokia 移动手机</li>
+<li>Windows CE</li>
+<li>Acorn/RISC OS</li>
+<li>BeOS</li>
+<li>Amiga</li>
+<li>VMS/OpenVMS</li>
+<li>QNX</li>
+<li>VxWorks</li>
+<li>Psion</li>
+<li>Python 同样可以移植到 Java 和 .NET 虚拟机上。</li>
+</ul>
+<hr>
+<h3 id="Python下载"><a href="#Python下载" class="headerlink" title="Python下载"></a>Python下载</h3><p>Python最新源码，二进制文档，新闻资讯等可以在Python的官网查看到：</p>
+<p><a href="https://www.python.org/" target="_blank" rel="noopener">Python官网</a></p>
+<p>你可以在以下链接中下载 Python 的文档，你可以下载 HTML、PDF 和 PostScript 等格式的文档。</p>
+<p><a href="https://www.python.org/doc/" target="_blank" rel="noopener">Python文档下载地址</a></p>
+<hr>
+<h3 id="Python安装"><a href="#Python安装" class="headerlink" title="Python安装"></a>Python安装</h3><p>Python已经被移植在许多平台上（经过改动使它能够工作在不同平台上）。</p>
+<p>您需要下载适用于您使用平台的二进制代码，然后安装Python。</p>
+<p>如果您平台的二进制代码是不可用的，你需要使用C编译器手动编译源代码。</p>
+<p>编译的源代码，功能上有更多的选择性， 为python安装提供了更多的灵活性。</p>
+<p>以下是各个平台安装包的下载地址：</p>
+<p><img src="fcg22450.github.io/img/python_img/%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.jpg" alt="各个平台安装包的下载地址"></p>
+<p>以下为不同平台上安装 Python 的方法：</p>
+<h4 id="Unix-amp-Linux-平台安装-Python"><a href="#Unix-amp-Linux-平台安装-Python" class="headerlink" title="Unix &amp; Linux 平台安装 Python:"></a>Unix &amp; Linux 平台安装 Python:</h4><p>以下为在 Unix &amp; Linux 平台上安装 Python 的简单步骤：</p>
+<ul>
+<li>打开 WEB 浏览器访问<a href="https://www.python.org/downloads/source/" target="_blank" rel="noopener">https://www.python.org/downloads/source/</a></li>
+<li>选择适用 于Unix/Linux 的源码压缩包。</li>
+<li>下载及解压压缩包。</li>
+<li>如果你需要自定义一些选项修改<em>Modules/Setup</em></li>
+<li><strong>执行</strong> ./configure 脚本</li>
+<li>make</li>
+<li>make install</li>
+</ul>
+<p>执行以上操作后，Python 会安装在 /usr/local/bin 目录中，Python 库安装在 /usr/local/lib/pythonXX，XX 为你使用的 Python 的版本号。</p>
+<h4 id="Window-平台安装-Python"><a href="#Window-平台安装-Python" class="headerlink" title="Window 平台安装 Python:"></a>Window 平台安装 Python:</h4><p>以下为在 Window 平台上安装 Python 的简单步骤：</p>
+<ul>
+<li>打开 WEB 浏览器访问<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">https://www.python.org/downloads/windows/</a> <img src="fcg22450.github.io/img/python_img/window%E5%AE%89%E8%A3%85python.png" alt=""></li>
+<li>在下载列表中选择Window平台安装包，包格式为：<em>python-XYZ.msi</em> 文件 ， XYZ 为你要安装的版本号。</li>
+<li>要使用安装程序 <em>python-XYZ.msi</em>, Windows 系统必须支持 Microsoft Installer 2.0 搭配使用。只要保存安装文件到本地计算机，然后运行它，看看你的机器支持 MSI。Windows XP 和更高版本已经有 MSI，很多老机器也可以安装 MSI。<img src="fcg22450.github.io/img/python_img/%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9.png" alt=""></li>
+<li>下载后，双击下载包，进入 Python 安装向导，安装非常简单，你只需要使用默认的设置一直点击”下一步”直到安装完成即可。</li>
+</ul>
+<h4 id="MAC-平台安装-Python"><a href="#MAC-平台安装-Python" class="headerlink" title="MAC 平台安装 Python:"></a>MAC 平台安装 Python:</h4><p>MAC 系统一般都自带有 Python2.x版本 的环境，你也可以在链接 <a href="https://www.python.org/downloads/mac-osx/" target="_blank" rel="noopener">https://www.python.org/downloads/mac-osx/</a> 上下载最新版安装。</p>
+<hr>
+<h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>程序和可执行文件可以在许多目录，而这些路径很可能不在操作系统提供可执行文件的搜索路径中。</p>
+<p>path(路径)存储在环境变量中，这是由操作系统维护的一个命名的字符串。这些变量包含可用的命令行解释器和其他程序的信息。</p>
+<p>Unix或Windows中路径变量为PATH（UNIX区分大小写，Windows不区分大小写）。</p>
+<p>在Mac OS中，安装程序过程中改变了python的安装路径。如果你需要在其他目录引用Python，你必须在path中添加Python目录。</p>
+<h4 id="在-Unix-Linux-设置环境变量"><a href="#在-Unix-Linux-设置环境变量" class="headerlink" title="在 Unix/Linux 设置环境变量"></a>在 Unix/Linux 设置环境变量</h4><ul>
+<li><p>在 csh shell:</p>
+<p>输入</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">setenv</span> PATH <span class="string">"<span class="variable">$PATH</span>:/usr/local/bin/python"</span></span><br></pre></td></tr></table></figure></div>
+
+<p>, 按下”Enter”。</p>
+</li>
+<li><p>在 bash shell (Linux):</p>
+<p>输入</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="string">"<span class="variable">$PATH</span>:/usr/local/bin/python"</span></span><br></pre></td></tr></table></figure></div>
+
+<p>，按下”Enter”。</p>
+</li>
+<li><p>在 sh 或者 ksh shell:</p>
+<p>输入</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">PATH</span>=<span class="string">"$PATH:/usr/local/bin/python"</span></span><br></pre></td></tr></table></figure></div>
+
+<p>, 按下”Enter”。</p>
+</li>
+</ul>
+<h4 id="在-Windows-设置环境变量"><a href="#在-Windows-设置环境变量" class="headerlink" title="在 Windows 设置环境变量"></a>在 Windows 设置环境变量</h4><p>在环境变量中添加Python目录：</p>
+<p><strong>在命令提示框中(cmd) :</strong> 输入</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">path</span>=%path%<span class="comment">;C:\Python</span></span><br></pre></td></tr></table></figure></div>
+
+<p>按下”Enter”。</p>
+<p><strong>注意:</strong> C:\Python 是Python的安装目录。</p>
+<p>也可以通过以下方式设置：</p>
+<ul>
+<li>右键点击”计算机”，然后点击”属性”</li>
+<li>然后点击”高级系统设置”</li>
+<li>选择”系统变量”窗口下面的”Path”,双击即可！</li>
+<li></li>
+<li>然后在”Path”行，添加python安装路径即可(我的D:\Python32)，所以在后面，添加该路径即可。 <strong>ps：记住，路径直接用分号”；”隔开！</strong></li>
+<li>最后设置成功以后，在cmd命令行，输入命令”python”，就可以有相关显示。</li>
+</ul>
+<hr>
+<h3 id="Python-环境变量"><a href="#Python-环境变量" class="headerlink" title="Python 环境变量"></a>Python 环境变量</h3><p>下面几个重要的环境变量，它应用于Python：</p>
+<table>
+<thead>
+<tr>
+<th align="left">变量名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PYTHONPATH</td>
+<td align="left">PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。</td>
+</tr>
+<tr>
+<td align="left">PYTHONSTARTUP</td>
+<td align="left">Python启动后，先寻找PYTHONSTARTUP环境变量，然后执行此变量指定的文件中的代码。</td>
+</tr>
+<tr>
+<td align="left">PYTHONCASEOK</td>
+<td align="left">加入PYTHONCASEOK的环境变量, 就会使python导入模块的时候不区分大小写.</td>
+</tr>
+<tr>
+<td align="left">PYTHONHOME</td>
+<td align="left">另一种模块搜索路径。它通常内嵌于的PYTHONSTARTUP或PYTHONPATH目录中，使得两个模块库更容易切换。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="运行Python"><a href="#运行Python" class="headerlink" title="运行Python"></a>运行Python</h3><p>有三种方式可以运行Python：</p>
+<h3 id="1、交互式解释器："><a href="#1、交互式解释器：" class="headerlink" title="1、交互式解释器："></a>1、交互式解释器：</h3><p>你可以通过命令行窗口进入 Python，并在交互式解释器中开始编写 Python 代码。</p>
+<p>你可以在 Unix、DOS 或任何其他提供了命令行或者 shell 的系统进行 Python 编码工作。</p>
+<p>$ python # Unix/Linux</p>
+<p>或者</p>
+<p>C:&gt;python # Windows/DOS</p>
+<p>以下为Python命令行参数：</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-d</td>
+<td align="left">在解析时显示调试信息</td>
+</tr>
+<tr>
+<td align="left">-O</td>
+<td align="left">生成优化代码 ( .pyo 文件 )</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">启动时不引入查找Python路径的位置</td>
+</tr>
+<tr>
+<td align="left">-V</td>
+<td align="left">输出Python版本号</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">从 1.6版本之后基于内建的异常（仅仅用于字符串）已过时。</td>
+</tr>
+<tr>
+<td align="left">-c cmd</td>
+<td align="left">执行 Python 脚本，并将运行结果作为 cmd 字符串。</td>
+</tr>
+<tr>
+<td align="left">file</td>
+<td align="left">在给定的python文件执行python脚本。</td>
+</tr>
+</tbody></table>
+<h3 id="2、命令行脚本"><a href="#2、命令行脚本" class="headerlink" title="2、命令行脚本"></a>2、命令行脚本</h3><p>在你的应用程序中通过引入解释器可以在命令行中执行Python脚本，如下所示：</p>
+<p>$ python script.py # Unix/Linux</p>
+<p>或者</p>
+<p>C:&gt;python script.py # Windows/DOS</p>
+<p><strong>注意：</strong>在执行脚本时，请检查脚本是否有可执行权限。</p>
+<h3 id="3、集成开发环境（IDE：Integrated-Development-Environment）-PyCharm"><a href="#3、集成开发环境（IDE：Integrated-Development-Environment）-PyCharm" class="headerlink" title="3、集成开发环境（IDE：Integrated Development Environment）: PyCharm"></a>3、集成开发环境（IDE：Integrated Development Environment）: PyCharm</h3><p>PyCharm 是由 JetBrains 打造的一款 Python IDE，支持 macOS、 Windows、 Linux 系统。</p>
+<p>PyCharm 功能 : 调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制……</p>
+<p>PyCharm 下载地址 : <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download/</a></p>
+<p>PyCharm 安装地址：<a href="https://www.runoob.com/w3cnote/pycharm-windows-install.html" target="_blank" rel="noopener">http://www.runoob.com/w3cnote/pycharm-windows-install.html</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -3624,6 +4877,65 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
       </categories>
       <tags>
         <tag>百度AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础知识(一)</title>
+    <url>/Python/Python_id_16.html</url>
+    <content><![CDATA[<h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p>这是我所学的第一门编程语言,我的计算机知识从这里起步.</p>
+<hr>
+<h3 id="Python-简介"><a href="#Python-简介" class="headerlink" title="Python 简介"></a>Python 简介</h3><p>Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。</p>
+<p>Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。</p>
+<ul>
+<li><strong>Python 是一种解释型语言：</strong> 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。</li>
+<li><strong>Python 是交互式语言：</strong> 这意味着，您可以在一个 Python 提示符 <strong>&gt;&gt;&gt;</strong> 后直接执行代码。</li>
+<li><strong>Python 是面向对象语言:</strong> 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。</li>
+<li><strong>Python 是初学者的语言：</strong>Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。</li>
+</ul>
+<hr>
+<h3 id="Python-发展历史"><a href="#Python-发展历史" class="headerlink" title="Python 发展历史"></a>Python 发展历史</h3><p>Python 是由 Guido van Rossum 在八十年代末和九十年代初，在荷兰国家数学和计算机科学研究所设计出来的。</p>
+<p>Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3、C、C++、Algol-68、SmallTalk、Unix shell 和其他的脚本语言等等。</p>
+<p>像 Perl 语言一样，Python 源代码同样遵循 GPL(GNU General Public License)协议。</p>
+<p>现在 Python 是由一个核心开发团队在维护，Guido van Rossum 仍然占据着至关重要的作用，指导其进展。</p>
+<p>Python 2.7 被确定为最后一个 Python 2.x 版本，它除了支持 Python 2.x 语法外，还支持部分 Python 3.1 语法。</p>
+<hr>
+<h3 id="Python-特点"><a href="#Python-特点" class="headerlink" title="Python 特点"></a>Python 特点</h3><p><strong>1.易于学习：</strong>Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。</p>
+<p><strong>2.易于阅读：</strong>Python代码定义的更清晰。</p>
+<p><strong>3.易于维护：</strong>Python的成功在于它的源代码是相当容易维护的。</p>
+<p><strong>4.一个广泛的标准库：</strong>Python的最大的优势之一是丰富的库，跨平台的，在UNIX，Windows和Macintosh兼容很好。</p>
+<p><strong>5.互动模式：</strong>互动模式的支持，您可以从终端输入执行代码并获得结果的语言，互动的测试和调试代码片断。</p>
+<p><strong>6.可移植：</strong>基于其开放源代码的特性，Python已经被移植（也就是使其工作）到许多平台。</p>
+<p><strong>7.可扩展：</strong>如果你需要一段运行很快的关键代码，或者是想要编写一些不愿开放的算法，你可以使用C或C++完成那部分程序，然后从你的Python程序中调用。</p>
+<p><strong>8.数据库：</strong>Python提供所有主要的商业数据库的接口。</p>
+<p><strong>9.GUI编程：</strong>Python支持GUI可以创建和移植到许多系统调用。</p>
+<p><strong>10.可嵌入:</strong> 你可以将Python嵌入到C/C++程序，让你的程序的用户获得”脚本化”的能力。 </p>
+<hr>
+<p><strong>优点</strong></p>
+<ul>
+<li>简单 – Python 是一种代表简单主义思想的语言。阅读一个良好的 Python 程序就感觉像是在读英语一样，尽管这个英语的要求非常严格！Python 的这种伪代码本质是它最大的优点之一。它使你能够专注于解决问题而不是去搞明白语言本身。</li>
+<li>易学 – 就如同你即将看到的一样，Python 极其容易上手。前面已经提到了，Python 有极其简单的语法。</li>
+<li>免费、开源 – Python 是 FLOSS（自由/开放源码软件）之一。简单地说，你可以自由地发布这个软件的拷贝、阅读它的源代码、对它做改动、把它的一部分用于新的自由软件中。FLOSS 是基于一个团体分享知识的概念。这是为什么 Python 如此优秀的原因之一——它是由一群希望看到一个更加优秀的 Python 的人创造并经常改进着的。</li>
+<li>高层语言 – 当你用 Python 语言编写程序的时候，你无需考虑诸如如何管理你的程序使用的内存一类的底层细节。</li>
+<li>可移植性 – 由于它的开源本质，Python 已经被移植在许多平台上（经过改动使它能够工作在不同平台上）。如果你小心地避免使用依赖于系统的特性，那么你的所有 Python 程序无需修改就可以在下述任何平台上面运行。这些平台包括 Linux、Windows、FreeBSD、Macintosh、Solaris、OS/2、Amiga、AROS、AS/400、BeOS、OS/390、z/OS、Palm OS、QNX、VMS、Psion、Acom RISC OS、VxWorks、PlayStation、Sharp Zaurus、Windows CE 甚至还有 PocketPC、Symbian 以及 Google 基于 Linux 开发的 Android 平台！</li>
+<li>解释性 – 这一点需要一些解释。一个用编译性语言比如 C 或 C++ 写的程序可以从源文件（即 C 或 C++ 语言）转换到一个你的计算机使用的语言（二进制代码，即0和1）。这个过程通过编译器和不同的标记、选项完成。当你运行你的程序的时候，连接/转载器软件把你的程序从硬盘复制到内存中并且运行。而 Python 语言写的程序不需要编译成二进制代码。你可以直接从源代码运行程序。在计算机内部，Python 解释器把源代码转换成称为字节码的中间形式，然后再把它翻译成计算机使用的机器语言并运行。事实上，由于你不再需要担心如何编译程序，如何确保连接转载正确的库等等，所有这一切使得使用 Python 更加简单。由于你只需要把你的 Python 程序拷贝到另外一台计算机上，它就可以工作了，这也使得你的 Python 程序更加易于移植。</li>
+<li>面向对象 – Python 既支持面向过程的编程也支持面向对象的编程。在“面向过程”的语言中，程序是由过程或仅仅是可重用代码的函数构建起来的。在“面向对象”的语言中，程序是由数据和功能组合而成的对象构建起来的。与其他主要的语言如 C++ 和 Java 相比，Python 以一种非常强大又简单的方式实现面向对象编程。</li>
+<li>可扩展性 – 如果你需要你的一段关键代码运行得更快或者希望某些算法不公开，你可以把你的部分程序用 C 或 C++ 编写，然后在你的 Python 程序中使用它们。</li>
+<li>丰富的库 – Python 标准库确实很庞大。它可以帮助你处理各种工作，包括正则表达式、文档生成、单元测试、线程、数据库、网页浏览器、CGI、FTP、电子邮件、XML、XML-RPC、HTML、WAV 文件、密码系统、GUI（图形用户界面）、Tk 和其他与系统有关的操作。记住，只要安装了 Python，所有这些功能都是可用的。这被称作 Python 的“功能齐全”理念。除了标准库以外，还有许多其他高质量的库，如 wxPython、Twisted 和 Python 图像库等等。</li>
+<li>规范的代码 – Python 采用强制缩进的方式使得代码具有极佳的可读性。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>运行速度，有速度要求的话，用 C++ 改写关键部分吧。</li>
+<li>国内市场较小（国内以 Python 来做主要开发的，目前只有一些 web2.0 公司）。但时间推移，目前很多国内软件公司，尤其是游戏公司，也开始规模使用他。</li>
+<li>中文资料匮乏（好的 Python 中文资料屈指可数，现在应该变多了）。托社区的福，有几本优秀的教材已经被翻译了，但入门级教材多，高级内容还是只能看英语版。</li>
+<li>构架选择太多（没有像 C# 这样的官方 .net 构架，也没有像 ruby 由于历史较短，构架开发的相对集中。Ruby on Rails 构架开发中小型web程序天下无敌）。不过这也从另一个侧面说明，python比较优秀，吸引的人才多，项目也多。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -4692,40 +6004,6 @@ form models <span class="keyword">import</span> Person
       </tags>
   </entry>
   <entry>
-    <title>flask_route</title>
-    <url>/Flask/Flask_id_04.html</url>
-    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
-<ul>
-<li><p>创建app主体</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
-app = Flask(__name__)
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
-</li>
-</ul>
-</li>
-<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
-    app.run(debug=<span class="literal">True</span>)</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>flask开端</title>
     <url>/Flask/Flask_id_02.html</url>
     <content><![CDATA[<h2 id="—————————–flask开端——————————–"><a href="#—————————–flask开端——————————–" class="headerlink" title="—————————–flask开端——————————–"></a>—————————–flask开端——————————–</h2><hr>
@@ -4759,6 +6037,40 @@ if __name__ = &apos;__main__&apos;:
 <ul>
 <li>点击运行按钮左边的选项,在台出的页面中选择edit configurations</li>
 <li>进入后勾选FLASK_DEBUG</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flask_route</title>
+    <url>/Flask/Flask_id_04.html</url>
+    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
+<ul>
+<li><p>创建app主体</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
+app = Flask(__name__)
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
+</li>
+</ul>
+</li>
+<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
+    app.run(debug=<span class="literal">True</span>)</code></pre>
+</li>
+</ul>
+</li>
 </ul>
 ]]></content>
       <categories>

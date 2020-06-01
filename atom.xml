@@ -44,7 +44,7 @@
     <link href="https://onlyyu.cn/Python/Python_id_15.html"/>
     <id>https://onlyyu.cn/Python/Python_id_15.html</id>
     <published>2020-05-31T08:46:15.000Z</published>
-    <updated>2020-05-31T08:46:57.302Z</updated>
+    <updated>2020-06-01T11:58:47.366Z</updated>
     
     <summary type="html">
     
@@ -492,15 +492,15 @@
   </entry>
   
   <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -513,15 +513,15 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:27:46.871Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
     
     </summary>
     
@@ -1044,6 +1044,27 @@
   </entry>
   
   <entry>
+    <title>CentOS7服务器配置redis主从与哨兵</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
+    <published>2020-05-10T16:00:00.000Z</published>
+    <updated>2020-05-17T10:00:09.065Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CentOS7服务器配置汇总</title>
     <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
@@ -1067,20 +1088,20 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置redis主从与哨兵</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
-    <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:09.065Z</updated>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
+    <published>2020-05-09T16:00:00.000Z</published>
+    <updated>2020-05-29T12:56:38.314Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
     
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
     
     
       <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
@@ -1097,27 +1118,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
-    
-    
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
-    <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-29T12:56:38.314Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
@@ -1489,6 +1489,174 @@
   </entry>
   
   <entry>
+    <title>python基础知识(十三)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_28.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_28.html</id>
+    <published>2019-07-25T16:00:00.000Z</published>
+    <updated>2020-06-01T12:00:18.461Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十二)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_27.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_27.html</id>
+    <published>2019-07-22T16:00:00.000Z</published>
+    <updated>2020-06-01T12:00:33.970Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十一)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_26.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_26.html</id>
+    <published>2019-07-12T16:00:00.000Z</published>
+    <updated>2020-06-01T12:00:27.142Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_25.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_25.html</id>
+    <published>2019-07-08T16:00:00.000Z</published>
+    <updated>2020-06-01T12:00:12.842Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(九)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_24.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_24.html</id>
+    <published>2019-06-29T16:00:00.000Z</published>
+    <updated>2020-06-01T12:00:02.523Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(八)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_23.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_23.html</id>
+    <published>2019-06-27T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:49.397Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(七)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_22.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_22.html</id>
+    <published>2019-06-23T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:43.572Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CentOS 8安装nodejs</title>
     <link href="https://onlyyu.cn/CentOS/CentOS_id_07.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_07.html</id>
@@ -1515,6 +1683,30 @@
   </entry>
   
   <entry>
+    <title>python基础知识(六)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_21.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_21.html</id>
+    <published>2019-06-07T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:36.063Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu配置数据库踩坑记录</title>
     <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html"/>
     <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html</id>
@@ -1536,6 +1728,54 @@
   </entry>
   
   <entry>
+    <title>python基础知识(五)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_20.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_20.html</id>
+    <published>2019-05-30T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:28.260Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(四)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_19.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_19.html</id>
+    <published>2019-05-29T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:19.123Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>进程线程协程</title>
     <link href="https://onlyyu.cn/Spider/Spider_id_14.html"/>
     <id>https://onlyyu.cn/Spider/Spider_id_14.html</id>
@@ -1550,6 +1790,54 @@
     
     
       <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_18.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_18.html</id>
+    <published>2019-05-21T16:00:00.000Z</published>
+    <updated>2020-06-01T11:59:13.822Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_17.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_17.html</id>
+    <published>2019-05-16T16:00:00.000Z</published>
+    <updated>2020-06-01T11:58:50.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
@@ -1595,6 +1883,30 @@
     
     
       <category term="百度AI" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(一)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_16.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_16.html</id>
+    <published>2019-05-06T16:00:00.000Z</published>
+    <updated>2020-06-01T11:58:55.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
@@ -2000,15 +2312,16 @@
   </entry>
   
   <entry>
-    <title>flask_route</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
+    <title>flask开端</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:01.847Z</updated>
+    <updated>2020-05-17T06:47:51.366Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
+      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
     
     </summary>
     
@@ -2021,16 +2334,15 @@
   </entry>
   
   <entry>
-    <title>flask开端</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
+    <title>flask_route</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:47:51.366Z</updated>
+    <updated>2020-05-17T06:48:01.847Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
+      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
