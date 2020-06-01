@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Django配置JWT</title>
+    <url>/Django/Django_id_31.html</url>
+    <content><![CDATA[<h3 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h3><p>　　JSON Web Token（JWT）是目前最流行的跨域身份验证解决方案。该token被设计为紧凑且安全的，特别适用于分布式站点的单点登陆（SSO）场景。JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。</p>
+<a id="more"></a>
+
+<h3 id="JWT-特点"><a href="#JWT-特点" class="headerlink" title="JWT 特点"></a>JWT 特点</h3><p>因为json的通用性，JWT是可以进行跨语言支持的。<br>字节占用很小,便于传输.<br>严格的结构化。它自身（在 payload有效载荷 中）就包含了所有与用户相关的验证消息，如用户可访问路由、访问有效期等信息，服务器无需再去连接数据库验证信息的有效性，并且 payload 支持为你的应用而定制化。</p>
+<h3 id="JWT组成"><a href="#JWT组成" class="headerlink" title="JWT组成"></a>JWT组成</h3><h4 id="头部（header"><a href="#头部（header" class="headerlink" title="头部（header)"></a>头部（header)</h4><p>　　header典型的由两部分组成：声明类型 jwt 和声明加密的算法名称</p>
+<p>　　如</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"alg"</span>: <span class="string">"HS256"</span>,</span><br><span class="line">	<span class="string">"typ"</span>: <span class="string">"JWT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="载荷（payload）"><a href="#载荷（payload）" class="headerlink" title="载荷（payload）"></a>载荷（payload）</h4><p>　　载荷就是存放有效信息的地方。这些有效信息包含三个部分：</p>
+<p>1、标准中注册声明：建议但不强制使用，比如：iss (issuer), exp (expiration time), sub (subject), aud (audience)等。<br>2、公共的声名：可以随意定义。<br>3、私有的声明： 用于在同意使用它们的各方之间共享信息，一般不建议存放敏感信息，因为base64是对称解密的，部分信息可以归类为明文信息。</p>
+<p>　　如</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"sub"</span>: <span class="string">"1234567890"</span>,</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"John Doe"</span>,</span><br><span class="line">	<span class="string">"admin"</span>: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="签证（signature"><a href="#签证（signature" class="headerlink" title="签证（signature)"></a>签证（signature)</h4><p>　　要创建签名部分，你必须采用编码表头，编码的有效载荷，一个秘钥。然后用Header头部里的声明的算法加密给它加密，得到的就是 jwt 的第三部分。</p>
+<p>　　如</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">	base64UrlEncode(header) + <span class="string">"."</span> +</span><br><span class="line">	base64UrlEncode(payload),</span><br><span class="line"> 	secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<p><code>注：这一段是最重要的敏感信息，只能在服务端解密，其中secret是保存在服务器端的。</code></p>
+<h3 id="JWT优势"><a href="#JWT优势" class="headerlink" title="JWT优势"></a>JWT优势</h3><p>　　1、因为json的通用性，所以JWT是可以进行跨语言支持的，像JAVA,JavaScript,NodeJS,PHP等很多语言都可以使用。</p>
+<p>　　2、因为有了payload部分，所以JWT可以在自身存储一些其他业务逻辑所必要的非敏感信息。</p>
+<p>　　3、便于传输，jwt的构成非常简单，字节占用很小，所以它是非常便于传输的。</p>
+<p>　　4、它不需要在服务端保存会话信息, 所以它易于应用的扩展</p>
+<h3 id="JWT和劣势"><a href="#JWT和劣势" class="headerlink" title="JWT和劣势"></a>JWT和劣势</h3><p>　　1、保护好secret私钥，该私钥非常重要。</p>
+<p>　　2、一旦token泄露，在有效期内任何人都可以使用该token进入系统，且不可撤回</p>
+<h3 id="JWT安全要求"><a href="#JWT安全要求" class="headerlink" title="JWT安全要求"></a>JWT安全要求</h3><p>　　1、不应该在jwt的payload部分存放敏感信息，因为该部分是客户端可解密的部分。</p>
+<p>　　2、如果可以，请使用https协议</p>
+<h3 id="JWT流程"><a href="#JWT流程" class="headerlink" title="JWT流程"></a>JWT流程</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/JWT/01.png">
+
+<h3 id="Django中使用JWT"><a href="#Django中使用JWT" class="headerlink" title="Django中使用JWT"></a>Django中使用JWT</h3><p>　　<strong>安装依赖</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">pip install djangorestframework-jwt</span><br></pre></td></tr></table></figure></div>
+
+<p>　　配置settings文件</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置jwt</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">JWT_AUTH = &#123;</span><br><span class="line">	<span class="string">'JWT_AUTH_HEADER_PREFIX'</span>: <span class="string">'JWT'</span>,</span><br><span class="line">	<span class="string">'JWT_EXPIRATION_DELTA'</span>: datetime.timedelta(days=<span class="number">1</span>), <span class="comment">#设置过期时间</span></span><br><span class="line">	<span class="string">'JWT_RESPONSE_PAYLOAD_HANDLER'</span>:</span><br><span class="line">	<span class="string">'miaoapp.user.jwt_response_payload_handler'</span>,  <span class="comment"># 重新login登录返回函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="comment"># 身份认证</span></span><br><span class="line">	<span class="string">'DEFAULT_AUTHENTICATION_CLASSES'</span>: (</span><br><span class="line">		<span class="string">'rest_framework_jwt.authentication.JSONWebTokenAuthentication'</span>,</span><br><span class="line">		<span class="string">'rest_framework.authentication.SessionAuthentication'</span>,</span><br><span class="line">		<span class="string">'rest_framework.authentication.BasicAuthentication'</span>,</span><br><span class="line">    ),</span><br><span class="line">    <span class="comment"># 全局配置JWT验证设置</span></span><br><span class="line">    <span class="comment"># 'DEFAULT_PERMISSION_CLASSES': (</span></span><br><span class="line">    <span class="comment">#             'rest_framework.permissions.AllowAny',</span></span><br><span class="line">    <span class="comment">#         ),</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 重写验证方式，添加邮箱手机号登录</span></span><br><span class="line">AUTHENTICATION_BACKENDS = [</span><br><span class="line">	<span class="string">'miaoapp.user.UsernameMobileAuthBackend'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<p>　　在用户页面加入以下函数</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重新用户登录返回函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jwt_response_payload_handler</span><span class="params">(token, user=None, request=None)</span>:</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	:param token: jwt生成的token值</span></span><br><span class="line"><span class="string">	:param user: User对象</span></span><br><span class="line"><span class="string">	:param request: 请求</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="string">'token'</span>: token,</span><br><span class="line">		<span class="string">'user_id'</span>: user.id,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为登录增加手机登录和邮箱登录</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsernameMobileAuthBackend</span><span class="params">(ModelBackend)</span>:</span></span><br><span class="line">	<span class="comment"># 重写验证方式</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self, request, username=None, password=None, **kwargs)</span>:</span></span><br><span class="line">		user = User.objects.get(Q(username=username) | Q(phone=username) | Q(email=username))</span><br><span class="line">		<span class="keyword">if</span> user <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> user.check_password(password):</span><br><span class="line">			<span class="keyword">return</span> user</span><br></pre></td></tr></table></figure></div>
+
+<p>　　登录时生成jwt，取消jwt验证的路由及解析token获取用户信息(实例)</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入rest_framework_jwt模块</span></span><br><span class="line"><span class="keyword">from</span> rest_framework_jwt.settings <span class="keyword">import</span> api_settings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录时使用模块快api_settings</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Login</span><span class="params">(APIView)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">		userdata = request.data</span><br><span class="line">		user = authenticate(username=userdata[<span class="string">'username'</span>], password=userdata[<span class="string">'password'</span>])</span><br><span class="line">		<span class="comment"># 判断用户或密码是否正确</span></span><br><span class="line">		<span class="keyword">if</span> <span class="keyword">not</span> user:</span><br><span class="line">			<span class="keyword">return</span> Response(&#123;<span class="string">'code'</span>: <span class="number">405</span>, <span class="string">'message'</span>: <span class="string">'用户名或密码错误'</span>&#125;)</span><br><span class="line">		<span class="comment"># 登录成功</span></span><br><span class="line">		<span class="comment"># 生成jwt</span></span><br><span class="line">		jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER</span><br><span class="line">		jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER</span><br><span class="line"></span><br><span class="line">		payload = jwt_payload_handler(user)</span><br><span class="line">		token = jwt_encode_handler(payload)</span><br><span class="line">		powerPid = UserPower.objects.filter(uid=int(user.id)).first()</span><br><span class="line">		resp = &#123;<span class="string">'code'</span>: <span class="number">200</span>, <span class="string">'message'</span>: <span class="string">'登录成功'</span>, <span class="string">'token'</span>: token, <span class="string">'username'</span>: user.username, <span class="string">'photo'</span>: user.photo,<span class="string">'pid'</span>: powerPid.pid&#125;</span><br><span class="line">		<span class="keyword">return</span> Response(resp)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析jwt_token的模块</span></span><br><span class="line"><span class="keyword">from</span> rest_framework_jwt.utils <span class="keyword">import</span> jwt_decode_handler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前端传过来token，后端获取用户信息时，使用jwt_decode_handler模块</span></span><br><span class="line"><span class="comment"># 获取用户信息</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span><span class="params">(APIView)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">		token = request.data.get(<span class="string">"token"</span>, <span class="literal">None</span>)</span><br><span class="line">		<span class="comment"># 获取添加参数</span></span><br><span class="line">		user = jwt_decode_handler(token)	<span class="comment"># 解析出用户信息</span></span><br><span class="line">		uid = user.get(<span class="string">'user_id'</span>)	<span class="comment"># 获取用户id</span></span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">'code'</span>: <span class="number">200</span>&#125;)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 导入不需要验证token实现访问路由</span></span><br><span class="line"><span class="keyword">from</span> rest_framework.permissions <span class="keyword">import</span> AllowAny</span><br><span class="line"><span class="comment"># 使用方法，在函数定义之前使用</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PowerList</span><span class="params">(APIView)</span>:</span></span><br><span class="line">	permission_classes = [AllowAny]</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>JWT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python 实例方法、静态方法、类方法、属性方法、魔法方法</title>
     <url>/Python/Python_id_15.html</url>
     <content><![CDATA[<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><p>　　实例方法只能通过实例对象调用，不能通过类进行调用。实例方法再定义时候使用关键字self,self代表实例对象本身。</p>
@@ -253,10 +305,8 @@
 <h4 id="6位标志位"><a href="#6位标志位" class="headerlink" title="6位标志位"></a>6位标志位</h4><p>　　选项有，ACK标志：表示确认号是否有效。将携带ACK标志的TCP报文段成为“确认报文段”。SYN标志：表示请求建立一个连接，将携带SYN标志的报文段称为“同步报文段”。   FIN标志：表示通知对方要关闭连接，将携带FIN标志的报文段称为“结束报文段”。    </p>
 <h4 id="16位窗口大小"><a href="#16位窗口大小" class="headerlink" title="16位窗口大小"></a>16位窗口大小</h4><p>　　指的是接受通告窗口。它告诉接受端自己接受缓冲区还能容纳多少字节的数据。   </p>
 <h4 id="16位校验和"><a href="#16位校验和" class="headerlink" title="16位校验和"></a>16位校验和</h4><p>　　由发送端填充，接收端对TCP报文段执行CRC算法检验报文段在传输中是否损坏，检验TCP头部和数据部分。这是TCP可靠传输的一个重要保障。   16位紧急指针。。  </p>
-<p>####　头部选项</p>
-<p>　　还有最后一个选项字段是可变长的可选信息，最多40字节。。。</p>
-<p>###　TCP、UDP的区别</p>
-<p>　　1、基于面向连接与无连接。因为每个连接都会占用系统的CPU、内存等硬件资源，所以对系统资源的要求TCP较多UDP少；并且tcp是一对一的，udp是一对一，一对多，多对一，多对多通信。</p>
+<h4 id="头部选项"><a href="#头部选项" class="headerlink" title="头部选项"></a>头部选项</h4><p>　　还有最后一个选项字段是可变长的可选信息，最多40字节。。。</p>
+<h3 id="TCP、UDP的区别"><a href="#TCP、UDP的区别" class="headerlink" title="TCP、UDP的区别"></a>TCP、UDP的区别</h3><p>　　1、基于面向连接与无连接。因为每个连接都会占用系统的CPU、内存等硬件资源，所以对系统资源的要求TCP较多UDP少；并且tcp是一对一的，udp是一对一，一对多，多对一，多对多通信。</p>
 <p>　　2、字节流：应用程序对数据的发送和接受没有边界限制，即发送端执行的写操作次数和接受端的读操作次数没有任何数量关系，并且send只是将数据写进发送缓冲区，recv只是从输出缓冲区中获取数据。【因为如果发送端应用程序连续执行写操作，tcp先将数据放入TCP发送缓冲区中，等到缓冲区真正发送数据时，数据可能被封装了一个或多个TCP报文段发出，即TCP发出的tcp报文段个数和执行的写操作次数没有关系。 而接受端收到一个或多个TCP报文段，先将他们携带的数据按序号依次放到接受缓冲区中，通知应用进程接受。应用程序可以一次全部读出，也可以分几次读出，这取决于应用程序的缓冲区大小，即TCP模块接受的报文段个数和读操作次数没关系。】</p>
 <p>   数据报：sendto发送数据和对端recvfrom接受数次数相等，因此UDP保留了应用层数据的边界。【 发送端应用程序每执行写操作一次，UDP模块就将它封装成一个数据报发送了。接收端必须及时对每个udp数据报执行读操作并且一次接受完，否则不读数据会丢包，或者不读完整数据会被截断发生数据丢失。】</p>
 <img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/03.png">
@@ -959,6 +1009,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue中router-link的点击事件</title>
+    <url>/Vue/Vue_id_06.html</url>
+    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
+<a id="more"></a>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>点击事件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue中详细的百度地图解析</title>
     <url>/Vue/Vue_id_08.html</url>
     <content><![CDATA[<p>　　Vue中如何引入百度地图，点击<a href="/2020/05/28/Vue/Vue引入百度地图/">Vue中引入百度地图</a>查看</p>
@@ -1109,21 +1174,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue中router-link的点击事件</title>
-    <url>/Vue/Vue_id_06.html</url>
-    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
-<a id="more"></a>
-
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>点击事件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算某年某月某一天是第几天</title>
     <url>/Python/Python_id_04.html</url>
     <content><![CDATA[<p>　实现输入某年某月某日计算出这一天是该年第几天的方法</p>
@@ -1266,22 +1316,6 @@
       </tags>
   </entry>
   <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/Redis/Redis_id_03.html</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
-<a id="more"></a>
-
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>redis优化</title>
     <url>/Redis/Redis_id_05.html</url>
     <content><![CDATA[<h4 id="内存管理优化"><a href="#内存管理优化" class="headerlink" title="内存管理优化"></a>内存管理优化</h4><p>Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：</p>
@@ -1311,6 +1345,22 @@
 <p>redis.conf中的maxmemory选项，该选项是告诉Redis当使用了多少物理内存后就开始拒绝后续的写入请求，该参数能很好的保护好你的Redis不会因为使用了过多的物理内存而导致swap,最终严重影响性能甚至崩溃。</p>
 <p>redis.conf文件中 vm-enabled 为 no</p>
 <p>以上这篇Redis优化经验总结(必看篇)就是小编分享给大家的全部内容了，希望能给大家一个参考，也希望大家多多支持脚本之家。</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis数据淘汰机制</title>
+    <url>/Redis/Redis_id_03.html</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+<a id="more"></a>
+
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2346,6 +2396,77 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/CentOS/CentOS_id_06.html</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS7服务器配置主从</title>
     <url>/CentOS/CentOS_id_05.html</url>
     <content><![CDATA[<h2 id="Centos7-环境下配置mysql主从服务"><a href="#Centos7-环境下配置mysql主从服务" class="headerlink" title="Centos7 环境下配置mysql主从服务"></a>Centos7 环境下配置mysql主从服务</h2><a id="more"></a>
@@ -2418,77 +2539,6 @@ redis-server sentinel.conf --sentinel</code></pre></li>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/CentOS/CentOS_id_06.html</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
-
-<ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
-</li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
-</li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
-</ol>
-</li>
-</ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>MySQL</category>
@@ -3757,22 +3807,6 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
       </tags>
   </entry>
   <entry>
-    <title>动态获取数据</title>
-    <url>/Spider/Spider_id_11.html</url>
-    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
-<ol>
-<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
-<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>代理ip</title>
     <url>/Spider/Spider_id_10.html</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -3825,6 +3859,22 @@ print(res.text)
 </li>
 <li><p>代理ip池写法,创建一个列表,存储准备好的IP,然后使用随机模块进行随即调用,这样可以确保每次都会随机抽取一个代理ip来发送请求</p>
 </li>
+</ol>
+]]></content>
+      <categories>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态获取数据</title>
+    <url>/Spider/Spider_id_11.html</url>
+    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
+<ol>
+<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
+<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
 </ol>
 ]]></content>
       <categories>
@@ -4642,6 +4692,40 @@ form models <span class="keyword">import</span> Person
       </tags>
   </entry>
   <entry>
+    <title>flask_route</title>
+    <url>/Flask/Flask_id_04.html</url>
+    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
+<ul>
+<li><p>创建app主体</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
+app = Flask(__name__)
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
+</li>
+</ul>
+</li>
+<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
+    app.run(debug=<span class="literal">True</span>)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flask开端</title>
     <url>/Flask/Flask_id_02.html</url>
     <content><![CDATA[<h2 id="—————————–flask开端——————————–"><a href="#—————————–flask开端——————————–" class="headerlink" title="—————————–flask开端——————————–"></a>—————————–flask开端——————————–</h2><hr>
@@ -4675,40 +4759,6 @@ if __name__ = &apos;__main__&apos;:
 <ul>
 <li>点击运行按钮左边的选项,在台出的页面中选择edit configurations</li>
 <li>进入后勾选FLASK_DEBUG</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask_route</title>
-    <url>/Flask/Flask_id_04.html</url>
-    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
-<ul>
-<li><p>创建app主体</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
-app = Flask(__name__)
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
-</li>
-</ul>
-</li>
-<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
-    app.run(debug=<span class="literal">True</span>)</code></pre>
-</li>
-</ul>
-</li>
 </ul>
 ]]></content>
       <categories>
@@ -5926,6 +5976,35 @@ BookInfo.book.all()
       </tags>
   </entry>
   <entry>
+    <title>API接口生成</title>
+    <url>/Vue/Vue_id_01.html</url>
+    <content><![CDATA[<h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
+<li><p>下载模块</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>配置SCHEMA_CLASS</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>在主路由中注册使用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ol>
+<p>创建成功之后的画面如下图:<img src="/fcg22450.github.io/img/interactive/1575621839123.png" alt="1575621839123"></p>
+<p>在这里面,还有一些别的设置,如,在模型类中设置字段的提示属性 :</p>
+<ul>
+<li>help_text = ‘ ’</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>axios请求与跨域</title>
     <url>/Vue/Vue_id_03.html</url>
     <content><![CDATA[<h2 id="axios请求与跨域"><a href="#axios请求与跨域" class="headerlink" title="axios请求与跨域."></a>axios请求与跨域.</h2><a id="more"></a>
@@ -5998,35 +6077,6 @@ this.django_message = response.data.message</code></pre>
 </li>
 <li></li>
 </ol>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>API接口生成</title>
-    <url>/Vue/Vue_id_01.html</url>
-    <content><![CDATA[<h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
-<li><p>下载模块</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>配置SCHEMA_CLASS</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>在主路由中注册使用</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-</li>
-</ol>
-<p>创建成功之后的画面如下图:<img src="/fcg22450.github.io/img/interactive/1575621839123.png" alt="1575621839123"></p>
-<p>在这里面,还有一些别的设置,如,在模型类中设置字段的提示属性 :</p>
-<ul>
-<li>help_text = ‘ ’</li>
-</ul>
 ]]></content>
       <categories>
         <category>Vue</category>
