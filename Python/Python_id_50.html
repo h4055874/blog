@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="套接字socket 套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。  socket模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础知识(三十二)">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_50.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="套接字socket 套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。  socket模块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMqaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjUtYzAxNCA3OS4xNTE0ODEsIDIwMTMvMDMvMTMtMTI6MDk6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUUyMEZGNjM5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUUyMEZGNjQ5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRTIwRkY2MTk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRTIwRkY2Mjk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEABsaGikdKUEmJkFCLy8vQkc/Pj4/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">
+<meta property="article:published_time" content="2019-10-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-02T11:08:08.339Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMqaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjUtYzAxNCA3OS4xNTE0ODEsIDIwMTMvMDMvMTMtMTI6MDk6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUUyMEZGNjM5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUUyMEZGNjQ5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRTIwRkY2MTk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRTIwRkY2Mjk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEABsaGikdKUEmJkFCLy8vQkc/Pj4/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">
+
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_50.html">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>python基础知识(三十二) | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script> -->
+
+   <!-- 不知道是什么玩意 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+<!-- <body itemscope itemtype="http://schema.org/WebPage" style="background-color: #C1C1C1"> -->
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_50.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python基础知识(三十二)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-05T00:00:00+08:00">2019-10-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-02 19:08:08" itemprop="dateModified" datetime="2020-06-02T19:08:08+08:00">2020-06-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/Python_id_50.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(三十二)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Python/Python_id_50.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_50.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="套接字socket"><a href="#套接字socket" class="headerlink" title="套接字socket"></a>套接字socket</h2><blockquote>
+<p>套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。</p>
+</blockquote>
+<h3 id="socket模块"><a href="#socket模块" class="headerlink" title="socket模块"></a>socket模块</h3><a id="more"></a>
+
+<p><a href="https://docs.python.org/zh-cn/3/library/socket.html" target="_blank" rel="noopener"><code>socket</code></a>模块提供了访问 BSD套接字的接口</p>
+<h4 id="创建套接字"><a href="#创建套接字" class="headerlink" title="创建套接字"></a>创建套接字</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">s = socket.socket()</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><ul>
+<li>AF_INET 面向网络的套接字（默认种族）</li>
+<li>AF_UNIX 基于文件的套接字</li>
+<li>TCP套接字的名SOCK_STREAM（默认类型）</li>
+<li>UDP套接字的名SOCK_DGRAM</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用方法</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s.bind()</code></td>
+<td>绑定(主机,端口号)到套接字</td>
+</tr>
+<tr>
+<td><code>s.listen()</code></td>
+<td>开始TCP监听</td>
+</tr>
+<tr>
+<td><code>s.accept()</code></td>
+<td>被动接受TCP客户的连接,(阻塞式)等待连接的到来</td>
+</tr>
+<tr>
+<td><code>s.connect()</code></td>
+<td>主动初始化TCP服务器连接</td>
+</tr>
+<tr>
+<td><code>s.connect_ex()</code></td>
+<td><code>connect()</code>函数的扩展版本,出错时返回出错码,而不是抛出异常</td>
+</tr>
+<tr>
+<td><code>s.recv()</code></td>
+<td>#接收TCP数据</td>
+</tr>
+<tr>
+<td><code>s.send()</code></td>
+<td>#发送TCP数据</td>
+</tr>
+<tr>
+<td><code>s.sendall()</code></td>
+<td>#发送TCP数据</td>
+</tr>
+<tr>
+<td><code>s.recvfrom()</code></td>
+<td>#接收UDP数据</td>
+</tr>
+<tr>
+<td><code>s.sendto()</code></td>
+<td>#发送UDP数据</td>
+</tr>
+<tr>
+<td><code>s.getpeername()</code></td>
+<td>#连接到当前套接字的远端的地址</td>
+</tr>
+<tr>
+<td><code>s.getsockname()</code></td>
+<td>#当前套接字的地址</td>
+</tr>
+<tr>
+<td><code>s.getsockopt()</code></td>
+<td>#返回指定套接字的参数</td>
+</tr>
+<tr>
+<td><code>s.setsockopt()</code></td>
+<td>#设置指定套接字的参数</td>
+</tr>
+<tr>
+<td><code>s.close()</code></td>
+<td>#关闭套接字，也支持with上下文管理<code>socket.socket()</code></td>
+</tr>
+</tbody></table>
+<h4 id="基于TCP协议的socket"><a href="#基于TCP协议的socket" class="headerlink" title="基于TCP协议的socket"></a>基于TCP协议的socket</h4><h5 id="server端"><a href="#server端" class="headerlink" title="server端"></a>server端</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">sk = socket.socket() <span class="comment">#即socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span></span><br><span class="line">sk.bind((<span class="string">'127.0.0.1'</span>,<span class="number">8898</span>))  <span class="comment">#把地址绑定到套接字</span></span><br><span class="line">sk.listen()          <span class="comment">#监听链接</span></span><br><span class="line">conn,addr = sk.accept() <span class="comment">#接受客户端链接 会和input一样一直等待连接</span></span><br><span class="line">ret = conn.recv(<span class="number">1024</span>)  <span class="comment">#接收客户端信息 会和input一样一直等待着信</span></span><br><span class="line">print(ret)       <span class="comment">#打印客户端信息</span></span><br><span class="line">conn.send(<span class="string">b'hi'</span>)        <span class="comment">#向客户端发送信息</span></span><br><span class="line">conn.close()       <span class="comment">#关闭客户端套接字</span></span><br><span class="line">sk.close()        <span class="comment">#关闭服务器套接字(可选)</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="client端"><a href="#client端" class="headerlink" title="client端"></a>client端</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">sk = socket.socket() <span class="comment"># 创建客户套接字</span></span><br><span class="line">sk.connect((<span class="string">'127.0.0.1'</span>,<span class="number">8898</span>))    <span class="comment"># 尝试连接服务器</span></span><br><span class="line">sk.send(<span class="string">b'hello!'</span>)</span><br><span class="line">ret = sk.recv(<span class="number">1024</span>)         <span class="comment"># 对话(发送/接收)</span></span><br><span class="line">print(ret)</span><br><span class="line">sk.close()            <span class="comment"># 关闭客户套接字</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h4><p>Traceback(most recent call last):</p>
+<p>OSError: [Error 48] Address already in use</p>
+<p>解决方法： 加入一条socket配置，重用ip和端口</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> SOL_SOCKET,SO_REUSEADDR</span><br><span class="line">sk = socket.socket()</span><br><span class="line">sk.setsockopt(SOL_SOCKET,SO_REUSEADDR,<span class="number">1</span>) <span class="comment">#就是它，在bind前加</span></span><br><span class="line">sk.bind((<span class="string">'127.0.0.1'</span>,<span class="number">8898</span>))</span><br><span class="line">sk.listen()</span><br></pre></td></tr></table></figure></div>
+
+<p>Traceback(most recent call last):</p>
+<p>ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。</p>
+<p>解决方法： 修改防火墙设置或者换一个端口号</p>
+<h4 id="基于UDP协议的socket"><a href="#基于UDP协议的socket" class="headerlink" title="基于UDP协议的socket"></a>基于UDP协议的socket</h4><p>udp无需监听和建立连接。</p>
+<p>udp收发消息会分别接收和发送对方的地址（addr）。</p>
+<h5 id="server端-1"><a href="#server端-1" class="headerlink" title="server端"></a>server端</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">udp_sk = socket.socket(type=socket.SOCK_DGRAM)   <span class="comment">#创建一个服务器的套接字</span></span><br><span class="line">udp_sk.bind((<span class="string">'127.0.0.1'</span>,<span class="number">9000</span>))        <span class="comment">#绑定服务器套接字</span></span><br><span class="line">msg,addr = udp_sk.recvfrom(<span class="number">1024</span>)</span><br><span class="line">print(msg)</span><br><span class="line">udp_sk.sendto(<span class="string">b'hi'</span>,addr)                 <span class="comment"># 对话(接收与发送)</span></span><br><span class="line">udp_sk.close()                         <span class="comment"># 关闭服务器套接字</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="client端-1"><a href="#client端-1" class="headerlink" title="client端"></a>client端</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">ip_port=(<span class="string">'127.0.0.1'</span>,<span class="number">9000</span>)</span><br><span class="line">udp_sk=socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line">udp_sk.sendto(<span class="string">b'hello'</span>,ip_port)</span><br><span class="line">back_msg,addr=udp_sk.recvfrom(<span class="number">1024</span>)</span><br><span class="line">print(back_msg.decode(<span class="string">'utf-8'</span>),addr)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="更多方法介绍"><a href="#更多方法介绍" class="headerlink" title="更多方法介绍"></a>更多方法介绍</h4><ul>
+<li><p>面向锁</p>
+<table>
+<thead>
+<tr>
+<th><code>s.setblocking()</code></th>
+<th>设置套接字的阻塞与非阻塞模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s.settimeout()</code></td>
+<td>设置阻塞套接字操作的超时时间</td>
+</tr>
+<tr>
+<td><code>s.gettimeout()</code></td>
+<td>得到阻塞套接字操作的超时时间</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>面向文件</p>
+<table>
+<thead>
+<tr>
+<th><code>s.fileno()</code></th>
+<th>套接字的文件描述符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s.makefile()</code></td>
+<td>创建一个与该套接字相关的文件</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>官方文档对socket模块下的<code>socket.send()</code>和<code>socket.sendall()</code>解释如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">socket.send(string[, flags]):</span><br><span class="line"><span class="string">'''Send data to the socket. The socket must be connected to a remote socket.</span></span><br><span class="line"><span class="string">The optional flags argument has the same meaning as for recv() above. </span></span><br><span class="line"><span class="string">Returns the number of bytes sent. </span></span><br><span class="line"><span class="string">Applications are responsible for checking that all data has been sent; </span></span><br><span class="line"><span class="string">if only some of the data was transmitted, </span></span><br><span class="line"><span class="string">the application needs to attempt delivery of the remaining data.</span></span><br><span class="line"><span class="string">send()的返回值是发送的字节数量，这个数量值可能小于要发送的string的字节数，</span></span><br><span class="line"><span class="string">也就是说可能无法发送string中所有的数据。如果有错误则会抛出异常。'''</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">socket.sendall(string[, flags]):</span><br><span class="line"><span class="string">'''Send data to the socket. </span></span><br><span class="line"><span class="string">The socket must be connected to a remote socket. </span></span><br><span class="line"><span class="string">The optional flags argument has the same meaning as for recv() above. </span></span><br><span class="line"><span class="string">Unlike send(), this method continues to send data </span></span><br><span class="line"><span class="string">from string until either all data has been sent or an error occurs. </span></span><br><span class="line"><span class="string">None is returned on success. </span></span><br><span class="line"><span class="string">On error, an exception is raised, </span></span><br><span class="line"><span class="string">and there is no way to determine how much data, </span></span><br><span class="line"><span class="string">if any, was successfully sent.</span></span><br><span class="line"><span class="string">尝试发送string的所有数据，成功则返回None，失败则抛出异常。</span></span><br><span class="line"><span class="string">故，下面两段代码是等价的：'''</span></span><br><span class="line"><span class="comment">#sock.sendall('Hello world\n')</span></span><br><span class="line"><span class="comment">#buffer = 'Hello world\n'</span></span><br><span class="line"><span class="comment">#while buffer:</span></span><br><span class="line"><span class="comment">#    bytes = sock.send(buffer)</span></span><br><span class="line"><span class="comment">#    buffer = buffer[bytes:]</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="socketserver模块"><a href="#socketserver模块" class="headerlink" title="socketserver模块"></a>socketserver模块</h3><p><a href="https://docs.python.org/zh-cn/3/library/socketserver.html" target="_blank" rel="noopener"><code>socketserver</code></a>模块使一个server端可以同时和多个client端连接（多线程)</p>
+<p>与只使用socket时<code>conn,addr = sk.accept()</code>相同的是<br>继承<code>socketserver.BaseRequestHandler</code>之后<br><code>self.request</code> 就相当于conn<br><code>self.client_address</code> 就相当于addr</p>
+<h4 id="server端-2"><a href="#server端-2" class="headerlink" title="server端"></a>server端</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Myserver</span><span class="params">(socketserver.BaseRequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.data = self.request.recv(<span class="number">1024</span>).strip()</span><br><span class="line">        print(<span class="string">"&#123;&#125; wrote:"</span>.format(self.client_address[<span class="number">0</span>]))</span><br><span class="line">        print(self.data)</span><br><span class="line">        self.request.sendall(self.data.upper())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    HOST, PORT = <span class="string">"127.0.0.1"</span>, <span class="number">9999</span></span><br><span class="line">    <span class="comment"># 设置allow_reuse_address允许服务器重用地址</span></span><br><span class="line">    socketserver.TCPServer.allow_reuse_address = <span class="literal">True</span></span><br><span class="line">    <span class="comment"># 创建一个server, 将服务地址绑定到127.0.0.1:9999</span></span><br><span class="line">    server = socketserver.TCPServer((HOST, PORT),Myserver)</span><br><span class="line">    <span class="comment"># 让server永远运行下去，除非强制停止程序</span></span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="client端-2"><a href="#client端-2" class="headerlink" title="client端"></a>client端</h4><p>就是最前面的基于TCP的套接字的C端，这里使用with上下文管理的写法</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">HOST, PORT = <span class="string">"127.0.0.1"</span>, <span class="number">9999</span></span><br><span class="line">data = <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="keyword">as</span> sock:</span><br><span class="line">    sock.connect((HOST, PORT))</span><br><span class="line">    sock.sendall(bytes(data + <span class="string">"\n"</span>, <span class="string">"utf-8"</span>))</span><br><span class="line">    received = str(sock.recv(<span class="number">1024</span>), <span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Sent:     &#123;&#125;"</span>.format(data))</span><br><span class="line">print(<span class="string">"Received: &#123;&#125;"</span>.format(received))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="黏包"><a href="#黏包" class="headerlink" title="黏包"></a>黏包</h3><p>现象 : 同时执行多条命令之后，得到的结果很可能只有一部分，在执行其他命令的时候又接收到之前执行的另外一部分结果，这种显现就是黏包。</p>
+<h4 id="黏包成因"><a href="#黏包成因" class="headerlink" title="黏包成因"></a>黏包成因</h4><ul>
+<li>TCP协议的拆包机制<br>当发送端缓冲区的长度大于网卡的MTU时TCP会将这次发送的数据拆成几个数据包发送出去。</li>
+<li>面向流的通信特点和Nagle算法<br>Nagle算法优化后将多次间隔较小且数据量小的数据，合并成一个大的数据块，然后进行封包。</li>
+</ul>
+<p><img src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMqaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjUtYzAxNCA3OS4xNTE0ODEsIDIwMTMvMDMvMTMtMTI6MDk6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUUyMEZGNjM5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUUyMEZGNjQ5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRTIwRkY2MTk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRTIwRkY2Mjk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEABsaGikdKUEmJkFCLy8vQkc/Pj4/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" alt="img"></p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>思路：制作报头，提前让接收端知晓自己将要发送的字节流总大小</p>
+<p>让发送端在发送数据前，发送<strong>固定长度</strong>的报头，然后接收端循环接收完所有数据。</p>
+<h3 id="struct模块"><a href="#struct模块" class="headerlink" title="struct模块"></a>struct模块</h3><p><a href="https://docs.python.org/zh-cn/3/library/struct.html" target="_blank" rel="noopener"><code>struct</code></a>可以把以下类型转成固定长度的bytes</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>C Type</th>
+<th>Python type</th>
+<th>Standard size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>pad byte</td>
+<td>no value</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>char</td>
+<td>string of length 1</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td>signed char</td>
+<td>integer</td>
+<td>1</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>unsigned char</td>
+<td>integer</td>
+<td>1</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>?</td>
+<td>_Bool</td>
+<td>bool</td>
+<td>1</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>h</td>
+<td>short</td>
+<td>integer</td>
+<td>2</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>H</td>
+<td>unsigned short</td>
+<td>integer</td>
+<td>2</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>i</td>
+<td>int</td>
+<td>integer</td>
+<td>4</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>I</td>
+<td>unsigned int</td>
+<td>integer</td>
+<td>4</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>l</td>
+<td>long</td>
+<td>integer</td>
+<td>4</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>L</td>
+<td>unsigned long</td>
+<td>integer</td>
+<td>4</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>q</td>
+<td>long long</td>
+<td>integer</td>
+<td>8</td>
+<td>(2)(3)</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>unsigned long long</td>
+<td>integer</td>
+<td>8</td>
+<td>(2)(3)</td>
+</tr>
+<tr>
+<td>f</td>
+<td>float</td>
+<td>float</td>
+<td>4</td>
+<td>(4)</td>
+</tr>
+<tr>
+<td>d</td>
+<td>double</td>
+<td>float</td>
+<td>8</td>
+<td>(4)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>char[]</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td>char[]</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>void *</td>
+<td>integer</td>
+<td></td>
+<td>(5)(3)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>struct.pack()</code></li>
+<li><code>struct.unpack()</code></li>
+</ul>
+<p><code>.pack()</code>和<code>.unpack()</code>的参数一样：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>struct.pack(<span class="string">'i'</span>,<span class="number">1111111111111</span>)</span><br><span class="line"></span><br><span class="line">struct.error: <span class="string">'i'</span> format requires <span class="number">-2147483648</span> &lt;= number &lt;= <span class="number">2147483647</span> <span class="comment">#这个是范围</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>.unpack()</code>将返回一个元组。</p>
+<h5 id="使用struct自制报头"><a href="#使用struct自制报头" class="headerlink" title="使用struct自制报头"></a>使用struct自制报头</h5><p>以远程终端功能（雾）为例：</p>
+<p>服务端（自定制报头）</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket, struct, os, subprocess</span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">s.listen()</span><br><span class="line">conn, addr = s.accept()</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    cmd = conn.recv(<span class="number">1024</span>)</span><br><span class="line">    cd = cmd.split(<span class="string">b'cd '</span>)</span><br><span class="line">    <span class="keyword">if</span> len(cd) == <span class="number">2</span>:</span><br><span class="line">        os.chdir(str(cd[<span class="number">-1</span>].strip(), <span class="string">'utf-8'</span>))</span><br><span class="line">    print(<span class="string">'cmd: %s'</span> % cmd)</span><br><span class="line">    res = subprocess.Popen(cmd.decode(<span class="string">'utf-8'</span>),</span><br><span class="line">                           shell=<span class="literal">True</span>,</span><br><span class="line">                           stdout=subprocess.PIPE,</span><br><span class="line">                           stderr=subprocess.PIPE)</span><br><span class="line">    back_msg = res.stderr.read() <span class="keyword">or</span> res.stdout.read()</span><br><span class="line">    conn.send(struct.pack(<span class="string">'i'</span>, len(back_msg)))  <span class="comment">#先发报头：back_msg的长度</span></span><br><span class="line">    conn.sendall(back_msg)  <span class="comment">#再发真实的内容</span></span><br><span class="line">conn.close()</span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure></div>
+
+<p>客户端（自定制报头）</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket, struct</span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">res = s.connect_ex((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">res <span class="keyword">and</span> print(res)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    msg = input(<span class="string">'&gt;&gt;&gt; '</span>).strip()</span><br><span class="line">    <span class="keyword">if</span> len(msg) == <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> msg == <span class="string">':q'</span>: <span class="keyword">break</span></span><br><span class="line">    s.send(msg.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">    data_len = struct.unpack(<span class="string">'i'</span>, s.recv(<span class="number">4</span>))[<span class="number">0</span>]  <span class="comment">#接收报头</span></span><br><span class="line">    now_len = <span class="number">0</span></span><br><span class="line">    all_data = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">while</span> now_len &lt; data_len:</span><br><span class="line">        now_data = s.recv(<span class="number">1024</span>)</span><br><span class="line">        all_data += now_data</span><br><span class="line">        now_len += len(now_data)</span><br><span class="line">    print(all_data.decode(<span class="string">'gbk'</span>))  <span class="comment">#windows默认gbk编码</span></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure></div>
+
+<p>自此，黏包问题被完美解决。事实上，应用层的协议（FTP等）本质上就是定制的稍微复杂一点的报头。</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Python/Python_id_50.html">python基础知识(三十二)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2019年10月05日 - 00:10</p>
+  <p><span>最后更新:</span>2020年06月02日 - 19:06</p>
+  <p><span>原始链接:</span><a href="/Python/Python_id_50.html" title="python基础知识(三十二)">https://onlyyu.cn/Python/Python_id_50.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_50.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_09.html" rel="bookmark">DRF中的APIViews视图类</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag">分类： Python</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Python/Python_id_49.html" rel="prev" title="python基础知识(三十一)">
+      <i class="fa fa-chevron-left"></i> python基础知识(三十一)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Python/Python_id_51.html" rel="next" title="python基础知识(三十三)">
+      python基础知识(三十三) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#套接字socket"><span class="nav-text">套接字socket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket模块"><span class="nav-text">socket模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建套接字"><span class="nav-text">创建套接字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参数"><span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于TCP协议的socket"><span class="nav-text">基于TCP协议的socket</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#server端"><span class="nav-text">server端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#client端"><span class="nav-text">client端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见报错"><span class="nav-text">常见报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于UDP协议的socket"><span class="nav-text">基于UDP协议的socket</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#server端-1"><span class="nav-text">server端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#client端-1"><span class="nav-text">client端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多方法介绍"><span class="nav-text">更多方法介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socketserver模块"><span class="nav-text">socketserver模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#server端-2"><span class="nav-text">server端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#client端-2"><span class="nav-text">client端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黏包"><span class="nav-text">黏包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#黏包成因"><span class="nav-text">黏包成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#struct模块"><span class="nav-text">struct模块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用struct自制报头"><span class="nav-text">使用struct自制报头</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">168</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.missbless.cn/" title="http:&#x2F;&#x2F;www.missbless.cn&#x2F;" rel="noopener" target="_blank">ISSAC　LOVELESS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.f322.xyz/" title="https:&#x2F;&#x2F;www.f322.xyz&#x2F;" rel="noopener" target="_blank">逆の神様</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">408k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:11</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

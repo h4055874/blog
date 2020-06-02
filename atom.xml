@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-01T11:34:20.041Z</updated>
+  <updated>2020-06-02T05:44:14.568Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,139 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python递归函数</title>
+    <link href="https://onlyyu.cn/Python/Python_id_31.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_31.html</id>
+    <published>2020-06-02T05:35:00.000Z</published>
+    <updated>2020-06-02T05:44:14.568Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;递归函数定义&quot;&gt;&lt;a href=&quot;#递归函数定义&quot; class=&quot;headerlink&quot; title=&quot;递归函数定义&quot;&gt;&lt;/a&gt;递归函数定义&lt;/h3&gt;&lt;p&gt;　　一个可以在函数内部调用自身本身的函数，就是递归函数&lt;/p&gt;
+&lt;h3 id=&quot;递归函数优缺点&quot;&gt;&lt;a href=&quot;#递归函数优缺点&quot; class=&quot;headerlink&quot; title=&quot;递归函数优缺点&quot;&gt;&lt;/a&gt;递归函数优缺点&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用djcelery+rabbitmq实现异步的邮件验证</title>
+    <link href="https://onlyyu.cn/Python/Python_id_30.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_30.html</id>
+    <published>2020-06-02T01:30:00.000Z</published>
+    <updated>2020-06-02T01:30:28.550Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装依赖&quot;&gt;&lt;a href=&quot;#安装依赖&quot; class=&quot;headerlink&quot; title=&quot;安装依赖&quot;&gt;&lt;/a&gt;安装依赖&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install celery&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pip install django-celery&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django微博三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T03:38:51.372Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django钉钉三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_33.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T03:38:55.559Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;钉钉回调函数&quot;&gt;&lt;a href=&quot;#钉钉回调函数&quot; class=&quot;headerlink&quot; title=&quot;钉钉回调函数&quot;&gt;&lt;/a&gt;钉钉回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="钉钉" scheme="https://onlyyu.cn/tags/%E9%92%89%E9%92%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django七牛云上传文件</title>
+    <link href="https://onlyyu.cn/Django/Django_id_34.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_34.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T04:06:14.035Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;七牛云回调函数&quot;&gt;&lt;a href=&quot;#七牛云回调函数&quot; class=&quot;headerlink&quot; title=&quot;七牛云回调函数&quot;&gt;&lt;/a&gt;七牛云回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Celery以及broker的选择标准</title>
+    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T01:29:36.862Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;celery是什么&quot;&gt;&lt;a href=&quot;#celery是什么&quot; class=&quot;headerlink&quot; title=&quot;celery是什么&quot;&gt;&lt;/a&gt;celery是什么&lt;/h3&gt;&lt;p&gt;　　Celery是基于Python开发的一个分布式任务队列框架，支持使用任务队列的方式在分布的机器/进程/线程上执行任务调度&lt;br&gt;　　Celery的架构，采用典型的生产者-消费者模式&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
+    
+  </entry>
   
   <entry>
     <title>Django配置JWT</title>
@@ -44,7 +177,7 @@
     <link href="https://onlyyu.cn/Python/Python_id_15.html"/>
     <id>https://onlyyu.cn/Python/Python_id_15.html</id>
     <published>2020-05-31T08:46:15.000Z</published>
-    <updated>2020-06-01T11:58:47.366Z</updated>
+    <updated>2020-06-02T01:33:53.500Z</updated>
     
     <summary type="html">
     
@@ -471,15 +604,15 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -492,15 +625,15 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
@@ -580,7 +713,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_01.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_01.html</id>
     <published>2020-05-18T15:54:15.000Z</published>
-    <updated>2020-05-29T19:07:03.765Z</updated>
+    <updated>2020-06-01T13:52:06.693Z</updated>
     
     <summary type="html">
     
@@ -589,10 +722,10 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
@@ -1048,7 +1181,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
     <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:09.065Z</updated>
+    <updated>2020-06-01T13:50:21.111Z</updated>
     
     <summary type="html">
     
@@ -1057,10 +1190,10 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/tags/Redis/"/>
     
   </entry>
   
@@ -1069,7 +1202,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
     <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-05-17T10:00:22.301Z</updated>
+    <updated>2020-06-01T13:50:37.181Z</updated>
     
     <summary type="html">
     
@@ -1080,10 +1213,10 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://onlyyu.cn/categories/Linux/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="Linux" scheme="https://onlyyu.cn/tags/Linux/"/>
     
   </entry>
   
@@ -1092,7 +1225,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-29T12:56:38.314Z</updated>
+    <updated>2020-06-01T13:50:49.146Z</updated>
     
     <summary type="html">
     
@@ -1101,10 +1234,10 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
@@ -1113,7 +1246,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-05-29T12:56:28.763Z</updated>
+    <updated>2020-06-01T13:50:58.100Z</updated>
     
     <summary type="html">
     
@@ -1122,10 +1255,10 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://onlyyu.cn/categories/MySQL/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
@@ -1472,7 +1605,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_08.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_08.html</id>
     <published>2019-12-22T16:00:00.000Z</published>
-    <updated>2020-05-17T10:02:46.410Z</updated>
+    <updated>2020-06-01T13:51:21.110Z</updated>
     
     <summary type="html">
     
@@ -1481,10 +1614,526 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://onlyyu.cn/categories/Linux/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
+      <category term="Linux" scheme="https://onlyyu.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十六)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_54.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_54.html</id>
+    <published>2019-10-17T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:21.258Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;pymssql模块&quot;&gt;&lt;a href=&quot;#pymssql模块&quot; class=&quot;headerlink&quot; title=&quot;pymssql模块&quot;&gt;&lt;/a&gt;pymssql模块&lt;/h2&gt;&lt;p&gt;连接&lt;code&gt;mysql&lt;/code&gt;需要用到&lt;code&gt;pymysql&lt;/code&gt;模块&lt;br&gt;而连接&lt;code&gt;Microsoft SQL server&lt;/code&gt; 需要用到&lt;code&gt;pymssql&lt;/code&gt;模块&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十五)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_53.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_53.html</id>
+    <published>2019-10-14T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:17.148Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SQL语句&quot;&gt;&lt;a href=&quot;#SQL语句&quot; class=&quot;headerlink&quot; title=&quot;SQL语句&quot;&gt;&lt;/a&gt;SQL语句&lt;/h2&gt;&lt;p&gt;这里以mysql数据库为例&lt;/p&gt;
+&lt;p&gt;MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。&lt;/p&gt;
+&lt;p&gt;关于数据库&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十四)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_52.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_52.html</id>
+    <published>2019-10-13T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:14.592Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;协程&quot;&gt;&lt;a href=&quot;#协程&quot; class=&quot;headerlink&quot; title=&quot;协程&quot;&gt;&lt;/a&gt;协程&lt;/h2&gt;&lt;p&gt;协程是单线程下的并发，又称微线程，纤程。英文名Coroutine。&lt;br&gt;Python通过&lt;code&gt;yield&lt;/code&gt;，&lt;code&gt;.send()&lt;/code&gt;提供了对协程的基本支持，但是不完全。&lt;br&gt;在python中，由于GIL锁的存在，并发编程的最佳实践是&lt;strong&gt;多进程&lt;/strong&gt;+&lt;strong&gt;协程&lt;/strong&gt;的方式。&lt;/p&gt;
+&lt;h3 id=&quot;greenlet模块&quot;&gt;&lt;a href=&quot;#greenlet模块&quot; class=&quot;headerlink&quot; title=&quot;greenlet模块&quot;&gt;&lt;/a&gt;greenlet模块&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十三)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_51.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_51.html</id>
+    <published>2019-10-10T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:12.111Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h2&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。&lt;/p&gt;
+&lt;p&gt;使用多进程来并发可以使python程序有效利用多核CPU。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/multiprocessing.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;multiprocessing&lt;/code&gt;&lt;/a&gt;模块是最常用的多进程模块。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十二)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_50.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_50.html</id>
+    <published>2019-10-04T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:08.339Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;套接字socket&quot;&gt;&lt;a href=&quot;#套接字socket&quot; class=&quot;headerlink&quot; title=&quot;套接字socket&quot;&gt;&lt;/a&gt;套接字socket&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;socket模块&quot;&gt;&lt;a href=&quot;#socket模块&quot; class=&quot;headerlink&quot; title=&quot;socket模块&quot;&gt;&lt;/a&gt;socket模块&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十一)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_49.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_49.html</id>
+    <published>2019-10-02T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:05.612Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;系统有关模块&quot;&gt;&lt;a href=&quot;#系统有关模块&quot; class=&quot;headerlink&quot; title=&quot;系统有关模块&quot;&gt;&lt;/a&gt;系统有关模块&lt;/h2&gt;&lt;h3 id=&quot;sys模块&quot;&gt;&lt;a href=&quot;#sys模块&quot; class=&quot;headerlink&quot; title=&quot;sys模块&quot;&gt;&lt;/a&gt;sys模块&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/sys.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;sys&lt;/code&gt;&lt;/a&gt;模块是与python解释器交互的一个接口&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(三十)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_48.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_48.html</id>
+    <published>2019-09-29T16:00:00.000Z</published>
+    <updated>2020-06-02T11:08:00.292Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数学有关模块&quot;&gt;&lt;a href=&quot;#数学有关模块&quot; class=&quot;headerlink&quot; title=&quot;数学有关模块&quot;&gt;&lt;/a&gt;数学有关模块&lt;/h2&gt;&lt;h3 id=&quot;random模块&quot;&gt;&lt;a href=&quot;#random模块&quot; class=&quot;headerlink&quot; title=&quot;random模块&quot;&gt;&lt;/a&gt;random模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/random.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;random&lt;/code&gt;&lt;/a&gt;模块实现了各种分布的伪随机数生成器&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十八)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2020-06-02T11:07:55.102Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;正则有关模块&quot;&gt;&lt;a href=&quot;#正则有关模块&quot; class=&quot;headerlink&quot; title=&quot;正则有关模块&quot;&gt;&lt;/a&gt;正则有关模块&lt;/h2&gt;&lt;p&gt;本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。&lt;/p&gt;
+&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十九)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2020-06-02T11:07:57.850Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;时间有关模块&quot;&gt;&lt;a href=&quot;#时间有关模块&quot; class=&quot;headerlink&quot; title=&quot;时间有关模块&quot;&gt;&lt;/a&gt;时间有关模块&lt;/h2&gt;&lt;h3 id=&quot;timeit模块&quot;&gt;&lt;a href=&quot;#timeit模块&quot; class=&quot;headerlink&quot; title=&quot;timeit模块&quot;&gt;&lt;/a&gt;timeit模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/timeit.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;timeit&lt;/code&gt;&lt;/a&gt;模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;timeit.timeit(eval/lambda, number=10000)&lt;/code&gt; 运行10000次中的最快用时&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十七)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_45.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_45.html</id>
+    <published>2019-09-21T16:00:00.000Z</published>
+    <updated>2020-06-02T11:07:18.320Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;序列化有关模块&quot;&gt;&lt;a href=&quot;#序列化有关模块&quot; class=&quot;headerlink&quot; title=&quot;序列化有关模块&quot;&gt;&lt;/a&gt;序列化有关模块&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十六)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_44.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_44.html</id>
+    <published>2019-09-20T16:00:00.000Z</published>
+    <updated>2020-06-02T11:07:03.061Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;加密有关模块&quot;&gt;&lt;a href=&quot;#加密有关模块&quot; class=&quot;headerlink&quot; title=&quot;加密有关模块&quot;&gt;&lt;/a&gt;加密有关模块&lt;/h2&gt;&lt;h3 id=&quot;hashlib模块&quot;&gt;&lt;a href=&quot;#hashlib模块&quot; class=&quot;headerlink&quot; title=&quot;hashlib模块&quot;&gt;&lt;/a&gt;hashlib模块&lt;/h3&gt;&lt;p&gt;内置模块&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/hashlib.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;hashlib&lt;/code&gt;&lt;/a&gt;提供了常见的摘要算法，如MD5，SHA1等等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十五)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_43.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_43.html</id>
+    <published>2019-09-18T16:00:00.000Z</published>
+    <updated>2020-06-02T11:07:00.088Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;模块和包&quot;&gt;&lt;a href=&quot;#模块和包&quot; class=&quot;headerlink&quot; title=&quot;模块和包&quot;&gt;&lt;/a&gt;模块和包&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;python的模块都是天然的单例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;模块&quot;&gt;&lt;a href=&quot;#模块&quot; class=&quot;headerlink&quot; title=&quot;模块&quot;&gt;&lt;/a&gt;模块&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十四)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_42.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_42.html</id>
+    <published>2019-09-16T16:00:00.000Z</published>
+    <updated>2020-06-02T11:06:42.057Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;魔术方法&quot;&gt;&lt;a href=&quot;#魔术方法&quot; class=&quot;headerlink&quot; title=&quot;魔术方法&quot;&gt;&lt;/a&gt;魔术方法&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在Python中,所有以“__”双下划线包起来的方法,都统称为“Magic Method”,中文称:”魔术方法”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只补充内置(类)方法中的魔术方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十三)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_41.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_41.html</id>
+    <published>2019-09-14T16:00:00.000Z</published>
+    <updated>2020-06-02T11:06:39.438Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;面向对象特性&quot;&gt;&lt;a href=&quot;#面向对象特性&quot; class=&quot;headerlink&quot; title=&quot;面向对象特性&quot;&gt;&lt;/a&gt;面向对象特性&lt;/h2&gt;&lt;h3 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十二)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_40.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_40.html</id>
+    <published>2019-09-11T16:00:00.000Z</published>
+    <updated>2020-06-02T11:06:27.473Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;类和对象&quot;&gt;&lt;a href=&quot;#类和对象&quot; class=&quot;headerlink&quot; title=&quot;类和对象&quot;&gt;&lt;/a&gt;类和对象&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在python中，用变量表示特征，用函数表示技能，&lt;br&gt;因而具有相同特征和技能的一类事物就是‘类’，&lt;br&gt;对象是则是这一类事物中具体的一个。&lt;br&gt;上一节中提到的异常类就是如此。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;属性引用&quot;&gt;&lt;a href=&quot;#属性引用&quot; class=&quot;headerlink&quot; title=&quot;属性引用&quot;&gt;&lt;/a&gt;属性引用&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十一)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_39.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_39.html</id>
+    <published>2019-09-05T16:00:00.000Z</published>
+    <updated>2020-06-02T11:06:15.476Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;迭代器和生成器&quot;&gt;&lt;a href=&quot;#迭代器和生成器&quot; class=&quot;headerlink&quot; title=&quot;迭代器和生成器&quot;&gt;&lt;/a&gt;迭代器和生成器&lt;/h2&gt;&lt;h3 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot; title=&quot;迭代器&quot;&gt;&lt;/a&gt;迭代器&lt;/h3&gt;&lt;p&gt;迭代器（&lt;code&gt;iterator&lt;/code&gt;）必须提供&lt;code&gt;.__next__()&lt;/code&gt;方法&lt;br&gt;&lt;code&gt;.__next__()&lt;/code&gt;执行要么返回下一个迭代器&lt;br&gt;要么抛出&lt;code&gt;StopIteration&lt;/code&gt;异常以标识迭代完成&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(二十)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_38.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_38.html</id>
+    <published>2019-09-03T16:00:00.000Z</published>
+    <updated>2020-06-02T11:06:07.231Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;递归和深拷贝&quot;&gt;&lt;a href=&quot;#递归和深拷贝&quot; class=&quot;headerlink&quot; title=&quot;递归和深拷贝&quot;&gt;&lt;/a&gt;递归和深拷贝&lt;/h2&gt;&lt;h3 id=&quot;递归&quot;&gt;&lt;a href=&quot;#递归&quot; class=&quot;headerlink&quot; title=&quot;递归&quot;&gt;&lt;/a&gt;递归&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;递归实例:汉诺塔&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十九)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_37.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_37.html</id>
+    <published>2019-08-30T16:00:00.000Z</published>
+    <updated>2020-06-02T11:05:57.464Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;闭包和装饰器&quot;&gt;&lt;a href=&quot;#闭包和装饰器&quot; class=&quot;headerlink&quot; title=&quot;闭包和装饰器&quot;&gt;&lt;/a&gt;闭包和装饰器&lt;/h2&gt;&lt;p&gt;闭包是函数作用域的体现&lt;br&gt;装饰器本质就是函数,功能是为其他函数添加附加功能&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十八)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_36.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_36.html</id>
+    <published>2019-08-29T16:00:00.000Z</published>
+    <updated>2020-06-02T11:05:44.534Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;函数和作用域&quot;&gt;&lt;a href=&quot;#函数和作用域&quot; class=&quot;headerlink&quot; title=&quot;函数和作用域&quot;&gt;&lt;/a&gt;函数和作用域&lt;/h2&gt;&lt;p&gt;前面已经学习了很多内置函数和各种数据类型的对象的方法。&lt;/p&gt;
+&lt;h3 id=&quot;函数声明格式&quot;&gt;&lt;a href=&quot;#函数声明格式&quot; class=&quot;headerlink&quot; title=&quot;函数声明格式&quot;&gt;&lt;/a&gt;函数声明格式&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十七)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_35.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_35.html</id>
+    <published>2019-08-27T16:00:00.000Z</published>
+    <updated>2020-06-02T11:05:32.582Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;日志处理&quot;&gt;&lt;a href=&quot;#日志处理&quot; class=&quot;headerlink&quot; title=&quot;日志处理&quot;&gt;&lt;/a&gt;日志处理&lt;/h2&gt;&lt;p&gt;日志可以使用内置的&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/logging.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/a&gt;模块来生成&lt;br&gt;服务端的日志可以使用内置的&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/sqlite3.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;sqlite3&lt;/code&gt;&lt;/a&gt;模块来持久化。&lt;/p&gt;
+&lt;h3 id=&quot;logging模块&quot;&gt;&lt;a href=&quot;#logging模块&quot; class=&quot;headerlink&quot; title=&quot;logging模块&quot;&gt;&lt;/a&gt;logging模块&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十六)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_34.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_34.html</id>
+    <published>2019-08-23T16:00:00.000Z</published>
+    <updated>2020-06-02T11:05:27.692Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文件处理&quot;&gt;&lt;a href=&quot;#文件处理&quot; class=&quot;headerlink&quot; title=&quot;文件处理&quot;&gt;&lt;/a&gt;文件处理&lt;/h2&gt;&lt;h3 id=&quot;基本操作&quot;&gt;&lt;a href=&quot;#基本操作&quot; class=&quot;headerlink&quot; title=&quot;基本操作:&quot;&gt;&lt;/a&gt;基本操作:&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;打开文件,得到文件句柄并赋值给变量&lt;/li&gt;
+&lt;li&gt;通过句柄对文件进行操作&lt;/li&gt;
+&lt;li&gt;关闭文件&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十五)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_33.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_33.html</id>
+    <published>2019-08-12T16:00:00.000Z</published>
+    <updated>2020-06-02T11:04:05.806Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据类型拓展&quot;&gt;&lt;a href=&quot;#数据类型拓展&quot; class=&quot;headerlink&quot; title=&quot;数据类型拓展&quot;&gt;&lt;/a&gt;数据类型拓展&lt;/h2&gt;&lt;p&gt;在内置数据类型（dict、list、set、tuple）的基础上，collections模块还提供了几个额外的数据类型：&lt;br&gt;Counter、deque、defaultdict、namedtuple和OrderedDict等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python基础知识(十四)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_32.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_32.html</id>
+    <published>2019-07-28T16:00:00.000Z</published>
+    <updated>2020-06-02T11:03:51.783Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;三目和推导式&quot;&gt;&lt;a href=&quot;#三目和推导式&quot; class=&quot;headerlink&quot; title=&quot;三目和推导式&quot;&gt;&lt;/a&gt;三目和推导式&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;流程控制章节的进阶。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;三目运算符&quot;&gt;&lt;a href=&quot;#三目运算符&quot; class=&quot;headerlink&quot; title=&quot;三目运算符&quot;&gt;&lt;/a&gt;三目运算符&lt;/h3&gt;&lt;p&gt;也叫三元表达式&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
@@ -1493,14 +2142,15 @@
     <link href="https://onlyyu.cn/Python/Python_id_28.html"/>
     <id>https://onlyyu.cn/Python/Python_id_28.html</id>
     <published>2019-07-25T16:00:00.000Z</published>
-    <updated>2020-06-01T12:00:18.461Z</updated>
+    <updated>2020-06-02T01:32:35.212Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;字符串格式化&quot;&gt;&lt;a href=&quot;#字符串格式化&quot; class=&quot;headerlink&quot; title=&quot;字符串格式化&quot;&gt;&lt;/a&gt;字符串格式化&lt;/h2&gt;&lt;p&gt;Python的字符串格式化有两种方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;%格式符方式&lt;/li&gt;
+&lt;li&gt;format方式&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -1517,14 +2167,18 @@
     <link href="https://onlyyu.cn/Python/Python_id_27.html"/>
     <id>https://onlyyu.cn/Python/Python_id_27.html</id>
     <published>2019-07-22T16:00:00.000Z</published>
-    <updated>2020-06-01T12:00:33.970Z</updated>
+    <updated>2020-06-02T01:33:00.948Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;字典和集合&quot;&gt;&lt;a href=&quot;#字典和集合&quot; class=&quot;headerlink&quot; title=&quot;字典和集合&quot;&gt;&lt;/a&gt;字典和集合&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;几种数据类型在内存中的访问方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接访问：数字&lt;/li&gt;
+&lt;li&gt;顺序访问：字符串 列表 元组&lt;/li&gt;
+&lt;li&gt;映射访问：字典&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -1541,14 +2195,15 @@
     <link href="https://onlyyu.cn/Python/Python_id_26.html"/>
     <id>https://onlyyu.cn/Python/Python_id_26.html</id>
     <published>2019-07-12T16:00:00.000Z</published>
-    <updated>2020-06-01T12:00:27.142Z</updated>
+    <updated>2020-06-02T01:32:58.085Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;列表和元组&quot;&gt;&lt;a href=&quot;#列表和元组&quot; class=&quot;headerlink&quot; title=&quot;列表和元组&quot;&gt;&lt;/a&gt;列表和元组&lt;/h2&gt;&lt;h3 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h3&gt;&lt;blockquote&gt;
+&lt;h4 id=&quot;list&quot;&gt;&lt;a href=&quot;#list&quot; class=&quot;headerlink&quot; title=&quot;#list&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://nanarino.metoyun.com/py/5-列表和元组.html#list&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;#&lt;/a&gt;list&lt;/h4&gt;&lt;p&gt;可迭代类型 可变类型 有序类型&lt;/p&gt;
+&lt;p&gt;使用方括号来创建列表&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;li = [&lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;b&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;c&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;d&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -1565,14 +2220,14 @@
     <link href="https://onlyyu.cn/Python/Python_id_25.html"/>
     <id>https://onlyyu.cn/Python/Python_id_25.html</id>
     <published>2019-07-08T16:00:00.000Z</published>
-    <updated>2020-06-01T12:00:12.842Z</updated>
+    <updated>2020-06-02T01:33:13.105Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;数字和字符串&quot;&gt;&lt;a href=&quot;#数字和字符串&quot; class=&quot;headerlink&quot; title=&quot;数字和字符串&quot;&gt;&lt;/a&gt;数字和字符串&lt;/h2&gt;&lt;h3 id=&quot;数字&quot;&gt;&lt;a href=&quot;#数字&quot; class=&quot;headerlink&quot; title=&quot;数字&quot;&gt;&lt;/a&gt;数字&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;属于不可变类型&lt;/p&gt;
+&lt;p&gt;使用字面量直接创建 包括：&lt;br&gt;十进制整型&lt;code&gt;int&lt;/code&gt; 浮点型&lt;code&gt;float&lt;/code&gt; 复数&lt;code&gt;complex&lt;/code&gt; 布尔型&lt;code&gt;bool&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -1589,14 +2244,11 @@
     <link href="https://onlyyu.cn/Python/Python_id_24.html"/>
     <id>https://onlyyu.cn/Python/Python_id_24.html</id>
     <published>2019-06-29T16:00:00.000Z</published>
-    <updated>2020-06-01T12:00:02.523Z</updated>
+    <updated>2020-06-02T01:33:20.595Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;异常处理&quot;&gt;&lt;a href=&quot;#异常处理&quot; class=&quot;headerlink&quot; title=&quot;异常处理&quot;&gt;&lt;/a&gt;异常处理&lt;/h2&gt;&lt;h3 id=&quot;异常类&quot;&gt;&lt;a href=&quot;#异常类&quot; class=&quot;headerlink&quot; title=&quot;异常类&quot;&gt;&lt;/a&gt;异常类&lt;/h3&gt;&lt;p&gt;Python2在exceptions模块内建了很多的异常类型，通过使用dir函数来查看exceptions中的异常类型，如下：&lt;/p&gt;
     
     </summary>
     
@@ -1613,14 +2265,18 @@
     <link href="https://onlyyu.cn/Python/Python_id_23.html"/>
     <id>https://onlyyu.cn/Python/Python_id_23.html</id>
     <published>2019-06-27T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:49.397Z</updated>
+    <updated>2020-06-02T01:33:28.891Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;流程控制&quot;&gt;&lt;a href=&quot;#流程控制&quot; class=&quot;headerlink&quot; title=&quot;流程控制&quot;&gt;&lt;/a&gt;流程控制&lt;/h2&gt;&lt;h3 id=&quot;逻辑运算符&quot;&gt;&lt;a href=&quot;#逻辑运算符&quot; class=&quot;headerlink&quot; title=&quot;逻辑运算符&quot;&gt;&lt;/a&gt;逻辑运算符&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;成员运算符：&lt;code&gt;in&lt;/code&gt;后面讲列表了会讲&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;比较运算符：&lt;code&gt;==&lt;/code&gt; &lt;code&gt;&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;gt;=&lt;/code&gt; &lt;code&gt;&amp;lt;&lt;/code&gt; &lt;code&gt;&amp;lt;=&lt;/code&gt; &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; &lt;code&gt;!=&lt;/code&gt;&lt;br&gt;对于&lt;code&gt;None&lt;/code&gt;的判断除了比较运算符，更推荐用&lt;code&gt;is None&lt;/code&gt; 和 &lt;code&gt;is not None&lt;/code&gt;&lt;br&gt;在python3中，是否不等于&lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt;被取消了，想要使用需要先引入模块&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; __future__ &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; barry_as_FLUFL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -1637,14 +2293,11 @@
     <link href="https://onlyyu.cn/Python/Python_id_22.html"/>
     <id>https://onlyyu.cn/Python/Python_id_22.html</id>
     <published>2019-06-23T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:43.572Z</updated>
+    <updated>2020-06-02T01:33:32.978Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;python种类&quot;&gt;&lt;a href=&quot;#python种类&quot; class=&quot;headerlink&quot; title=&quot;python种类&quot;&gt;&lt;/a&gt;python种类&lt;/h2&gt;&lt;h3 id=&quot;从实现&quot;&gt;&lt;a href=&quot;#从实现&quot; class=&quot;headerlink&quot; title=&quot;从实现:&quot;&gt;&lt;/a&gt;从实现:&lt;/h3&gt;&lt;p&gt;我们用的都是&lt;code&gt;CPython&lt;/code&gt;就是用C语言实现的Python及其解释器（JIT编译器）&lt;br&gt;速度最快的是&lt;code&gt;pypy&lt;/code&gt;是python自己实现的自己&lt;br&gt;其他版本:C++(&lt;code&gt;Pyston&lt;/code&gt;) \ Java(&lt;code&gt;Jython&lt;/code&gt;) \ C#(&lt;code&gt;IronPython&lt;/code&gt;)&lt;/p&gt;
     
     </summary>
     
@@ -1661,7 +2314,7 @@
     <link href="https://onlyyu.cn/CentOS/CentOS_id_07.html"/>
     <id>https://onlyyu.cn/CentOS/CentOS_id_07.html</id>
     <published>2019-06-07T16:00:00.000Z</published>
-    <updated>2020-05-29T13:00:32.435Z</updated>
+    <updated>2020-06-01T13:51:12.731Z</updated>
     
     <summary type="html">
     
@@ -1673,10 +2326,8 @@
     </summary>
     
     
-      <category term="Node.js" scheme="https://onlyyu.cn/categories/Node-js/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
-    
-      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
     
       <category term="Node.js" scheme="https://onlyyu.cn/tags/Node-js/"/>
     
@@ -1687,14 +2338,11 @@
     <link href="https://onlyyu.cn/Python/Python_id_21.html"/>
     <id>https://onlyyu.cn/Python/Python_id_21.html</id>
     <published>2019-06-07T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:36.063Z</updated>
+    <updated>2020-06-02T01:33:35.826Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;Python-获取-100-以内的质数&quot;&gt;&lt;a href=&quot;#Python-获取-100-以内的质数&quot; class=&quot;headerlink&quot; title=&quot;Python - 获取 100 以内的质数&quot;&gt;&lt;/a&gt;Python - 获取 100 以内的质数&lt;/h2&gt;&lt;p&gt;题目： 获取 100 以内的质数。&lt;/p&gt;
     
     </summary>
     
@@ -1732,14 +2380,12 @@
     <link href="https://onlyyu.cn/Python/Python_id_20.html"/>
     <id>https://onlyyu.cn/Python/Python_id_20.html</id>
     <published>2019-05-30T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:28.260Z</updated>
+    <updated>2020-06-02T01:33:38.609Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h3 id=&quot;Python-JSON&quot;&gt;&lt;a href=&quot;#Python-JSON&quot; class=&quot;headerlink&quot; title=&quot;Python JSON&quot;&gt;&lt;/a&gt;Python JSON&lt;/h3&gt;&lt;p&gt;本章节我们将为大家介绍如何使用 Python 语言来编码和解码 JSON 对象。&lt;/p&gt;
+&lt;p&gt;JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，易于人阅读和编写。&lt;/p&gt;
     
     </summary>
     
@@ -1756,14 +2402,12 @@
     <link href="https://onlyyu.cn/Python/Python_id_19.html"/>
     <id>https://onlyyu.cn/Python/Python_id_19.html</id>
     <published>2019-05-29T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:19.123Z</updated>
+    <updated>2020-06-02T01:33:42.369Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h3 id=&quot;Python2-x与3-x版本区别&quot;&gt;&lt;a href=&quot;#Python2-x与3-x版本区别&quot; class=&quot;headerlink&quot; title=&quot;Python2.x与3.x版本区别&quot;&gt;&lt;/a&gt;Python2.x与3.x版本区别&lt;/h3&gt;&lt;p&gt;Python的3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。&lt;/p&gt;
+&lt;p&gt;为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下相容。&lt;/p&gt;
     
     </summary>
     
@@ -1801,14 +2445,12 @@
     <link href="https://onlyyu.cn/Python/Python_id_18.html"/>
     <id>https://onlyyu.cn/Python/Python_id_18.html</id>
     <published>2019-05-21T16:00:00.000Z</published>
-    <updated>2020-06-01T11:59:13.822Z</updated>
+    <updated>2020-06-02T01:33:44.788Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h3 id=&quot;Python-基础语法&quot;&gt;&lt;a href=&quot;#Python-基础语法&quot; class=&quot;headerlink&quot; title=&quot;Python 基础语法&quot;&gt;&lt;/a&gt;Python 基础语法&lt;/h3&gt;&lt;p&gt;Python 语言与 Perl，C 和 Java 等语言有许多相似之处。但是，也存在一些差异。&lt;/p&gt;
+&lt;p&gt;在本章中我们将来学习 Python 的基础语法，让你快速学会 Python 编程。&lt;/p&gt;
     
     </summary>
     
@@ -1825,14 +2467,12 @@
     <link href="https://onlyyu.cn/Python/Python_id_17.html"/>
     <id>https://onlyyu.cn/Python/Python_id_17.html</id>
     <published>2019-05-16T16:00:00.000Z</published>
-    <updated>2020-06-01T11:58:50.611Z</updated>
+    <updated>2020-06-02T01:33:47.813Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h3 id=&quot;python环境搭建&quot;&gt;&lt;a href=&quot;#python环境搭建&quot; class=&quot;headerlink&quot; title=&quot;python环境搭建&quot;&gt;&lt;/a&gt;python环境搭建&lt;/h3&gt;&lt;p&gt;Python可应用于多平台包括 Linux 和 Mac OS X。&lt;/p&gt;
+&lt;p&gt;你可以通过终端窗口输入 “python” 命令来查看本地是否已经安装Python以及Python的安装版本。&lt;/p&gt;
     
     </summary>
     
@@ -1891,14 +2531,13 @@
     <link href="https://onlyyu.cn/Python/Python_id_16.html"/>
     <id>https://onlyyu.cn/Python/Python_id_16.html</id>
     <published>2019-05-06T16:00:00.000Z</published>
-    <updated>2020-06-01T11:58:55.707Z</updated>
+    <updated>2020-06-02T01:33:50.548Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-      
+      &lt;h2 id=&quot;写在前面的话&quot;&gt;&lt;a href=&quot;#写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;写在前面的话&quot;&gt;&lt;/a&gt;写在前面的话&lt;/h2&gt;&lt;p&gt;这是我所学的第一门编程语言,我的计算机知识从这里起步.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;Python-简介&quot;&gt;&lt;a href=&quot;#Python-简介&quot; class=&quot;headerlink&quot; title=&quot;Python 简介&quot;&gt;&lt;/a&gt;Python 简介&lt;/h3&gt;
     
     </summary>
     

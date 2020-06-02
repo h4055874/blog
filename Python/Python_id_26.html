@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="列表和元组列表 #list可迭代类型 可变类型 有序类型 使用方括号来创建列表 1li &#x3D; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]  索引和切片1234&gt;&gt;&gt;li[0]&#39;a&#39;&gt;&gt;&gt;li[1:2][&#39;b&#39;]  与字符串切片功能不同之处：  进行获取、切片、赋值给其他变量等 （getitem）得到的是其浅拷贝 进行直接赋值（setitem）则会改变原列表  get">
+  <meta name="description" content="列表和元组列表 #list可迭代类型 可变类型 有序类型 使用方括号来创建列表 1li &#x3D; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础知识(十一)">
 <meta property="og:url" content="https://onlyyu.cn/Python/Python_id_26.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="列表和元组列表 #list可迭代类型 可变类型 有序类型 使用方括号来创建列表 1li &#x3D; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]  索引和切片1234&gt;&gt;&gt;li[0]&#39;a&#39;&gt;&gt;&gt;li[1:2][&#39;b&#39;]  与字符串切片功能不同之处：  进行获取、切片、赋值给其他变量等 （getitem）得到的是其浅拷贝 进行直接赋值（setitem）则会改变原列表  get">
+<meta property="og:description" content="列表和元组列表 #list可迭代类型 可变类型 有序类型 使用方括号来创建列表 1li &#x3D; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-01T12:00:27.142Z">
+<meta property="article:modified_time" content="2020-06-02T01:32:58.085Z">
 <meta property="article:author" content="Yu ting">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -150,17 +150,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">61</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">66</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">139</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -323,7 +323,7 @@ input[type="radio"]:not(:checked) + label:after {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-01 20:00:27" itemprop="dateModified" datetime="2020-06-01T20:00:27+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 09:32:58" itemprop="dateModified" datetime="2020-06-02T09:32:58+08:00">2020-06-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -386,6 +386,8 @@ input[type="radio"]:not(:checked) + label:after {
 <p>使用方括号来创建列表</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</span><br></pre></td></tr></table></figure></div>
 </blockquote>
+<a id="more"></a>
+
 <h4 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;li[<span class="number">0</span>]</span><br><span class="line"><span class="string">'a'</span></span><br><span class="line">&gt;&gt;&gt;li[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></div>
 
 <p>与字符串切片功能不同之处：</p>
@@ -498,7 +500,7 @@ input[type="radio"]:not(:checked) + label:after {
   <p><span>本文标题:</span><a href="/Python/Python_id_26.html">python基础知识(十一)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
   <p><span>发布时间:</span>2019年07月13日 - 00:07</p>
-  <p><span>最后更新:</span>2020年06月01日 - 20:06</p>
+  <p><span>最后更新:</span>2020年06月02日 - 09:06</p>
   <p><span>原始链接:</span><a href="/Python/Python_id_26.html" title="python基础知识(十一)">https://onlyyu.cn/Python/Python_id_26.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_26.html"  aria-label="复制成功！"></i></span>
   </p>
@@ -527,16 +529,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_09.html" rel="bookmark">DRF中的APIViews视图类</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
   </ul>
 
@@ -636,20 +638,20 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">168</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1019,13 +1021,13 @@ input[type="radio"]:not(:checked) + label:after {
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">304k</span>
+    <span title="站点总字数">408k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:37</span>
+    <span title="站点阅读时长">6:11</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>

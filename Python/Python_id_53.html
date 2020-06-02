@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="SQL语句这里以mysql数据库为例 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。 关于数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础知识(三十五)">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_53.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="SQL语句这里以mysql数据库为例 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。 关于数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-02T11:08:17.148Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_53.html">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>python基础知识(三十五) | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script> -->
+
+   <!-- 不知道是什么玩意 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+<!-- <body itemscope itemtype="http://schema.org/WebPage" style="background-color: #C1C1C1"> -->
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_53.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python基础知识(三十五)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-15T00:00:00+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-02 19:08:17" itemprop="dateModified" datetime="2020-06-02T19:08:17+08:00">2020-06-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/Python_id_53.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(三十五)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Python/Python_id_53.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_53.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><p>这里以mysql数据库为例</p>
+<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p>关于数据库</p>
+<a id="more"></a>
+
+<p>本笔记只记录基础命令，详细的数据库用法请左转其官方文档。</p>
+<h3 id="安装启动和终端链接"><a href="#安装启动和终端链接" class="headerlink" title="安装启动和终端链接"></a>安装启动和终端链接</h3><h4 id="Linux版本"><a href="#Linux版本" class="headerlink" title="Linux版本"></a>Linux版本</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br></pre></td></tr></table></figure></div>
+
+<p>个人推荐使用 宝塔Linux面板 一键安装 然后重置密码</p>
+<h5 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@akokono.com ~]<span class="comment"># service mysqld start</span></span><br><span class="line">Starting mysqld:                                           [  OK  ]</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">连接：</span><br><span class="line">	<span class="comment">#和win一样</span></span><br><span class="line">    mysql -h host -u user -p</span><br><span class="line"> </span><br><span class="line">常见错误：</span><br><span class="line">    ERROR 2002 (HY000):</span><br><span class="line">    	Can<span class="string">'t connect to local MySQL server through socket '</span>/tmp/mysql.sock<span class="string">' (2), </span></span><br><span class="line"><span class="string">    	it means that the MySQL server daemon (Unix) or service (Windows) is not running.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">退出：</span></span><br><span class="line"><span class="string">    QUIT 或者 Control+D</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Windows版本"><a href="#Windows版本" class="headerlink" title="Windows版本"></a>Windows版本</h4><p>MySQL解压后的 bin 目录下有一大堆的可执行文件，执行如下命令初始化数据：</p>
+<p>其默认未给root账户设置密码</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> c:\mysql-5.7.16-winx64\bin</span><br><span class="line">mysqld --initialize-insecure</span><br></pre></td></tr></table></figure></div>
+
+<p>进入可执行文件目录启动,或将MySQL可执行文件添加到环境变量中 :</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入可执行文件目录</span></span><br><span class="line"><span class="built_in">cd</span> c:\mysql-5.7.16-winx64\bin</span><br><span class="line"><span class="comment"># 启动MySQL服务</span></span><br><span class="line">mysqld</span><br></pre></td></tr></table></figure></div>
+
+<p>启动MySQL客户端并连接MySQL服务</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入可执行文件目录</span></span><br><span class="line"><span class="built_in">cd</span> c:\mysql-5.7.16-winx64\bin</span><br><span class="line"><span class="comment"># 连接MySQL服务器</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment"># 提示请输入密码，直接回车</span></span><br></pre></td></tr></table></figure></div>
+
+<p>如想日后操作简便，可以做如下操作：将MySQL服务制作成windows服务</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制作MySQL的Windows服务，在终端执行此命令：</span></span><br><span class="line"><span class="string">"c:\mysql-5.7.16-winx64\bin\mysqld"</span> --install</span><br><span class="line"><span class="comment"># 移除MySQL的Windows服务，在终端执行此命令：</span></span><br><span class="line"><span class="string">"c:\mysql-5.7.16-winx64\bin\mysqld"</span> --remove</span><br></pre></td></tr></table></figure></div>
+
+<p>注册成服务之后，以后再启动和关闭MySQL服务时，仅需执行如下命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动MySQL服务</span></span><br><span class="line">net start mysql</span><br><span class="line"><span class="comment"># 关闭MySQL服务</span></span><br><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><h5 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>默认已存在的数据库：</p>
+<ul>
+<li>mysql - 用户权限相关数据</li>
+<li>test - 用于用户测试数据</li>
+<li>information_schema - MySQL本身架构相关数据</li>
+</ul>
+<h5 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># utf-8</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> 数据库名称 <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="comment"># gbk</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> 数据库名称 <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> gbk <span class="keyword">COLLATE</span> gbk_chinese_ci;</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> 数据库名称;</span><br><span class="line"><span class="comment">#显示当前使用的数据库中所有表：</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h6 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h6><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建用户</span></span><br><span class="line">    <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'用户名'</span>@<span class="string">'IP地址'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'密码'</span>;</span><br><span class="line"><span class="comment">#删除用户</span></span><br><span class="line">    <span class="keyword">drop</span> <span class="keyword">user</span> <span class="string">'用户名'</span>@<span class="string">'IP地址'</span>;</span><br><span class="line"><span class="comment">#修改用户</span></span><br><span class="line">    <span class="keyword">rename</span> <span class="keyword">user</span> <span class="string">'用户名'</span>@<span class="string">'IP地址'</span>; to '新用户名'@'IP地址';;</span><br><span class="line"><span class="comment">#修改密码</span></span><br><span class="line">    <span class="keyword">set</span> <span class="keyword">password</span> <span class="keyword">for</span> <span class="string">'用户名'</span>@<span class="string">'IP地址'</span> = <span class="keyword">Password</span>(<span class="string">'新密码'</span>)</span><br><span class="line"><span class="comment">#用户权限相关数据保存在mysql数据库的user表中，</span></span><br><span class="line"><span class="comment">#所以也可以直接对其进行操作（不建议）</span></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="授权管理"><a href="#授权管理" class="headerlink" title="授权管理"></a>授权管理</h6><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> <span class="string">'用户'</span>@<span class="string">'IP地址'</span>               <span class="comment">-- 查看权限</span></span><br><span class="line"><span class="keyword">grant</span>  权限 <span class="keyword">on</span> 数据库.表 <span class="keyword">to</span>   <span class="string">'用户'</span>@<span class="string">'IP地址'</span>   <span class="comment">-- 授权</span></span><br><span class="line"><span class="keyword">revoke</span> 权限 <span class="keyword">on</span> 数据库.表 <span class="keyword">from</span> <span class="string">'用户'</span>@<span class="string">'IP地址'</span>   <span class="comment">-- 取消权限</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="数据库表的表示"><a href="#数据库表的表示" class="headerlink" title="数据库表的表示"></a>数据库表的表示</h5><p>内部</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库名.*           -- 数据库中的所有</span><br><span class="line">数据库名.表          <span class="comment">-- 指定数据库中的某张表</span></span><br><span class="line">数据库名.存储过程     <span class="comment">-- 指定数据库中的存储过程</span></span><br><span class="line">*.*                -- 所有数据库</span><br></pre></td></tr></table></figure>
+
+<p>外部</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名@IP地址         <span class="comment">-- 用户只能在改IP下才能访问</span></span><br><span class="line">用户名@192.168.1.%   <span class="comment">-- 用户只能在改IP段下才能访问(通配符%表示任意)</span></span><br><span class="line">用户名@%             <span class="comment">-- 用户可以再任意IP下访问(默认IP地址为%)</span></span><br></pre></td></tr></table></figure></div>
+
+<p>示例</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> db1.tb1 <span class="keyword">TO</span> <span class="string">'用户名'</span>@<span class="string">'IP'</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> db1.* <span class="keyword">TO</span> <span class="string">'用户名'</span>@<span class="string">'IP'</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span>,<span class="keyword">insert</span> <span class="keyword">on</span> *.* <span class="keyword">TO</span> <span class="string">'用户名'</span>@<span class="string">'IP'</span></span><br><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> db1.tb1 <span class="keyword">from</span> <span class="string">'用户名'</span>@<span class="string">'IP'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>特殊的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>  <span class="comment">#将数据读取到内存中，从而立即生效。</span></span><br></pre></td></tr></table></figure></div>
+
+<p>忘记密码:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动免授权服务端</span></span><br><span class="line">mysqld --skip-grant-tables</span><br><span class="line"><span class="comment"># 客户端</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment"># 修改用户名密码</span></span><br><span class="line">update mysql.user <span class="built_in">set</span> authentication_string=password(<span class="string">'666'</span>) <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="数据表基本操作"><a href="#数据表基本操作" class="headerlink" title="数据表基本操作"></a>数据表基本操作</h3><h5 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h5><p>not null 不可为空<br>defalut 默认值<br>null 可以为空</p>
+<p><code>engine=innodb</code> mysql支持事务性操作 失败回滚 <code>engine=myisam</code> mysql支持全局索引 失败不回滚 默认</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1(</span><br><span class="line">    nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> defalut <span class="number">2</span>,</span><br><span class="line">    <span class="keyword">num</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">)<span class="keyword">engine</span>=<span class="keyword">innodb</span> <span class="keyword">default</span> <span class="keyword">charset</span>=utf8</span><br></pre></td></tr></table></figure></div>
+
+<p><code>auto_increment</code> 自增<br><code>primary key</code> 主键</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1(</span><br><span class="line">    nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">    <span class="keyword">num</span> <span class="built_in">int</span> <span class="literal">null</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">--    或</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1(</span><br><span class="line">    nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">    <span class="keyword">num</span> <span class="built_in">int</span> <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">index</span>(nid)</span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 注意：</span></span><br><span class="line"><span class="comment">-- 对于自增列，必须是索引（含主键）。</span></span><br><span class="line"><span class="comment">-- 对于自增可以设置步长和起始值</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">session</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'auto_inc%'</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> auto_increment_increment=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> auto_increment_offset=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">shwo global  variables like 'auto_inc%';</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> auto_increment_increment=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> auto_increment_offset=<span class="number">10</span>;</span><br><span class="line"><span class="comment">#主键，</span></span><br><span class="line"><span class="comment">-- 一种特殊的唯一索引，不允许有空值，</span></span><br><span class="line"><span class="comment">-- 如果主键使用单个列，则它的值必须唯一，</span></span><br><span class="line"><span class="comment">-- 如果是多列，则其组合必须唯一。</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1(</span><br><span class="line">    nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">    <span class="keyword">num</span> <span class="built_in">int</span> <span class="literal">null</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 或</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb1(</span><br><span class="line">    nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">num</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    primary <span class="keyword">key</span>(nid,<span class="keyword">num</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<p><code>foreign key</code> 外键</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">creat table color(</span><br><span class="line">	nid int not null primary key,</span><br><span class="line">	name char(16) not null</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> fruit(</span><br><span class="line">	nid <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span> primary <span class="keyword">key</span>,</span><br><span class="line">	smt <span class="built_in">char</span>(<span class="number">32</span>) <span class="literal">null</span> ,</span><br><span class="line">	color_id <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_cc <span class="keyword">foreign</span> <span class="keyword">key</span> (color_id) <span class="keyword">references</span> color(nid)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="静态表型数据"><a href="#静态表型数据" class="headerlink" title="静态表型数据"></a>静态表型数据</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> (<span class="keyword">values</span>(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">3</span>,<span class="number">4</span>)) <span class="keyword">as</span> 表名(第一行,第二行)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> 表名</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加列：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名 类型</span><br><span class="line"><span class="comment">#删除列：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> <span class="keyword">column</span> 列名</span><br><span class="line"><span class="comment">#修改列：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">modify</span> <span class="keyword">column</span> 列名 类型;  <span class="comment">-- 类型</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">change</span> 原列名 新列名 类型; <span class="comment">-- 列名，类型</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#添加主键：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> primary <span class="keyword">key</span>(列名);</span><br><span class="line"><span class="comment">#删除主键：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> primary <span class="keyword">key</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名  <span class="keyword">modify</span>  列名 <span class="built_in">int</span>, <span class="keyword">drop</span> primary <span class="keyword">key</span>;</span><br><span class="line">  </span><br><span class="line"><span class="comment">#添加外键：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 从表 <span class="keyword">add</span> <span class="keyword">constraint</span> 外键名称（形如：FK_从表_主表）</span><br><span class="line"><span class="keyword">foreign</span> <span class="keyword">key</span> 从表(外键字段) <span class="keyword">references</span> 主表(主键字段);</span><br><span class="line"><span class="comment">#删除外键：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> <span class="keyword">foreign</span> <span class="keyword">key</span> 外键名称</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改默认值：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> testalter_tbl <span class="keyword">alter</span> i <span class="keyword">set</span> <span class="keyword">default</span> <span class="number">1000</span>;</span><br><span class="line"><span class="comment">#删除默认值：</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> testalter_tbl <span class="keyword">alter</span> i <span class="keyword">drop</span> <span class="keyword">default</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="表内容基本操作"><a href="#表内容基本操作" class="headerlink" title="表内容基本操作"></a>表内容基本操作</h4><p>mysql存值的基本数据类型</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">bit[(m)]</span><br><span class="line">  <span class="comment">#二进制位（101001），m表示二进制位的长度（1-64），默认m＝1</span></span><br><span class="line"></span><br><span class="line">tinyint[(m)] [unsigned] [zerofill]</span><br><span class="line">  <span class="comment">#小整数，数据类型用于保存一些范围的整数数值范围：</span></span><br><span class="line">  <span class="comment">#特别的： MySQL中无布尔值，使用tinyint(1)构造。</span></span><br><span class="line"></span><br><span class="line">int[(m)][unsigned][zerofill]</span><br><span class="line">  <span class="comment">#整数，数据类型用于保存一些范围的整数数值范围</span></span><br><span class="line"></span><br><span class="line">bigint[(m)][unsigned][zerofill]</span><br><span class="line">  <span class="comment">#大整数，数据类型用于保存一些范围的整数数值范围</span></span><br><span class="line"></span><br><span class="line">decimal[(m[,d])] [unsigned] [zerofill]</span><br><span class="line">  <span class="comment">#准确的十进制，m是数字总个数（负号不算），d是小数点后个数。 m最大值为65，d最大值为30。</span></span><br><span class="line"></span><br><span class="line">float[(m,d)] [unsigned] [zerofill]</span><br><span class="line">  <span class="comment">#单精度浮点数（非准确小数值），m是数字总个数，d是小数点后个数。数值越大，越不准确</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">double[(m,d)] [unsigned] [zerofill]</span><br><span class="line">  <span class="comment">#双精度浮点数（非准确小数值），m是数字总个数，d是小数点后个数。数值越大，越不准确</span></span><br><span class="line">  </span><br><span class="line">char (m)</span><br><span class="line">  <span class="comment">#char数据类型用于表示固定长度的字符串，可以包含最多达255个字符。</span></span><br><span class="line">  <span class="comment">#其中m代表字符串的长度。即使数据小于m长度，也会占用m长度</span></span><br><span class="line">  </span><br><span class="line">varchar(m)</span><br><span class="line">  <span class="comment">#varchars数据类型用于变长的字符串，可以包含最多达255个字符。</span></span><br><span class="line">  <span class="comment">/**其中m代表该数据类型所允许保存的字符串的最大长度，</span></span><br><span class="line"><span class="comment">    	只要长度小于该最大值的字符串都可以被保存在该数据类型中。</span></span><br><span class="line"><span class="comment">    	注：虽然varchar使用起来较为灵活，但是从整个系统的性能角度来说，</span></span><br><span class="line"><span class="comment">    	char数据类型的处理速度更快，有时甚至可以超出varchar处理速度的50%。</span></span><br><span class="line"><span class="comment">    	因此，用户在设计数据库时应当综合考虑各方面的因素，以求达到最佳的平衡**/</span></span><br><span class="line"></span><br><span class="line">text</span><br><span class="line">  <span class="comment">#text数据类型用于保存变长的大字符串，可以组多到65535 (2**16 − 1)个字符。</span></span><br><span class="line"></span><br><span class="line">mediumtext</span><br><span class="line">  <span class="comment">#A TEXT column with a maximum length of 16,777,215 (2**24 − 1) characters.</span></span><br><span class="line"></span><br><span class="line">longtext</span><br><span class="line">  <span class="comment">#A TEXT column with a maximum length of 4,294,967,295 or 4GB (2**32 − 1) characters.</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">  <span class="comment">#枚举类型</span></span><br><span class="line">  <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> shirts (</span><br><span class="line">      <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">40</span>),</span><br><span class="line">      <span class="keyword">size</span> ENUM(<span class="string">'x-small'</span>, <span class="string">'small'</span>, <span class="string">'medium'</span>, <span class="string">'large'</span>, <span class="string">'x-large'</span>)</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">INSERT</span> <span class="keyword">INTO</span> shirts (<span class="keyword">name</span>, <span class="keyword">size</span>) <span class="keyword">VALUES</span> </span><br><span class="line">      (<span class="string">'dress shirt'</span>,<span class="string">'large'</span>), (<span class="string">'t-shirt'</span>,<span class="string">'medium'</span>),(<span class="string">'polo shirt'</span>,<span class="string">'small'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span></span><br><span class="line">  <span class="comment">#集合类型</span></span><br><span class="line">  <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> myset (<span class="keyword">col</span> <span class="keyword">SET</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>));</span><br><span class="line">  <span class="keyword">INSERT</span> <span class="keyword">INTO</span> myset (<span class="keyword">col</span>) <span class="keyword">VALUES</span> (<span class="string">'a,d'</span>), (<span class="string">'d,a'</span>), (<span class="string">'a,d,a'</span>), (<span class="string">'a,d,d'</span>), (<span class="string">'d,a,d'</span>);</span><br><span class="line"></span><br><span class="line">DATE</span><br><span class="line">  <span class="comment">#YYYY-MM-DD（1000-01-01/9999-12-31）</span></span><br><span class="line"></span><br><span class="line">TIME</span><br><span class="line">  <span class="comment">#HH:MM:SS（'-838:59:59'/'838:59:59'）</span></span><br><span class="line"></span><br><span class="line">YEAR</span><br><span class="line">  <span class="comment">#YYYY（1901/2155）</span></span><br><span class="line"></span><br><span class="line">DATETIME</span><br><span class="line">  <span class="comment">#YYYY-MM-DD HH:MM:SS（1000-01-01 00:00:00/9999-12-31 23:59:59    Y）</span></span><br><span class="line"></span><br><span class="line">TIMESTAMP</span><br><span class="line">  <span class="comment">#YYYYMMDD HHMMSS（1970-01-01 00:00:00/2037 年某时）</span></span><br></pre></td></tr></table></figure></div>
+
+<p><em>二进制数据：TinyBlob、Blob、MediumBlob、LongBlob</em></p>
+<h4 id="增"><a href="#增" class="headerlink" title="#增"></a><a href="http://nanarino.metoyun.com/py/30-SQL语句.html#增" target="_blank" rel="noopener">#</a>增</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表 (列名,列名...) <span class="keyword">values</span> (值,值,值...)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表 (列名,列名...) <span class="keyword">values</span> (值,值,值...),(值,值,值...)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表 (列名,列名...) <span class="keyword">select</span> (列名,列名...) <span class="keyword">from</span> 表</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="删"><a href="#删" class="headerlink" title="删"></a>删</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span>＝<span class="number">1</span> <span class="keyword">and</span> <span class="keyword">name</span>＝<span class="string">'alex'</span><span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="改"><a href="#改" class="headerlink" title="改"></a>改</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> 表 <span class="keyword">set</span> <span class="keyword">name</span> ＝ <span class="string">'alex'</span> <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="查"><a href="#查" class="headerlink" title="查"></a>查</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打印完整表</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> &gt; <span class="number">1</span></span><br><span class="line"><span class="keyword">select</span> nid,<span class="keyword">name</span>,gender <span class="keyword">as</span> gg <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">a、条件</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> &gt; <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">name</span> != <span class="string">'alex'</span> <span class="keyword">and</span> <span class="keyword">num</span> = <span class="number">12</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">5</span> <span class="keyword">and</span> <span class="number">16</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>)</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>)</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="keyword">select</span> nid <span class="keyword">from</span> 表)</span><br><span class="line"> </span><br><span class="line">b、通配符</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'ale%'</span>  - ale开头的所有（多个字符串）</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'ale_'</span>  - ale开头的所有（一个字符）</span><br><span class="line"> </span><br><span class="line">c、限制</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">limit</span> <span class="number">5</span>;            - 前5行</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">limit</span> <span class="number">4</span>,<span class="number">5</span>;          - 从第4行开始的5行</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">limit</span> <span class="number">5</span> <span class="keyword">offset</span> <span class="number">4</span>    - 从第<span class="number">4</span>行开始的<span class="number">5</span>行</span><br><span class="line"> </span><br><span class="line">d、排序</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">order</span> <span class="keyword">by</span> 列 <span class="keyword">asc</span>              - 根据 “列” 从小到大排列</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">order</span> <span class="keyword">by</span> 列 <span class="keyword">desc</span>             - 根据 “列” 从大到小排列</span><br><span class="line">    <span class="keyword">select</span> * <span class="keyword">from</span> 表 <span class="keyword">order</span> <span class="keyword">by</span> 列<span class="number">1</span> <span class="keyword">desc</span>, 列<span class="number">2</span> <span class="keyword">asc</span>    - 根据 “列<span class="number">1</span>” 从大到小排列，如果相同则按列<span class="number">2</span>从小到大排序</span><br><span class="line"> </span><br><span class="line">e、分组</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> 表 <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">num</span></span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">num</span>,nid <span class="keyword">from</span> 表 <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">num</span>,nid</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">num</span>,nid <span class="keyword">from</span> 表  <span class="keyword">where</span> nid &gt; <span class="number">10</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">num</span>,nid <span class="keyword">order</span> nid <span class="keyword">desc</span></span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">num</span>,nid,<span class="keyword">count</span>(*),<span class="keyword">sum</span>(score),<span class="keyword">max</span>(score),<span class="keyword">min</span>(score) <span class="keyword">from</span> 表 <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">num</span>,nid</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> 表 <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">num</span> <span class="keyword">having</span> <span class="keyword">max</span>(<span class="keyword">id</span>) &gt; <span class="number">10</span></span><br><span class="line"> </span><br><span class="line">    特别的：<span class="keyword">group</span> <span class="keyword">by</span> 必须在<span class="keyword">where</span>之后，<span class="keyword">order</span> <span class="keyword">by</span>之前</span><br><span class="line"> </span><br><span class="line">f、连表</span><br><span class="line">    无对应关系则不显示</span><br><span class="line">    <span class="keyword">select</span> A.num, A.name, B.name</span><br><span class="line">    <span class="keyword">from</span> A,B</span><br><span class="line">    <span class="keyword">Where</span> A.nid = B.nid</span><br><span class="line"> </span><br><span class="line">    无对应关系则不显示</span><br><span class="line">    <span class="keyword">select</span> A.num, A.name, B.name</span><br><span class="line">    <span class="keyword">from</span> A <span class="keyword">inner</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.nid = B.nid</span><br><span class="line"> </span><br><span class="line">    A表所有显示，如果B中无对应关系，则值为<span class="literal">null</span></span><br><span class="line">    <span class="keyword">select</span> A.num, A.name, B.name</span><br><span class="line">    <span class="keyword">from</span> A <span class="keyword">left</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.nid = B.nid</span><br><span class="line"> </span><br><span class="line">    B表所有显示，如果B中无对应关系，则值为<span class="literal">null</span></span><br><span class="line">    <span class="keyword">select</span> A.num, A.name, B.name</span><br><span class="line">    <span class="keyword">from</span> A <span class="keyword">right</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.nid = B.nid</span><br><span class="line"> </span><br><span class="line">g、组合</span><br><span class="line">    组合，自动处理重合</span><br><span class="line">    <span class="keyword">select</span> nickname</span><br><span class="line">    <span class="keyword">from</span> A</span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line">    <span class="keyword">from</span> B</span><br><span class="line"> </span><br><span class="line">    组合，不处理重合</span><br><span class="line">    <span class="keyword">select</span> nickname</span><br><span class="line">    <span class="keyword">from</span> A</span><br><span class="line">    <span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line">    <span class="keyword">from</span> B</span><br></pre></td></tr></table></figure></div>
+
+<p>mysql之外的其他关系型数据库的用法大致相同。使用pymysql可用同步执行mysql的事务。</p>
+<p>篇幅有限。变量，函数，存储过程，触发器等知识略过。</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Python/Python_id_53.html">python基础知识(三十五)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2019年10月15日 - 00:10</p>
+  <p><span>最后更新:</span>2020年06月02日 - 19:06</p>
+  <p><span>原始链接:</span><a href="/Python/Python_id_53.html" title="python基础知识(三十五)">https://onlyyu.cn/Python/Python_id_53.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_53.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_09.html" rel="bookmark">DRF中的APIViews视图类</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag">分类： Python</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Python/Python_id_52.html" rel="prev" title="python基础知识(三十四)">
+      <i class="fa fa-chevron-left"></i> python基础知识(三十四)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Python/Python_id_54.html" rel="next" title="python基础知识(三十六)">
+      python基础知识(三十六) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL语句"><span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装启动和终端链接"><span class="nav-text">安装启动和终端链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux版本"><span class="nav-text">Linux版本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务端启动"><span class="nav-text">服务端启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端连接"><span class="nav-text">客户端连接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows版本"><span class="nav-text">Windows版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#显示数据库"><span class="nav-text">显示数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建数据库"><span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用数据库"><span class="nav-text">使用数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用户管理"><span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#授权管理"><span class="nav-text">授权管理</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库表的表示"><span class="nav-text">数据库表的表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表基本操作"><span class="nav-text">数据表基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态表型数据"><span class="nav-text">静态表型数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#清空表"><span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-text">修改表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表内容基本操作"><span class="nav-text">表内容基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增"><span class="nav-text">增</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#删"><span class="nav-text">删</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#改"><span class="nav-text">改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查"><span class="nav-text">查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">168</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.missbless.cn/" title="http:&#x2F;&#x2F;www.missbless.cn&#x2F;" rel="noopener" target="_blank">ISSAC　LOVELESS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.f322.xyz/" title="https:&#x2F;&#x2F;www.f322.xyz&#x2F;" rel="noopener" target="_blank">逆の神様</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">408k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:11</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

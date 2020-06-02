@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Python - 获取 100 以内的质数题目： 获取 100 以内的质数。 程序分析：质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数，如：2、3、5、7、11、13、17、19。 方法一：#!&#x2F;usr&#x2F;bin&#x2F;python # -- coding: UTF-8 --  num&#x3D;[]; i&#x3D;2 for i in ran">
+  <meta name="description" content="Python - 获取 100 以内的质数题目： 获取 100 以内的质数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础知识(六)">
 <meta property="og:url" content="https://onlyyu.cn/Python/Python_id_21.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="Python - 获取 100 以内的质数题目： 获取 100 以内的质数。 程序分析：质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数，如：2、3、5、7、11、13、17、19。 方法一：#!&#x2F;usr&#x2F;bin&#x2F;python # -- coding: UTF-8 --  num&#x3D;[]; i&#x3D;2 for i in ran">
+<meta property="og:description" content="Python - 获取 100 以内的质数题目： 获取 100 以内的质数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-06-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-01T11:59:36.063Z">
+<meta property="article:modified_time" content="2020-06-02T01:33:35.826Z">
 <meta property="article:author" content="Yu ting">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -150,17 +150,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">61</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">66</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">139</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -323,7 +323,7 @@ input[type="radio"]:not(:checked) + label:after {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-01 19:59:36" itemprop="dateModified" datetime="2020-06-01T19:59:36+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 09:33:35" itemprop="dateModified" datetime="2020-06-02T09:33:35+08:00">2020-06-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -382,6 +382,8 @@ input[type="radio"]:not(:checked) + label:after {
 
       
         <h2 id="Python-获取-100-以内的质数"><a href="#Python-获取-100-以内的质数" class="headerlink" title="Python - 获取 100 以内的质数"></a>Python - 获取 100 以内的质数</h2><p>题目： 获取 100 以内的质数。</p>
+<a id="more"></a>
+
 <p><strong>程序分析：</strong>质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数，如：2、3、5、7、11、13、17、19。</p>
 <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>#!/usr/bin/python # -<em>- coding: UTF-8 -</em>-  num=[]; i=2 for i in range(2,100):   j=2   for j in range(2,i):      if(i%j==0):         break   else:      num.append(i) print(num)</p>
 <h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>import math def func_get_prime(n):  return filter(lambda x: not [x%i for i in range(2, int(math.sqrt(x))+1) if x%i ==0], range(2,n+1))  print func_get_prime(100)</p>
@@ -415,7 +417,7 @@ input[type="radio"]:not(:checked) + label:after {
   <p><span>本文标题:</span><a href="/Python/Python_id_21.html">python基础知识(六)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
   <p><span>发布时间:</span>2019年06月08日 - 00:06</p>
-  <p><span>最后更新:</span>2020年06月01日 - 19:06</p>
+  <p><span>最后更新:</span>2020年06月02日 - 09:06</p>
   <p><span>原始链接:</span><a href="/Python/Python_id_21.html" title="python基础知识(六)">https://onlyyu.cn/Python/Python_id_21.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_21.html"  aria-label="复制成功！"></i></span>
   </p>
@@ -444,16 +446,16 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_09.html" rel="bookmark">DRF中的APIViews视图类</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
   </ul>
 
@@ -553,20 +555,20 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">168</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -936,13 +938,13 @@ input[type="radio"]:not(:checked) + label:after {
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">304k</span>
+    <span title="站点总字数">408k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:37</span>
+    <span title="站点阅读时长">6:11</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>
