@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-03T04:12:38.688Z</updated>
+  <updated>2020-06-02T05:44:14.568Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>利用HeyUI在md文件中制作的一个小功能</title>
-    <link href="https://onlyyu.cn/Other/Other_id_02.html"/>
-    <id>https://onlyyu.cn/Other/Other_id_02.html</id>
-    <published>2020-06-03T04:12:15.000Z</published>
-    <updated>2020-06-03T04:12:38.688Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;可以先看下效果&lt;a href=&quot;https://www.onlyyu.cn/notes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;跳转&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Element-UI" scheme="https://onlyyu.cn/categories/Element-UI/"/>
-    
-    
-      <category term="Element-UI" scheme="https://onlyyu.cn/tags/Element-UI/"/>
-    
-  </entry>
   
   <entry>
     <title>Python递归函数</title>
@@ -81,29 +60,6 @@
   </entry>
   
   <entry>
-    <title>Django微博三方登录</title>
-    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:51.372Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Django钉钉三方登录</title>
     <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
     <id>https://onlyyu.cn/Django/Django_id_33.html</id>
@@ -123,6 +79,29 @@
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
       <category term="钉钉" scheme="https://onlyyu.cn/tags/%E9%92%89%E9%92%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django微博三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T03:38:51.372Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
     
   </entry>
   
@@ -453,31 +432,6 @@
   </entry>
   
   <entry>
-    <title>Echarts趋势图</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:25.056Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个趋势展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用工具：Echarts&lt;/p&gt;
-&lt;p&gt;官网：点击&lt;a href=&quot;https://echarts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Echarts官网&lt;/a&gt;跳转&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="Echarts" scheme="https://onlyyu.cn/tags/Echarts/"/>
-    
-  </entry>
-  
-  <entry>
     <title>v-charts趋势图</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
@@ -499,6 +453,31 @@
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
       <category term="v-charts" scheme="https://onlyyu.cn/tags/v-charts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Echarts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-06-02T14:04:25.056Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个趋势展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：Echarts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://echarts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Echarts官网&lt;/a&gt;跳转&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="Echarts" scheme="https://onlyyu.cn/tags/Echarts/"/>
     
   </entry>
   
@@ -635,15 +614,15 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -656,15 +635,15 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
@@ -1252,15 +1231,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:58.100Z</updated>
+    <updated>2020-06-01T13:50:49.146Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
@@ -1273,15 +1252,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:49.146Z</updated>
+    <updated>2020-06-01T13:50:58.100Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
     
     </summary>
     
@@ -2624,15 +2603,16 @@
   </entry>
   
   <entry>
-    <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
+    <title>代理ip</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:57:10.458Z</updated>
+    <updated>2020-05-17T06:56:57.582Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
     
     </summary>
     
@@ -2645,16 +2625,15 @@
   </entry>
   
   <entry>
-    <title>代理ip</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
+    <title>动态获取数据</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:57.582Z</updated>
+    <updated>2020-05-17T06:57:10.458Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
+      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
     
     </summary>
     
@@ -2962,16 +2941,15 @@
   </entry>
   
   <entry>
-    <title>flask开端</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
+    <title>flask_route</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:47:51.366Z</updated>
+    <updated>2020-05-17T06:48:01.847Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
+      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -2984,15 +2962,16 @@
   </entry>
   
   <entry>
-    <title>flask_route</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
+    <title>flask开端</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:01.847Z</updated>
+    <updated>2020-05-17T06:47:51.366Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
+      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
     
     </summary>
     

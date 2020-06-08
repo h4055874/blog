@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>利用HeyUI在md文件中制作的一个小功能</title>
-    <url>/Other/Other_id_02.html</url>
-    <content><![CDATA[<p>可以先看下效果<a href="https://www.onlyyu.cn/notes/" target="_blank" rel="noopener">跳转</a></p>
-<a id="more"></a>
-
-<h3 id="页面模版样式"><a href="#页面模版样式" class="headerlink" title="页面模版样式"></a>页面模版样式</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"a1"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>随堂笔记:<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"suitang1"</span> <span class="attr">class</span>=<span class="string">"suitang1"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"h-btn h-btn-blue"</span>&gt;</span>点我可以展开哦<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"suitang2"</span> <span class="attr">class</span>=<span class="string">"suitang2"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"h-btn h-btn-primary"</span>&gt;</span>记得点我收起哦<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span> <span class="attr">class</span>=<span class="string">"suitang3"</span> <span class="attr">id</span>=<span class="string">"suitang3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　01、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/classroom/国际化语言操作.html"</span>&gt;</span>国际化语言操作<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　02、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/classroom/Vue中的自定义过滤器.html"</span>&gt;</span>Vue自定义过滤器<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　03、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/classroom/基于redis的排行榜.html"</span>&gt;</span>基于redis的排行榜<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　04、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/classroom/商品检索智能提示功能.html"</span>&gt;</span>商品检索智能提示功能<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　05、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/classroom/简单的购物车.html"</span>&gt;</span>简单的购物车<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span> <span class="attr">id</span>=<span class="string">"spider"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"a1"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>Spider笔记:<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"spider1"</span> <span class="attr">class</span>=<span class="string">"spider1"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"h-btn h-btn-blue"</span>&gt;</span>点我可以展开哦<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"spider2"</span> <span class="attr">class</span>=<span class="string">"spider2"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"h-btn h-btn-primary"</span>&gt;</span>记得点我收起哦<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span> <span class="attr">class</span>=<span class="string">"spider3"</span> <span class="attr">id</span>=<span class="string">"spider3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　01、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/虚拟环境命令.html"</span>&gt;</span>虚拟环境命令<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　02、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/爬虫的介绍.html"</span>&gt;</span>爬虫的介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　03、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/网页请求.html"</span>&gt;</span>网页请求<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　04、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/requests高级部分.html"</span>&gt;</span>requests高级部分<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　05、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/xpath使用.html"</span>&gt;</span>xpath使用<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　06、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/bs4模块的使用.html"</span>&gt;</span>bs4模块的使用<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　07、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/文件的操作.html"</span>&gt;</span>文件的操作<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　08、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/selenuim模块的使用.html"</span>&gt;</span>selenuim模块的使用<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　09、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/多线程爬虫.html"</span>&gt;</span>多线程爬虫<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　10、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/打码平台.html"</span>&gt;</span>打码平台<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　11、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/MongoDB使用介绍.html"</span>&gt;</span>MongoDB使用介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"comspecial"</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>　　12、📚 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/notes/spider/sceapy框架.html"</span>&gt;</span>sceapy框架<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="引入样式"><a href="#引入样式" class="headerlink" title="引入样式"></a>引入样式</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 引入外部HeyUI样式*/</span></span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/heyui"&gt;&lt;/script&gt;</span><br><span class="line"><span class="comment">/*自定义样式*/</span></span><br><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line">    <span class="selector-class">.h-btn</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: none;</span><br><span class="line">        <span class="attribute">outline</span>: none;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">15px</span>;</span><br><span class="line">        <span class="attribute">font-family</span>: inherit;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">        <span class="attribute">color</span>: inherit;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">13px</span>;</span><br><span class="line">        <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">        <span class="attribute">cursor</span>: pointer;</span><br><span class="line">        <span class="attribute">transition</span>: all .<span class="number">2s</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: transparent;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d3d3d3</span>;</span><br><span class="line">        <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">1px</span> <span class="number">0</span> <span class="number">#eeeeee</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#FFF</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-primary</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#45b984</span>;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#42b27f</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="number">#ffffff</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-primary</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#6ac79d</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#6ac79d</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-primary</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#3a9b6f</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#3a9b6f</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-blue</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#3B91FF</span>;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#318bff</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="number">#ffffff</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-blue</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#6eaeff</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#6eaeff</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.h-btn</span><span class="selector-class">.h-btn-blue</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#127aff</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#127aff</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="selector-class">.suitang1</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">120px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.suitang2</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">120px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.suitang3</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.spider1</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.spider2</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.spider3</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.a1</span> &#123;</span><br><span class="line">    	<span class="attribute">float</span>: left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.comspecial</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">padding</span>:<span class="number">5px</span> <span class="number">0</span>;</span><br><span class="line">        //border-right:1px solid #ddd;</span><br><span class="line">        <span class="selector-tag">list-style-position</span><span class="selector-pseudo">:inside</span>;</span><br><span class="line">        <span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#coms</span> <span class="selector-tag">dl</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">padding</span>:<span class="number">5px</span> <span class="number">0</span>;</span><br><span class="line">        //border-right:1px solid #ddd;</span><br><span class="line">        <span class="selector-tag">list-style-position</span><span class="selector-pseudo">:inside</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> suitang1 = <span class="built_in">document</span>.getElementById(<span class="string">"suitang1"</span>);</span><br><span class="line">        <span class="keyword">let</span> suitang2 = <span class="built_in">document</span>.getElementById(<span class="string">"suitang2"</span>);</span><br><span class="line">        <span class="keyword">let</span> suitang3 = <span class="built_in">document</span>.getElementById(<span class="string">"suitang3"</span>);</span><br><span class="line">        <span class="keyword">let</span> spider1 = <span class="built_in">document</span>.getElementById(<span class="string">"spider1"</span>);</span><br><span class="line">        <span class="keyword">let</span> spider2 = <span class="built_in">document</span>.getElementById(<span class="string">"spider2"</span>);</span><br><span class="line">        <span class="keyword">let</span> spider3 = <span class="built_in">document</span>.getElementById(<span class="string">"spider3"</span>);</span><br><span class="line">        suitang1.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            suitang1.style.display = <span class="string">"none"</span></span><br><span class="line">            suitang2.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            suitang3.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            spider1.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            spider2.style.display = <span class="string">"none"</span></span><br><span class="line">            spider3.style.display = <span class="string">"none"</span></span><br><span class="line">        &#125;;</span><br><span class="line">        suitang2.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            suitang1.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            suitang2.style.display = <span class="string">"none"</span></span><br><span class="line">            suitang3.style.display = <span class="string">"none"</span></span><br><span class="line">        &#125;</span><br><span class="line">        spider1.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            spider1.style.display = <span class="string">"none"</span></span><br><span class="line">            spider2.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            spider3.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            suitang1.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            suitang2.style.display = <span class="string">"none"</span></span><br><span class="line">            suitang3.style.display = <span class="string">"none"</span></span><br><span class="line">        &#125;;</span><br><span class="line">        spider2.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            spider1.style.display = <span class="string">"inline-block"</span></span><br><span class="line">            spider2.style.display = <span class="string">"none"</span></span><br><span class="line">            spider3.style.display = <span class="string">"none"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>Element-UI</category>
-      </categories>
-      <tags>
-        <tag>Element-UI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python递归函数</title>
     <url>/Python/Python_id_31.html</url>
     <content><![CDATA[<h3 id="递归函数定义"><a href="#递归函数定义" class="headerlink" title="递归函数定义"></a>递归函数定义</h3><p>　　一个可以在函数内部调用自身本身的函数，就是递归函数</p>
@@ -112,30 +90,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Django微博三方登录</title>
-    <url>/Django/Django_id_32.html</url>
-    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>微博</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Django钉钉三方登录</title>
     <url>/Django/Django_id_33.html</url>
     <content><![CDATA[<h3 id="钉钉回调函数"><a href="#钉钉回调函数" class="headerlink" title="钉钉回调函数"></a>钉钉回调函数</h3><a id="more"></a>
@@ -157,6 +111,30 @@
       <tags>
         <tag>Python</tag>
         <tag>钉钉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django微博三方登录</title>
+    <url>/Django/Django_id_32.html</url>
+    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>微博</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,6 +1140,31 @@
       </tags>
   </entry>
   <entry>
+    <title>v-charts趋势图</title>
+    <url>/Vue/Vue_id_15.html</url>
+    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
+<p>使用工具：v-charts</p>
+<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>v-charts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Echarts趋势图</title>
     <url>/Vue/Vue_id_14.html</url>
     <content><![CDATA[<p><strong>在vue中让数据以一个趋势展示，让我们对数据可以一目了然</strong></p>
@@ -1185,31 +1188,6 @@
       <tags>
         <tag>Vue</tag>
         <tag>Echarts</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>v-charts趋势图</title>
-    <url>/Vue/Vue_id_15.html</url>
-    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
-<p>使用工具：v-charts</p>
-<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
-<a id="more"></a>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>v-charts</tag>
       </tags>
   </entry>
   <entry>
@@ -1544,6 +1522,22 @@
       </tags>
   </entry>
   <entry>
+    <title>redis数据淘汰机制</title>
+    <url>/Redis/Redis_id_03.html</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+<a id="more"></a>
+
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>redis雪崩、击穿、穿透</title>
     <url>/Redis/Redis_id_04.html</url>
     <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
@@ -1564,22 +1558,6 @@
 <p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
 <p>　　<strong>解决方案</strong></p>
 <p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/Redis/Redis_id_03.html</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
-<a id="more"></a>
-
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2653,77 +2631,6 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/CentOS/CentOS_id_06.html</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
-
-<ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
-</li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
-</li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
-</ol>
-</li>
-</ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
-]]></content>
-      <categories>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7服务器配置主从</title>
     <url>/CentOS/CentOS_id_05.html</url>
     <content><![CDATA[<h2 id="Centos7-环境下配置mysql主从服务"><a href="#Centos7-环境下配置mysql主从服务" class="headerlink" title="Centos7 环境下配置mysql主从服务"></a>Centos7 环境下配置mysql主从服务</h2><a id="more"></a>
@@ -2796,6 +2703,77 @@ show slave status\G  </code></pre>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/CentOS/CentOS_id_06.html</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>CentOS</category>
@@ -7911,22 +7889,6 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
       </tags>
   </entry>
   <entry>
-    <title>动态获取数据</title>
-    <url>/Spider/Spider_id_11.html</url>
-    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
-<ol>
-<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
-<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>代理ip</title>
     <url>/Spider/Spider_id_10.html</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -7979,6 +7941,22 @@ print(res.text)
 </li>
 <li><p>代理ip池写法,创建一个列表,存储准备好的IP,然后使用随机模块进行随即调用,这样可以确保每次都会随机抽取一个代理ip来发送请求</p>
 </li>
+</ol>
+]]></content>
+      <categories>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态获取数据</title>
+    <url>/Spider/Spider_id_11.html</url>
+    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
+<ol>
+<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
+<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
 </ol>
 ]]></content>
       <categories>
@@ -8796,6 +8774,40 @@ form models <span class="keyword">import</span> Person
       </tags>
   </entry>
   <entry>
+    <title>flask_route</title>
+    <url>/Flask/Flask_id_04.html</url>
+    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
+<ul>
+<li><p>创建app主体</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
+app = Flask(__name__)
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
+</li>
+<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
+</li>
+</ul>
+</li>
+<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
+<ul>
+<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
+    app.run(debug=<span class="literal">True</span>)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flask开端</title>
     <url>/Flask/Flask_id_02.html</url>
     <content><![CDATA[<h2 id="—————————–flask开端——————————–"><a href="#—————————–flask开端——————————–" class="headerlink" title="—————————–flask开端——————————–"></a>—————————–flask开端——————————–</h2><hr>
@@ -8829,40 +8841,6 @@ if __name__ = &apos;__main__&apos;:
 <ul>
 <li>点击运行按钮左边的选项,在台出的页面中选择edit configurations</li>
 <li>进入后勾选FLASK_DEBUG</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask_route</title>
-    <url>/Flask/Flask_id_04.html</url>
-    <content><![CDATA[<h2 id="flask-route"><a href="#flask-route" class="headerlink" title="*flask_route*"></a><strong>*<u>flask_route*</u></strong></h2><a id="more"></a>
-<ul>
-<li><p>创建app主体</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask
-app = Flask(__name__)
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MARKDOWN"><figure class="iseeu highlight /markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>绑定路由</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span><span class="code">```</span>python</span><br><span class="line"><span class="code">    @app.route('/')</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><pre><code class="python"><span class="meta">@app.route('/',methods=['GET','PORT'])</span>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - 绑定路由时,如果不设定methods方法,将会默认为get方法,这种情况下,其他方法无法访问</span><br><span class="line"></span><br><span class="line">- 设定路由的执行函数</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'hello world!'</span></span><br></pre></td></tr></table></figure></div></code></pre>
-</li>
-<li><p>路由的执行函数通过return来实现,在不返回HTML页面的情况下,可以将要返回的数值直接返回,但是只能返回字符串类型</p>
-</li>
-</ul>
-</li>
-<li><p>在设定玩路由之后,只需要开辟一个程序入口进行运行,就构成了一个完整的flask</p>
-<ul>
-<li><pre><code class="python"><span class="keyword">if</span> __name__ = <span class="string">'__main'</span>:
-    app.run(debug=<span class="literal">True</span>)</code></pre>
-</li>
-</ul>
-</li>
 </ul>
 ]]></content>
       <categories>
