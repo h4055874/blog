@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 <link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
+  <link rel="stylesheet" href="/blog/lib/pace/pace-theme-minimal.min.css">
+  <script src="/blog/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"h4055874.github.io","root":"/blog/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="MySQL数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu配置数据库踩坑记录">
-<meta property="og:url" content="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html">
+<meta property="og:url" content="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_01.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
 <meta property="og:description" content="MySQL数据库">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html">
+<link rel="canonical" href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_01.html">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -99,7 +99,7 @@
 
    <!-- 不知道是什么玩意 -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
-<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+<link rel="alternate" href="/blog/atom.xml" title="Yu ting's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
@@ -123,7 +123,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Yu ting's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -145,27 +145,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">67</span></a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">68</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">12</span></a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">167</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -293,10 +293,10 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html">
+    <link itemprop="mainEntityOfPage" href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_01.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.png">
       <meta itemprop="name" content="Yu ting">
       <meta itemprop="description" content="">
     </span>
@@ -331,12 +331,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/blog/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
                 </span>
             </span>
 
           
-            <span id="/Ubuntu/Ubuntu_id_01.html" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu配置数据库踩坑记录" title="阅读次数">
+            <span id="/blog/Ubuntu/Ubuntu_id_01.html" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu配置数据库踩坑记录" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -351,8 +351,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Ubuntu/Ubuntu_id_01.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Ubuntu/Ubuntu_id_01.html" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/Ubuntu/Ubuntu_id_01.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/Ubuntu/Ubuntu_id_01.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -464,16 +464,16 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
+      <div class="popular-posts-title"><a href="\blog\CentOS\CentOS_id_01.html" rel="bookmark">CentOS 8安装mysql8.0</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
+      <div class="popular-posts-title"><a href="\blog\CentOS\CentOS_id_06.html" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\CentOS\CentOS_id_06.html" rel="bookmark">CentOS7服务器配置主从之后的一些操作</a></div>
+      <div class="popular-posts-title"><a href="\blog\CentOS\CentOS_id_05.html" rel="bookmark">CentOS7服务器配置主从</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\Ubuntu\Ubuntu_id_03.html" rel="bookmark">Ubuntu18.04配置mysql</a></div>
+      <div class="popular-posts-title"><a href="\blog\Ubuntu\Ubuntu_id_03.html" rel="bookmark">Ubuntu18.04配置mysql</a></div>
     </li>
   </ul>
 
@@ -485,12 +485,12 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <img src="/blog/images/wechat.jpg" alt="Yu ting 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <img src="/blog/images/alipay.jpg" alt="Yu ting 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -500,7 +500,7 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MySQL/" rel="tag">分类： MySQL</a>
+              <a href="/blog/tags/MySQL/" rel="tag">分类： MySQL</a>
           </div>
 
         
@@ -514,11 +514,11 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Python/Python_id_20.html" rel="prev" title="python基础知识(五)">
+    <a href="/blog/Python/Python_id_20.html" rel="prev" title="python基础知识(五)">
       <i class="fa fa-chevron-left"></i> python基础知识(五)
     </a></div>
       <div class="post-nav-item">
-    <a href="/Python/Python_id_21.html" rel="next" title="python基础知识(六)">
+    <a href="/blog/Python/Python_id_21.html" rel="next" title="python基础知识(六)">
       python基础知识(六) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -564,29 +564,29 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Yu ting"
-      src="/images/avatar.png">
+      src="/blog/images/avatar.png">
   <p class="site-author-name" itemprop="name">Yu ting</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
-          <span class="site-state-item-count">167</span>
+          <span class="site-state-item-count">168</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -956,13 +956,13 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">407k</span>
+    <span title="站点总字数">413k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:10</span>
+    <span title="站点阅读时长">6:15</span>
 </div>
   <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
   </div>
@@ -1004,24 +1004,24 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
 
 
-  <script defer src="/lib/three/three.min.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+  <script defer src="/blog/lib/three/three.min.js"></script>
 
 
   
@@ -1050,7 +1050,7 @@ dpkg -l |grep ^rc|awk &apos;{print $2}&apos; |sudo xargs dpkg -P</code></pre></l
   </script>
 
   
-<script src="/js/local-search.js"></script>
+<script src="/blog/js/local-search.js"></script>
 
 
 
@@ -1104,5 +1104,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     a{cursor:url(/images/链接选择.cur),wait} 
   </style>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
