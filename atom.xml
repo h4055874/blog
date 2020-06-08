@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-02T05:44:14.568Z</updated>
+  <updated>2020-06-03T04:12:38.688Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用HeyUI在md文件中制作的一个小功能</title>
+    <link href="https://onlyyu.cn/Other/Other_id_02.html"/>
+    <id>https://onlyyu.cn/Other/Other_id_02.html</id>
+    <published>2020-06-03T04:12:15.000Z</published>
+    <updated>2020-06-03T04:12:38.688Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;可以先看下效果&lt;a href=&quot;https://www.onlyyu.cn/notes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;跳转&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Element-UI" scheme="https://onlyyu.cn/categories/Element-UI/"/>
+    
+    
+      <category term="Element-UI" scheme="https://onlyyu.cn/tags/Element-UI/"/>
+    
+  </entry>
   
   <entry>
     <title>Python递归函数</title>
@@ -48,6 +69,27 @@
     <summary type="html">
     
       &lt;h3 id=&quot;安装依赖&quot;&gt;&lt;a href=&quot;#安装依赖&quot; class=&quot;headerlink&quot; title=&quot;安装依赖&quot;&gt;&lt;/a&gt;安装依赖&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install celery&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pip install django-celery&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Celery以及broker的选择标准</title>
+    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T01:29:36.862Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;celery是什么&quot;&gt;&lt;a href=&quot;#celery是什么&quot; class=&quot;headerlink&quot; title=&quot;celery是什么&quot;&gt;&lt;/a&gt;celery是什么&lt;/h3&gt;&lt;p&gt;　　Celery是基于Python开发的一个分布式任务队列框架，支持使用任务队列的方式在分布的机器/进程/线程上执行任务调度&lt;br&gt;　　Celery的架构，采用典型的生产者-消费者模式&lt;/p&gt;
     
     </summary>
     
@@ -125,27 +167,6 @@
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
       <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Celery以及broker的选择标准</title>
-    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T01:29:36.862Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;celery是什么&quot;&gt;&lt;a href=&quot;#celery是什么&quot; class=&quot;headerlink&quot; title=&quot;celery是什么&quot;&gt;&lt;/a&gt;celery是什么&lt;/h3&gt;&lt;p&gt;　　Celery是基于Python开发的一个分布式任务队列框架，支持使用任务队列的方式在分布的机器/进程/线程上执行任务调度&lt;br&gt;　　Celery的架构，采用典型的生产者-消费者模式&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
-    
-    
-      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
     
   </entry>
   
@@ -409,7 +430,7 @@
     <link href="https://onlyyu.cn/Python/Python_id_06.html"/>
     <id>https://onlyyu.cn/Python/Python_id_06.html</id>
     <published>2020-05-30T06:47:15.000Z</published>
-    <updated>2020-05-31T06:41:48.057Z</updated>
+    <updated>2020-06-08T08:49:58.513Z</updated>
     
     <summary type="html">
     
@@ -457,6 +478,29 @@
   </entry>
   
   <entry>
+    <title>Vue实现Excel文件下载</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-06-02T14:04:54.745Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Echarts趋势图</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
@@ -482,15 +526,15 @@
   </entry>
   
   <entry>
-    <title>Vue实现Excel文件下载</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:54.745Z</updated>
+    <title>Vue中详细的百度地图解析</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-06-02T14:01:20.246Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
     
     </summary>
     
@@ -500,7 +544,7 @@
     
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
@@ -549,29 +593,6 @@
   </entry>
   
   <entry>
-    <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-02T14:01:20.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算某年某月某一天是第几天</title>
     <link href="https://onlyyu.cn/Python/Python_id_04.html"/>
     <id>https://onlyyu.cn/Python/Python_id_04.html</id>
@@ -586,6 +607,48 @@
     
     
       <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:18:24.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:27:46.871Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
@@ -623,48 +686,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
