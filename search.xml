@@ -136,30 +136,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Django钉钉三方登录</title>
-    <url>/blog/Django/Django_id_33.html</url>
-    <content><![CDATA[<h3 id="钉钉回调函数"><a href="#钉钉回调函数" class="headerlink" title="钉钉回调函数"></a>钉钉回调函数</h3><a id="more"></a>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 钉钉登录回调</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dingding</span><span class="params">(request)</span>:</span></span><br><span class="line">    resp = &#123;&#125;</span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line"></span><br><span class="line">    t = time.time()</span><br><span class="line">    <span class="comment"># 时间戳</span></span><br><span class="line">    timestamp = str((int(round(t * <span class="number">1000</span>))))</span><br><span class="line">    appSecret = <span class="string">'tWd4eW-yiAz-wVJQ1tzpTMHm9VM3PmZ6x1re89-iEgukXVngE3pOlaSnNBXOCLgy'</span></span><br><span class="line">    <span class="comment"># 构造签名</span></span><br><span class="line">    signature = base64.b64encode(</span><br><span class="line">        hmac.new(appSecret.encode(<span class="string">'utf-8'</span>), timestamp.encode(<span class="string">'utf-8'</span>), digestmod=sha256).digest())</span><br><span class="line">    <span class="comment"># 请求接口，换取钉钉用户名</span></span><br><span class="line">    payload = &#123;<span class="string">'tmp_auth_code'</span>: code&#125;</span><br><span class="line">    headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">    res = requests.post(<span class="string">'https://oapi.dingtalk.com/sns/getuserinfo_bycode?signature='</span> + urllib.parse.quote(</span><br><span class="line">        signature.decode(<span class="string">"utf-8"</span>)) + <span class="string">"&amp;timestamp="</span> + timestamp + <span class="string">"&amp;accessKey=dingoa06zfxqpht5t96gnk"</span>,</span><br><span class="line">                        data=json.dumps(payload), headers=headers)</span><br><span class="line"></span><br><span class="line">    res = json.loads(res.text)</span><br><span class="line">    print(res)</span><br><span class="line">    resp[<span class="string">"ding_name"</span>] = res[<span class="string">'user_info'</span>][<span class="string">"nick"</span>]</span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"ding_name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        ding_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(ding_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"ding_name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        ding_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(ding_id))</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'dingding/'</span>,dingding), <span class="comment"># 钉钉登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定钉钉登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src1"</span> @<span class="attr">click</span>=<span class="string">"dingding"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 钉钉登录</span></span><br><span class="line">dingding() &#123;</span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://oapi.dingtalk.com/connect/qrconnect?"</span> +</span><br><span class="line">		<span class="string">"appid=dingoa06zfxqpht5t96gnk&amp;"</span> +</span><br><span class="line">		<span class="string">"response_type=code&amp;"</span> +</span><br><span class="line">		<span class="string">"scope=snsapi_login&amp;"</span> +</span><br><span class="line">		<span class="string">"state=STATE&amp;"</span> +</span><br><span class="line">		<span class="string">"redirect_uri="</span> + config[<span class="string">"baseurl"</span>] + <span class="string">"dingding"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>钉钉</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Django七牛云上传文件</title>
     <url>/blog/Django/Django_id_34.html</url>
     <content><![CDATA[<h3 id="七牛云回调函数"><a href="#七牛云回调函数" class="headerlink" title="七牛云回调函数"></a>七牛云回调函数</h3><a id="more"></a>
@@ -181,6 +157,30 @@
       <tags>
         <tag>Python</tag>
         <tag>七牛云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django钉钉三方登录</title>
+    <url>/blog/Django/Django_id_33.html</url>
+    <content><![CDATA[<h3 id="钉钉回调函数"><a href="#钉钉回调函数" class="headerlink" title="钉钉回调函数"></a>钉钉回调函数</h3><a id="more"></a>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 钉钉登录回调</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dingding</span><span class="params">(request)</span>:</span></span><br><span class="line">    resp = &#123;&#125;</span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line"></span><br><span class="line">    t = time.time()</span><br><span class="line">    <span class="comment"># 时间戳</span></span><br><span class="line">    timestamp = str((int(round(t * <span class="number">1000</span>))))</span><br><span class="line">    appSecret = <span class="string">'tWd4eW-yiAz-wVJQ1tzpTMHm9VM3PmZ6x1re89-iEgukXVngE3pOlaSnNBXOCLgy'</span></span><br><span class="line">    <span class="comment"># 构造签名</span></span><br><span class="line">    signature = base64.b64encode(</span><br><span class="line">        hmac.new(appSecret.encode(<span class="string">'utf-8'</span>), timestamp.encode(<span class="string">'utf-8'</span>), digestmod=sha256).digest())</span><br><span class="line">    <span class="comment"># 请求接口，换取钉钉用户名</span></span><br><span class="line">    payload = &#123;<span class="string">'tmp_auth_code'</span>: code&#125;</span><br><span class="line">    headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">    res = requests.post(<span class="string">'https://oapi.dingtalk.com/sns/getuserinfo_bycode?signature='</span> + urllib.parse.quote(</span><br><span class="line">        signature.decode(<span class="string">"utf-8"</span>)) + <span class="string">"&amp;timestamp="</span> + timestamp + <span class="string">"&amp;accessKey=dingoa06zfxqpht5t96gnk"</span>,</span><br><span class="line">                        data=json.dumps(payload), headers=headers)</span><br><span class="line"></span><br><span class="line">    res = json.loads(res.text)</span><br><span class="line">    print(res)</span><br><span class="line">    resp[<span class="string">"ding_name"</span>] = res[<span class="string">'user_info'</span>][<span class="string">"nick"</span>]</span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"ding_name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        ding_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(ding_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"ding_name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        ding_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(ding_id))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'dingding/'</span>,dingding), <span class="comment"># 钉钉登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定钉钉登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src1"</span> @<span class="attr">click</span>=<span class="string">"dingding"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 钉钉登录</span></span><br><span class="line">dingding() &#123;</span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://oapi.dingtalk.com/connect/qrconnect?"</span> +</span><br><span class="line">		<span class="string">"appid=dingoa06zfxqpht5t96gnk&amp;"</span> +</span><br><span class="line">		<span class="string">"response_type=code&amp;"</span> +</span><br><span class="line">		<span class="string">"scope=snsapi_login&amp;"</span> +</span><br><span class="line">		<span class="string">"state=STATE&amp;"</span> +</span><br><span class="line">		<span class="string">"redirect_uri="</span> + config[<span class="string">"baseurl"</span>] + <span class="string">"dingding"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>钉钉</tag>
       </tags>
   </entry>
   <entry>
@@ -1451,22 +1451,6 @@
       </tags>
   </entry>
   <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/blog/Redis/Redis_id_03.html</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
-<a id="more"></a>
-
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>redis持久化</title>
     <url>/blog/Redis/Redis_id_01.html</url>
     <content><![CDATA[<p>redis是一个内存数据库，数据保存在内存中，但是我们都知道内存的数据变化是很快的，也容易发生丢失。幸好Redis还为我们提供了持久化的机制，分别是RDB(Redis DataBase)和AOF(Append Only File)。</p>
@@ -1551,6 +1535,22 @@
 <img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/redis5.jpeg">
 
 <p>结束。</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis数据淘汰机制</title>
+    <url>/blog/Redis/Redis_id_03.html</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+<a id="more"></a>
+
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2520,54 +2520,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置汇总</title>
-    <url>/blog/CentOS/CentOS_id_04.html</url>
-    <content><![CDATA[<ol>
-<li><p>构建centos7环境</p>
-<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
-<a id="more"></a>
-
-<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
-<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
-<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
-<p>还是重装系统吧</p>
-</li>
-<li><p>配置python环境</p>
-<ol>
-<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
-</li>
-<li><p>如果有需要升级的话,可以参考下列操作</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
-
-<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
-</li>
-</ol>
-</li>
-<li><p>配置mysql数据库 + 主从复制</p>
-<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
-</li>
-<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
-<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
-</li>
-<li><p>配置node环境</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
-
-<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
-
-<p>重启服务器:  reboot</p>
-</li>
-</ol>
-<p>以上.</p>
-]]></content>
-      <categories>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
     <url>/blog/CentOS/CentOS_id_03.html</url>
     <content><![CDATA[<h2 id="这次是配置redis主从"><a href="#这次是配置redis主从" class="headerlink" title="这次是配置redis主从"></a>这次是配置redis主从</h2><a id="more"></a>
@@ -2653,74 +2605,51 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/blog/CentOS/CentOS_id_06.html</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+    <title>CentOS7服务器配置汇总</title>
+    <url>/blog/CentOS/CentOS_id_04.html</url>
+    <content><![CDATA[<ol>
+<li><p>构建centos7环境</p>
+<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
+<a id="more"></a>
 
+<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
+<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
+<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
+<p>还是重装系统吧</p>
+</li>
+<li><p>配置python环境</p>
 <ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
 </li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+<li><p>如果有需要升级的话,可以参考下列操作</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
+
+<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
 </li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
 </ol>
 </li>
+<li><p>配置mysql数据库 + 主从复制</p>
+<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
+</li>
+<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
+<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
+</li>
+<li><p>配置node环境</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
+
+<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
+
+<p>重启服务器:  reboot</p>
+</li>
 </ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
+<p>以上.</p>
 ]]></content>
       <categories>
         <category>CentOS</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2796,6 +2725,77 @@ show slave status\G  </code></pre>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/blog/CentOS/CentOS_id_06.html</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>CentOS</category>
@@ -7911,6 +7911,22 @@ SCHEDULER_PERSIST = <span class="literal">True</span>
       </tags>
   </entry>
   <entry>
+    <title>动态获取数据</title>
+    <url>/blog/Spider/Spider_id_11.html</url>
+    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
+<ol>
+<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
+<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>代理ip</title>
     <url>/blog/Spider/Spider_id_10.html</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -7963,22 +7979,6 @@ print(res.text)
 </li>
 <li><p>代理ip池写法,创建一个列表,存储准备好的IP,然后使用随机模块进行随即调用,这样可以确保每次都会随机抽取一个代理ip来发送请求</p>
 </li>
-</ol>
-]]></content>
-      <categories>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态获取数据</title>
-    <url>/blog/Spider/Spider_id_11.html</url>
-    <content><![CDATA[<h2 id="动态获取数据"><a href="#动态获取数据" class="headerlink" title="动态获取数据"></a>动态获取数据</h2><a id="more"></a>
-<ol>
-<li>在一些网页中,进行ajax请求的时候需要传递参数,有些参数是特殊的动态参数,这些参数通常隐藏在页面中,只需要进行对应的匹配就能够进行获取</li>
-<li>在一些网页中,cookie的获取可能是在执行ajax请求进行动态加载的时候才传递过来的,因此,想要获取对应的cookie,就需要是用Session模块在进行ajax请求的时候进行获取,才能拿到需要使用的cookie</li>
 </ol>
 ]]></content>
       <categories>
