@@ -3,11 +3,11 @@
   <title>Yu ting&#39;s blog</title>
   
   <subtitle>I only for you!</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://h4055874.github.io/blog/"/>
+  <link href="https://onlyyu.cn/"/>
   <updated>2020-06-03T04:12:38.688Z</updated>
-  <id>https://h4055874.github.io/blog/</id>
+  <id>https://onlyyu.cn/</id>
   
   <author>
     <name>Yu ting</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>利用HeyUI在md文件中制作的一个小功能</title>
-    <link href="https://h4055874.github.io/blog/Other/Other_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Other/Other_id_02.html</id>
+    <link href="https://onlyyu.cn/Other/Other_id_02.html"/>
+    <id>https://onlyyu.cn/Other/Other_id_02.html</id>
     <published>2020-06-03T04:12:15.000Z</published>
     <updated>2020-06-03T04:12:38.688Z</updated>
     
@@ -30,17 +30,17 @@
     </summary>
     
     
-      <category term="Element-UI" scheme="https://h4055874.github.io/blog/categories/Element-UI/"/>
+      <category term="Element-UI" scheme="https://onlyyu.cn/categories/Element-UI/"/>
     
     
-      <category term="Element-UI" scheme="https://h4055874.github.io/blog/tags/Element-UI/"/>
+      <category term="Element-UI" scheme="https://onlyyu.cn/tags/Element-UI/"/>
     
   </entry>
   
   <entry>
     <title>Python递归函数</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_31.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_31.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_31.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_31.html</id>
     <published>2020-06-02T05:35:00.000Z</published>
     <updated>2020-06-02T05:44:14.568Z</updated>
     
@@ -52,17 +52,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Celery" scheme="https://h4055874.github.io/blog/tags/Celery/"/>
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
     
   </entry>
   
   <entry>
     <title>使用djcelery+rabbitmq实现异步的邮件验证</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_30.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_30.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_30.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_30.html</id>
     <published>2020-06-02T01:30:00.000Z</published>
     <updated>2020-06-02T01:30:28.550Z</updated>
     
@@ -73,63 +73,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Celery" scheme="https://h4055874.github.io/blog/tags/Celery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django钉钉三方登录</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_33.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_33.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:55.559Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;钉钉回调函数&quot;&gt;&lt;a href=&quot;#钉钉回调函数&quot; class=&quot;headerlink&quot; title=&quot;钉钉回调函数&quot;&gt;&lt;/a&gt;钉钉回调函数&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
-    
-      <category term="钉钉" scheme="https://h4055874.github.io/blog/tags/%E9%92%89%E9%92%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django七牛云上传文件</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_34.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_34.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T04:06:14.035Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;七牛云回调函数&quot;&gt;&lt;a href=&quot;#七牛云回调函数&quot; class=&quot;headerlink&quot; title=&quot;七牛云回调函数&quot;&gt;&lt;/a&gt;七牛云回调函数&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
-    
-      <category term="七牛云" scheme="https://h4055874.github.io/blog/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
     
   </entry>
   
   <entry>
     <title>Django微博三方登录</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_32.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_32.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
     <updated>2020-06-02T03:38:51.372Z</updated>
     
@@ -140,19 +94,65 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="微博" scheme="https://h4055874.github.io/blog/tags/%E5%BE%AE%E5%8D%9A/"/>
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django钉钉三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_33.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T03:38:55.559Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;钉钉回调函数&quot;&gt;&lt;a href=&quot;#钉钉回调函数&quot; class=&quot;headerlink&quot; title=&quot;钉钉回调函数&quot;&gt;&lt;/a&gt;钉钉回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="钉钉" scheme="https://onlyyu.cn/tags/%E9%92%89%E9%92%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django七牛云上传文件</title>
+    <link href="https://onlyyu.cn/Django/Django_id_34.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_34.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T04:06:14.035Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;七牛云回调函数&quot;&gt;&lt;a href=&quot;#七牛云回调函数&quot; class=&quot;headerlink&quot; title=&quot;七牛云回调函数&quot;&gt;&lt;/a&gt;七牛云回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>Celery以及broker的选择标准</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_29.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_29.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
     <updated>2020-06-02T01:29:36.862Z</updated>
     
@@ -163,17 +163,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Celery" scheme="https://h4055874.github.io/blog/tags/Celery/"/>
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
     
   </entry>
   
   <entry>
     <title>Django配置JWT</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_31.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_31.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_31.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_31.html</id>
     <published>2020-05-31T16:00:00.000Z</published>
     <updated>2020-06-01T11:34:20.041Z</updated>
     
@@ -184,19 +184,19 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="JWT" scheme="https://h4055874.github.io/blog/tags/JWT/"/>
+      <category term="JWT" scheme="https://onlyyu.cn/tags/JWT/"/>
     
   </entry>
   
   <entry>
     <title>Python 实例方法、静态方法、类方法、属性方法、魔法方法</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_15.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_15.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_15.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_15.html</id>
     <published>2020-05-31T08:46:15.000Z</published>
     <updated>2020-06-02T01:33:53.500Z</updated>
     
@@ -207,27 +207,27 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="实例方法" scheme="https://h4055874.github.io/blog/tags/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
+      <category term="实例方法" scheme="https://onlyyu.cn/tags/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
     
-      <category term="静态方法" scheme="https://h4055874.github.io/blog/tags/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
+      <category term="静态方法" scheme="https://onlyyu.cn/tags/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
     
-      <category term="类方法" scheme="https://h4055874.github.io/blog/tags/%E7%B1%BB%E6%96%B9%E6%B3%95/"/>
+      <category term="类方法" scheme="https://onlyyu.cn/tags/%E7%B1%BB%E6%96%B9%E6%B3%95/"/>
     
-      <category term="属性方法" scheme="https://h4055874.github.io/blog/tags/%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95/"/>
+      <category term="属性方法" scheme="https://onlyyu.cn/tags/%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95/"/>
     
-      <category term="魔法方法" scheme="https://h4055874.github.io/blog/tags/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/"/>
+      <category term="魔法方法" scheme="https://onlyyu.cn/tags/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Python 正则表达式</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_14.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_14.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_14.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_14.html</id>
     <published>2020-05-31T07:51:15.000Z</published>
     <updated>2020-05-31T08:13:32.373Z</updated>
     
@@ -240,19 +240,19 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="正则表达式" scheme="https://h4055874.github.io/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://onlyyu.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>Python TCP和UDP、流量控制和拥塞控制</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_13.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_13.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_13.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_13.html</id>
     <published>2020-05-31T07:47:15.000Z</published>
     <updated>2020-05-31T15:51:25.200Z</updated>
     
@@ -264,25 +264,25 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="TCP" scheme="https://h4055874.github.io/blog/tags/TCP/"/>
+      <category term="TCP" scheme="https://onlyyu.cn/tags/TCP/"/>
     
-      <category term="UDP" scheme="https://h4055874.github.io/blog/tags/UDP/"/>
+      <category term="UDP" scheme="https://onlyyu.cn/tags/UDP/"/>
     
-      <category term="流量控制" scheme="https://h4055874.github.io/blog/tags/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
+      <category term="流量控制" scheme="https://onlyyu.cn/tags/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
     
-      <category term="拥塞控制" scheme="https://h4055874.github.io/blog/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/"/>
+      <category term="拥塞控制" scheme="https://onlyyu.cn/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   
   <entry>
     <title>Python上下文管理</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_12.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_12.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_12.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_12.html</id>
     <published>2020-05-31T06:54:15.000Z</published>
     <updated>2020-05-31T06:57:17.151Z</updated>
     
@@ -293,19 +293,19 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="上下文管理" scheme="https://h4055874.github.io/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86/"/>
+      <category term="上下文管理" scheme="https://onlyyu.cn/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>Python文件的操作</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_11.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_11.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_11.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_11.html</id>
     <published>2020-05-31T03:47:15.000Z</published>
     <updated>2020-05-31T06:41:03.201Z</updated>
     
@@ -318,19 +318,19 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="文件的操作" scheme="https://h4055874.github.io/blog/tags/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+      <category term="文件的操作" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>Python深浅拷贝及is与==的区别</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_10.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_10.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_10.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_10.html</id>
     <published>2020-05-31T03:26:15.000Z</published>
     <updated>2020-05-31T06:40:56.404Z</updated>
     
@@ -341,21 +341,21 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="深浅拷贝" scheme="https://h4055874.github.io/blog/tags/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+      <category term="深浅拷贝" scheme="https://onlyyu.cn/tags/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
     
-      <category term="is与==" scheme="https://h4055874.github.io/blog/tags/is%E4%B8%8E/"/>
+      <category term="is与==" scheme="https://onlyyu.cn/tags/is%E4%B8%8E/"/>
     
   </entry>
   
   <entry>
     <title>Python内存回收机制</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_09.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_09.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_09.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_09.html</id>
     <published>2020-05-31T03:00:15.000Z</published>
     <updated>2020-05-31T06:40:48.974Z</updated>
     
@@ -366,19 +366,19 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="内存回收" scheme="https://h4055874.github.io/blog/tags/%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/"/>
+      <category term="内存回收" scheme="https://onlyyu.cn/tags/%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/"/>
     
   </entry>
   
   <entry>
     <title>Python 三器</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_08.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_08.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_08.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_08.html</id>
     <published>2020-05-30T12:38:15.000Z</published>
     <updated>2020-05-31T06:40:41.988Z</updated>
     
@@ -389,23 +389,23 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="迭代器" scheme="https://h4055874.github.io/blog/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
+      <category term="迭代器" scheme="https://onlyyu.cn/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
     
-      <category term="生成器" scheme="https://h4055874.github.io/blog/tags/%E7%94%9F%E6%88%90%E5%99%A8/"/>
+      <category term="生成器" scheme="https://onlyyu.cn/tags/%E7%94%9F%E6%88%90%E5%99%A8/"/>
     
-      <category term="装饰器" scheme="https://h4055874.github.io/blog/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+      <category term="装饰器" scheme="https://onlyyu.cn/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Python高阶函数</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_07.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_07.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_07.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_07.html</id>
     <published>2020-05-30T12:21:15.000Z</published>
     <updated>2020-05-31T06:40:28.648Z</updated>
     
@@ -416,19 +416,19 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="高阶函数" scheme="https://h4055874.github.io/blog/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+      <category term="高阶函数" scheme="https://onlyyu.cn/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>Python 三程、GIL锁</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_06.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_06.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_06.html</id>
     <published>2020-05-30T06:47:15.000Z</published>
     <updated>2020-06-08T08:49:58.513Z</updated>
     
@@ -439,23 +439,23 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="进程" scheme="https://h4055874.github.io/blog/tags/%E8%BF%9B%E7%A8%8B/"/>
+      <category term="进程" scheme="https://onlyyu.cn/tags/%E8%BF%9B%E7%A8%8B/"/>
     
-      <category term="线程" scheme="https://h4055874.github.io/blog/tags/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="https://onlyyu.cn/tags/%E7%BA%BF%E7%A8%8B/"/>
     
-      <category term="协程" scheme="https://h4055874.github.io/blog/tags/%E5%8D%8F%E7%A8%8B/"/>
+      <category term="协程" scheme="https://onlyyu.cn/tags/%E5%8D%8F%E7%A8%8B/"/>
     
-      <category term="GIL锁" scheme="https://h4055874.github.io/blog/tags/GIL%E9%94%81/"/>
+      <category term="GIL锁" scheme="https://onlyyu.cn/tags/GIL%E9%94%81/"/>
     
   </entry>
   
   <entry>
     <title>Echarts趋势图</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_14.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_14.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
     <updated>2020-06-02T14:04:25.056Z</updated>
     
@@ -468,19 +468,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="Echarts" scheme="https://h4055874.github.io/blog/tags/Echarts/"/>
+      <category term="Echarts" scheme="https://onlyyu.cn/tags/Echarts/"/>
     
   </entry>
   
   <entry>
     <title>v-charts趋势图</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_15.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_15.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
     <updated>2020-06-02T14:04:37.532Z</updated>
     
@@ -493,19 +493,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="v-charts" scheme="https://h4055874.github.io/blog/tags/v-charts/"/>
+      <category term="v-charts" scheme="https://onlyyu.cn/tags/v-charts/"/>
     
   </entry>
   
   <entry>
     <title>Vue实现Excel文件下载</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_16.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_16.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
     <updated>2020-06-02T14:04:54.745Z</updated>
     
@@ -516,19 +516,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="文件下载" scheme="https://h4055874.github.io/blog/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>Vue引入百度地图</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_05.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_05.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_05.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-06-02T14:00:30.394Z</updated>
     
@@ -539,19 +539,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="百度地图" scheme="https://h4055874.github.io/blog/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>Vue中router-link的点击事件</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_06.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_06.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_06.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-06-02T14:00:42.108Z</updated>
     
@@ -562,17 +562,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="点击事件" scheme="https://h4055874.github.io/blog/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
+      <category term="点击事件" scheme="https://onlyyu.cn/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Vue中详细的百度地图解析</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_08.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_08.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-06-02T14:01:20.246Z</updated>
     
@@ -583,19 +583,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="百度地图" scheme="https://h4055874.github.io/blog/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>计算某年某月某一天是第几天</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_04.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_04.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_04.html</id>
     <published>2020-05-24T16:00:00.000Z</published>
     <updated>2020-05-25T05:37:29.965Z</updated>
     
@@ -606,17 +606,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>redis持久化</title>
-    <link href="https://h4055874.github.io/blog/Redis/Redis_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Redis/Redis_id_01.html</id>
+    <link href="https://onlyyu.cn/Redis/Redis_id_01.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_01.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:17:41.790Z</updated>
     
@@ -627,17 +627,17 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>redis数据淘汰机制</title>
-    <link href="https://h4055874.github.io/blog/Redis/Redis_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Redis/Redis_id_03.html</id>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:23:26.780Z</updated>
     
@@ -648,17 +648,17 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>redis雪崩、击穿、穿透</title>
-    <link href="https://h4055874.github.io/blog/Redis/Redis_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Redis/Redis_id_04.html</id>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:18:24.377Z</updated>
     
@@ -669,17 +669,17 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>redis优化</title>
-    <link href="https://h4055874.github.io/blog/Redis/Redis_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Redis/Redis_id_05.html</id>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-24T10:27:46.871Z</updated>
     
@@ -690,17 +690,17 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>RBAC用户权限管理设计思路</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_29.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_29.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_29.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_29.html</id>
     <published>2020-05-20T16:00:00.000Z</published>
     <updated>2020-05-24T10:45:40.026Z</updated>
     
@@ -711,17 +711,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/tags/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>Django中mysql的联合唯一索引</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_28.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_28.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_28.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_28.html</id>
     <published>2020-05-19T13:13:03.148Z</published>
     <updated>2020-05-19T13:22:40.303Z</updated>
     
@@ -732,17 +732,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/tags/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>CentOS 8安装mysql8.0</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_01.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_01.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_01.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_01.html</id>
     <published>2020-05-18T15:54:15.000Z</published>
     <updated>2020-06-01T13:52:06.693Z</updated>
     
@@ -753,17 +753,17 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="MySQL" scheme="https://h4055874.github.io/blog/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>虚拟环境命令</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_18.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_18.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_18.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_18.html</id>
     <published>2020-05-17T06:27:30.443Z</published>
     <updated>2020-05-17T07:32:51.213Z</updated>
     
@@ -774,17 +774,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="虚拟环境命令" scheme="https://h4055874.github.io/blog/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/"/>
+      <category term="虚拟环境命令" scheme="https://onlyyu.cn/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
   <entry>
     <title>网页请求</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_16.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_16.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_16.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_16.html</id>
     <published>2020-05-17T06:27:30.432Z</published>
     <updated>2020-05-17T07:31:26.538Z</updated>
     
@@ -795,17 +795,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Spider" scheme="https://h4055874.github.io/blog/tags/Spider/"/>
+      <category term="Spider" scheme="https://onlyyu.cn/tags/Spider/"/>
     
   </entry>
   
   <entry>
     <title>爬虫的介绍</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_15.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_15.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_15.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_15.html</id>
     <published>2020-05-17T06:27:30.410Z</published>
     <updated>2020-05-17T07:31:10.802Z</updated>
     
@@ -816,17 +816,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Spider" scheme="https://h4055874.github.io/blog/tags/Spider/"/>
+      <category term="Spider" scheme="https://onlyyu.cn/tags/Spider/"/>
     
   </entry>
   
   <entry>
     <title>文件的操作</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_17.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_17.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_17.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_17.html</id>
     <published>2020-05-17T06:27:30.402Z</published>
     <updated>2020-05-17T07:31:50.768Z</updated>
     
@@ -837,17 +837,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="文件的操作" scheme="https://h4055874.github.io/blog/tags/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+      <category term="文件的操作" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>打码平台</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_09.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_09.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_09.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_09.html</id>
     <published>2020-05-17T06:27:30.389Z</published>
     <updated>2020-05-17T07:30:26.341Z</updated>
     
@@ -858,17 +858,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="打码平台" scheme="https://h4055874.github.io/blog/tags/%E6%89%93%E7%A0%81%E5%B9%B3%E5%8F%B0/"/>
+      <category term="打码平台" scheme="https://onlyyu.cn/tags/%E6%89%93%E7%A0%81%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
   <entry>
     <title>多线程爬虫</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_12.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_12.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_12.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_12.html</id>
     <published>2020-05-17T06:27:30.380Z</published>
     <updated>2020-05-17T07:30:49.530Z</updated>
     
@@ -879,17 +879,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="多线程爬虫" scheme="https://h4055874.github.io/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/"/>
+      <category term="多线程爬虫" scheme="https://onlyyu.cn/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>xpath使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_07.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_07.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_07.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_07.html</id>
     <published>2020-05-17T06:27:30.369Z</published>
     <updated>2020-05-17T07:30:06.814Z</updated>
     
@@ -900,17 +900,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Xpath" scheme="https://h4055874.github.io/blog/tags/Xpath/"/>
+      <category term="Xpath" scheme="https://onlyyu.cn/tags/Xpath/"/>
     
   </entry>
   
   <entry>
     <title>selenuim模块的使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_06.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_06.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_06.html</id>
     <published>2020-05-17T06:27:30.360Z</published>
     <updated>2020-05-17T07:29:40.991Z</updated>
     
@@ -921,17 +921,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Selenuim" scheme="https://h4055874.github.io/blog/tags/Selenuim/"/>
+      <category term="Selenuim" scheme="https://onlyyu.cn/tags/Selenuim/"/>
     
   </entry>
   
   <entry>
     <title>sceapy框架</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_05.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_05.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_05.html</id>
     <published>2020-05-17T06:27:30.350Z</published>
     <updated>2020-05-17T07:29:09.915Z</updated>
     
@@ -942,17 +942,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Sceapy" scheme="https://h4055874.github.io/blog/tags/Sceapy/"/>
+      <category term="Sceapy" scheme="https://onlyyu.cn/tags/Sceapy/"/>
     
   </entry>
   
   <entry>
     <title>requests高级部分 &amp; urllib简单介绍 &amp; 正则</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_04.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_04.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_04.html</id>
     <published>2020-05-17T06:27:30.325Z</published>
     <updated>2020-05-17T07:28:36.587Z</updated>
     
@@ -963,17 +963,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Requests" scheme="https://h4055874.github.io/blog/tags/Requests/"/>
+      <category term="Requests" scheme="https://onlyyu.cn/tags/Requests/"/>
     
   </entry>
   
   <entry>
     <title>MongoDB的使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_02.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_02.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_02.html</id>
     <published>2020-05-17T06:27:30.306Z</published>
     <updated>2020-05-17T07:28:06.867Z</updated>
     
@@ -984,17 +984,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="MongoDB" scheme="https://h4055874.github.io/blog/tags/MongoDB/"/>
+      <category term="MongoDB" scheme="https://onlyyu.cn/tags/MongoDB/"/>
     
   </entry>
   
   <entry>
     <title>BS4模块的使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_01.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_01.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_01.html</id>
     <published>2020-05-17T06:27:30.280Z</published>
     <updated>2020-05-17T07:27:33.027Z</updated>
     
@@ -1005,17 +1005,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="BS4" scheme="https://h4055874.github.io/blog/tags/BS4/"/>
+      <category term="BS4" scheme="https://onlyyu.cn/tags/BS4/"/>
     
   </entry>
   
   <entry>
     <title>简单的购物车</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_26.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_26.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_26.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_26.html</id>
     <published>2020-05-17T06:27:30.254Z</published>
     <updated>2020-05-29T12:47:45.964Z</updated>
     
@@ -1026,17 +1026,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Django,Cart" scheme="https://h4055874.github.io/blog/tags/Django-Cart/"/>
+      <category term="Django,Cart" scheme="https://onlyyu.cn/tags/Django-Cart/"/>
     
   </entry>
   
   <entry>
     <title>基于Redis的排行榜</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_03.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_03.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_03.html</id>
     <published>2020-05-17T06:27:30.238Z</published>
     <updated>2020-05-17T07:20:11.236Z</updated>
     
@@ -1047,19 +1047,19 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/tags/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/tags/Redis/"/>
     
-      <category term="排行榜" scheme="https://h4055874.github.io/blog/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/"/>
+      <category term="排行榜" scheme="https://onlyyu.cn/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/"/>
     
   </entry>
   
   <entry>
     <title>国际化语言操作</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_11.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_11.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_11.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_11.html</id>
     <published>2020-05-17T06:27:30.220Z</published>
     <updated>2020-06-02T14:02:00.296Z</updated>
     
@@ -1070,17 +1070,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="国际化语言操作" scheme="https://h4055874.github.io/blog/tags/%E5%9B%BD%E9%99%85%E5%8C%96%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/"/>
+      <category term="国际化语言操作" scheme="https://onlyyu.cn/tags/%E5%9B%BD%E9%99%85%E5%8C%96%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>商品检索智能提示功能</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_01.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_01.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_01.html</id>
     <published>2020-05-17T06:27:30.202Z</published>
     <updated>2020-05-29T12:50:35.828Z</updated>
     
@@ -1091,17 +1091,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="商品检索智能提示" scheme="https://h4055874.github.io/blog/tags/%E5%95%86%E5%93%81%E6%A3%80%E7%B4%A2%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA/"/>
+      <category term="商品检索智能提示" scheme="https://onlyyu.cn/tags/%E5%95%86%E5%93%81%E6%A3%80%E7%B4%A2%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA/"/>
     
   </entry>
   
   <entry>
     <title>Vue中的自定义过滤器</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_07.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_07.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_07.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_07.html</id>
     <published>2020-05-17T06:27:30.176Z</published>
     <updated>2020-06-02T14:01:00.954Z</updated>
     
@@ -1112,19 +1112,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="过滤器" scheme="https://h4055874.github.io/blog/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+      <category term="过滤器" scheme="https://onlyyu.cn/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>CentOS8查看监听端口</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_02.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_02.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_02.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_02.html</id>
     <published>2020-05-17T05:32:15.000Z</published>
     <updated>2020-05-29T19:35:07.588Z</updated>
     
@@ -1135,17 +1135,17 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/tags/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/tags/CentOS/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04配置mysql</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_03.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_03.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_03.html</id>
     <published>2020-05-16T09:39:15.000Z</published>
     <updated>2020-05-19T14:18:19.310Z</updated>
     
@@ -1156,19 +1156,19 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="MySQL" scheme="https://h4055874.github.io/blog/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04系统一些常见问题</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_02.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_02.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_02.html</id>
     <published>2020-05-16T08:51:15.000Z</published>
     <updated>2020-05-29T19:29:52.806Z</updated>
     
@@ -1179,17 +1179,17 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04设置分辨率</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_04.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_04.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_04.html</id>
     <published>2020-05-16T07:56:15.000Z</published>
     <updated>2020-05-19T14:17:57.561Z</updated>
     
@@ -1200,17 +1200,38 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7服务器配置redis主从与哨兵</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_03.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_03.html</id>
+    <published>2020-05-10T16:00:00.000Z</published>
+    <updated>2020-06-01T13:50:21.111Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7服务器配置汇总</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_04.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_04.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_04.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_04.html</id>
     <published>2020-05-10T16:00:00.000Z</published>
     <updated>2020-06-01T13:50:37.181Z</updated>
     
@@ -1223,59 +1244,17 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="Linux" scheme="https://h4055874.github.io/blog/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7服务器配置redis主从与哨兵</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_03.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_03.html</id>
-    <published>2020-05-10T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:21.111Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;这次是配置redis主从&quot;&gt;&lt;a href=&quot;#这次是配置redis主从&quot; class=&quot;headerlink&quot; title=&quot;这次是配置redis主从&quot;&gt;&lt;/a&gt;这次是配置redis主从&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
-    
-    
-      <category term="Redis" scheme="https://h4055874.github.io/blog/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_06.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_06.html</id>
-    <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:58.100Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
-    
-    
-      <category term="MySQL" scheme="https://h4055874.github.io/blog/tags/MySQL/"/>
+      <category term="Linux" scheme="https://onlyyu.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7服务器配置主从</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_05.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_05.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
     <updated>2020-06-01T13:50:49.146Z</updated>
     
@@ -1286,17 +1265,38 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="MySQL" scheme="https://h4055874.github.io/blog/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
+    <published>2020-05-09T16:00:00.000Z</published>
+    <updated>2020-06-01T13:50:58.100Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
+    
+    
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Datetime模块常用方法</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_01.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_01.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_01.html</id>
     <published>2020-05-07T13:36:15.000Z</published>
     <updated>2020-05-29T19:06:07.858Z</updated>
     
@@ -1307,17 +1307,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Datetime" scheme="https://h4055874.github.io/blog/tags/Datetime/"/>
+      <category term="Datetime" scheme="https://onlyyu.cn/tags/Datetime/"/>
     
   </entry>
   
   <entry>
     <title>支付宝沙箱支付</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_05.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_05.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_05.html</id>
     <published>2020-04-28T17:00:15.000Z</published>
     <updated>2020-05-29T19:06:47.360Z</updated>
     
@@ -1328,17 +1328,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="支付宝" scheme="https://h4055874.github.io/blog/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/"/>
+      <category term="支付宝" scheme="https://onlyyu.cn/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu命令大全</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_06.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_06.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_06.html</id>
     <published>2020-04-23T13:17:15.000Z</published>
     <updated>2020-05-19T14:17:43.459Z</updated>
     
@@ -1349,17 +1349,17 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu18.04设置国内源</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_05.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_05.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_05.html</id>
     <published>2020-04-23T13:05:15.000Z</published>
     <updated>2020-05-29T19:35:41.919Z</updated>
     
@@ -1370,17 +1370,17 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/tags/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>axios封装</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_02.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_02.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_02.html</id>
     <published>2020-04-21T10:15:15.000Z</published>
     <updated>2020-06-02T13:58:54.654Z</updated>
     
@@ -1391,17 +1391,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="axios" scheme="https://h4055874.github.io/blog/tags/axios/"/>
+      <category term="axios" scheme="https://onlyyu.cn/tags/axios/"/>
     
   </entry>
   
   <entry>
     <title>Git配置密钥</title>
-    <link href="https://h4055874.github.io/blog/Git/Git_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Git/Git_id_05.html</id>
+    <link href="https://onlyyu.cn/Git/Git_id_05.html"/>
+    <id>https://onlyyu.cn/Git/Git_id_05.html</id>
     <published>2020-04-21T10:05:15.000Z</published>
     <updated>2020-05-17T07:15:10.231Z</updated>
     
@@ -1413,17 +1413,17 @@
     </summary>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/categories/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/tags/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>Git常用命令</title>
-    <link href="https://h4055874.github.io/blog/Git/Git_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Git/Git_id_04.html</id>
+    <link href="https://onlyyu.cn/Git/Git_id_04.html"/>
+    <id>https://onlyyu.cn/Git/Git_id_04.html</id>
     <published>2020-04-21T09:50:15.000Z</published>
     <updated>2020-05-17T07:15:24.620Z</updated>
     
@@ -1434,17 +1434,17 @@
     </summary>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/categories/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/tags/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>MarkDown语法</title>
-    <link href="https://h4055874.github.io/blog/Other/Other_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Other/Other_id_01.html</id>
+    <link href="https://onlyyu.cn/Other/Other_id_01.html"/>
+    <id>https://onlyyu.cn/Other/Other_id_01.html</id>
     <published>2020-04-21T09:26:15.000Z</published>
     <updated>2020-06-02T14:05:35.531Z</updated>
     
@@ -1455,17 +1455,17 @@
     </summary>
     
     
-      <category term="MarkDown" scheme="https://h4055874.github.io/blog/categories/MarkDown/"/>
+      <category term="MarkDown" scheme="https://onlyyu.cn/categories/MarkDown/"/>
     
     
-      <category term="MarkDown" scheme="https://h4055874.github.io/blog/tags/MarkDown/"/>
+      <category term="MarkDown" scheme="https://onlyyu.cn/tags/MarkDown/"/>
     
   </entry>
   
   <entry>
     <title>国际化语言操作</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_12.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_12.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_12.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_12.html</id>
     <published>2020-04-12T09:45:35.921Z</published>
     <updated>2020-06-02T14:03:40.967Z</updated>
     
@@ -1476,17 +1476,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>文明上网实现正常访问google网站</title>
-    <link href="https://h4055874.github.io/blog/Google/Google_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Google/Google_id_01.html</id>
+    <link href="https://onlyyu.cn/Google/Google_id_01.html"/>
+    <id>https://onlyyu.cn/Google/Google_id_01.html</id>
     <published>2020-04-02T12:54:15.000Z</published>
     <updated>2020-05-17T06:32:46.369Z</updated>
     
@@ -1497,17 +1497,17 @@
     </summary>
     
     
-      <category term="Chrome" scheme="https://h4055874.github.io/blog/categories/Chrome/"/>
+      <category term="Chrome" scheme="https://onlyyu.cn/categories/Chrome/"/>
     
     
-      <category term="Google" scheme="https://h4055874.github.io/blog/tags/Google/"/>
+      <category term="Google" scheme="https://onlyyu.cn/tags/Google/"/>
     
   </entry>
   
   <entry>
     <title>自定义购物车系统</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_13.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_13.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_13.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_13.html</id>
     <published>2020-03-29T16:00:00.000Z</published>
     <updated>2020-06-02T14:04:06.787Z</updated>
     
@@ -1518,19 +1518,19 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/tags/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="Cart" scheme="https://h4055874.github.io/blog/tags/Cart/"/>
+      <category term="Cart" scheme="https://onlyyu.cn/tags/Cart/"/>
     
   </entry>
   
   <entry>
     <title>Hexo主题如何将文章置顶</title>
-    <link href="https://h4055874.github.io/blog/Hexo/Hexo_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Hexo/Hexo_id_02.html</id>
+    <link href="https://onlyyu.cn/Hexo/Hexo_id_02.html"/>
+    <id>https://onlyyu.cn/Hexo/Hexo_id_02.html</id>
     <published>2020-03-14T16:54:41.000Z</published>
     <updated>2020-05-17T07:16:39.309Z</updated>
     
@@ -1541,17 +1541,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://h4055874.github.io/blog/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://onlyyu.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://h4055874.github.io/blog/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://onlyyu.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Gitee取消输入用户名及密码</title>
-    <link href="https://h4055874.github.io/blog/Git/Git_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Git/Git_id_01.html</id>
+    <link href="https://onlyyu.cn/Git/Git_id_01.html"/>
+    <id>https://onlyyu.cn/Git/Git_id_01.html</id>
     <published>2020-03-13T04:30:10.000Z</published>
     <updated>2020-05-17T07:15:39.460Z</updated>
     
@@ -1562,17 +1562,17 @@
     </summary>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/categories/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/tags/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>Hexo常用命令</title>
-    <link href="https://h4055874.github.io/blog/Hexo/Hexo_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Hexo/Hexo_id_01.html</id>
+    <link href="https://onlyyu.cn/Hexo/Hexo_id_01.html"/>
+    <id>https://onlyyu.cn/Hexo/Hexo_id_01.html</id>
     <published>2020-03-13T04:17:47.000Z</published>
     <updated>2020-05-17T07:16:25.277Z</updated>
     
@@ -1583,17 +1583,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://h4055874.github.io/blog/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://onlyyu.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://h4055874.github.io/blog/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://onlyyu.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>GitHub访问及clone缓慢的方法</title>
-    <link href="https://h4055874.github.io/blog/Git/Git_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Git/Git_id_02.html</id>
+    <link href="https://onlyyu.cn/Git/Git_id_02.html"/>
+    <id>https://onlyyu.cn/Git/Git_id_02.html</id>
     <published>2020-03-12T09:16:28.000Z</published>
     <updated>2020-05-17T07:15:48.771Z</updated>
     
@@ -1604,17 +1604,17 @@
     </summary>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/categories/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/tags/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>阿里云旗下ecs云服务器配置使用详情</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_08.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_08.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_08.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_08.html</id>
     <published>2019-12-22T16:00:00.000Z</published>
     <updated>2020-06-01T13:51:21.110Z</updated>
     
@@ -1625,17 +1625,17 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="Linux" scheme="https://h4055874.github.io/blog/tags/Linux/"/>
+      <category term="Linux" scheme="https://onlyyu.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十六)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_54.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_54.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_54.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_54.html</id>
     <published>2019-10-17T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:21.258Z</updated>
     
@@ -1646,17 +1646,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十五)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_53.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_53.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_53.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_53.html</id>
     <published>2019-10-14T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:17.148Z</updated>
     
@@ -1669,17 +1669,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十四)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_52.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_52.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_52.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_52.html</id>
     <published>2019-10-13T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:14.592Z</updated>
     
@@ -1691,17 +1691,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十三)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_51.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_51.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_51.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_51.html</id>
     <published>2019-10-10T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:12.111Z</updated>
     
@@ -1714,17 +1714,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十二)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_50.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_50.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_50.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_50.html</id>
     <published>2019-10-04T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:08.339Z</updated>
     
@@ -1738,17 +1738,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十一)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_49.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_49.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_49.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_49.html</id>
     <published>2019-10-02T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:05.612Z</updated>
     
@@ -1761,17 +1761,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三十)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_48.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_48.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_48.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_48.html</id>
     <published>2019-09-29T16:00:00.000Z</published>
     <updated>2020-06-02T11:08:00.292Z</updated>
     
@@ -1782,17 +1782,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十八)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_46.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_46.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
     <updated>2020-06-02T11:07:55.102Z</updated>
     
@@ -1804,17 +1804,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十九)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_47.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_47.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
     <updated>2020-06-02T11:07:57.850Z</updated>
     
@@ -1826,17 +1826,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十七)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_45.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_45.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_45.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_45.html</id>
     <published>2019-09-21T16:00:00.000Z</published>
     <updated>2020-06-02T11:07:18.320Z</updated>
     
@@ -1847,17 +1847,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十六)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_44.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_44.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_44.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_44.html</id>
     <published>2019-09-20T16:00:00.000Z</published>
     <updated>2020-06-02T11:07:03.061Z</updated>
     
@@ -1868,17 +1868,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十五)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_43.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_43.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_43.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_43.html</id>
     <published>2019-09-18T16:00:00.000Z</published>
     <updated>2020-06-02T11:07:00.088Z</updated>
     
@@ -1892,17 +1892,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十四)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_42.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_42.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_42.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_42.html</id>
     <published>2019-09-16T16:00:00.000Z</published>
     <updated>2020-06-02T11:06:42.057Z</updated>
     
@@ -1916,17 +1916,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十三)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_41.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_41.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_41.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_41.html</id>
     <published>2019-09-14T16:00:00.000Z</published>
     <updated>2020-06-02T11:06:39.438Z</updated>
     
@@ -1937,17 +1937,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十二)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_40.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_40.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_40.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_40.html</id>
     <published>2019-09-11T16:00:00.000Z</published>
     <updated>2020-06-02T11:06:27.473Z</updated>
     
@@ -1961,17 +1961,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十一)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_39.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_39.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_39.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_39.html</id>
     <published>2019-09-05T16:00:00.000Z</published>
     <updated>2020-06-02T11:06:15.476Z</updated>
     
@@ -1982,17 +1982,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二十)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_38.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_38.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_38.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_38.html</id>
     <published>2019-09-03T16:00:00.000Z</published>
     <updated>2020-06-02T11:06:07.231Z</updated>
     
@@ -2006,17 +2006,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十九)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_37.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_37.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_37.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_37.html</id>
     <published>2019-08-30T16:00:00.000Z</published>
     <updated>2020-06-02T11:05:57.464Z</updated>
     
@@ -2027,17 +2027,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十八)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_36.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_36.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_36.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_36.html</id>
     <published>2019-08-29T16:00:00.000Z</published>
     <updated>2020-06-02T11:05:44.534Z</updated>
     
@@ -2049,17 +2049,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十七)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_35.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_35.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_35.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_35.html</id>
     <published>2019-08-27T16:00:00.000Z</published>
     <updated>2020-06-02T11:05:32.582Z</updated>
     
@@ -2071,17 +2071,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十六)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_34.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_34.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_34.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_34.html</id>
     <published>2019-08-23T16:00:00.000Z</published>
     <updated>2020-06-02T11:05:27.692Z</updated>
     
@@ -2096,17 +2096,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十五)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_33.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_33.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_33.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_33.html</id>
     <published>2019-08-12T16:00:00.000Z</published>
     <updated>2020-06-02T11:04:05.806Z</updated>
     
@@ -2117,17 +2117,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十四)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_32.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_32.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_32.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_32.html</id>
     <published>2019-07-28T16:00:00.000Z</published>
     <updated>2020-06-02T11:03:51.783Z</updated>
     
@@ -2141,17 +2141,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十三)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_28.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_28.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_28.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_28.html</id>
     <published>2019-07-25T16:00:00.000Z</published>
     <updated>2020-06-02T01:32:35.212Z</updated>
     
@@ -2166,17 +2166,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十二)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_27.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_27.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_27.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_27.html</id>
     <published>2019-07-22T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:00.948Z</updated>
     
@@ -2194,17 +2194,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十一)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_26.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_26.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_26.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_26.html</id>
     <published>2019-07-12T16:00:00.000Z</published>
     <updated>2020-06-02T01:32:58.085Z</updated>
     
@@ -2219,17 +2219,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(十)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_25.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_25.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_25.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_25.html</id>
     <published>2019-07-08T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:13.105Z</updated>
     
@@ -2243,17 +2243,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(九)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_24.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_24.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_24.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_24.html</id>
     <published>2019-06-29T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:20.595Z</updated>
     
@@ -2264,17 +2264,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(八)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_23.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_23.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_23.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_23.html</id>
     <published>2019-06-27T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:28.891Z</updated>
     
@@ -2292,17 +2292,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(七)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_22.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_22.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_22.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_22.html</id>
     <published>2019-06-23T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:32.978Z</updated>
     
@@ -2313,17 +2313,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>CentOS 8安装nodejs</title>
-    <link href="https://h4055874.github.io/blog/CentOS/CentOS_id_07.html"/>
-    <id>https://h4055874.github.io/blog/CentOS/CentOS_id_07.html</id>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_07.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_07.html</id>
     <published>2019-06-07T16:00:00.000Z</published>
     <updated>2020-06-01T13:51:12.731Z</updated>
     
@@ -2337,17 +2337,17 @@
     </summary>
     
     
-      <category term="CentOS" scheme="https://h4055874.github.io/blog/categories/CentOS/"/>
+      <category term="CentOS" scheme="https://onlyyu.cn/categories/CentOS/"/>
     
     
-      <category term="Node.js" scheme="https://h4055874.github.io/blog/tags/Node-js/"/>
+      <category term="Node.js" scheme="https://onlyyu.cn/tags/Node-js/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(六)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_21.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_21.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_21.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_21.html</id>
     <published>2019-06-07T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:35.826Z</updated>
     
@@ -2358,17 +2358,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu配置数据库踩坑记录</title>
-    <link href="https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Ubuntu/Ubuntu_id_01.html</id>
+    <link href="https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html"/>
+    <id>https://onlyyu.cn/Ubuntu/Ubuntu_id_01.html</id>
     <published>2019-06-07T16:00:00.000Z</published>
     <updated>2020-05-17T07:04:57.073Z</updated>
     
@@ -2379,17 +2379,17 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://h4055874.github.io/blog/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="https://onlyyu.cn/categories/Ubuntu/"/>
     
     
-      <category term="MySQL" scheme="https://h4055874.github.io/blog/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://onlyyu.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(五)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_20.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_20.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_20.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_20.html</id>
     <published>2019-05-30T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:38.609Z</updated>
     
@@ -2401,17 +2401,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(四)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_19.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_19.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_19.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_19.html</id>
     <published>2019-05-29T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:42.369Z</updated>
     
@@ -2423,17 +2423,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>进程线程协程</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_14.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_14.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_14.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_14.html</id>
     <published>2019-05-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:54:24.706Z</updated>
     
@@ -2444,17 +2444,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(三)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_18.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_18.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_18.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_18.html</id>
     <published>2019-05-21T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:44.788Z</updated>
     
@@ -2466,17 +2466,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(二)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_17.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_17.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_17.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_17.html</id>
     <published>2019-05-16T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:47.813Z</updated>
     
@@ -2488,17 +2488,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>分布式爬虫实现原理与运行机制</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_13.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_13.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_13.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_13.html</id>
     <published>2019-05-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:54:50.122Z</updated>
     
@@ -2509,17 +2509,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>百度AI项目解析与使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_08.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_08.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_08.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_08.html</id>
     <published>2019-05-11T16:00:00.000Z</published>
     <updated>2020-05-30T02:42:42.359Z</updated>
     
@@ -2530,17 +2530,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="百度AI" scheme="https://h4055874.github.io/blog/tags/%E7%99%BE%E5%BA%A6AI/"/>
+      <category term="百度AI" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6AI/"/>
     
   </entry>
   
   <entry>
     <title>python基础知识(一)</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_16.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_16.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_16.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_16.html</id>
     <published>2019-05-06T16:00:00.000Z</published>
     <updated>2020-06-02T01:33:50.548Z</updated>
     
@@ -2553,17 +2553,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>redis概览</title>
-    <link href="https://h4055874.github.io/blog/Redis/Redis_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Redis/Redis_id_02.html</id>
+    <link href="https://onlyyu.cn/Redis/Redis_id_02.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_02.html</id>
     <published>2019-05-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:58:32.066Z</updated>
     
@@ -2574,17 +2574,17 @@
     </summary>
     
     
-      <category term="Redis" scheme="https://h4055874.github.io/blog/categories/Redis/"/>
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>基于crawlSpider进行的全栈数据爬取</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_03.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_03.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_03.html</id>
     <published>2019-04-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:55:42.561Z</updated>
     
@@ -2595,17 +2595,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>增量式爬虫使用</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_19.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_19.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_19.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_19.html</id>
     <published>2019-04-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:55:18.214Z</updated>
     
@@ -2616,17 +2616,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>代理ip</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_10.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_10.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:56:57.582Z</updated>
     
@@ -2638,17 +2638,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>动态获取数据</title>
-    <link href="https://h4055874.github.io/blog/Spider/Spider_id_11.html"/>
-    <id>https://h4055874.github.io/blog/Spider/Spider_id_11.html</id>
+    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:57:10.458Z</updated>
     
@@ -2659,17 +2659,17 @@
     </summary>
     
     
-      <category term="Scrapy" scheme="https://h4055874.github.io/blog/categories/Scrapy/"/>
+      <category term="Scrapy" scheme="https://onlyyu.cn/categories/Scrapy/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask文件上传</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_11.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_11.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_11.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_11.html</id>
     <published>2018-10-23T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:34.149Z</updated>
     
@@ -2680,17 +2680,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask常用钩子函数</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_09.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_09.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_09.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_09.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:25.232Z</updated>
     
@@ -2701,38 +2701,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>flask文件下载</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_12.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_12.html</id>
-    <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:38.230Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
-    
-    
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask中g定向</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_13.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_13.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_13.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_13.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:43.825Z</updated>
     
@@ -2743,17 +2722,38 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask文件下载</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_12.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_12.html</id>
+    <published>2018-10-13T16:00:00.000Z</published>
+    <updated>2020-05-17T06:48:38.230Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_wtf</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_08.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_08.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_08.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_08.html</id>
     <published>2018-09-29T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:19.905Z</updated>
     
@@ -2764,17 +2764,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_sqlalchemy</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_07.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_07.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_07.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_07.html</id>
     <published>2018-09-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:15.318Z</updated>
     
@@ -2785,17 +2785,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_session</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_06.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_06.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_06.html</id>
     <published>2018-09-22T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:10.995Z</updated>
     
@@ -2806,17 +2806,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask中app上下文机制</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_01.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_01.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_01.html</id>
     <published>2018-09-14T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:44.313Z</updated>
     
@@ -2827,17 +2827,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask信号机制</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_16.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_16.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_16.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_16.html</id>
     <published>2018-09-07T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:10.521Z</updated>
     
@@ -2848,17 +2848,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask分页</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_15.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_15.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_15.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_15.html</id>
     <published>2018-08-30T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:03.804Z</updated>
     
@@ -2869,17 +2869,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask数据库迁移</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_10.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_10.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_10.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_10.html</id>
     <published>2018-08-25T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:29.501Z</updated>
     
@@ -2890,17 +2890,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask文件上传</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_14.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_14.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_14.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_14.html</id>
     <published>2018-08-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:48.758Z</updated>
     
@@ -2911,17 +2911,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_script</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_05.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_05.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_05.html</id>
     <published>2018-08-12T16:00:00.000Z</published>
     <updated>2020-05-17T07:38:30.289Z</updated>
     
@@ -2932,17 +2932,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_migrate</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_03.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_03.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_03.html</id>
     <published>2018-08-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:57.062Z</updated>
     
@@ -2954,17 +2954,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask开端</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_02.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:47:51.366Z</updated>
     
@@ -2976,17 +2976,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>flask_route</title>
-    <link href="https://h4055874.github.io/blog/Flask/Flask_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Flask/Flask_id_04.html</id>
+    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:48:01.847Z</updated>
     
@@ -2997,17 +2997,17 @@
     </summary>
     
     
-      <category term="Flask" scheme="https://h4055874.github.io/blog/categories/Flask/"/>
+      <category term="Flask" scheme="https://onlyyu.cn/categories/Flask/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF自定义错误捕获</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_10.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_10.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_10.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_10.html</id>
     <published>2018-04-27T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:36.601Z</updated>
     
@@ -3018,17 +3018,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF中generics</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_08.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_08.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_08.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_08.html</id>
     <published>2018-04-24T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:28.106Z</updated>
     
@@ -3039,17 +3039,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF中的APIViews视图类</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_09.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_09.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_09.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_09.html</id>
     <published>2018-04-20T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:32.339Z</updated>
     
@@ -3060,17 +3060,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF验证器机制使用</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_07.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_07.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_07.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_07.html</id>
     <published>2018-04-17T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:23.243Z</updated>
     
@@ -3081,17 +3081,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Git操作</title>
-    <link href="https://h4055874.github.io/blog/Git/Git_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Git/Git_id_03.html</id>
+    <link href="https://onlyyu.cn/Git/Git_id_03.html"/>
+    <id>https://onlyyu.cn/Git/Git_id_03.html</id>
     <published>2018-04-13T16:00:00.000Z</published>
     <updated>2020-05-17T07:07:12.212Z</updated>
     
@@ -3102,17 +3102,17 @@
     </summary>
     
     
-      <category term="Git" scheme="https://h4055874.github.io/blog/categories/Git/"/>
+      <category term="Git" scheme="https://onlyyu.cn/categories/Git/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF文件上传与静态文件访问</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_06.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_06.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_06.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_06.html</id>
     <published>2018-04-12T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:18.825Z</updated>
     
@@ -3123,17 +3123,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF数据分页器</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_05.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_05.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_05.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_05.html</id>
     <published>2018-04-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:13.937Z</updated>
     
@@ -3144,17 +3144,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>vue路由配置</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_04.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_04.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_04.html</id>
     <published>2018-03-31T16:00:00.000Z</published>
     <updated>2020-06-02T14:00:12.137Z</updated>
     
@@ -3165,17 +3165,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>关于vue的配置</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_09.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_09.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_09.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_09.html</id>
     <published>2018-03-31T16:00:00.000Z</published>
     <updated>2020-06-02T14:01:38.987Z</updated>
     
@@ -3186,17 +3186,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>关于哈希加密算法</title>
-    <link href="https://h4055874.github.io/blog/Python/Python_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Python/Python_id_02.html</id>
+    <link href="https://onlyyu.cn/Python/Python_id_02.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_02.html</id>
     <published>2018-03-29T16:00:00.000Z</published>
     <updated>2020-05-17T07:08:12.610Z</updated>
     
@@ -3207,17 +3207,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/categories/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django数据库关系属性</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_19.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_19.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_19.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_19.html</id>
     <published>2018-03-17T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:36.944Z</updated>
     
@@ -3228,17 +3228,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django中cookie和session</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_22.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_22.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_22.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_22.html</id>
     <published>2018-03-17T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:49.250Z</updated>
     
@@ -3249,17 +3249,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django视图管理</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_27.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_27.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_27.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_27.html</id>
     <published>2018-03-16T16:00:00.000Z</published>
     <updated>2020-05-17T07:39:03.333Z</updated>
     
@@ -3270,17 +3270,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF初试</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_02.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_02.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_02.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_02.html</id>
     <published>2018-03-15T16:00:00.000Z</published>
     <updated>2020-05-17T06:41:57.547Z</updated>
     
@@ -3291,17 +3291,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django中间件</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_23.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_23.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_23.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_23.html</id>
     <published>2018-03-14T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:53.330Z</updated>
     
@@ -3312,17 +3312,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>DRF框架的权限验证器与限流</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_03.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_03.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_03.html</id>
     <published>2018-03-13T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:03.980Z</updated>
     
@@ -3333,17 +3333,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django数据库操作</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_30.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_30.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_30.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_30.html</id>
     <published>2018-03-13T16:00:00.000Z</published>
     <updated>2020-05-27T10:43:29.179Z</updated>
     
@@ -3354,17 +3354,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django-filter过滤器的使用</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_04.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_04.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_04.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_04.html</id>
     <published>2018-03-09T16:00:00.000Z</published>
     <updated>2020-05-17T06:42:09.330Z</updated>
     
@@ -3375,17 +3375,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django模型管理器</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_18.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_18.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_18.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_18.html</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:21.392Z</updated>
     
@@ -3396,17 +3396,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>API接口生成</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_01.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_01.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_01.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_01.html</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-06-02T13:59:00.640Z</updated>
     
@@ -3417,17 +3417,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="axios" scheme="https://h4055874.github.io/blog/tags/axios/"/>
+      <category term="axios" scheme="https://onlyyu.cn/tags/axios/"/>
     
   </entry>
   
   <entry>
     <title>axios请求与跨域</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_03.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_03.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_03.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_03.html</id>
     <published>2018-03-08T16:00:00.000Z</published>
     <updated>2020-06-02T13:59:53.222Z</updated>
     
@@ -3438,17 +3438,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Axios" scheme="https://h4055874.github.io/blog/tags/Axios/"/>
+      <category term="Axios" scheme="https://onlyyu.cn/tags/Axios/"/>
     
   </entry>
   
   <entry>
     <title>Django模板使用</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_17.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_17.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_17.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_17.html</id>
     <published>2018-03-07T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:16.738Z</updated>
     
@@ -3459,17 +3459,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>关于vue的一些问题</title>
-    <link href="https://h4055874.github.io/blog/Vue/Vue_id_10.html"/>
-    <id>https://h4055874.github.io/blog/Vue/Vue_id_10.html</id>
+    <link href="https://onlyyu.cn/Vue/Vue_id_10.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_10.html</id>
     <published>2018-03-07T16:00:00.000Z</published>
     <updated>2020-06-02T14:01:52.456Z</updated>
     
@@ -3480,17 +3480,17 @@
     </summary>
     
     
-      <category term="Vue" scheme="https://h4055874.github.io/blog/categories/Vue/"/>
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django路由参数捕获</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_16.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_16.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_16.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_16.html</id>
     <published>2018-03-06T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:12.263Z</updated>
     
@@ -3502,17 +3502,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django后台管理操作</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_15.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_15.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_15.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_15.html</id>
     <published>2018-03-05T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:08.406Z</updated>
     
@@ -3523,17 +3523,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django关闭debug模式之后的静态文件访问</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_14.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_14.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_14.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_14.html</id>
     <published>2018-03-04T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:04.616Z</updated>
     
@@ -3544,17 +3544,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django反转url</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_13.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_13.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_13.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_13.html</id>
     <published>2018-03-03T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:57.178Z</updated>
     
@@ -3565,17 +3565,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django表单提交</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_12.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_12.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_12.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_12.html</id>
     <published>2018-03-02T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:52.569Z</updated>
     
@@ -3586,17 +3586,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django编辑页选项</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_11.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_11.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_11.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_11.html</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:49:42.855Z</updated>
     
@@ -3607,17 +3607,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>ORM框架</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_25.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_25.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_25.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_25.html</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2020-05-17T06:51:01.838Z</updated>
     
@@ -3631,17 +3631,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django元选项</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_21.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_21.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_21.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_21.html</id>
     <published>2018-02-28T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:45.302Z</updated>
     
@@ -3652,17 +3652,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>关于mvc</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_24.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_24.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_24.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_24.html</id>
     <published>2018-02-28T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:57.612Z</updated>
     
@@ -3673,17 +3673,17 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Django首次使用</title>
-    <link href="https://h4055874.github.io/blog/Django/Django_id_20.html"/>
-    <id>https://h4055874.github.io/blog/Django/Django_id_20.html</id>
+    <link href="https://onlyyu.cn/Django/Django_id_20.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_20.html</id>
     <published>2018-02-26T16:00:00.000Z</published>
     <updated>2020-05-17T06:50:41.289Z</updated>
     
@@ -3694,10 +3694,10 @@
     </summary>
     
     
-      <category term="Django" scheme="https://h4055874.github.io/blog/categories/Django/"/>
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
     
     
-      <category term="Python" scheme="https://h4055874.github.io/blog/tags/Python/"/>
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
   </entry>
   

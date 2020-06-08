@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/%E7%97%95%E8%BF%B9.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/%E7%97%95%E8%BF%B9.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/blog/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/blog/lib/pace/pace-theme-minimal.min.css">
-  <script src="/blog/lib/pace/pace.min.js"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"h4055874.github.io","root":"/blog/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="套接字socket 套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。  socket模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础知识(三十二)">
-<meta property="og:url" content="https://h4055874.github.io/blog/Python/Python_id_50.html">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_50.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
 <meta property="og:description" content="套接字socket 套接字起源于 20 世纪 70 年代加利福尼亚大学伯克利分校版本的 Unix,即人们所说的 BSD Unix。 因此,有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”。一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯。这也被称进程间通讯或IPC。  socket模块">
 <meta property="og:locale" content="zh_CN">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMqaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjUtYzAxNCA3OS4xNTE0ODEsIDIwMTMvMDMvMTMtMTI6MDk6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUUyMEZGNjM5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUUyMEZGNjQ5N0MyMTFFOTlCODhDNjc0NTEzNTdGRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRTIwRkY2MTk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRTIwRkY2Mjk3QzIxMUU5OUI4OEM2NzQ1MTM1N0ZGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEABsaGikdKUEmJkFCLy8vQkc/Pj4/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">
 
-<link rel="canonical" href="https://h4055874.github.io/blog/Python/Python_id_50.html">
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_50.html">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -101,7 +101,7 @@
 
    <!-- 不知道是什么玩意 -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
-<link rel="alternate" href="/blog/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
@@ -125,7 +125,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/blog/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Yu ting's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -147,27 +147,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">68</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">68</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">168</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -295,10 +295,10 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://h4055874.github.io/blog/Python/Python_id_50.html">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_50.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Yu ting">
       <meta itemprop="description" content="">
     </span>
@@ -333,12 +333,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/blog/Python/Python_id_50.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(三十二)" title="阅读次数">
+            <span id="/Python/Python_id_50.html" class="post-meta-item leancloud_visitors" data-flag-title="python基础知识(三十二)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -353,8 +353,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/Python/Python_id_50.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/Python/Python_id_50.html" itemprop="commentCount"></span>
+    <a title="valine" href="/Python/Python_id_50.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_50.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -715,12 +715,12 @@ input[type="radio"]:not(:checked) + label:after {
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/blog/Python/Python_id_50.html">python基础知识(三十二)</a></p>
+  <p><span>本文标题:</span><a href="/Python/Python_id_50.html">python基础知识(三十二)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
   <p><span>发布时间:</span>2019年10月05日 - 00:10</p>
   <p><span>最后更新:</span>2020年06月02日 - 19:06</p>
-  <p><span>原始链接:</span><a href="/blog/Python/Python_id_50.html" title="python基础知识(三十二)">https://h4055874.github.io/blog/Python/Python_id_50.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://h4055874.github.io/blog/Python/Python_id_50.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/Python/Python_id_50.html" title="python基础知识(三十二)">https://onlyyu.cn/Python/Python_id_50.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_50.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -744,19 +744,19 @@ input[type="radio"]:not(:checked) + label:after {
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\blog\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\blog\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\blog\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\blog\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\blog\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
+      <div class="popular-posts-title"><a href="\Django\Django_id_06.html" rel="bookmark">DRF文件上传与静态文件访问</a></div>
     </li>
   </ul>
 
@@ -768,12 +768,12 @@ input[type="radio"]:not(:checked) + label:after {
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/blog/images/wechat.jpg" alt="Yu ting 微信支付">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/blog/images/alipay.jpg" alt="Yu ting 支付宝">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -783,7 +783,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/Python/" rel="tag">分类： Python</a>
+              <a href="/tags/Python/" rel="tag">分类： Python</a>
           </div>
 
         
@@ -797,11 +797,11 @@ input[type="radio"]:not(:checked) + label:after {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/Python/Python_id_49.html" rel="prev" title="python基础知识(三十一)">
+    <a href="/Python/Python_id_49.html" rel="prev" title="python基础知识(三十一)">
       <i class="fa fa-chevron-left"></i> python基础知识(三十一)
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/Python/Python_id_51.html" rel="next" title="python基础知识(三十三)">
+    <a href="/Python/Python_id_51.html" rel="next" title="python基础知识(三十三)">
       python基础知识(三十三) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -847,27 +847,27 @@ input[type="radio"]:not(:checked) + label:after {
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Yu ting"
-      src="/blog/images/avatar.png">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Yu ting</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/blog/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">168</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/blog/categories/">
+            <a href="/categories/">
           
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/blog/tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
@@ -1287,24 +1287,24 @@ input[type="radio"]:not(:checked) + label:after {
   </div>
 
   
-  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/blog/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/blog/js/motion.js"></script>
-
-
-<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/blog/js/next-boot.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
-  <script defer src="/blog/lib/three/three.min.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1333,7 +1333,7 @@ input[type="radio"]:not(:checked) + label:after {
   </script>
 
   
-<script src="/blog/js/local-search.js"></script>
+<script src="/js/local-search.js"></script>
 
 
 
@@ -1387,5 +1387,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     a{cursor:url(/images/链接选择.cur),wait} 
   </style>
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
