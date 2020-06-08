@@ -81,27 +81,6 @@
   </entry>
   
   <entry>
-    <title>Celery以及broker的选择标准</title>
-    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T01:29:36.862Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;celery是什么&quot;&gt;&lt;a href=&quot;#celery是什么&quot; class=&quot;headerlink&quot; title=&quot;celery是什么&quot;&gt;&lt;/a&gt;celery是什么&lt;/h3&gt;&lt;p&gt;　　Celery是基于Python开发的一个分布式任务队列框架，支持使用任务队列的方式在分布的机器/进程/线程上执行任务调度&lt;br&gt;　　Celery的架构，采用典型的生产者-消费者模式&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
-    
-    
-      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Django微博三方登录</title>
     <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
     <id>https://onlyyu.cn/Django/Django_id_32.html</id>
@@ -167,6 +146,27 @@
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
       <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Celery以及broker的选择标准</title>
+    <link href="https://onlyyu.cn/Python/Python_id_29.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_29.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T01:29:36.862Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;celery是什么&quot;&gt;&lt;a href=&quot;#celery是什么&quot; class=&quot;headerlink&quot; title=&quot;celery是什么&quot;&gt;&lt;/a&gt;celery是什么&lt;/h3&gt;&lt;p&gt;　　Celery是基于Python开发的一个分布式任务队列框架，支持使用任务队列的方式在分布的机器/进程/线程上执行任务调度&lt;br&gt;　　Celery的架构，采用典型的生产者-消费者模式&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="https://onlyyu.cn/tags/Celery/"/>
     
   </entry>
   
@@ -453,17 +453,17 @@
   </entry>
   
   <entry>
-    <title>v-charts趋势图</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
+    <title>Echarts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:37.532Z</updated>
+    <updated>2020-06-02T14:04:25.056Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个折线展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用工具：v-charts&lt;/p&gt;
-&lt;p&gt;官网：点击&lt;a href=&quot;https://v-charts.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;v-charts官网&lt;/a&gt;跳转&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个趋势展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：Echarts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://echarts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Echarts官网&lt;/a&gt;跳转&lt;/p&gt;
     
     </summary>
     
@@ -473,7 +473,7 @@
     
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="v-charts" scheme="https://onlyyu.cn/tags/v-charts/"/>
+      <category term="Echarts" scheme="https://onlyyu.cn/tags/Echarts/"/>
     
   </entry>
   
@@ -501,17 +501,17 @@
   </entry>
   
   <entry>
-    <title>Echarts趋势图</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_14.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_14.html</id>
+    <title>v-charts趋势图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:25.056Z</updated>
+    <updated>2020-06-02T14:04:37.532Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个趋势展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用工具：Echarts&lt;/p&gt;
-&lt;p&gt;官网：点击&lt;a href=&quot;https://echarts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Echarts官网&lt;/a&gt;跳转&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;在vue中让数据以一个折线展示，让我们对数据可以一目了然&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用工具：v-charts&lt;/p&gt;
+&lt;p&gt;官网：点击&lt;a href=&quot;https://v-charts.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;v-charts官网&lt;/a&gt;跳转&lt;/p&gt;
     
     </summary>
     
@@ -521,30 +521,7 @@
     
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="Echarts" scheme="https://onlyyu.cn/tags/Echarts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-02T14:01:20.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+      <category term="v-charts" scheme="https://onlyyu.cn/tags/v-charts/"/>
     
   </entry>
   
@@ -593,6 +570,29 @@
   </entry>
   
   <entry>
+    <title>Vue中详细的百度地图解析</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-06-02T14:01:20.246Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算某年某月某一天是第几天</title>
     <link href="https://onlyyu.cn/Python/Python_id_04.html"/>
     <id>https://onlyyu.cn/Python/Python_id_04.html</id>
@@ -607,48 +607,6 @@
     
     
       <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
     
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
@@ -686,6 +644,48 @@
     <summary type="html">
     
       &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:18:24.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:27:46.871Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
     
     </summary>
     
@@ -1790,16 +1790,16 @@
   </entry>
   
   <entry>
-    <title>python基础知识(二十八)</title>
-    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
+    <title>python基础知识(二十九)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2020-06-02T11:07:55.102Z</updated>
+    <updated>2020-06-02T11:07:57.850Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;正则有关模块&quot;&gt;&lt;a href=&quot;#正则有关模块&quot; class=&quot;headerlink&quot; title=&quot;正则有关模块&quot;&gt;&lt;/a&gt;正则有关模块&lt;/h2&gt;&lt;p&gt;本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。&lt;/p&gt;
-&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;
+      &lt;h2 id=&quot;时间有关模块&quot;&gt;&lt;a href=&quot;#时间有关模块&quot; class=&quot;headerlink&quot; title=&quot;时间有关模块&quot;&gt;&lt;/a&gt;时间有关模块&lt;/h2&gt;&lt;h3 id=&quot;timeit模块&quot;&gt;&lt;a href=&quot;#timeit模块&quot; class=&quot;headerlink&quot; title=&quot;timeit模块&quot;&gt;&lt;/a&gt;timeit模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/timeit.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;timeit&lt;/code&gt;&lt;/a&gt;模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;timeit.timeit(eval/lambda, number=10000)&lt;/code&gt; 运行10000次中的最快用时&lt;/p&gt;
     
     </summary>
     
@@ -1812,16 +1812,16 @@
   </entry>
   
   <entry>
-    <title>python基础知识(二十九)</title>
-    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
+    <title>python基础知识(二十八)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2020-06-02T11:07:57.850Z</updated>
+    <updated>2020-06-02T11:07:55.102Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;时间有关模块&quot;&gt;&lt;a href=&quot;#时间有关模块&quot; class=&quot;headerlink&quot; title=&quot;时间有关模块&quot;&gt;&lt;/a&gt;时间有关模块&lt;/h2&gt;&lt;h3 id=&quot;timeit模块&quot;&gt;&lt;a href=&quot;#timeit模块&quot; class=&quot;headerlink&quot; title=&quot;timeit模块&quot;&gt;&lt;/a&gt;timeit模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/timeit.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;timeit&lt;/code&gt;&lt;/a&gt;模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;timeit.timeit(eval/lambda, number=10000)&lt;/code&gt; 运行10000次中的最快用时&lt;/p&gt;
+      &lt;h2 id=&quot;正则有关模块&quot;&gt;&lt;a href=&quot;#正则有关模块&quot; class=&quot;headerlink&quot; title=&quot;正则有关模块&quot;&gt;&lt;/a&gt;正则有关模块&lt;/h2&gt;&lt;p&gt;本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。&lt;/p&gt;
+&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;
     
     </summary>
     
@@ -2624,15 +2624,16 @@
   </entry>
   
   <entry>
-    <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
+    <title>代理ip</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:57:10.458Z</updated>
+    <updated>2020-05-17T06:56:57.582Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
     
     </summary>
     
@@ -2645,16 +2646,15 @@
   </entry>
   
   <entry>
-    <title>代理ip</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
+    <title>动态获取数据</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:57.582Z</updated>
+    <updated>2020-05-17T06:57:10.458Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
+      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
     
     </summary>
     
@@ -3639,15 +3639,15 @@
   </entry>
   
   <entry>
-    <title>关于mvc</title>
-    <link href="https://onlyyu.cn/Django/Django_id_24.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_24.html</id>
+    <title>Django元选项</title>
+    <link href="https://onlyyu.cn/Django/Django_id_21.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_21.html</id>
     <published>2018-02-28T16:00:00.000Z</published>
-    <updated>2020-05-17T06:50:57.612Z</updated>
+    <updated>2020-05-17T06:50:45.302Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;web设计模式&quot;&gt;&lt;a href=&quot;#web设计模式&quot; class=&quot;headerlink&quot; title=&quot;==web设计模式==&quot;&gt;&lt;/a&gt;==web设计模式==&lt;/h2&gt;&lt;h2 id=&quot;—web-mvc—&quot;&gt;&lt;a href=&quot;#—web-mvc—&quot; class=&quot;headerlink&quot; title=&quot;—web mvc—&quot;&gt;&lt;/a&gt;—web mvc—&lt;/h2&gt;&lt;h4 id=&quot;mvc基本概念&quot;&gt;&lt;a href=&quot;#mvc基本概念&quot; class=&quot;headerlink&quot; title=&quot;mvc基本概念:&quot;&gt;&lt;/a&gt;mvc基本概念:&lt;/h4&gt;
+      &lt;h2 id=&quot;元类&quot;&gt;&lt;a href=&quot;#元类&quot; class=&quot;headerlink&quot; title=&quot;元类&quot;&gt;&lt;/a&gt;元类&lt;/h2&gt;
     
     </summary>
     
@@ -3660,15 +3660,15 @@
   </entry>
   
   <entry>
-    <title>Django元选项</title>
-    <link href="https://onlyyu.cn/Django/Django_id_21.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_21.html</id>
+    <title>关于mvc</title>
+    <link href="https://onlyyu.cn/Django/Django_id_24.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_24.html</id>
     <published>2018-02-28T16:00:00.000Z</published>
-    <updated>2020-05-17T06:50:45.302Z</updated>
+    <updated>2020-05-17T06:50:57.612Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;元类&quot;&gt;&lt;a href=&quot;#元类&quot; class=&quot;headerlink&quot; title=&quot;元类&quot;&gt;&lt;/a&gt;元类&lt;/h2&gt;
+      &lt;h2 id=&quot;web设计模式&quot;&gt;&lt;a href=&quot;#web设计模式&quot; class=&quot;headerlink&quot; title=&quot;==web设计模式==&quot;&gt;&lt;/a&gt;==web设计模式==&lt;/h2&gt;&lt;h2 id=&quot;—web-mvc—&quot;&gt;&lt;a href=&quot;#—web-mvc—&quot; class=&quot;headerlink&quot; title=&quot;—web mvc—&quot;&gt;&lt;/a&gt;—web mvc—&lt;/h2&gt;&lt;h4 id=&quot;mvc基本概念&quot;&gt;&lt;a href=&quot;#mvc基本概念&quot; class=&quot;headerlink&quot; title=&quot;mvc基本概念:&quot;&gt;&lt;/a&gt;mvc基本概念:&lt;/h4&gt;
     
     </summary>
     
