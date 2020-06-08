@@ -478,29 +478,6 @@
   </entry>
   
   <entry>
-    <title>Vue实现Excel文件下载</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:54.745Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>v-charts趋势图</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
@@ -522,6 +499,29 @@
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
       <category term="v-charts" scheme="https://onlyyu.cn/tags/v-charts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue实现Excel文件下载</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-06-02T14:04:54.745Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
@@ -635,15 +635,15 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
@@ -656,15 +656,15 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -1252,15 +1252,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:49.146Z</updated>
+    <updated>2020-06-01T13:50:58.100Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
+      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
     
     </summary>
     
@@ -1273,15 +1273,15 @@
   </entry>
   
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <link href="https://onlyyu.cn/CentOS/CentOS_id_06.html"/>
-    <id>https://onlyyu.cn/CentOS/CentOS_id_06.html</id>
+    <title>CentOS7服务器配置主从</title>
+    <link href="https://onlyyu.cn/CentOS/CentOS_id_05.html"/>
+    <id>https://onlyyu.cn/CentOS/CentOS_id_05.html</id>
     <published>2020-05-09T16:00:00.000Z</published>
-    <updated>2020-06-01T13:50:58.100Z</updated>
+    <updated>2020-06-01T13:50:49.146Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;a href=&quot;#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理&quot; class=&quot;headerlink&quot; title=&quot;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&quot;&gt;&lt;/a&gt;今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理&lt;/h2&gt;
+      &lt;h2 id=&quot;Centos7-环境下配置mysql主从服务&quot;&gt;&lt;a href=&quot;#Centos7-环境下配置mysql主从服务&quot; class=&quot;headerlink&quot; title=&quot;Centos7 环境下配置mysql主从服务&quot;&gt;&lt;/a&gt;Centos7 环境下配置mysql主从服务&lt;/h2&gt;
     
     </summary>
     
@@ -1790,16 +1790,16 @@
   </entry>
   
   <entry>
-    <title>python基础知识(二十九)</title>
-    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
+    <title>python基础知识(二十八)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2020-06-02T11:07:57.850Z</updated>
+    <updated>2020-06-02T11:07:55.102Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;时间有关模块&quot;&gt;&lt;a href=&quot;#时间有关模块&quot; class=&quot;headerlink&quot; title=&quot;时间有关模块&quot;&gt;&lt;/a&gt;时间有关模块&lt;/h2&gt;&lt;h3 id=&quot;timeit模块&quot;&gt;&lt;a href=&quot;#timeit模块&quot; class=&quot;headerlink&quot; title=&quot;timeit模块&quot;&gt;&lt;/a&gt;timeit模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/timeit.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;timeit&lt;/code&gt;&lt;/a&gt;模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;timeit.timeit(eval/lambda, number=10000)&lt;/code&gt; 运行10000次中的最快用时&lt;/p&gt;
+      &lt;h2 id=&quot;正则有关模块&quot;&gt;&lt;a href=&quot;#正则有关模块&quot; class=&quot;headerlink&quot; title=&quot;正则有关模块&quot;&gt;&lt;/a&gt;正则有关模块&lt;/h2&gt;&lt;p&gt;本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。&lt;/p&gt;
+&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;
     
     </summary>
     
@@ -1812,16 +1812,16 @@
   </entry>
   
   <entry>
-    <title>python基础知识(二十八)</title>
-    <link href="https://onlyyu.cn/Python/Python_id_46.html"/>
-    <id>https://onlyyu.cn/Python/Python_id_46.html</id>
+    <title>python基础知识(二十九)</title>
+    <link href="https://onlyyu.cn/Python/Python_id_47.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_47.html</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2020-06-02T11:07:55.102Z</updated>
+    <updated>2020-06-02T11:07:57.850Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;正则有关模块&quot;&gt;&lt;a href=&quot;#正则有关模块&quot; class=&quot;headerlink&quot; title=&quot;正则有关模块&quot;&gt;&lt;/a&gt;正则有关模块&lt;/h2&gt;&lt;p&gt;本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。&lt;/p&gt;
-&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;
+      &lt;h2 id=&quot;时间有关模块&quot;&gt;&lt;a href=&quot;#时间有关模块&quot; class=&quot;headerlink&quot; title=&quot;时间有关模块&quot;&gt;&lt;/a&gt;时间有关模块&lt;/h2&gt;&lt;h3 id=&quot;timeit模块&quot;&gt;&lt;a href=&quot;#timeit模块&quot; class=&quot;headerlink&quot; title=&quot;timeit模块&quot;&gt;&lt;/a&gt;timeit模块&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/library/timeit.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;timeit&lt;/code&gt;&lt;/a&gt;模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;timeit.timeit(eval/lambda, number=10000)&lt;/code&gt; 运行10000次中的最快用时&lt;/p&gt;
     
     </summary>
     
@@ -2624,16 +2624,15 @@
   </entry>
   
   <entry>
-    <title>代理ip</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
+    <title>动态获取数据</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:56:57.582Z</updated>
+    <updated>2020-05-17T06:57:10.458Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
+      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
     
     </summary>
     
@@ -2646,15 +2645,16 @@
   </entry>
   
   <entry>
-    <title>动态获取数据</title>
-    <link href="https://onlyyu.cn/Spider/Spider_id_11.html"/>
-    <id>https://onlyyu.cn/Spider/Spider_id_11.html</id>
+    <title>代理ip</title>
+    <link href="https://onlyyu.cn/Spider/Spider_id_10.html"/>
+    <id>https://onlyyu.cn/Spider/Spider_id_10.html</id>
     <published>2019-02-12T16:00:00.000Z</published>
-    <updated>2020-05-17T06:57:10.458Z</updated>
+    <updated>2020-05-17T06:56:57.582Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;动态获取数据&quot;&gt;&lt;a href=&quot;#动态获取数据&quot; class=&quot;headerlink&quot; title=&quot;动态获取数据&quot;&gt;&lt;/a&gt;动态获取数据&lt;/h2&gt;
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP&quot;&gt;&lt;/a&gt;代理IP&lt;/h2&gt;
     
     </summary>
     
