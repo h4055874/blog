@@ -23,22 +23,27 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yu ting&#39;s blog">
-<meta property="og:url" content="https://onlyyu.cn/tags/is%E4%B8%8E/index.html">
+  <meta name="description" content="用快慢指针的方法。时间复杂度O(n)，空间复杂度O(1)。 设置p1为慢指针，p2为快指针，两者初始时都指向链表的头结点 ，慢指针p1每次前进1步，快指针p2每次前进2步。如果链表存在环，则快指针p2肯定先进入环，慢指针p1后进入环，两个指针必定会相遇。如果不存在环，则快指针会先行到达链表的尾部变为None。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python判断链表是否成环，及找到入环节点">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_56.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="用快慢指针的方法。时间复杂度O(n)，空间复杂度O(1)。 设置p1为慢指针，p2为快指针，两者初始时都指向链表的头结点 ，慢指针p1每次前进1步，快指针p2每次前进2步。如果链表存在环，则快指针p2肯定先进入环，慢指针p1后进入环，两个指针必定会相遇。如果不存在环，则快指针会先行到达链表的尾部变为None。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-09T14:21:00.000Z">
+<meta property="article:modified_time" content="2020-06-09T14:21:07.059Z">
 <meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://onlyyu.cn/tags/is%E4%B8%8E/">
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_56.html">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
@@ -47,7 +52,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>标签: is与== | Yu ting's blog</title>
+  <title>Python判断链表是否成环，及找到入环节点 | Yu ting's blog</title>
   
 
 
@@ -283,50 +288,218 @@ input[type="radio"]:not(:checked) + label:after {
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">is与==
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_56.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python判断链表是否成环，及找到入环节点
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-09 22:21:00 / 修改时间：22:21:07" itemprop="dateCreated datePublished" datetime="2020-06-09T22:21:00+08:00">2020-06-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/Python_id_56.html" class="post-meta-item leancloud_visitors" data-flag-title="Python判断链表是否成环，及找到入环节点" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Python/Python_id_56.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_56.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>　　用快慢指针的方法。时间复杂度O(n)，空间复杂度O(1)。</p>
+<p>设置p1为慢指针，p2为快指针，两者初始时都指向链表的头结点 ，慢指针p1每次前进1步，快指针p2每次前进2步。如果链表存在环，则快指针p2肯定先进入环，慢指针p1后进入环，两个指针必定会相遇。如果不存在环，则快指针会先行到达链表的尾部变为None。</p>
+<a id="more"></a>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.next = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断链表是否有环,并返回入环节点</span></span><br><span class="line"><span class="comment"># 判断是否有环，用快指针和慢指针，当两个指针相遇时，说明有环</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exit_loop</span><span class="params">(LList)</span>:</span></span><br><span class="line">    p1 = p2 = LList</span><br><span class="line">    <span class="comment"># 当链表为空或者只有一个节点时，跳出循环，返回False</span></span><br><span class="line">    <span class="keyword">while</span> p2 <span class="keyword">and</span> p2.next:</span><br><span class="line">        p1 = p1.next</span><br><span class="line">        p2 = p2.next.next</span><br><span class="line">        <span class="keyword">if</span> p1 == p2:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果链表有环，返回入环节点</span></span><br><span class="line"><span class="comment"># 当确定有环后，慢指针重新回到头节点，快指针停留在相遇处，然后两个指针每次移动1个节点，最终他们在入环节点处相遇</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_entry_of_loop</span><span class="params">(pHead)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> pHead:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    slow = pHead</span><br><span class="line">    fast = pHead</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> slow.next <span class="keyword">and</span> fast.next.next:</span><br><span class="line">        slow = slow.next</span><br><span class="line">        fast = fast.next.next</span><br><span class="line">        <span class="comment"># 当两个指针相遇时，说明有环，循环结束</span></span><br><span class="line">        <span class="keyword">if</span> fast == slow:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 快指针停留在相遇处，慢指针回到起点</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> fast <span class="keyword">or</span> <span class="keyword">not</span> fast.next:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    slow = pHead</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 两个指针每次向前移动1，当再次相遇时，相遇点即为入环节点</span></span><br><span class="line">    <span class="keyword">while</span> slow != fast:</span><br><span class="line">        slow = slow.next</span><br><span class="line">        fast = fast.next</span><br><span class="line">    <span class="keyword">return</span> slow</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    LList = LNode(<span class="number">0</span>)</span><br><span class="line">    p1 = LNode(<span class="number">1</span>)</span><br><span class="line">    p2 = LNode(<span class="number">2</span>)</span><br><span class="line">    p3 = LNode(<span class="number">3</span>)</span><br><span class="line">    p4 = LNode(<span class="number">4</span>)</span><br><span class="line">    p5 = LNode(<span class="number">5</span>)</span><br><span class="line">    LList.next = p1</span><br><span class="line">    p1.next = p2</span><br><span class="line">    p2.next = p3</span><br><span class="line">    p3.next = p4</span><br><span class="line">    p4.next = p5</span><br><span class="line">    p5.next = p2</span><br><span class="line">    <span class="keyword">print</span> (exit_loop(LList))</span><br><span class="line">    <span class="keyword">print</span> (find_entry_of_loop(LList).val)</span><br></pre></td></tr></table></figure></div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-31T11:26:15+08:00"
-              content="2020-05-31">
-          05-31
-        </time>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Python/Python_id_56.html">Python判断链表是否成环，及找到入环节点</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2020年06月09日 - 22:06</p>
+  <p><span>最后更新:</span>2020年06月09日 - 22:06</p>
+  <p><span>原始链接:</span><a href="/Python/Python_id_56.html" title="Python判断链表是否成环，及找到入环节点">https://onlyyu.cn/Python/Python_id_56.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_56.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_02.html" rel="bookmark">DRF初试</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_03.html" rel="bookmark">DRF框架的权限验证器与限流</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_04.html" rel="bookmark">Django-filter过滤器的使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_05.html" rel="bookmark">DRF数据分页器</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Django\Django_id_07.html" rel="bookmark">DRF验证器机制使用</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Python/Python_id_10.html" itemprop="url">
-            <span itemprop="name">Python深浅拷贝及is与==的区别</span>
-          </a>
-      </h2>
+  </div>
+</div>
 
-    </header>
-  </article>
 
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag">分类： Python</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Python/Python_id_55.html" rel="prev" title="Python常用的排序方法">
+      <i class="fa fa-chevron-left"></i> Python常用的排序方法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
               <!-- 此处可在文章模块中间添加东西 -->

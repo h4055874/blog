@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-03T04:12:38.688Z</updated>
+  <updated>2020-06-09T14:21:07.059Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python判断链表是否成环，及找到入环节点</title>
+    <link href="https://onlyyu.cn/Python/Python_id_56.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_56.html</id>
+    <published>2020-06-09T14:21:00.000Z</published>
+    <updated>2020-06-09T14:21:07.059Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　用快慢指针的方法。时间复杂度O(n)，空间复杂度O(1)。&lt;/p&gt;
+&lt;p&gt;设置p1为慢指针，p2为快指针，两者初始时都指向链表的头结点 ，慢指针p1每次前进1步，快指针p2每次前进2步。如果链表存在环，则快指针p2肯定先进入环，慢指针p1后进入环，两个指针必定会相遇。如果不存在环，则快指针会先行到达链表的尾部变为None。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python常用的排序方法</title>
+    <link href="https://onlyyu.cn/Python/Python_id_55.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_55.html</id>
+    <published>2020-06-09T14:13:00.000Z</published>
+    <updated>2020-06-09T14:14:21.757Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　数据的排序是在解决实际问题时经常用到的步骤，也是数据结构的考点之一，下面介绍10种经典的排序方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>利用HeyUI在md文件中制作的一个小功能</title>
@@ -81,15 +124,15 @@
   </entry>
   
   <entry>
-    <title>Django微博三方登录</title>
-    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
+    <title>Django七牛云上传文件</title>
+    <link href="https://onlyyu.cn/Django/Django_id_34.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_34.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:51.372Z</updated>
+    <updated>2020-06-02T04:06:14.035Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
+      &lt;h3 id=&quot;七牛云回调函数&quot;&gt;&lt;a href=&quot;#七牛云回调函数&quot; class=&quot;headerlink&quot; title=&quot;七牛云回调函数&quot;&gt;&lt;/a&gt;七牛云回调函数&lt;/h3&gt;
     
     </summary>
     
@@ -99,7 +142,7 @@
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
+      <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
     
   </entry>
   
@@ -127,15 +170,15 @@
   </entry>
   
   <entry>
-    <title>Django七牛云上传文件</title>
-    <link href="https://onlyyu.cn/Django/Django_id_34.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_34.html</id>
+    <title>Django微博三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T04:06:14.035Z</updated>
+    <updated>2020-06-02T03:38:51.372Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;七牛云回调函数&quot;&gt;&lt;a href=&quot;#七牛云回调函数&quot; class=&quot;headerlink&quot; title=&quot;七牛云回调函数&quot;&gt;&lt;/a&gt;七牛云回调函数&lt;/h3&gt;
+      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
     
     </summary>
     
@@ -145,7 +188,7 @@
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
     
   </entry>
   
@@ -547,15 +590,15 @@
   </entry>
   
   <entry>
-    <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
+    <title>Vue引入百度地图</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_05.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_05.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-02T14:01:20.246Z</updated>
+    <updated>2020-06-02T14:00:30.394Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
+      &lt;p&gt;　　Vue中引入百度地图&lt;/p&gt;
     
     </summary>
     
@@ -570,15 +613,15 @@
   </entry>
   
   <entry>
-    <title>Vue引入百度地图</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_05.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_05.html</id>
+    <title>Vue中详细的百度地图解析</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-02T14:00:30.394Z</updated>
+    <updated>2020-06-02T14:01:20.246Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　Vue中引入百度地图&lt;/p&gt;
+      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
     
     </summary>
     
@@ -614,27 +657,6 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>redis持久化</title>
     <link href="https://onlyyu.cn/Redis/Redis_id_01.html"/>
     <id>https://onlyyu.cn/Redis/Redis_id_01.html</id>
@@ -656,15 +678,15 @@
   </entry>
   
   <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <title>redis数据淘汰机制</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
+    <updated>2020-05-24T10:23:26.780Z</updated>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
+      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
     
     </summary>
     
@@ -677,15 +699,36 @@
   </entry>
   
   <entry>
-    <title>redis数据淘汰机制</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_03.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_03.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:23:26.780Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;过期策略&quot;&gt;&lt;a href=&quot;#过期策略&quot; class=&quot;headerlink&quot; title=&quot;过期策略&quot;&gt;&lt;/a&gt;过期策略&lt;/h2&gt;&lt;p&gt;　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。&lt;br&gt;　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？&lt;br&gt;　　答案是：定期删除+惰性删除&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-24T10:27:46.871Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
     
     </summary>
     
@@ -2709,15 +2752,15 @@
   </entry>
   
   <entry>
-    <title>flask文件下载</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_12.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_12.html</id>
+    <title>flask中g定向</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_13.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_13.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:38.230Z</updated>
+    <updated>2020-05-17T06:48:43.825Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
+      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
     
     </summary>
     
@@ -2730,15 +2773,15 @@
   </entry>
   
   <entry>
-    <title>flask中g定向</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_13.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_13.html</id>
+    <title>flask文件下载</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_12.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_12.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:43.825Z</updated>
+    <updated>2020-05-17T06:48:38.230Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
+      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
     
     </summary>
     
