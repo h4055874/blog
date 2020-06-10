@@ -1,6 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MySQL Myisam和Innodb的区别</title>
+    <url>/MySQL/MySQL_id_02.html</url>
+    <content><![CDATA[<p>1、myisam只支持表级锁 Innodb支持行级锁<br>2、myisam不支持事务 Innodb支持事务<br>3、myisam不支持外键 Innodb支持外键</p>
+<a id="more"></a>
+
+<p>4、myisam支持全文索引，Innodb不支持<br>5、myisam本身存储了表的总数据行，Innodb没有存储，查总行数myisam更快，如果加了查询条件两者就没有区别了</p>
+<p>Myisam和Innodb究竟该怎么选择<br>数据库有外键吗？<br>需要事务支持吗？<br>需要全文索引吗？</p>
+<p><strong>Innodb的行锁模式有以下几种：</strong>共享锁，排他锁，意向共享锁(表锁)，意向排他锁(表锁)，间隙锁。<br><code>注意：当语句没有使用索引，innodb不能确定操作的行，这个时候就使用的意向锁，也就是表锁</code></p>
+<p><strong>聚簇索引和非聚簇索引**</strong></p>
+<p>聚簇索引主要应用于Innodb<br>非聚簇索引主要应用于Myisam</p>
+<p>表数据按照索引的顺序来存储的，也就是说索引项的顺序与表中记录的物理顺序一致。对于聚集索引，叶子结点即存储了真实的数据行，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引，因为真实数据的物理顺序只能有一种。</p>
+<p>非聚集索引。表数据存储顺序与索引顺序无关。对于非聚集索引，叶结点包含索引字段值及指向数据页数据行的逻辑指针，其行数量与数据表行数据量一致。</p>
+<p>　</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python常用查找算法</title>
+    <url>/Python/Python_id_57.html</url>
+    <content><![CDATA[<h3 id="查找算法-–-简介"><a href="#查找算法-–-简介" class="headerlink" title="查找算法 – 简介"></a>查找算法 – 简介</h3><p>　　查找（Searching）就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。查找表（Search Table）：由同一类型的数据元素构成的集合关键字</p>
+<p>（Key）：数据元素中某个数据项的值，又称为键值主键（Primary Key）：可唯一的标识某个数据元素或记录的关键字</p>
+<a id="more"></a>
+
+<h5 id="查找表按照操作方式可分为："><a href="#查找表按照操作方式可分为：" class="headerlink" title="查找表按照操作方式可分为："></a><strong>查找表按照操作方式可分为：</strong></h5><p>​     1.静态查找表（Static Search Table）：只做查找操作的查找表。它的主要操作是：</p>
+<p>​     ①查询某个“特定的”数据元素是否在表中     ②检索某个“特定的”数据元素和各种属性</p>
+<p>​     2.动态查找表（Dynamic Search Table）：在查找中同时进行插入或删除等操作：</p>
+<p>​     ①查找时插入数据     ②查找时删除数据</p>
+<h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><p><strong>算法简介</strong></p>
+<p>​    顺序查找又称为线性查找，是一种最简单的查找方法。适用于线性表的顺序存储结构和链式存储结构。该算法的时间复杂度为O(n)。</p>
+<p><strong>基本思路</strong></p>
+<p>​    从第一个元素m开始逐个与需要查找的元素x进行比较，当比较到元素值相同(即m=x)时返回元素m的下标，如果比较到最后都没有找到，则返回-1。</p>
+<p><strong>优缺点</strong></p>
+<p>  <strong>缺点：</strong>是当n 很大时，平均查找长度较大，效率低；<br>  <strong>优点：</strong>是对表中数据元素的存储没有要求。另外，对于线性链表，只能进行顺序查找。**</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 最基础的遍历无序列表的查找算法</span></span><br><span class="line"><span class="comment"># 时间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sequential_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	length = len(lis)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line">		<span class="keyword">if</span> lis[i] == key:</span><br><span class="line">			<span class="keyword">return</span> i</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">123</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">7</span>, <span class="number">99</span>, <span class="number">300</span>, <span class="number">222</span>]</span><br><span class="line">	result = sequential_search(LIST, <span class="number">123</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p><strong>算法简介</strong></p>
+<p>　　二分查找（Binary Search），是一种在有序数组中查找某一特定元素的查找算法。查找过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则查找过程结束；</p>
+<p>如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这</p>
+<p>种查找算法每一次比较都使查找范围缩小一半。</p>
+<p><strong>算法描述</strong></p>
+<p>　　给予一个包含n个带值元素的数组A</p>
+<p>　　1、令 L为0 ， R为 n-1 ；</p>
+<p>　　2、 如果L&gt;R，则搜索以失败告终；</p>
+<p>　　3、 令 m (中间值元素)为 ⌊(L+R)/2⌋；</p>
+<p>　　4、 如果 Am&lt;T，另L为m + 1 并回到步骤二；</p>
+<p>　　5、 如果 Am&gt;T，令 R为 m - 1 并回到步骤二；</p>
+<p><strong>复杂度分析</strong></p>
+<p><strong>时间复杂度：折半搜索每次把搜索区域减少一半，时间复杂度为 \</strong>O*<em>*</em>(logn)**<br>**  <strong>空间复杂度：**</strong>O(1)**</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 针对有序查找表的二分查找算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt; high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		mid = int((low + high) / <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			 <span class="comment"># 打印折半的次数</span></span><br><span class="line">			print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">			<span class="keyword">return</span> mid</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = binary_search(LIST, <span class="number">99</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="插值查找"><a href="#插值查找" class="headerlink" title="插值查找"></a>插值查找</h3><p><strong>算法简介</strong></p>
+<p>　　插值查找是根据要查找的关键字key与查找表中最大最小记录的关键字比较后的 查找方法，其核心就在于插值的计算公式 (key-a[low])/(a[high]-a[low])*(high-low)。时</p>
+<p>间复杂度o(logn)但对于表长较大而关键字分布比较均匀的查找表来说，效率较高。</p>
+<p><strong>算法思想</strong></p>
+<p>　　基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。   注：对于表长较大，而关键字分布又比较均匀的查找表来</p>
+<p>说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。</p>
+<p><strong>复杂度分析</strong></p>
+<p>　　时间复杂性：如果元素均匀分布，则O（log log n）），在最坏的情况下可能需要 O（n）。<br>　　空间复杂度：O（1）。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插值查找算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt; high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		<span class="comment"># 计算mid值是插值算法的核心代码</span></span><br><span class="line">		mid = low + int((high - low) * (key - lis[low])/(lis[high] - lis[low]))</span><br><span class="line">		print(<span class="string">"mid=%s, low=%s, high=%s"</span> % (mid, low, high))</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="comment"># 打印查找的次数</span></span><br><span class="line">			print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">			<span class="keyword">return</span> mid</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = binary_search(LIST, <span class="number">444</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="斐波那契查找"><a href="#斐波那契查找" class="headerlink" title="斐波那契查找"></a>斐波那契查找</h3><p><strong>算法简介</strong></p>
+<p>　　斐波那契数列，又称黄金分割数列，指的是这样一个数列：1、1、2、3、5、8、13、21、····，在数学上，斐波那契被递归方法如下定义：F(1)=1，F(2)=1，F(n)=f(n-</p>
+<p>1)+F(n-2) （n&gt;=2）。该数列越往后相邻的两个数的比值越趋向于黄金比例值（0.618）。</p>
+<p><strong>算法描述</strong></p>
+<p>　　斐波那契查找就是在二分查找的基础上根据斐波那契数列进行分割的。在斐波那契数列找一个等于略大于查找表中元素个数的数F[n]，将原查找表扩展为长度为F<a href="如果要补充元素，则补充重复最后一个元素，直到满足F[n]个元素">n</a>，完成后</p>
+<p>进行斐波那契分割，即F[n]个元素分割为前半部分F[n-1]个元素，后半部分F[n-2]个元素，找出要查找的元素在那一部分并递归，直到找到。</p>
+<p><strong>复杂度分析</strong></p>
+<p>最坏情况下，时间复杂度为O(log2n)，且其期望复杂度也为O(log2n)。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 斐波那契查找算法</span></span><br><span class="line"><span class="comment"># 时间复杂度O(log(n))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	<span class="comment"># 需要一个现成的斐波那契列表。其最大元素的值必须超过查找表中元素个数的数值。</span></span><br><span class="line">	F = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>, <span class="number">610</span>, <span class="number">987</span>, <span class="number">1597</span>, <span class="number">2584</span>, <span class="number">4181</span>, <span class="number">6765</span>,<span class="number">10946</span>, <span class="number">17711</span>, <span class="number">28657</span>, <span class="number">46368</span>]</span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">	<span class="comment"># 为了使得查找表满足斐波那契特性，在表的最后添加几个同样的值</span></span><br><span class="line">	<span class="comment"># 这个值是原查找表的最后那个元素的值</span></span><br><span class="line">	<span class="comment"># 添加的个数由F[k]-1-high决定</span></span><br><span class="line">	k = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> high &gt; F[k]<span class="number">-1</span>:</span><br><span class="line">		k += <span class="number">1</span></span><br><span class="line">	print(k)</span><br><span class="line">	i = high</span><br><span class="line">	<span class="keyword">while</span> F[k]<span class="number">-1</span> &gt; i:</span><br><span class="line">		lis.append(lis[high])</span><br><span class="line">		i += <span class="number">1</span></span><br><span class="line">	print(lis)</span><br><span class="line">   </span><br><span class="line">	<span class="comment"># 算法主逻辑。time用于展示循环的次数。</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt;= high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		<span class="comment"># 为了防止F列表下标溢出，设置if和else</span></span><br><span class="line">		<span class="keyword">if</span> k &lt; <span class="number">2</span>:</span><br><span class="line">			mid = low</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			mid = low + F[k<span class="number">-1</span>]<span class="number">-1</span></span><br><span class="line">     </span><br><span class="line">		print(<span class="string">"low=%s, mid=%s, high=%s"</span> % (low, mid, high))</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">			k -= <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">			k -= <span class="number">2</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">if</span> mid &lt;= high:</span><br><span class="line">				<span class="comment"># 打印查找的次数</span></span><br><span class="line">				print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">				<span class="keyword">return</span> mid</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">				<span class="keyword">return</span> high</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = fibonacci_search(LIST, <span class="number">444</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h3><h4 id="1、二叉树查找算法。"><a href="#1、二叉树查找算法。" class="headerlink" title="1、二叉树查找算法。"></a>1、二叉树查找算法。</h4><p><strong>算法简介</strong></p>
+<p>　　二叉查找树是先对待查找的数据进行生成树，确保树的左分支的值小于右分支的值，然后在就行和每个节点的父节点比较大小，查找最适合的范围。 这个算法的查找效率很</p>
+<p>高，但是如果使用这种查找方法要首先创建树。</p>
+<p><strong>算法思想</strong></p>
+<p>　　<strong>二叉查找树（BinarySearch Tree）或者是一棵空树，或者是具有下列性质的二叉树：</strong></p>
+<p>　　　　1）若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</p>
+<p>　　　　2）若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</p>
+<p>3）任意节点的左、右子树也分别为二叉查找树。</p>
+<p><strong>二叉查找树性质：</strong></p>
+<p>　　对二叉查找树进行中序遍历，即可得到有序的数列。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/01.png">
+
+<p><strong>复杂度分析</strong></p>
+<p>　　它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 二叉树查找 Python实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BSTNode</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    定义一个二叉树节点类。</span></span><br><span class="line"><span class="string">    以讨论算法为主，忽略了一些诸如对数据类型进行判断的问题。</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data, left=None, right=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        初始化</span></span><br><span class="line"><span class="string">        :param data: 节点储存的数据</span></span><br><span class="line"><span class="string">        :param left: 节点左子树</span></span><br><span class="line"><span class="string">        :param right: 节点右子树</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySortTree</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    基于BSTNode类的二叉查找树。维护一个根节点的指针。</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._root = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._root <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        关键码检索</span></span><br><span class="line"><span class="string">        :param key: 关键码</span></span><br><span class="line"><span class="string">        :return: 查询节点或None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        bt = self._root</span><br><span class="line">        <span class="keyword">while</span> bt:</span><br><span class="line">            entry = bt.data</span><br><span class="line">            <span class="keyword">if</span> key &lt; entry:</span><br><span class="line">                bt = bt.left</span><br><span class="line">            <span class="keyword">elif</span> key &gt; entry:</span><br><span class="line">                bt = bt.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> entry</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        插入操作</span></span><br><span class="line"><span class="string">        :param key:关键码 </span></span><br><span class="line"><span class="string">        :return: 布尔值</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        bt = self._root</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bt:</span><br><span class="line">            self._root = BSTNode(key)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            entry = bt.data</span><br><span class="line">            <span class="keyword">if</span> key &lt; entry:</span><br><span class="line">                <span class="keyword">if</span> bt.left <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    bt.left = BSTNode(key)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                bt = bt.left</span><br><span class="line">            <span class="keyword">elif</span> key &gt; entry:</span><br><span class="line">                <span class="keyword">if</span> bt.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    bt.right = BSTNode(key)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                bt = bt.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                bt.data = key</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        二叉查找树最复杂的方法</span></span><br><span class="line"><span class="string">        :param key: 关键码</span></span><br><span class="line"><span class="string">        :return: 布尔值</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p, q = <span class="literal">None</span>, self._root     <span class="comment"># 维持p为q的父节点，用于后面的链接操作</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q:</span><br><span class="line">            print(<span class="string">"空树！"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">while</span> q <span class="keyword">and</span> q.data != key:</span><br><span class="line">            p = q</span><br><span class="line">            <span class="keyword">if</span> key &lt; q.data:</span><br><span class="line">                q = q.left</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                q = q.right</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> q:               <span class="comment"># 当树中没有关键码key时，结束退出。</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 上面已将找到了要删除的节点，用q引用。而p则是q的父节点或者None（q为根节点时）。</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q.left:</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._root = q.right</span><br><span class="line">            <span class="keyword">elif</span> q <span class="keyword">is</span> p.left:</span><br><span class="line">                p.left = q.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = q.right</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 查找节点q的左子树的最右节点，将q的右子树链接为该节点的右子树</span></span><br><span class="line">        <span class="comment"># 该方法可能会增大树的深度，效率并不算高。可以设计其它的方法。</span></span><br><span class="line">        r = q.left</span><br><span class="line">        <span class="keyword">while</span> r.right:</span><br><span class="line">            r = r.right</span><br><span class="line">        r.right = q.right</span><br><span class="line">        <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self._root = q.left</span><br><span class="line">        <span class="keyword">elif</span> p.left <span class="keyword">is</span> q:</span><br><span class="line">            p.left = q.left</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p.right = q.left</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        实现二叉树的中序遍历算法,</span></span><br><span class="line"><span class="string">        展示我们创建的二叉查找树.</span></span><br><span class="line"><span class="string">        直接使用python内置的列表作为一个栈。</span></span><br><span class="line"><span class="string">        :return: data</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        node = self._root</span><br><span class="line">        <span class="keyword">while</span> node <span class="keyword">or</span> stack:</span><br><span class="line">            <span class="keyword">while</span> node:</span><br><span class="line">                stack.append(node)</span><br><span class="line">                node = node.left</span><br><span class="line">            node = stack.pop()</span><br><span class="line">            <span class="keyword">yield</span> node.data</span><br><span class="line">            node = node.right</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    lis = [<span class="number">62</span>, <span class="number">58</span>, <span class="number">88</span>, <span class="number">48</span>, <span class="number">73</span>, <span class="number">99</span>, <span class="number">35</span>, <span class="number">51</span>, <span class="number">93</span>, <span class="number">29</span>, <span class="number">37</span>, <span class="number">49</span>, <span class="number">56</span>, <span class="number">36</span>, <span class="number">50</span>]</span><br><span class="line">    bs_tree = BinarySortTree()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">        bs_tree.insert(lis[i])</span><br><span class="line">    <span class="comment"># bs_tree.insert(100)</span></span><br><span class="line">    bs_tree.delete(<span class="number">58</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> bs_tree:</span><br><span class="line">        print(i, end=<span class="string">" "</span>)</span><br><span class="line">    <span class="comment"># print("\n", bs_tree.search(4))</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2、平衡查找树之2-3查找树（2-3-Tree）"><a href="#2、平衡查找树之2-3查找树（2-3-Tree）" class="headerlink" title="2、平衡查找树之2-3查找树（2-3 Tree）"></a>2、平衡查找树之2-3查找树（2-3 Tree）</h4><p><strong>2-3查找树定义</strong></p>
+<p>　　和二叉树不一样，2-3树运行每个节点保存1个或者两个的值。对于普通的2节点(2-node)，他保存1个key和左右两个自己点。对应3节点(3-node)，保存两个Key，2-3查找树</p>
+<p>的定义如下：<br>　　1）要么为空，要么：<br>　　2）对于2节点，该节点保存一个key及对应value，以及两个指向左右节点的节点，左节点也是一个2-3节点，所有的值都比key要小，右节点也是一个2-3节点，所有的值比</p>
+<p>　　　　key要大。<br>　　3）对于3节点，该节点保存两个key及对应value，以及三个指向左中右的节点。左节点也是一个2-3节点，所有的值均比两个key中的最小的key还要小；中间节点也是一个2-</p>
+<p>　　　　3节点，中间节点的key值在两个跟节点key值之间；右节点也是一个2-3节点，节点的所有key值比两个key中的最大的key还要大。</p>
+<p><strong>2-3查找树的性质</strong></p>
+<p>　　1）如果中序遍历2-3查找树，就可以得到排好序的序列；<br>　　2）在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。（这也是平衡树中“平衡”一词的概念，根节点到叶节点的最长距离对应于查找算法的最坏情</p>
+<p>　　　　况，而平衡树中根节点到叶节点的距离都一样，最坏情况也具有对数复杂度。） </p>
+<p><strong>2-3树的查找效率与树的高度是息息相关的。</strong></p>
+<p>　　距离来说，对于1百万个节点的2-3树，树的高度为12-20之间，对于10亿个节点的2-3树，树的高度为18-30之间。<br>　　对于插入来说，只需要常数次操作即可完成，因为他只需要修改与该节点关联的节点即可，不需要检查其他节点，所以效率和查找类似。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/02.png">
+
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        self.key1=key</span><br><span class="line">        self.key2=<span class="literal">None</span></span><br><span class="line">        self.left=<span class="literal">None</span></span><br><span class="line">        self.middle=<span class="literal">None</span></span><br><span class="line">        self.right=<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isLeaf</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> self.middle <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> self.right <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.key2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasKey</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (self.key1==key) <span class="keyword">or</span> (self.key2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.key2==key):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getChild</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> key&lt;self.key1:</span><br><span class="line">            <span class="keyword">return</span> self.left</span><br><span class="line">        <span class="keyword">elif</span> self.key2 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> self.middle</span><br><span class="line">        <span class="keyword">elif</span> key&lt;self.key2:</span><br><span class="line">            <span class="keyword">return</span> self.middle</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.right</span><br><span class="line"><span class="class"><span class="keyword">class</span> 2<span class="title">_3_Tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root=<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._get(self.root,key)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get</span><span class="params">(self,node,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> node.hasKey(key):</span><br><span class="line">            <span class="keyword">return</span> node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            child=node.getChild(key)</span><br><span class="line">            <span class="keyword">return</span> self._get(child,key)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.root=Node(key)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pKey,pRef=self._put(self.root,key)</span><br><span class="line">            <span class="keyword">if</span> pKey <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode=Node(pKey)</span><br><span class="line">                newnode.left=self.root</span><br><span class="line">                newnode.middle=pRef</span><br><span class="line">                self.root=newnode</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_put</span><span class="params">(self,node,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node.hasKey(key):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> node.isLeaf():</span><br><span class="line">            <span class="keyword">return</span> self._addtoNode(node,key,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            child=node.getChild(key)</span><br><span class="line">            pKey,pRef=self._put(child,key)</span><br><span class="line">            <span class="keyword">if</span> pKey <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> self._addtoNode(node,pKey,pRef)</span><br><span class="line">             </span><br><span class="line">         </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_addtoNode</span><span class="params">(self,node,key,pRef)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node.isFull():</span><br><span class="line">            <span class="keyword">return</span> self._splitNode(node,key,pRef)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> key&lt;node.key1:</span><br><span class="line">                node.key2=node.key1</span><br><span class="line">                node.key1=key</span><br><span class="line">                <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    node.right=node.middle</span><br><span class="line">                    node.middle=pRef</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node.key2=key</span><br><span class="line">                <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    node.right=Pref</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_splitNode</span><span class="params">(self,node,key,pRef)</span>:</span></span><br><span class="line">        newnode=Node(<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> key&lt;node.key1:</span><br><span class="line">            pKey=node.key1</span><br><span class="line">            node.key1=key</span><br><span class="line">            newnode.key1=node.key2</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=node.middle</span><br><span class="line">                newnode.middle=node.right</span><br><span class="line">                node.middle=pRef</span><br><span class="line">        <span class="keyword">elif</span> key&lt;node.key2:</span><br><span class="line">            pKey=key</span><br><span class="line">            newnode.key1=node.key2</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=Pref</span><br><span class="line">                newnode.middle=node.right</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pKey=node.key2</span><br><span class="line">            newnode.key1=key</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=node.right</span><br><span class="line">                newnode.middle=pRef</span><br><span class="line">        node.key2=<span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> pKey,newnode</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3、平衡查找树之红黑树（Red-Black-Tree）"><a href="#3、平衡查找树之红黑树（Red-Black-Tree）" class="headerlink" title="3、平衡查找树之红黑树（Red-Black Tree）"></a>3、平衡查找树之红黑树（Red-Black Tree）</h4><p><strong>红黑树的定义</strong></p>
+<p>　　<strong>红黑树是一种具有红色和黑色链接的平衡查找树，同时满足：</strong><br>　　　　１、红色节点向左倾斜 ；<br>　　　　2、一个节点不可能有两个红色链接；<br>　　　　3、整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同。</p>
+<p><strong>红黑树的性质</strong></p>
+<p>整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同（2-3树的第2）性质，从根节点到叶子节点的距离都相等）。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/03.png">
+
+<p><strong>复杂度分析</strong></p>
+<p>　　最坏的情况就是，红黑树中除了最左侧路径全部是由3-node节点组成，即红黑相间的路径长度是全黑路径长度的2倍。<br>　　下图是一个典型的红黑树，从中可以看到最长的路径(红黑相间的路径)是最短路径的2倍：</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/04.png">
+
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#红黑树</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">RED = <span class="string">'red'</span></span><br><span class="line">BLACK = <span class="string">'black'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBT</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="comment"># self.items = []</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">        self.zlist = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LEFT_ROTATE</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="comment"># x是一个RBTnode</span></span><br><span class="line">        y = x.right</span><br><span class="line">        <span class="keyword">if</span> y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 右节点为空，不旋转</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            beta = y.left</span><br><span class="line">            x.right = beta</span><br><span class="line">            <span class="keyword">if</span> beta <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                beta.parent = x</span><br><span class="line"></span><br><span class="line">            p = x.parent</span><br><span class="line">            y.parent = p</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment"># x原来是root</span></span><br><span class="line">                self.root = y</span><br><span class="line">            <span class="keyword">elif</span> x == p.left:</span><br><span class="line">                p.left = y</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = y</span><br><span class="line">            y.left = x</span><br><span class="line">            x.parent = y</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">RIGHT_ROTATE</span><span class="params">(self, y)</span>:</span></span><br><span class="line">        <span class="comment"># y是一个节点</span></span><br><span class="line">        x = y.left</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 右节点为空，不旋转</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            beta = x.right</span><br><span class="line">            y.left = beta</span><br><span class="line">            <span class="keyword">if</span> beta <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                beta.parent = y</span><br><span class="line"></span><br><span class="line">            p = y.parent</span><br><span class="line">            x.parent = p</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment"># y原来是root</span></span><br><span class="line">                self.root = x</span><br><span class="line">            <span class="keyword">elif</span> y == p.left:</span><br><span class="line">                p.left = x</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = x</span><br><span class="line">            x.right = y</span><br><span class="line">            y.parent = x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">INSERT</span><span class="params">(self, val)</span>:</span></span><br><span class="line"></span><br><span class="line">        z = RBTnode(val)</span><br><span class="line">        y = <span class="literal">None</span></span><br><span class="line">        x = self.root</span><br><span class="line">        <span class="keyword">while</span> x <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            y = x</span><br><span class="line">            <span class="keyword">if</span> z.val &lt; x.val:</span><br><span class="line">                x = x.left</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                x = x.right</span><br><span class="line"></span><br><span class="line">        z.PAINT(RED)</span><br><span class="line">        z.parent = y</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 插入z之前为空的RBT</span></span><br><span class="line">            self.root = z</span><br><span class="line">            self.INSERT_FIXUP(z)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> z.val &lt; y.val:</span><br><span class="line">            y.left = z</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y.right = z</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> y.color == RED:</span><br><span class="line">            <span class="comment"># z的父节点y为红色，需要fixup。</span></span><br><span class="line">            <span class="comment"># 如果z的父节点y为黑色，则不用调整</span></span><br><span class="line">            self.INSERT_FIXUP(z)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">INSERT_FIXUP</span><span class="params">(self, z)</span>:</span></span><br><span class="line">        <span class="comment"># case 1:z为root节点</span></span><br><span class="line">        <span class="keyword">if</span> z.parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            z.PAINT(BLACK)</span><br><span class="line">            self.root = z</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 2:z的父节点为黑色</span></span><br><span class="line">        <span class="keyword">if</span> z.parent.color == BLACK:</span><br><span class="line">            <span class="comment"># 包括了z处于第二层的情况</span></span><br><span class="line">            <span class="comment"># 这里感觉不必要啊。。似乎z.parent为黑色则不会进入fixup阶段</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 下面的几种情况，都是z.parent.color == RED:</span></span><br><span class="line">        <span class="comment"># 节点y为z的uncle</span></span><br><span class="line">        p = z.parent</span><br><span class="line">        g = p.parent  <span class="comment"># g为x的grandpa</span></span><br><span class="line">        <span class="keyword">if</span> g <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">            <span class="comment">#   return 这里不能return的。。。</span></span><br><span class="line">        <span class="keyword">if</span> g.right == p:</span><br><span class="line">            y = g.left</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y = g.right</span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-0:z没有叔叔。即：y为NIL节点</span></span><br><span class="line">        <span class="comment"># 注意，此时z的父节点一定是RED</span></span><br><span class="line">        <span class="keyword">if</span> y == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> z == p.right <span class="keyword">and</span> p == p.parent.left:</span><br><span class="line">                <span class="comment"># 3-0-0:z为右儿子,且p为左儿子，则把p左旋</span></span><br><span class="line">                <span class="comment"># 转化为3-0-1或3-0-2的情况</span></span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line">                g = p.parent</span><br><span class="line">            <span class="keyword">elif</span> z == p.left <span class="keyword">and</span> p == p.parent.right:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line"></span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            <span class="keyword">if</span> p == g.left:</span><br><span class="line">                <span class="comment"># 3-0-1:p为g的左儿子</span></span><br><span class="line">                self.RIGHT_ROTATE(g)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 3-0-2:p为g的右儿子</span></span><br><span class="line">                self.LEFT_ROTATE(g)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-1:z有黑叔</span></span><br><span class="line">        <span class="keyword">elif</span> y.color == BLACK:</span><br><span class="line">            <span class="keyword">if</span> p.right == z <span class="keyword">and</span> p.parent.left == p:</span><br><span class="line">                <span class="comment"># 3-1-0:z为右儿子,且p为左儿子,则左旋p</span></span><br><span class="line">                <span class="comment"># 转化为3-1-1或3-1-2</span></span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line">            <span class="keyword">elif</span> p.left == z <span class="keyword">and</span> p.parent.right == p:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line"></span><br><span class="line">            p = z.parent</span><br><span class="line">            g = p.parent</span><br><span class="line"></span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            <span class="keyword">if</span> p == g.left:</span><br><span class="line">                <span class="comment"># 3-1-1:p为g的左儿子，则右旋g</span></span><br><span class="line">                self.RIGHT_ROTATE(g)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 3-1-2:p为g的右儿子，则左旋g</span></span><br><span class="line">                self.LEFT_ROTATE(g)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-2:z有红叔</span></span><br><span class="line">        <span class="comment"># 则涂黑父和叔，涂红爷，g作为新的z，递归调用</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y.PAINT(BLACK)</span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            new_z = g</span><br><span class="line">            self.INSERT_FIXUP(new_z)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DELETE</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        curNode = self.root</span><br><span class="line">        <span class="keyword">while</span> curNode <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> val &lt; curNode.val:</span><br><span class="line">                curNode = curNode.left</span><br><span class="line">            <span class="keyword">elif</span> val &gt; curNode.val:</span><br><span class="line">                curNode = curNode.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 找到了值为val的元素,正式开始删除</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> curNode.left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> curNode.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    <span class="comment"># case1:curNode为叶子节点：直接删除即可</span></span><br><span class="line">                    <span class="keyword">if</span> curNode == self.root:</span><br><span class="line">                        self.root = <span class="literal">None</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        p = curNode.parent</span><br><span class="line">                        <span class="keyword">if</span> curNode == p.left:</span><br><span class="line">                            p.left = <span class="literal">None</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            p.right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">elif</span> curNode.left <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> curNode.right <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    sucNode = self.SUCCESOR(curNode)</span><br><span class="line">                    curNode.val, sucNode.val  = sucNode.val, curNode.val</span><br><span class="line">                    self.DELETE(sucNode.val)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p = curNode.parent</span><br><span class="line">                    <span class="keyword">if</span> curNode.left <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                        x = curNode.right</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        x = curNode.left</span><br><span class="line">                    <span class="keyword">if</span> curNode == p.left:</span><br><span class="line">                        p.left = x</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        p.right = x</span><br><span class="line">                    x.parent = p</span><br><span class="line">                    <span class="keyword">if</span> curNode.color == BLACK:</span><br><span class="line">                        self.DELETE_FIXUP(x)</span><br><span class="line"></span><br><span class="line">                curNode = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DELETE_FIXUP</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        p = x.parent</span><br><span class="line">        <span class="comment"># w:x的兄弟结点</span></span><br><span class="line">        <span class="keyword">if</span> x == p.left:</span><br><span class="line">            w = x.right</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            w = x.left</span><br><span class="line"></span><br><span class="line">        <span class="comment"># case1:x的兄弟w是红色的</span></span><br><span class="line">        <span class="keyword">if</span> w.color == RED:</span><br><span class="line">            p.PAINT(RED)</span><br><span class="line">            w.PAINT(BLACK)</span><br><span class="line">            <span class="keyword">if</span> w == p.right:</span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> w.color == BLACK:</span><br><span class="line">            <span class="comment"># case2:x的兄弟w是黑色的，而且w的两个孩子都是黑色的</span></span><br><span class="line">            <span class="keyword">if</span> w.left.color == BLACK <span class="keyword">and</span> w.right.color == BLACK:</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                <span class="keyword">if</span> p.color == BLACK:</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.color = BLACK</span><br><span class="line">                    self.DELETE_FIXUP(p)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># case3:x的兄弟w是黑色的，而且w的左儿子是红色的，右儿子是黑色的</span></span><br><span class="line">            <span class="keyword">if</span> w.left.color == RED <span class="keyword">and</span> w.color == BLACK:</span><br><span class="line">                w.left.PAINT(BLACK)</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                self.RIGHT_ROTATE(w)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># case4:x的兄弟w是黑色的，而且w的右儿子是红</span></span><br><span class="line">            <span class="keyword">if</span> w.right.color == RED:</span><br><span class="line">                p.PAINT(BLACK)</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                <span class="keyword">if</span> w == p.right:</span><br><span class="line">                    self.LEFT_ROTATE(p)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.RIGHT_ROTATE(p)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">SHOW</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.DISPLAY1(self.root)</span><br><span class="line">        <span class="keyword">return</span> self.zlist</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY1</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY1(node.left)</span><br><span class="line">        self.zlist.append(node.val)</span><br><span class="line">        self.DISPLAY1(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY2</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY2(node.left)</span><br><span class="line">        print(node.val)</span><br><span class="line">        self.DISPLAY2(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY3</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY3(node.left)</span><br><span class="line">        self.DISPLAY3(node.right)</span><br><span class="line">        print(node.val)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBTnode</span>:</span></span><br><span class="line">    <span class="string">'''红黑树的节点类型'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.left = <span class="literal">None</span></span><br><span class="line">        self.right = <span class="literal">None</span></span><br><span class="line">        self.parent = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PAINT</span><span class="params">(self, color)</span>:</span></span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zuoxuan</span><span class="params">(b, c)</span>:</span></span><br><span class="line">    a = b.parent</span><br><span class="line">    a.left = c</span><br><span class="line">    c.parent = a</span><br><span class="line">    b.parent = c</span><br><span class="line">    c.left = b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    rbt=RBT()</span><br><span class="line">    b = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        m = randint(<span class="number">0</span>, <span class="number">500</span>)</span><br><span class="line">        rbt.INSERT(m)</span><br><span class="line">        b.append(m)</span><br><span class="line"></span><br><span class="line">    a = rbt.SHOW()</span><br><span class="line">    b.sort()</span><br><span class="line">    equal = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        <span class="keyword">if</span> a[i] != b[i]:</span><br><span class="line">            equal = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> equal:</span><br><span class="line">        print(<span class="string">'wrong'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'OK!'</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4、B树和B-树（B-Tree-B-Tree）"><a href="#4、B树和B-树（B-Tree-B-Tree）" class="headerlink" title="4、B树和B+树（B Tree/B+ Tree）"></a>4、B树和B+树（B Tree/B+ Tree）</h4><p><strong>B树简介</strong></p>
+<p>　　B树可以看作是对2-3查找树的一种扩展，即他允许每个节点有M-1个子节点。<br>　　　　１、根节点至少有两个子节点；<br>　　　　2、每个节点有M-1个key，并且以升序排列；<br>　　　　3、位于M-1和M key的子节点的值位于M-1 和M key对应的Value之间；<br>　　　　4、非叶子结点的关键字个数=指向儿子的指针个数-1；<br>　　　　5、非叶子结点的关键字：K[1], K[2], …, K[M-1]；且K[i] ；<br>　　　　6、其它节点至少有M/2个子节点；<br>　　　　7、所有叶子结点位于同一层；<br>　　如：（M=3）</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/05.png">
+
+<p><strong>B树算法思想</strong></p>
+<p>　　B-树的搜索，从根结点开始，对结点内的关键字（有序）序列进行二分查找，如果命中则结束，否则进入查询关键字所属范围的儿子结点；重复，直到所对应的儿子指针为</p>
+<p>空，或已经是叶子结点；</p>
+<p><strong>B树的特性</strong></p>
+<p>　　1.关键字集合分布在整颗树中；<br>　　2.任何一个关键字出现且只出现在一个结点中；<br>　　3.搜索有可能在非叶子结点结束；<br>　　4.其搜索性能等价于在关键字全集内做一次二分查找；<br>　　5.自动层次控制；<br>　　由于限制了除根结点以外的非叶子结点，至少含有M/2个儿子，确保了结点的至少利用率，其最底搜索性能为O(LogN)</p>
+<p><strong>B+ 树简介</strong></p>
+<p>**B+树是B-树的变体，也是一种多路搜索树：<br>　　1.其定义基本与B-树同，除了：<br>　　2.非叶子结点的子树指针与关键字个数相同；<br>　　3.非叶子结点的子树指针P[i]，指向关键字值属于[K[i], K[i+1])的子树<br>　　4.B-树是开区间；<br>　　5.为所有叶子结点增加一个链指针；<br>　　6.所有关键字都在叶子结点出现；</p>
+<p>如：（M=3）</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/06.png">
+
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># B树查找</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BTree</span>:</span>  <span class="comment">#B树</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.left=<span class="literal">None</span></span><br><span class="line">        self.data=value</span><br><span class="line">        self.right=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertLeft</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.left=BTree(value)</span><br><span class="line">        <span class="keyword">return</span> self.left</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertRight</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.right=BTree(value)</span><br><span class="line">        <span class="keyword">return</span> self.right</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(node)</span>:</span>  <span class="comment">#中序遍历：先左子树，再根节点，再右子树</span></span><br><span class="line">    <span class="keyword">if</span> node.data:</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            inorder(node.left)</span><br><span class="line">        node.show()</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            inorder(node.right)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rinorder</span><span class="params">(node)</span>:</span>  <span class="comment">#倒中序遍历</span></span><br><span class="line">    <span class="keyword">if</span> node.data:</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            rinorder(node.right)</span><br><span class="line">        node.show()</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            rinorder(node.left)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(node,value)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> value &gt; node.data:</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            insert(node.right,value)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.insertRight(value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            insert(node.left,value)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.insertLeft(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line">    l=[<span class="number">88</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">33</span>,<span class="number">22</span>,<span class="number">4</span>,<span class="number">55</span>,<span class="number">33</span>,<span class="number">221</span>,<span class="number">34</span>]</span><br><span class="line">    Root=BTree(l[<span class="number">0</span>])</span><br><span class="line">    node=Root</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(l)):</span><br><span class="line">        insert(Root,l[i])</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"中序遍历（从小到大排序 ）"</span>)</span><br><span class="line">    inorder(Root)</span><br><span class="line">    print(<span class="string">"倒中序遍历（从大到小排序）"</span>)</span><br><span class="line">    rinorder(Root)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="5、树表查找总结"><a href="#5、树表查找总结" class="headerlink" title="5、树表查找总结"></a>5、树表查找总结</h4><p>　　二叉查找树平均查找性能不错，为O(logn)，但是最坏情况会退化为O(n)。在二叉查找树的基础上进行优化，我们可以使用平衡查找树。平衡查找树中的2-3查找树，这种数</p>
+<p>据结构在插入之后能够进行自平衡操作，从而保证了树的高度在一定的范围内进而能够保证最坏情况下的时间复杂度。但是2-3查找树实现起来比较困难，红黑树是2-3树的一种</p>
+<p>简单高效的实现，他巧妙地使用颜色标记来替代2-3树中比较难处理的3-node节点问题。红黑树是一种比较高效的平衡查找树，应用非常广泛，很多编程语言的内部实现都或多或</p>
+<p>少的采用了红黑树。 </p>
+<p>　　除此之外，2-3查找树的另一个扩展——B/B+平衡树，在文件系统和数据库系统中有着广泛的应用。</p>
+<h3 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h3><p><strong>算法简介</strong></p>
+<p>　　要求是顺序表，分块查找又称索引顺序查找，它是顺序查找的一种改进方法。</p>
+<p><strong>算法思想</strong><br>　　将n个数据元素”按块有序”划分为m块（m ≤ n）。<br>　　每一块中的结点不必有序，但块与块之间必须”按块有序”；<br>　　即第1块中任一元素的关键字都必须小于第2块中任一元素的关键字；<br>　　而第2块中任一元素又都必须小于第3块中的任一元素，……</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/07.png">
+
+<p><strong>算法流程</strong></p>
+<p>　　1、先选取各块中的最大关键字构成一个索引表；<br>　　2、查找分两个部分：先对索引表进行二分查找或顺序查找，以确定待查记录在哪一块中；<br>　　3、在已确定的块中用顺序法进行查找。</p>
+<p><strong>复杂度分析</strong></p>
+<p>  <strong>时间复杂度：</strong>O(log(m)+N/m)</p>
+<h3 id="哈希查找"><a href="#哈希查找" class="headerlink" title="哈希查找"></a>哈希查找</h3><p><strong>算法简介</strong></p>
+<p>哈希表就是一种以键-值(key-indexed) 存储数据的结构，只要输入待查找的值即key，即可查找到其对应的值。</p>
+<p><strong>算法思想</strong></p>
+<p>　　哈希的思路很简单，如果所有的键都是整数，那么就可以使用一个简单的无序数组来实现：将键作为索引，值即为其对应的值，这样就可以快速访问任意键的值。这是对于</p>
+<p>简单的键的情况，我们将其扩展到可以处理更加复杂的类型的键。</p>
+<p><strong>算法流程</strong></p>
+<p>　　1）用给定的哈希函数构造哈希表；<br>　　2）根据选择的冲突处理方法解决地址冲突；<br>　　　常见的解决冲突的方法：拉链法和线性探测法。<br>　　3）在哈希表的基础上执行哈希查找。</p>
+<p><strong>复杂度分析</strong></p>
+<p>　　单纯论查找复杂度：对于无冲突的Hash表而言，查找复杂度为O(1)（注意，在查找之前我们需要构建相应的Hash表）。</p>
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 忽略了对数据类型，元素溢出等问题的判断。</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashTable</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size)</span>:</span></span><br><span class="line">    self.elem = [<span class="literal">None</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(size)] <span class="comment"># 使用list数据结构作为哈希表元素保存方法</span></span><br><span class="line">    self.count = size <span class="comment"># 最大表长</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> key % self.count <span class="comment"># 散列函数采用除留余数法</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">insert_hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="string">"""插入关键字到哈希表内"""</span></span><br><span class="line">    address = self.hash(key) <span class="comment"># 求散列地址</span></span><br><span class="line">    <span class="keyword">while</span> self.elem[address]: <span class="comment"># 当前位置已经有数据了，发生冲突。</span></span><br><span class="line">      address = (address+<span class="number">1</span>) % self.count <span class="comment"># 线性探测下一地址是否可用</span></span><br><span class="line">    self.elem[address] = key <span class="comment"># 没有冲突则直接保存。</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">search_hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="string">"""查找关键字，返回布尔值"""</span></span><br><span class="line">    star = address = self.hash(key)</span><br><span class="line">    <span class="keyword">while</span> self.elem[address] != key:</span><br><span class="line">      address = (address + <span class="number">1</span>) % self.count</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> self.elem[address] <span class="keyword">or</span> address == star: <span class="comment"># 说明没找到或者循环到了开始的位置</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  list_a = [<span class="number">12</span>, <span class="number">67</span>, <span class="number">56</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">37</span>, <span class="number">22</span>, <span class="number">29</span>, <span class="number">15</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">34</span>]</span><br><span class="line">  hash_table = HashTable(<span class="number">12</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> list_a:</span><br><span class="line">    hash_table.insert_hash(i)</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> hash_table.elem:</span><br><span class="line">    <span class="keyword">if</span> i:</span><br><span class="line">      print((i, hash_table.elem.index(i)), end=<span class="string">" "</span>)</span><br><span class="line">  print(<span class="string">"\n"</span>)</span><br><span class="line"> </span><br><span class="line">  print(hash_table.search_hash(<span class="number">15</span>))</span><br><span class="line">  print(hash_table.search_hash(<span class="number">33</span>))</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL主从原理</title>
+    <url>/MySQL/MySQL_id_01.html</url>
+    <content><![CDATA[<h2 id="1-1-mysql主从同步"><a href="#1-1-mysql主从同步" class="headerlink" title="1.1 mysql主从同步"></a>1.1 mysql主从同步</h2><h3 id="1、mysql主从同步（复制）概念"><a href="#1、mysql主从同步（复制）概念" class="headerlink" title="1、mysql主从同步（复制）概念"></a>1、mysql主从同步（复制）概念</h3><p>　　1、将Mysql某一台主机数据复制到其它主机（slaves）上，并重新执行一遍来实现的。</p>
+<p>　　2、复制过程中一个服务器充当主服务器，而一个或多个其它服务器充当从服务器。</p>
+<a id="more"></a>
+
+<p>　　3、主服务器将更新写入二进制日志文件，并维护文件的一个索引以跟踪日志循环。</p>
+<p>　　4、当一个从服务器连接主服务器时，它通知主服务器从服务器在日志中读取的最后一次成功更新的位置。</p>
+<p>　　5、从服务器接收从那时起发生的任何更新，然后封锁并等待主服务器通知新的更新。</p>
+<p><code>binlog：是二进制日志文件，用于记录mysql的数据更新或者潜在更新(比如DELETE语句执行删除而实际并没有符合条件的数据)</code></p>
+<h3 id="2、Mysql支持哪些复制"><a href="#2、Mysql支持哪些复制" class="headerlink" title="2、Mysql支持哪些复制"></a>2、Mysql支持哪些复制</h3><p>　　1、<strong>基于语句的复制:</strong> 在主服务器执行SQL语句，在从服务器执行同样语句。</p>
+<p>　　<strong>注：</strong>MySQL默认采用基于语句的复制，效率较高。一旦发现没法精确复制时, 会自动选基于行的复制。</p>
+<p>　　2、<strong>基于行的复制:</strong> 把改变的内容复制过去，而不是把命令在从服务器上执行一遍. 从mysql5.0开始支持</p>
+<p>　　3、<strong>混合类型的复制:</strong> 默认采用基于语句的复制，一旦发现基于语句的无法精确的复制时，就会采用基于行的复制。</p>
+<h3 id="3、Mysql主从复制原理"><a href="#3、Mysql主从复制原理" class="headerlink" title="3、Mysql主从复制原理"></a>3、Mysql主从复制原理</h3><p>　　1、master服务器将数据的改变都记录到二进制binlog日志中，只要master上的数据发生改变，则将其改变写入二进制日志；</p>
+<p>　　2、salve服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变，则开始一个I/O Thread请求master二进制事件</p>
+<p>　　3、同时主节点为每个I/O线程启动一个dump线程，用于向其发送二进制事件，并保存至从节点本地的中继日志中</p>
+<p>　　4、从节点将启动SQL线程从中继日志中读取二进制日志，在本地重放，使得其数据和主节点的保持一致</p>
+<p>　　5、最后I/O Thread和SQL Thread将进入睡眠状态，等待下一次被唤醒.</p>
+<h4 id="需要理解："><a href="#需要理解：" class="headerlink" title="需要理解："></a>需要理解：</h4><p>　　<em>1）从库会生成两个线程,一个I/O线程,一个SQL线程;</em></p>
+<p>　　<em>2）I/O线程会去请求主库的binlog,并将得到的binlog写到本地的relay-log(中继日志)文件中;</em></p>
+<p>　　<em>3）主库会生成一个log dump线程,用来给从库I/O线程传binlog;</em></p>
+<p>　　<em>4）SQL线程,会读取relay log文件中的日志,并解析成sql语句逐一执行;</em></p>
+<h3 id="4、Mysql复制流程图"><a href="#4、Mysql复制流程图" class="headerlink" title="4、Mysql复制流程图"></a>4、Mysql复制流程图</h3><p>　　1、master将操作语句记录到binlog日志中</p>
+<p>　　2、salve服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变</p>
+<p>　　3、salave开启两个线程：<em>IO线程和SQL线程</em></p>
+<p>　　　<em>1）<strong>IO线程：</strong>负责读取master的binlog内容到中继日志relay log里；</em></p>
+<p>　　　<em>2）<strong>SQL线程：</strong>负责从relay log日志里读出binlog内容，并更新到slave的数据库里（保证数据一致）</em></p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/MySQL/01.png">
+
+<h2 id="1-2-MySQL同步延迟问题"><a href="#1-2-MySQL同步延迟问题" class="headerlink" title="1.2 MySQL同步延迟问题"></a>1.2 MySQL同步延迟问题</h2><h3 id="1、造成mysql同步延迟常见原因"><a href="#1、造成mysql同步延迟常见原因" class="headerlink" title="1、造成mysql同步延迟常见原因"></a>1、造成mysql同步延迟常见原因</h3><p>　　1）<strong>网络：</strong>如主机或者从机的带宽打满、主从之间网络延迟很大，导致主上的binlog没有全量传输到从机，造成延迟。</p>
+<p>　　2）<strong>机器性能：*</strong>从机使用了烂机器？比如主机使用SSD而从机还是使用的SATA*</p>
+<p>　　3）<strong>从机高负载：</strong>有很多业务会在从机上做统计，把从机服务器搞成高负载，从而造成从机延迟很大的情况</p>
+<p>　　4）<strong>大事务：</strong>比如在RBR模式下，执行带有大量的delete操作，这种通过查看processlist相关信息以及使用mysqlbinlog查看binlog中的SQL就能快速进行确认</p>
+<p>　　5）<strong>锁:</strong>　 锁冲突问题也可能导致从机的SQL线程执行慢，比如从机上有一些select …. for update的SQL，或者使用了MyISAM引擎等。</p>
+<h3 id="2、硬件方面（优化）"><a href="#2、硬件方面（优化）" class="headerlink" title="2、硬件方面（优化）"></a>2、硬件方面（优化）</h3><p>　　1、采用好服务器，比如4u比2u性能明显好，2u比1u性能明显好。</p>
+<p>　　2、存储用ssd或者盘阵或者san，提升随机写的性能。</p>
+<p>　　3、主从间保证处在同一个交换机下面，并且是万兆环境。</p>
+<p>　　<strong>总结</strong>：硬件强劲，延迟自然会变小。一句话，缩小延迟的解决方案就是花钱和花时间。</p>
+<h3 id="3、mysql主从同步加速"><a href="#3、mysql主从同步加速" class="headerlink" title="3、mysql主从同步加速"></a>3、mysql主从同步加速</h3><p>　　<strong>1）sync_binlog在slave端设置为0</strong></p>
+<p>　　　　当事务提交后，Mysql仅仅是将binlog_cache中的数据写入Binlog文件，但不执行fsync之类的磁盘 同步指令 通知文件系统将缓存刷新到磁盘</p>
+<p>　　　　而让Filesystem自行决定什么时候来做同步，这个是性能最好的。</p>
+<p>　　<strong>2）slave端 innodb_flush_log_at_trx_commit = 2</strong></p>
+<p>　　　　每次事务提交时MySQL都会把log buffer的数据写入log file，但是flush(刷到磁盘)操作并不会同时进行。</p>
+<p>　　　　该模式下，MySQL会每秒执行一次 flush(刷到磁盘)操作。</p>
+<p>　　<strong>3）–logs-slave-updates 从服务器从主服务器接收到的更新不记入它的二进制日志。</strong></p>
+<p>　　<strong>4）直接禁用slave端的binlog</strong></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python判断链表是否成环，及找到入环节点</title>
     <url>/Python/Python_id_56.html</url>
     <content><![CDATA[<p>　　用快慢指针的方法。时间复杂度O(n)，空间复杂度O(1)。</p>
@@ -202,30 +434,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Django微博三方登录</title>
-    <url>/Django/Django_id_32.html</url>
-    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>微博</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Django钉钉三方登录</title>
     <url>/Django/Django_id_33.html</url>
     <content><![CDATA[<h3 id="钉钉回调函数"><a href="#钉钉回调函数" class="headerlink" title="钉钉回调函数"></a>钉钉回调函数</h3><a id="more"></a>
@@ -271,6 +479,30 @@
       <tags>
         <tag>Python</tag>
         <tag>七牛云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django微博三方登录</title>
+    <url>/Django/Django_id_32.html</url>
+    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>微博</tag>
       </tags>
   </entry>
   <entry>
@@ -1331,6 +1563,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue中router-link的点击事件</title>
+    <url>/Vue/Vue_id_06.html</url>
+    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
+<a id="more"></a>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>点击事件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue引入百度地图</title>
     <url>/Vue/Vue_id_05.html</url>
     <content><![CDATA[<p>　　Vue中引入百度地图</p>
@@ -1506,21 +1753,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue中router-link的点击事件</title>
-    <url>/Vue/Vue_id_06.html</url>
-    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
-<a id="more"></a>
-
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>点击事件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算某年某月某一天是第几天</title>
     <url>/Python/Python_id_04.html</url>
     <content><![CDATA[<p>　实现输入某年某月某日计算出这一天是该年第几天的方法</p>
@@ -1634,35 +1866,6 @@
       </tags>
   </entry>
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <url>/Redis/Redis_id_04.html</url>
-    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
-<a id="more"></a>
-
-<p>　　<strong>发生场景：</strong></p>
-<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
-<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
-　　</p>
-<p><strong>解决方案</strong></p>
-<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
-<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>redis数据淘汰机制</title>
     <url>/Redis/Redis_id_03.html</url>
     <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
@@ -1708,6 +1911,35 @@
 <p>redis.conf中的maxmemory选项，该选项是告诉Redis当使用了多少物理内存后就开始拒绝后续的写入请求，该参数能很好的保护好你的Redis不会因为使用了过多的物理内存而导致swap,最终严重影响性能甚至崩溃。</p>
 <p>redis.conf文件中 vm-enabled 为 no</p>
 <p>以上这篇Redis优化经验总结(必看篇)就是小编分享给大家的全部内容了，希望能给大家一个参考，也希望大家多多支持脚本之家。</p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis雪崩、击穿、穿透</title>
+    <url>/Redis/Redis_id_04.html</url>
+    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
+<a id="more"></a>
+
+<p>　　<strong>发生场景：</strong></p>
+<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
+<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
+　　</p>
+<p><strong>解决方案</strong></p>
+<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
+<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2610,54 +2842,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置汇总</title>
-    <url>/CentOS/CentOS_id_04.html</url>
-    <content><![CDATA[<ol>
-<li><p>构建centos7环境</p>
-<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
-<a id="more"></a>
-
-<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
-<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
-<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
-<p>还是重装系统吧</p>
-</li>
-<li><p>配置python环境</p>
-<ol>
-<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
-</li>
-<li><p>如果有需要升级的话,可以参考下列操作</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
-
-<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
-</li>
-</ol>
-</li>
-<li><p>配置mysql数据库 + 主从复制</p>
-<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
-</li>
-<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
-<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
-</li>
-<li><p>配置node环境</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
-
-<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
-
-<p>重启服务器:  reboot</p>
-</li>
-</ol>
-<p>以上.</p>
-]]></content>
-      <categories>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7服务器配置redis主从与哨兵</title>
     <url>/CentOS/CentOS_id_03.html</url>
     <content><![CDATA[<h2 id="这次是配置redis主从"><a href="#这次是配置redis主从" class="headerlink" title="这次是配置redis主从"></a>这次是配置redis主从</h2><a id="more"></a>
@@ -2740,6 +2924,54 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </categories>
       <tags>
         <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置汇总</title>
+    <url>/CentOS/CentOS_id_04.html</url>
+    <content><![CDATA[<ol>
+<li><p>构建centos7环境</p>
+<p>服务器构建centos7环境,没啥好写的,毕竟只需要在控制台操作一下就可以自动进行系统重装.</p>
+<a id="more"></a>
+
+<p>这里要注意的是, 阿里云安装的centos7系统与正常你在自己虚拟机上安装的centos不同,在安装了图形化界面之后,使用init 5 和startX都是无法直接开启图形化界面的.</p>
+<p>这里需要进入阿里云控制台中,在远程连接选项中选择VNC连接, 这样才能进行图形化界面操作.</p>
+<p>值得一提的是,请务必记住你第一次进行VNC连接时生成的连接密码,它关系到你每次能否连接,如果你忘记了…..</p>
+<p>还是重装系统吧</p>
+</li>
+<li><p>配置python环境</p>
+<ol>
+<li><p>这个的话,应该也没什么好说的吧,毕竟,centos本身自带了python环境(2.7)</p>
+</li>
+<li><p>如果有需要升级的话,可以参考下列操作</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VALA"><figure class="iseeu highlight /vala"><table><tr><td class="code"><pre><span class="line">wget  https:<span class="comment">//www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz </span></span><br><span class="line"><span class="meta"># 下载python 3.7.1 安装包</span></span><br><span class="line">tar -zxvf Python<span class="number">-3.7</span><span class="number">.1</span>.tgz  -C  /usr/local/</span><br><span class="line"><span class="meta"># 解压安装包</span></span><br><span class="line">cd Python<span class="number">-3.7</span><span class="number">.1</span></span><br><span class="line"><span class="meta"># 切换路径至python文件夹</span></span><br><span class="line">./configure --prefix=/usr/local/Python<span class="number">-3.7</span><span class="number">.1</span>  --enable-shared CFLAGS=-fPIC</span><br><span class="line"><span class="meta"># 配置编译</span></span><br><span class="line">make&amp;&amp;make install</span><br><span class="line"><span class="meta"># 编译源码,执行安装</span></span><br><span class="line">python <span class="number">3</span></span><br><span class="line"><span class="meta"># 查看是否安装成功</span></span><br></pre></td></tr></table></figure></div>
+
+<p><img src="/fcg22450.github.io/img/online_course/centos_python.png" alt="安装成功的显示"></p>
+</li>
+</ol>
+</li>
+<li><p>配置mysql数据库 + 主从复制</p>
+<p> 这里可以参考我的博客:    <a href="/fcg22450.github.io/2020/05/10/online_course/003/">Centos7 环境下配置mysql主从服务</a></p>
+</li>
+<li><p>配置redis数据库 + 主从复制 + 哨兵集群</p>
+<p>这个问题我同样有另外一篇博客,就不在这里多说了:  <a href="/fcg22450.github.io/2020/05/11/online_course/005/">centos7服务器配置redis主从与哨兵集群</a></p>
+</li>
+<li><p>配置node环境</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.<span class="number">13.0</span>/<span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 下载nodejs安装包</span></span><br><span class="line">tar xvf <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64.tar.xz </span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">mv <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13.0</span>-linux-x64 <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span> </span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">cd <span class="keyword">node</span><span class="title">-v10</span>.<span class="number">13</span>/bin</span><br><span class="line">./<span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line"><span class="comment"># 进入目录查看其版本</span></span><br></pre></td></tr></table></figure></div>
+
+<p>进入etc/profile 修改环境变量,使node命令能在任意目录运行:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROPERTIES"><figure class="iseeu highlight /properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vim</span> <span class="string">/etc/profile</span></span><br><span class="line"><span class="attr">//环境变量</span></span><br><span class="line"><span class="attr">NODE_HOME</span>=<span class="string">/你的安装路径/node-v10.13</span></span><br><span class="line"><span class="attr">PATH</span>=<span class="string">$NODE_HOME/bin:$PATH</span></span><br><span class="line"><span class="attr">export</span> <span class="string">NODE_HOME</span></span><br><span class="line"><span class="attr">export</span> <span class="string">PATH</span></span><br></pre></td></tr></table></figure></div>
+
+<p>重启服务器:  reboot</p>
+</li>
+</ol>
+<p>以上.</p>
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -4554,6 +4786,252 @@ show slave status\G  </code></pre>
       </tags>
   </entry>
   <entry>
+    <title>python基础知识(二十八)</title>
+    <url>/Python/Python_id_46.html</url>
+    <content><![CDATA[<h2 id="正则有关模块"><a href="#正则有关模块" class="headerlink" title="正则有关模块"></a>正则有关模块</h2><p>本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><a id="more"></a>
+
+<p>python不支持不定长的后行断言（逆序环视）</p>
+<p>error: look-behind requires fixed-width pattern</p>
+<blockquote>
+<p>正则就是用一些具有特殊含义的符号组合到一起（称为正则表达式）来描述字符或者字符串的方法。或者说：正则就是用来描述一类事物的规则。（在Python中）它内嵌在Python中，并通过 re 模块实现。正则表达式模式被编译成一系列的字节码，然后由用 C 编写的匹配引擎执行。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>类型</th>
+<th>匹配内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>元字符</td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>元字符</td>
+<td>匹配字母或数字或下划线，大写即非数字字母下划线</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>元字符</td>
+<td>匹配任意的空白符，大写即非空字符</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>元字符</td>
+<td>匹配数字，大写即非数字</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>元字符</td>
+<td>匹配一个换行符，也属于<code>\s</code></td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>元字符</td>
+<td>匹配一个制表符，也属于<code>\s</code></td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>元字符</td>
+<td>匹配一个单词的边界</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>元字符</td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>元字符</td>
+<td>匹配字符串的结尾</td>
+</tr>
+<tr>
+<td>`a</td>
+<td>b`</td>
+<td>逻辑</td>
+</tr>
+<tr>
+<td><code>(...)</code></td>
+<td>分组</td>
+<td>匹配括号内的组，捕获</td>
+</tr>
+<tr>
+<td><code>(?:...)</code></td>
+<td>分组</td>
+<td>匹配括号内的组，不捕获</td>
+</tr>
+<tr>
+<td><code>(?...)</code></td>
+<td>命名分组</td>
+<td>匹配括号内的组，捕获并命名（python支持）</td>
+</tr>
+<tr>
+<td><code>(?&gt;...)</code></td>
+<td>固化分组</td>
+<td>匹配过程中不交还括号内的组（python不支持）</td>
+</tr>
+<tr>
+<td><code>[...]</code></td>
+<td>字符集</td>
+<td>匹配字符组中的字符</td>
+</tr>
+<tr>
+<td><code>[^...]</code></td>
+<td>字符集</td>
+<td>匹配除了字符组中字符的所有字符</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>量词</td>
+<td>贪婪匹配，重复零次或更多次</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>量词</td>
+<td>贪婪匹配，重复一次或更多次</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>量词</td>
+<td>贪婪匹配，重复零次或一次</td>
+</tr>
+<tr>
+<td><code>{n}</code></td>
+<td>量词</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td><code>{n,}</code></td>
+<td>量词</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td><code>{n,m}</code></td>
+<td>量词</td>
+<td>重复n到m次</td>
+</tr>
+<tr>
+<td><code>(?=pattern)</code></td>
+<td>断言</td>
+<td>后面有，断言也叫环视look-behind</td>
+</tr>
+<tr>
+<td><code>(?!pattern)</code></td>
+<td>断言</td>
+<td>后面没有</td>
+</tr>
+<tr>
+<td><code>(?&lt;=pattern)</code></td>
+<td>断言</td>
+<td>前面有（python不支持不定长逆序环视）</td>
+</tr>
+<tr>
+<td>`(?</td>
+<td>断言</td>
+<td>前面没有（python不支持不定长逆序环视）</td>
+</tr>
+</tbody></table>
+<p>注意</p>
+<ul>
+<li>python中正则表达式是不是真实字符串，需要二重转义，推荐使用真实字符串(<code>r&quot;&quot;</code>)</li>
+<li>贪婪匹配会尽可能匹配，后面加?号使其变成惰性匹配，匹配尽可能少的。</li>
+<li>断言（环视）的括号中的匹配到的内容只会用来判断不会被正则表达式捕获。</li>
+</ul>
+<h3 id="常用范围"><a href="#常用范围" class="headerlink" title="常用范围"></a>常用范围</h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[0-9]</code></td>
+<td>和<code>[0123456789]</code>和<code>\d</code>是一个意思</td>
+</tr>
+<tr>
+<td><code>[a-z]+</code></td>
+<td>不定长的小写字母，尽可能多，一个以上</td>
+</tr>
+<tr>
+<td><code>[A-Z]*?</code></td>
+<td>不定长的大写字母，尽可能少，可以一个都没有</td>
+</tr>
+<tr>
+<td><code>[0-9a-fA-F]</code></td>
+<td>十六进制字符</td>
+</tr>
+<tr>
+<td>`^.*(?=.jpg$</td>
+<td>.png)`</td>
+</tr>
+<tr>
+<td><code>^(?!-).*</code></td>
+<td>不以<code>-</code>开头的行（<code>re.M</code>模式）</td>
+</tr>
+<tr>
+<td><code>[a-z0-9_\.-]{3,15}@[a-z]{2,5}\.[a-z]{2,6}</code></td>
+<td>Email</td>
+</tr>
+</tbody></table>
+<h3 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h3><p><a href="https://docs.python.org/zh-cn/3/library/re.html" target="_blank" rel="noopener"><code>re</code></a>模块提供了与 Perl 语言类似的正则表达式匹配操作</p>
+<p>最常用方法</p>
+<ul>
+<li><code>re.findall(r,txt)</code> 查找所有满足匹配条件的结果,放在列表里</li>
+<li><code>re.match(r,txt)</code> 匹配第一个然后返回一个包含匹配信息的对象</li>
+<li><code>re.sub(r,s,txt)</code> 将所有满足匹配条件的替换成字符串s</li>
+</ul>
+<h4 id="模式flags"><a href="#模式flags" class="headerlink" title="模式flags"></a>模式<code>flags</code></h4><p>不同模式主要会改变<code>^</code>和<code>$</code>的匹配行为</p>
+<ul>
+<li><code>None</code> 首行模式，默认的</li>
+<li><code>re.S</code> / <code>re.DOTALL</code>单行模式，整个文本看成以换行符连接在一起的一行</li>
+<li><code>re.M</code> / <code>re.MULTILINE</code> 多行模式，每一行都有开头和结尾</li>
+<li><code>re.I</code> 忽略大小写模式</li>
+</ul>
+<p>多模式可以直接相加</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">'''few.JPG</span></span><br><span class="line"><span class="string">oij.png</span></span><br><span class="line"><span class="string">ade.jpg</span></span><br><span class="line"><span class="string">ade.jpg.rename</span></span><br><span class="line"><span class="string">ytr.GIF</span></span><br><span class="line"><span class="string">pow.PNG'''</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.findall(<span class="string">r'^.*(?=\.jpg$|\.png)'</span>, s, re.M+re.I)</span><br><span class="line">[<span class="string">'few'</span>, <span class="string">'oij'</span>, <span class="string">'ade'</span>, <span class="string">'pow'</span>]</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组(...)"></a>分组<code>(...)</code></h4><p>分组在某种程度上完全可以代替断言的功能。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.findall(<span class="string">'(.*?)_sb'</span>, <span class="string">'alex_sb wusir_sb 日天_sb'</span>)</span><br><span class="line">[<span class="string">'alex'</span>, <span class="string">'wusir'</span>, <span class="string">'日天'</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>HTML = <span class="string">'&lt;a href="http://www.baidu.com"&gt;点击&lt;/a&gt;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(re.findall(<span class="string">'href="(.*?)"'</span>, HTML))</span><br><span class="line">[<span class="string">'http://www.baidu.com'</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p>分组<code>()</code>中加入<code>?:</code> 表示整体，而不是只针对性捕获<code>()</code>里面的内容。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'www.(baidu|oldboy).com'</span>, <span class="string">'www.oldboy.com'</span>)</span><br><span class="line">print(ret)  <span class="comment"># ['oldboy']这是因为findall会优先把匹配结果组里内容返回,如果想要匹配结果,取消权限即可</span></span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'www.(?:baidu|oldboy).com'</span>, <span class="string">'www.oldboy.com'</span>)</span><br><span class="line">print(ret)  <span class="comment"># ['www.oldboy.com']</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="常用方法用例"><a href="#常用方法用例" class="headerlink" title="常用方法用例"></a>常用方法用例</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'a'</span>, <span class="string">'eva egon yuan'</span>)  <span class="comment"># 返回所有满足匹配条件的结果,放在列表里</span></span><br><span class="line">print(ret) <span class="comment">#结果 : ['a', 'a']</span></span><br><span class="line"></span><br><span class="line">ret = re.search(<span class="string">'a'</span>, <span class="string">'eva egon yuan'</span>).group()</span><br><span class="line">print(ret) <span class="comment">#结果 : 'a'</span></span><br><span class="line"><span class="comment"># 函数会在字符串内查找模式匹配,只到找到第一个匹配然后返回一个包含匹配信息的对象,该对象可以</span></span><br><span class="line"><span class="comment"># 通过调用group()方法得到匹配的字符串,如果字符串没有匹配，则返回None。</span></span><br><span class="line"></span><br><span class="line">ret = re.match(<span class="string">'a'</span>, <span class="string">'abc'</span>).group()  <span class="comment"># 同search,不过尽在字符串开始处进行匹配</span></span><br><span class="line">print(ret) <span class="comment">#结果 : 'a'</span></span><br><span class="line"></span><br><span class="line">ret = re.split(<span class="string">'[ab]'</span>, <span class="string">'abcd'</span>)  <span class="comment"># 先按'a'分割得到''和'bcd',在对''和'bcd'分别按'b'分割</span></span><br><span class="line">print(ret)  <span class="comment"># ['', '', 'cd']</span></span><br><span class="line"></span><br><span class="line">ret = re.sub(<span class="string">'\d'</span>, <span class="string">'H'</span>, <span class="string">'eva3egon4yuan4'</span>, <span class="number">1</span>)<span class="comment">#将数字替换成'H'，参数1表示只替换1个</span></span><br><span class="line">print(ret) <span class="comment">#evaHegon4yuan4</span></span><br><span class="line"></span><br><span class="line">ret = re.subn(<span class="string">'\d'</span>, <span class="string">'H'</span>, <span class="string">'eva3egon4yuan4'</span>)<span class="comment">#将数字替换成'H'，返回元组(替换的结果,替换了多少次)</span></span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line">obj = re.compile(<span class="string">'\d&#123;3&#125;'</span>)  <span class="comment">#将正则表达式编译成为一个 正则表达式对象，规则要匹配的是3个数字</span></span><br><span class="line">ret = obj.search(<span class="string">'abc123eeee'</span>) <span class="comment">#正则表达式对象调用search，参数为待匹配的字符串</span></span><br><span class="line">print(ret.group())  <span class="comment">#结果 ： 123</span></span><br><span class="line"></span><br><span class="line">ret = re.finditer(<span class="string">'\d'</span>, <span class="string">'ds3sy4784a'</span>)   <span class="comment">#finditer返回一个存放匹配结果的迭代器</span></span><br><span class="line">print(next(ret).group())  <span class="comment">#查看第一个结果</span></span><br><span class="line">print(next(ret).group())  <span class="comment">#查看第二个结果</span></span><br><span class="line">print([i.group() <span class="keyword">for</span> i <span class="keyword">in</span> ret])  <span class="comment">#查看剩余的左右结果</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ul>
+<li>多行模式(<code>MULTILINE</code>)中<code>match()</code>只匹配字符串的开始，但<code>search()</code>和以 <code>&#39;^&#39;</code> 开头的正则会每行匹配</li>
+<li><code>split()</code>的优先级查询</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">ret=re.split(<span class="string">"\d+"</span>,<span class="string">"eva3egon4yuan"</span>)</span><br><span class="line">print(ret) <span class="comment">#结果 ： ['eva', 'egon', 'yuan']</span></span><br><span class="line"></span><br><span class="line">ret=re.split(<span class="string">"(\d+)"</span>,<span class="string">"eva3egon4yuan"</span>)</span><br><span class="line">print(ret) <span class="comment">#结果 ： ['eva', '3', 'egon', '4', 'yuan']</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在匹配部分加上<code>()</code>之后所切出的结果是不同的， 没有<code>()</code>的没有保留所匹配的项，但是有<code>()</code>的却能够保留了匹配的项， 这个在某些需要保留匹配部分的使用过程是非常重要的。</p>
+<ul>
+<li><code>.sub()</code>替换时可以接受函数（这同时是一个命名分组的例子）</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>size = <span class="string">'height165weight21deep213'</span> <span class="comment">#要求所有数字内容都加5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">r'(?P&lt;num&gt;\d+)'</span>, <span class="keyword">lambda</span> x:str(int(x.group(<span class="string">"num"</span>))+<span class="number">5</span>), size)</span><br><span class="line"><span class="string">'height170weight26deep218'</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="regex模块"><a href="#regex模块" class="headerlink" title="regex模块"></a>regex模块</h3><p>Python自带了正则表达式引擎（内置的re模块），但是不支持一些高级特性，比如下面这几个：</p>
+<ul>
+<li>固化分组 Atomic grouping</li>
+<li>占有优先量词 Possessive quantifiers</li>
+<li>可变长度的逆序环视 Variable-length lookbehind</li>
+<li>递归匹配 Recursive patterns</li>
+<li>（起始/继续）位置锚\G Search anchor</li>
+</ul>
+<p>第三方模块regex实现了如上高级特效，且API与re模块一致。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python基础知识(二十九)</title>
     <url>/Python/Python_id_47.html</url>
     <content><![CDATA[<h2 id="时间有关模块"><a href="#时间有关模块" class="headerlink" title="时间有关模块"></a>时间有关模块</h2><h3 id="timeit模块"><a href="#timeit模块" class="headerlink" title="timeit模块"></a>timeit模块</h3><p><a href="https://docs.python.org/zh-cn/3/library/timeit.html" target="_blank" rel="noopener"><code>timeit</code></a>模块提供简单的方法来计算一小段 Python 代码的耗时。简单使用如下</p>
@@ -4925,252 +5403,6 @@ show slave status\G  </code></pre>
 <li><code>.utctimetuple()</code> 返回消除时区信息的struct_time</li>
 </ul>
 <h6 id="格式化输出-2"><a href="#格式化输出-2" class="headerlink" title="格式化输出"></a>格式化输出</h6><p><code>.isoformat</code>(<em>sep=’T’, timespec=’auto’</em>) 同date类的同名方法，sep是日期和时间之间的分隔符。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python基础知识(二十八)</title>
-    <url>/Python/Python_id_46.html</url>
-    <content><![CDATA[<h2 id="正则有关模块"><a href="#正则有关模块" class="headerlink" title="正则有关模块"></a>正则有关模块</h2><p>本篇不会过多介绍正则表达式内容，可参考js篇的正则对象章节。</p>
-<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><a id="more"></a>
-
-<p>python不支持不定长的后行断言（逆序环视）</p>
-<p>error: look-behind requires fixed-width pattern</p>
-<blockquote>
-<p>正则就是用一些具有特殊含义的符号组合到一起（称为正则表达式）来描述字符或者字符串的方法。或者说：正则就是用来描述一类事物的规则。（在Python中）它内嵌在Python中，并通过 re 模块实现。正则表达式模式被编译成一系列的字节码，然后由用 C 编写的匹配引擎执行。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>正则表达式</th>
-<th>类型</th>
-<th>匹配内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>.</code></td>
-<td>元字符</td>
-<td>匹配除换行符以外的任意字符</td>
-</tr>
-<tr>
-<td><code>\w</code></td>
-<td>元字符</td>
-<td>匹配字母或数字或下划线，大写即非数字字母下划线</td>
-</tr>
-<tr>
-<td><code>\s</code></td>
-<td>元字符</td>
-<td>匹配任意的空白符，大写即非空字符</td>
-</tr>
-<tr>
-<td><code>\d</code></td>
-<td>元字符</td>
-<td>匹配数字，大写即非数字</td>
-</tr>
-<tr>
-<td><code>\n</code></td>
-<td>元字符</td>
-<td>匹配一个换行符，也属于<code>\s</code></td>
-</tr>
-<tr>
-<td><code>\t</code></td>
-<td>元字符</td>
-<td>匹配一个制表符，也属于<code>\s</code></td>
-</tr>
-<tr>
-<td><code>\b</code></td>
-<td>元字符</td>
-<td>匹配一个单词的边界</td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>元字符</td>
-<td>匹配字符串的开始</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>元字符</td>
-<td>匹配字符串的结尾</td>
-</tr>
-<tr>
-<td>`a</td>
-<td>b`</td>
-<td>逻辑</td>
-</tr>
-<tr>
-<td><code>(...)</code></td>
-<td>分组</td>
-<td>匹配括号内的组，捕获</td>
-</tr>
-<tr>
-<td><code>(?:...)</code></td>
-<td>分组</td>
-<td>匹配括号内的组，不捕获</td>
-</tr>
-<tr>
-<td><code>(?...)</code></td>
-<td>命名分组</td>
-<td>匹配括号内的组，捕获并命名（python支持）</td>
-</tr>
-<tr>
-<td><code>(?&gt;...)</code></td>
-<td>固化分组</td>
-<td>匹配过程中不交还括号内的组（python不支持）</td>
-</tr>
-<tr>
-<td><code>[...]</code></td>
-<td>字符集</td>
-<td>匹配字符组中的字符</td>
-</tr>
-<tr>
-<td><code>[^...]</code></td>
-<td>字符集</td>
-<td>匹配除了字符组中字符的所有字符</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>量词</td>
-<td>贪婪匹配，重复零次或更多次</td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>量词</td>
-<td>贪婪匹配，重复一次或更多次</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>量词</td>
-<td>贪婪匹配，重复零次或一次</td>
-</tr>
-<tr>
-<td><code>{n}</code></td>
-<td>量词</td>
-<td>重复n次</td>
-</tr>
-<tr>
-<td><code>{n,}</code></td>
-<td>量词</td>
-<td>重复n次或更多次</td>
-</tr>
-<tr>
-<td><code>{n,m}</code></td>
-<td>量词</td>
-<td>重复n到m次</td>
-</tr>
-<tr>
-<td><code>(?=pattern)</code></td>
-<td>断言</td>
-<td>后面有，断言也叫环视look-behind</td>
-</tr>
-<tr>
-<td><code>(?!pattern)</code></td>
-<td>断言</td>
-<td>后面没有</td>
-</tr>
-<tr>
-<td><code>(?&lt;=pattern)</code></td>
-<td>断言</td>
-<td>前面有（python不支持不定长逆序环视）</td>
-</tr>
-<tr>
-<td>`(?</td>
-<td>断言</td>
-<td>前面没有（python不支持不定长逆序环视）</td>
-</tr>
-</tbody></table>
-<p>注意</p>
-<ul>
-<li>python中正则表达式是不是真实字符串，需要二重转义，推荐使用真实字符串(<code>r&quot;&quot;</code>)</li>
-<li>贪婪匹配会尽可能匹配，后面加?号使其变成惰性匹配，匹配尽可能少的。</li>
-<li>断言（环视）的括号中的匹配到的内容只会用来判断不会被正则表达式捕获。</li>
-</ul>
-<h3 id="常用范围"><a href="#常用范围" class="headerlink" title="常用范围"></a>常用范围</h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>[0-9]</code></td>
-<td>和<code>[0123456789]</code>和<code>\d</code>是一个意思</td>
-</tr>
-<tr>
-<td><code>[a-z]+</code></td>
-<td>不定长的小写字母，尽可能多，一个以上</td>
-</tr>
-<tr>
-<td><code>[A-Z]*?</code></td>
-<td>不定长的大写字母，尽可能少，可以一个都没有</td>
-</tr>
-<tr>
-<td><code>[0-9a-fA-F]</code></td>
-<td>十六进制字符</td>
-</tr>
-<tr>
-<td>`^.*(?=.jpg$</td>
-<td>.png)`</td>
-</tr>
-<tr>
-<td><code>^(?!-).*</code></td>
-<td>不以<code>-</code>开头的行（<code>re.M</code>模式）</td>
-</tr>
-<tr>
-<td><code>[a-z0-9_\.-]{3,15}@[a-z]{2,5}\.[a-z]{2,6}</code></td>
-<td>Email</td>
-</tr>
-</tbody></table>
-<h3 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h3><p><a href="https://docs.python.org/zh-cn/3/library/re.html" target="_blank" rel="noopener"><code>re</code></a>模块提供了与 Perl 语言类似的正则表达式匹配操作</p>
-<p>最常用方法</p>
-<ul>
-<li><code>re.findall(r,txt)</code> 查找所有满足匹配条件的结果,放在列表里</li>
-<li><code>re.match(r,txt)</code> 匹配第一个然后返回一个包含匹配信息的对象</li>
-<li><code>re.sub(r,s,txt)</code> 将所有满足匹配条件的替换成字符串s</li>
-</ul>
-<h4 id="模式flags"><a href="#模式flags" class="headerlink" title="模式flags"></a>模式<code>flags</code></h4><p>不同模式主要会改变<code>^</code>和<code>$</code>的匹配行为</p>
-<ul>
-<li><code>None</code> 首行模式，默认的</li>
-<li><code>re.S</code> / <code>re.DOTALL</code>单行模式，整个文本看成以换行符连接在一起的一行</li>
-<li><code>re.M</code> / <code>re.MULTILINE</code> 多行模式，每一行都有开头和结尾</li>
-<li><code>re.I</code> 忽略大小写模式</li>
-</ul>
-<p>多模式可以直接相加</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">'''few.JPG</span></span><br><span class="line"><span class="string">oij.png</span></span><br><span class="line"><span class="string">ade.jpg</span></span><br><span class="line"><span class="string">ade.jpg.rename</span></span><br><span class="line"><span class="string">ytr.GIF</span></span><br><span class="line"><span class="string">pow.PNG'''</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.findall(<span class="string">r'^.*(?=\.jpg$|\.png)'</span>, s, re.M+re.I)</span><br><span class="line">[<span class="string">'few'</span>, <span class="string">'oij'</span>, <span class="string">'ade'</span>, <span class="string">'pow'</span>]</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="分组"><a href="#分组" class="headerlink" title="分组(...)"></a>分组<code>(...)</code></h4><p>分组在某种程度上完全可以代替断言的功能。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.findall(<span class="string">'(.*?)_sb'</span>, <span class="string">'alex_sb wusir_sb 日天_sb'</span>)</span><br><span class="line">[<span class="string">'alex'</span>, <span class="string">'wusir'</span>, <span class="string">'日天'</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>HTML = <span class="string">'&lt;a href="http://www.baidu.com"&gt;点击&lt;/a&gt;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(re.findall(<span class="string">'href="(.*?)"'</span>, HTML))</span><br><span class="line">[<span class="string">'http://www.baidu.com'</span>]</span><br></pre></td></tr></table></figure></div>
-
-<p>分组<code>()</code>中加入<code>?:</code> 表示整体，而不是只针对性捕获<code>()</code>里面的内容。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'www.(baidu|oldboy).com'</span>, <span class="string">'www.oldboy.com'</span>)</span><br><span class="line">print(ret)  <span class="comment"># ['oldboy']这是因为findall会优先把匹配结果组里内容返回,如果想要匹配结果,取消权限即可</span></span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'www.(?:baidu|oldboy).com'</span>, <span class="string">'www.oldboy.com'</span>)</span><br><span class="line">print(ret)  <span class="comment"># ['www.oldboy.com']</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="常用方法用例"><a href="#常用方法用例" class="headerlink" title="常用方法用例"></a>常用方法用例</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ret = re.findall(<span class="string">'a'</span>, <span class="string">'eva egon yuan'</span>)  <span class="comment"># 返回所有满足匹配条件的结果,放在列表里</span></span><br><span class="line">print(ret) <span class="comment">#结果 : ['a', 'a']</span></span><br><span class="line"></span><br><span class="line">ret = re.search(<span class="string">'a'</span>, <span class="string">'eva egon yuan'</span>).group()</span><br><span class="line">print(ret) <span class="comment">#结果 : 'a'</span></span><br><span class="line"><span class="comment"># 函数会在字符串内查找模式匹配,只到找到第一个匹配然后返回一个包含匹配信息的对象,该对象可以</span></span><br><span class="line"><span class="comment"># 通过调用group()方法得到匹配的字符串,如果字符串没有匹配，则返回None。</span></span><br><span class="line"></span><br><span class="line">ret = re.match(<span class="string">'a'</span>, <span class="string">'abc'</span>).group()  <span class="comment"># 同search,不过尽在字符串开始处进行匹配</span></span><br><span class="line">print(ret) <span class="comment">#结果 : 'a'</span></span><br><span class="line"></span><br><span class="line">ret = re.split(<span class="string">'[ab]'</span>, <span class="string">'abcd'</span>)  <span class="comment"># 先按'a'分割得到''和'bcd',在对''和'bcd'分别按'b'分割</span></span><br><span class="line">print(ret)  <span class="comment"># ['', '', 'cd']</span></span><br><span class="line"></span><br><span class="line">ret = re.sub(<span class="string">'\d'</span>, <span class="string">'H'</span>, <span class="string">'eva3egon4yuan4'</span>, <span class="number">1</span>)<span class="comment">#将数字替换成'H'，参数1表示只替换1个</span></span><br><span class="line">print(ret) <span class="comment">#evaHegon4yuan4</span></span><br><span class="line"></span><br><span class="line">ret = re.subn(<span class="string">'\d'</span>, <span class="string">'H'</span>, <span class="string">'eva3egon4yuan4'</span>)<span class="comment">#将数字替换成'H'，返回元组(替换的结果,替换了多少次)</span></span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line">obj = re.compile(<span class="string">'\d&#123;3&#125;'</span>)  <span class="comment">#将正则表达式编译成为一个 正则表达式对象，规则要匹配的是3个数字</span></span><br><span class="line">ret = obj.search(<span class="string">'abc123eeee'</span>) <span class="comment">#正则表达式对象调用search，参数为待匹配的字符串</span></span><br><span class="line">print(ret.group())  <span class="comment">#结果 ： 123</span></span><br><span class="line"></span><br><span class="line">ret = re.finditer(<span class="string">'\d'</span>, <span class="string">'ds3sy4784a'</span>)   <span class="comment">#finditer返回一个存放匹配结果的迭代器</span></span><br><span class="line">print(next(ret).group())  <span class="comment">#查看第一个结果</span></span><br><span class="line">print(next(ret).group())  <span class="comment">#查看第二个结果</span></span><br><span class="line">print([i.group() <span class="keyword">for</span> i <span class="keyword">in</span> ret])  <span class="comment">#查看剩余的左右结果</span></span><br></pre></td></tr></table></figure></div>
-
-<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ul>
-<li>多行模式(<code>MULTILINE</code>)中<code>match()</code>只匹配字符串的开始，但<code>search()</code>和以 <code>&#39;^&#39;</code> 开头的正则会每行匹配</li>
-<li><code>split()</code>的优先级查询</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">ret=re.split(<span class="string">"\d+"</span>,<span class="string">"eva3egon4yuan"</span>)</span><br><span class="line">print(ret) <span class="comment">#结果 ： ['eva', 'egon', 'yuan']</span></span><br><span class="line"></span><br><span class="line">ret=re.split(<span class="string">"(\d+)"</span>,<span class="string">"eva3egon4yuan"</span>)</span><br><span class="line">print(ret) <span class="comment">#结果 ： ['eva', '3', 'egon', '4', 'yuan']</span></span><br></pre></td></tr></table></figure></div>
-
-<p>在匹配部分加上<code>()</code>之后所切出的结果是不同的， 没有<code>()</code>的没有保留所匹配的项，但是有<code>()</code>的却能够保留了匹配的项， 这个在某些需要保留匹配部分的使用过程是非常重要的。</p>
-<ul>
-<li><code>.sub()</code>替换时可以接受函数（这同时是一个命名分组的例子）</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>size = <span class="string">'height165weight21deep213'</span> <span class="comment">#要求所有数字内容都加5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">r'(?P&lt;num&gt;\d+)'</span>, <span class="keyword">lambda</span> x:str(int(x.group(<span class="string">"num"</span>))+<span class="number">5</span>), size)</span><br><span class="line"><span class="string">'height170weight26deep218'</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="regex模块"><a href="#regex模块" class="headerlink" title="regex模块"></a>regex模块</h3><p>Python自带了正则表达式引擎（内置的re模块），但是不支持一些高级特性，比如下面这几个：</p>
-<ul>
-<li>固化分组 Atomic grouping</li>
-<li>占有优先量词 Possessive quantifiers</li>
-<li>可变长度的逆序环视 Variable-length lookbehind</li>
-<li>递归匹配 Recursive patterns</li>
-<li>（起始/继续）位置锚\G Search anchor</li>
-</ul>
-<p>第三方模块regex实现了如上高级特效，且API与re模块一致。</p>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -10170,35 +10402,6 @@ BookInfo.book.all()
       </tags>
   </entry>
   <entry>
-    <title>API接口生成</title>
-    <url>/Vue/Vue_id_01.html</url>
-    <content><![CDATA[<h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
-<li><p>下载模块</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>配置SCHEMA_CLASS</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>在主路由中注册使用</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-</li>
-</ol>
-<p>创建成功之后的画面如下图:<img src="/fcg22450.github.io/img/interactive/1575621839123.png" alt="1575621839123"></p>
-<p>在这里面,还有一些别的设置,如,在模型类中设置字段的提示属性 :</p>
-<ul>
-<li>help_text = ‘ ’</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>axios</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>axios请求与跨域</title>
     <url>/Vue/Vue_id_03.html</url>
     <content><![CDATA[<h2 id="axios请求与跨域"><a href="#axios请求与跨域" class="headerlink" title="axios请求与跨域."></a>axios请求与跨域.</h2><a id="more"></a>
@@ -10277,6 +10480,35 @@ this.django_message = response.data.message</code></pre>
       </categories>
       <tags>
         <tag>Axios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>API接口生成</title>
+    <url>/Vue/Vue_id_01.html</url>
+    <content><![CDATA[<h2 id="自动创建api接口的文档"><a href="#自动创建api接口的文档" class="headerlink" title="自动创建api接口的文档"></a>自动创建api接口的文档</h2><a id="more"></a>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h2><h4 id="setting文件配置"><a href="#setting文件配置" class="headerlink" title="setting文件配置:"></a>setting文件配置:</h4><ol>
+<li><p>下载模块</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">pip install corsapi</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>配置SCHEMA_CLASS</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">'DEFAULT_SCHEMA_CLASS'</span>: <span class="string">'rest_framework.schemas.AutoSchema'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>在主路由中注册使用</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.decumentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"><span class="keyword">from</span> django.url <span class="keyword">import</span> path,include</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'docs/'</span>,include_docs_urls(title=<span class="string">'API管理页面'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ol>
+<p>创建成功之后的画面如下图:<img src="/fcg22450.github.io/img/interactive/1575621839123.png" alt="1575621839123"></p>
+<p>在这里面,还有一些别的设置,如,在模型类中设置字段的提示属性 :</p>
+<ul>
+<li>help_text = ‘ ’</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>axios</tag>
       </tags>
   </entry>
   <entry>

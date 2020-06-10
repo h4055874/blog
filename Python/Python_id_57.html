@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="查找算法 – 简介　　查找（Searching）就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。查找表（Search Table）：由同一类型的数据元素构成的集合关键字 （Key）：数据元素中某个数据项的值，又称为键值主键（Primary Key）：可唯一的标识某个数据元素或记录的关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python常用查找算法">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_57.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="查找算法 – 简介　　查找（Searching）就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。查找表（Search Table）：由同一类型的数据元素构成的集合关键字 （Key）：数据元素中某个数据项的值，又称为键值主键（Primary Key）：可唯一的标识某个数据元素或记录的关键字">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/01.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/02.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/03.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/04.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/05.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/06.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/07.png">
+<meta property="article:published_time" content="2020-06-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2020-06-10T15:25:59.032Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/01.png">
+
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_57.html">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>Python常用查找算法 | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script> -->
+
+   <!-- 不知道是什么玩意 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+<!-- <body itemscope itemtype="http://schema.org/WebPage" style="background-color: #C1C1C1"> -->
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">68</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">173</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_57.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python常用查找算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-10 23:25:00 / 修改时间：23:25:59" itemprop="dateCreated datePublished" datetime="2020-06-10T23:25:00+08:00">2020-06-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/Python_id_57.html" class="post-meta-item leancloud_visitors" data-flag-title="Python常用查找算法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Python/Python_id_57.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_57.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>18k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>16 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="查找算法-–-简介"><a href="#查找算法-–-简介" class="headerlink" title="查找算法 – 简介"></a>查找算法 – 简介</h3><p>　　查找（Searching）就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。查找表（Search Table）：由同一类型的数据元素构成的集合关键字</p>
+<p>（Key）：数据元素中某个数据项的值，又称为键值主键（Primary Key）：可唯一的标识某个数据元素或记录的关键字</p>
+<a id="more"></a>
+
+<h5 id="查找表按照操作方式可分为："><a href="#查找表按照操作方式可分为：" class="headerlink" title="查找表按照操作方式可分为："></a><strong>查找表按照操作方式可分为：</strong></h5><p>​     1.静态查找表（Static Search Table）：只做查找操作的查找表。它的主要操作是：</p>
+<p>​     ①查询某个“特定的”数据元素是否在表中     ②检索某个“特定的”数据元素和各种属性</p>
+<p>​     2.动态查找表（Dynamic Search Table）：在查找中同时进行插入或删除等操作：</p>
+<p>​     ①查找时插入数据     ②查找时删除数据</p>
+<h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><p><strong>算法简介</strong></p>
+<p>​    顺序查找又称为线性查找，是一种最简单的查找方法。适用于线性表的顺序存储结构和链式存储结构。该算法的时间复杂度为O(n)。</p>
+<p><strong>基本思路</strong></p>
+<p>​    从第一个元素m开始逐个与需要查找的元素x进行比较，当比较到元素值相同(即m=x)时返回元素m的下标，如果比较到最后都没有找到，则返回-1。</p>
+<p><strong>优缺点</strong></p>
+<p>  <strong>缺点：</strong>是当n 很大时，平均查找长度较大，效率低；<br>  <strong>优点：</strong>是对表中数据元素的存储没有要求。另外，对于线性链表，只能进行顺序查找。**</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最基础的遍历无序列表的查找算法</span></span><br><span class="line"><span class="comment"># 时间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sequential_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	length = len(lis)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line">		<span class="keyword">if</span> lis[i] == key:</span><br><span class="line">			<span class="keyword">return</span> i</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">123</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">7</span>, <span class="number">99</span>, <span class="number">300</span>, <span class="number">222</span>]</span><br><span class="line">	result = sequential_search(LIST, <span class="number">123</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p><strong>算法简介</strong></p>
+<p>　　二分查找（Binary Search），是一种在有序数组中查找某一特定元素的查找算法。查找过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则查找过程结束；</p>
+<p>如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这</p>
+<p>种查找算法每一次比较都使查找范围缩小一半。</p>
+<p><strong>算法描述</strong></p>
+<p>　　给予一个包含n个带值元素的数组A</p>
+<p>　　1、令 L为0 ， R为 n-1 ；</p>
+<p>　　2、 如果L&gt;R，则搜索以失败告终；</p>
+<p>　　3、 令 m (中间值元素)为 ⌊(L+R)/2⌋；</p>
+<p>　　4、 如果 Am&lt;T，另L为m + 1 并回到步骤二；</p>
+<p>　　5、 如果 Am&gt;T，令 R为 m - 1 并回到步骤二；</p>
+<p><strong>复杂度分析</strong></p>
+<p><strong>时间复杂度：折半搜索每次把搜索区域减少一半，时间复杂度为 \</strong>O*<em>*</em>(logn)**<br>**  <strong>空间复杂度：**</strong>O(1)**</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对有序查找表的二分查找算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt; high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		mid = int((low + high) / <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			 <span class="comment"># 打印折半的次数</span></span><br><span class="line">			print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">			<span class="keyword">return</span> mid</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = binary_search(LIST, <span class="number">99</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="插值查找"><a href="#插值查找" class="headerlink" title="插值查找"></a>插值查找</h3><p><strong>算法简介</strong></p>
+<p>　　插值查找是根据要查找的关键字key与查找表中最大最小记录的关键字比较后的 查找方法，其核心就在于插值的计算公式 (key-a[low])/(a[high]-a[low])*(high-low)。时</p>
+<p>间复杂度o(logn)但对于表长较大而关键字分布比较均匀的查找表来说，效率较高。</p>
+<p><strong>算法思想</strong></p>
+<p>　　基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。   注：对于表长较大，而关键字分布又比较均匀的查找表来</p>
+<p>说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。</p>
+<p><strong>复杂度分析</strong></p>
+<p>　　时间复杂性：如果元素均匀分布，则O（log log n）），在最坏的情况下可能需要 O（n）。<br>　　空间复杂度：O（1）。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插值查找算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt; high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		<span class="comment"># 计算mid值是插值算法的核心代码</span></span><br><span class="line">		mid = low + int((high - low) * (key - lis[low])/(lis[high] - lis[low]))</span><br><span class="line">		print(<span class="string">"mid=%s, low=%s, high=%s"</span> % (mid, low, high))</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="comment"># 打印查找的次数</span></span><br><span class="line">			print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">			<span class="keyword">return</span> mid</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = binary_search(LIST, <span class="number">444</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="斐波那契查找"><a href="#斐波那契查找" class="headerlink" title="斐波那契查找"></a>斐波那契查找</h3><p><strong>算法简介</strong></p>
+<p>　　斐波那契数列，又称黄金分割数列，指的是这样一个数列：1、1、2、3、5、8、13、21、····，在数学上，斐波那契被递归方法如下定义：F(1)=1，F(2)=1，F(n)=f(n-</p>
+<p>1)+F(n-2) （n&gt;=2）。该数列越往后相邻的两个数的比值越趋向于黄金比例值（0.618）。</p>
+<p><strong>算法描述</strong></p>
+<p>　　斐波那契查找就是在二分查找的基础上根据斐波那契数列进行分割的。在斐波那契数列找一个等于略大于查找表中元素个数的数F[n]，将原查找表扩展为长度为F<a href="如果要补充元素，则补充重复最后一个元素，直到满足F[n]个元素">n</a>，完成后</p>
+<p>进行斐波那契分割，即F[n]个元素分割为前半部分F[n-1]个元素，后半部分F[n-2]个元素，找出要查找的元素在那一部分并递归，直到找到。</p>
+<p><strong>复杂度分析</strong></p>
+<p>最坏情况下，时间复杂度为O(log2n)，且其期望复杂度也为O(log2n)。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 斐波那契查找算法</span></span><br><span class="line"><span class="comment"># 时间复杂度O(log(n))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci_search</span><span class="params">(lis, key)</span>:</span></span><br><span class="line">	<span class="comment"># 需要一个现成的斐波那契列表。其最大元素的值必须超过查找表中元素个数的数值。</span></span><br><span class="line">	F = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>, <span class="number">610</span>, <span class="number">987</span>, <span class="number">1597</span>, <span class="number">2584</span>, <span class="number">4181</span>, <span class="number">6765</span>,<span class="number">10946</span>, <span class="number">17711</span>, <span class="number">28657</span>, <span class="number">46368</span>]</span><br><span class="line">	low = <span class="number">0</span></span><br><span class="line">	high = len(lis) - <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">	<span class="comment"># 为了使得查找表满足斐波那契特性，在表的最后添加几个同样的值</span></span><br><span class="line">	<span class="comment"># 这个值是原查找表的最后那个元素的值</span></span><br><span class="line">	<span class="comment"># 添加的个数由F[k]-1-high决定</span></span><br><span class="line">	k = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> high &gt; F[k]<span class="number">-1</span>:</span><br><span class="line">		k += <span class="number">1</span></span><br><span class="line">	print(k)</span><br><span class="line">	i = high</span><br><span class="line">	<span class="keyword">while</span> F[k]<span class="number">-1</span> &gt; i:</span><br><span class="line">		lis.append(lis[high])</span><br><span class="line">		i += <span class="number">1</span></span><br><span class="line">	print(lis)</span><br><span class="line">   </span><br><span class="line">	<span class="comment"># 算法主逻辑。time用于展示循环的次数。</span></span><br><span class="line">	time = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> low &lt;= high:</span><br><span class="line">		time += <span class="number">1</span></span><br><span class="line">		<span class="comment"># 为了防止F列表下标溢出，设置if和else</span></span><br><span class="line">		<span class="keyword">if</span> k &lt; <span class="number">2</span>:</span><br><span class="line">			mid = low</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			mid = low + F[k<span class="number">-1</span>]<span class="number">-1</span></span><br><span class="line">     </span><br><span class="line">		print(<span class="string">"low=%s, mid=%s, high=%s"</span> % (low, mid, high))</span><br><span class="line">		<span class="keyword">if</span> key &lt; lis[mid]:</span><br><span class="line">			high = mid - <span class="number">1</span></span><br><span class="line">			k -= <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> key &gt; lis[mid]:</span><br><span class="line">			low = mid + <span class="number">1</span></span><br><span class="line">			k -= <span class="number">2</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">if</span> mid &lt;= high:</span><br><span class="line">				<span class="comment"># 打印查找的次数</span></span><br><span class="line">				print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">				<span class="keyword">return</span> mid</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">				<span class="keyword">return</span> high</span><br><span class="line">	print(<span class="string">"times: %s"</span> % time)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	LIST = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">22</span>, <span class="number">54</span>, <span class="number">99</span>, <span class="number">123</span>, <span class="number">200</span>, <span class="number">222</span>, <span class="number">444</span>]</span><br><span class="line">	result = fibonacci_search(LIST, <span class="number">444</span>)</span><br><span class="line">	print(result)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h3><h4 id="1、二叉树查找算法。"><a href="#1、二叉树查找算法。" class="headerlink" title="1、二叉树查找算法。"></a>1、二叉树查找算法。</h4><p><strong>算法简介</strong></p>
+<p>　　二叉查找树是先对待查找的数据进行生成树，确保树的左分支的值小于右分支的值，然后在就行和每个节点的父节点比较大小，查找最适合的范围。 这个算法的查找效率很</p>
+<p>高，但是如果使用这种查找方法要首先创建树。</p>
+<p><strong>算法思想</strong></p>
+<p>　　<strong>二叉查找树（BinarySearch Tree）或者是一棵空树，或者是具有下列性质的二叉树：</strong></p>
+<p>　　　　1）若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</p>
+<p>　　　　2）若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</p>
+<p>3）任意节点的左、右子树也分别为二叉查找树。</p>
+<p><strong>二叉查找树性质：</strong></p>
+<p>　　对二叉查找树进行中序遍历，即可得到有序的数列。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/01.png">
+
+<p><strong>复杂度分析</strong></p>
+<p>　　它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡。</p>
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二叉树查找 Python实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BSTNode</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    定义一个二叉树节点类。</span></span><br><span class="line"><span class="string">    以讨论算法为主，忽略了一些诸如对数据类型进行判断的问题。</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data, left=None, right=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        初始化</span></span><br><span class="line"><span class="string">        :param data: 节点储存的数据</span></span><br><span class="line"><span class="string">        :param left: 节点左子树</span></span><br><span class="line"><span class="string">        :param right: 节点右子树</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySortTree</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    基于BSTNode类的二叉查找树。维护一个根节点的指针。</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._root = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._root <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        关键码检索</span></span><br><span class="line"><span class="string">        :param key: 关键码</span></span><br><span class="line"><span class="string">        :return: 查询节点或None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        bt = self._root</span><br><span class="line">        <span class="keyword">while</span> bt:</span><br><span class="line">            entry = bt.data</span><br><span class="line">            <span class="keyword">if</span> key &lt; entry:</span><br><span class="line">                bt = bt.left</span><br><span class="line">            <span class="keyword">elif</span> key &gt; entry:</span><br><span class="line">                bt = bt.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> entry</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        插入操作</span></span><br><span class="line"><span class="string">        :param key:关键码 </span></span><br><span class="line"><span class="string">        :return: 布尔值</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        bt = self._root</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bt:</span><br><span class="line">            self._root = BSTNode(key)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            entry = bt.data</span><br><span class="line">            <span class="keyword">if</span> key &lt; entry:</span><br><span class="line">                <span class="keyword">if</span> bt.left <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    bt.left = BSTNode(key)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                bt = bt.left</span><br><span class="line">            <span class="keyword">elif</span> key &gt; entry:</span><br><span class="line">                <span class="keyword">if</span> bt.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    bt.right = BSTNode(key)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                bt = bt.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                bt.data = key</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        二叉查找树最复杂的方法</span></span><br><span class="line"><span class="string">        :param key: 关键码</span></span><br><span class="line"><span class="string">        :return: 布尔值</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p, q = <span class="literal">None</span>, self._root     <span class="comment"># 维持p为q的父节点，用于后面的链接操作</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q:</span><br><span class="line">            print(<span class="string">"空树！"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">while</span> q <span class="keyword">and</span> q.data != key:</span><br><span class="line">            p = q</span><br><span class="line">            <span class="keyword">if</span> key &lt; q.data:</span><br><span class="line">                q = q.left</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                q = q.right</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> q:               <span class="comment"># 当树中没有关键码key时，结束退出。</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 上面已将找到了要删除的节点，用q引用。而p则是q的父节点或者None（q为根节点时）。</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q.left:</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._root = q.right</span><br><span class="line">            <span class="keyword">elif</span> q <span class="keyword">is</span> p.left:</span><br><span class="line">                p.left = q.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = q.right</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 查找节点q的左子树的最右节点，将q的右子树链接为该节点的右子树</span></span><br><span class="line">        <span class="comment"># 该方法可能会增大树的深度，效率并不算高。可以设计其它的方法。</span></span><br><span class="line">        r = q.left</span><br><span class="line">        <span class="keyword">while</span> r.right:</span><br><span class="line">            r = r.right</span><br><span class="line">        r.right = q.right</span><br><span class="line">        <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self._root = q.left</span><br><span class="line">        <span class="keyword">elif</span> p.left <span class="keyword">is</span> q:</span><br><span class="line">            p.left = q.left</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p.right = q.left</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        实现二叉树的中序遍历算法,</span></span><br><span class="line"><span class="string">        展示我们创建的二叉查找树.</span></span><br><span class="line"><span class="string">        直接使用python内置的列表作为一个栈。</span></span><br><span class="line"><span class="string">        :return: data</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        node = self._root</span><br><span class="line">        <span class="keyword">while</span> node <span class="keyword">or</span> stack:</span><br><span class="line">            <span class="keyword">while</span> node:</span><br><span class="line">                stack.append(node)</span><br><span class="line">                node = node.left</span><br><span class="line">            node = stack.pop()</span><br><span class="line">            <span class="keyword">yield</span> node.data</span><br><span class="line">            node = node.right</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    lis = [<span class="number">62</span>, <span class="number">58</span>, <span class="number">88</span>, <span class="number">48</span>, <span class="number">73</span>, <span class="number">99</span>, <span class="number">35</span>, <span class="number">51</span>, <span class="number">93</span>, <span class="number">29</span>, <span class="number">37</span>, <span class="number">49</span>, <span class="number">56</span>, <span class="number">36</span>, <span class="number">50</span>]</span><br><span class="line">    bs_tree = BinarySortTree()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">        bs_tree.insert(lis[i])</span><br><span class="line">    <span class="comment"># bs_tree.insert(100)</span></span><br><span class="line">    bs_tree.delete(<span class="number">58</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> bs_tree:</span><br><span class="line">        print(i, end=<span class="string">" "</span>)</span><br><span class="line">    <span class="comment"># print("\n", bs_tree.search(4))</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2、平衡查找树之2-3查找树（2-3-Tree）"><a href="#2、平衡查找树之2-3查找树（2-3-Tree）" class="headerlink" title="2、平衡查找树之2-3查找树（2-3 Tree）"></a>2、平衡查找树之2-3查找树（2-3 Tree）</h4><p><strong>2-3查找树定义</strong></p>
+<p>　　和二叉树不一样，2-3树运行每个节点保存1个或者两个的值。对于普通的2节点(2-node)，他保存1个key和左右两个自己点。对应3节点(3-node)，保存两个Key，2-3查找树</p>
+<p>的定义如下：<br>　　1）要么为空，要么：<br>　　2）对于2节点，该节点保存一个key及对应value，以及两个指向左右节点的节点，左节点也是一个2-3节点，所有的值都比key要小，右节点也是一个2-3节点，所有的值比</p>
+<p>　　　　key要大。<br>　　3）对于3节点，该节点保存两个key及对应value，以及三个指向左中右的节点。左节点也是一个2-3节点，所有的值均比两个key中的最小的key还要小；中间节点也是一个2-</p>
+<p>　　　　3节点，中间节点的key值在两个跟节点key值之间；右节点也是一个2-3节点，节点的所有key值比两个key中的最大的key还要大。</p>
+<p><strong>2-3查找树的性质</strong></p>
+<p>　　1）如果中序遍历2-3查找树，就可以得到排好序的序列；<br>　　2）在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。（这也是平衡树中“平衡”一词的概念，根节点到叶节点的最长距离对应于查找算法的最坏情</p>
+<p>　　　　况，而平衡树中根节点到叶节点的距离都一样，最坏情况也具有对数复杂度。） </p>
+<p><strong>2-3树的查找效率与树的高度是息息相关的。</strong></p>
+<p>　　距离来说，对于1百万个节点的2-3树，树的高度为12-20之间，对于10亿个节点的2-3树，树的高度为18-30之间。<br>　　对于插入来说，只需要常数次操作即可完成，因为他只需要修改与该节点关联的节点即可，不需要检查其他节点，所以效率和查找类似。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/02.png">
+
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        self.key1=key</span><br><span class="line">        self.key2=<span class="literal">None</span></span><br><span class="line">        self.left=<span class="literal">None</span></span><br><span class="line">        self.middle=<span class="literal">None</span></span><br><span class="line">        self.right=<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isLeaf</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> self.middle <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> self.right <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.key2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasKey</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (self.key1==key) <span class="keyword">or</span> (self.key2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.key2==key):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getChild</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> key&lt;self.key1:</span><br><span class="line">            <span class="keyword">return</span> self.left</span><br><span class="line">        <span class="keyword">elif</span> self.key2 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> self.middle</span><br><span class="line">        <span class="keyword">elif</span> key&lt;self.key2:</span><br><span class="line">            <span class="keyword">return</span> self.middle</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.right</span><br><span class="line"><span class="class"><span class="keyword">class</span> 2<span class="title">_3_Tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root=<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._get(self.root,key)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get</span><span class="params">(self,node,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> node.hasKey(key):</span><br><span class="line">            <span class="keyword">return</span> node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            child=node.getChild(key)</span><br><span class="line">            <span class="keyword">return</span> self._get(child,key)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.root=Node(key)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pKey,pRef=self._put(self.root,key)</span><br><span class="line">            <span class="keyword">if</span> pKey <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode=Node(pKey)</span><br><span class="line">                newnode.left=self.root</span><br><span class="line">                newnode.middle=pRef</span><br><span class="line">                self.root=newnode</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_put</span><span class="params">(self,node,key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node.hasKey(key):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> node.isLeaf():</span><br><span class="line">            <span class="keyword">return</span> self._addtoNode(node,key,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            child=node.getChild(key)</span><br><span class="line">            pKey,pRef=self._put(child,key)</span><br><span class="line">            <span class="keyword">if</span> pKey <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> self._addtoNode(node,pKey,pRef)</span><br><span class="line">             </span><br><span class="line">         </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_addtoNode</span><span class="params">(self,node,key,pRef)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node.isFull():</span><br><span class="line">            <span class="keyword">return</span> self._splitNode(node,key,pRef)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> key&lt;node.key1:</span><br><span class="line">                node.key2=node.key1</span><br><span class="line">                node.key1=key</span><br><span class="line">                <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    node.right=node.middle</span><br><span class="line">                    node.middle=pRef</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node.key2=key</span><br><span class="line">                <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    node.right=Pref</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_splitNode</span><span class="params">(self,node,key,pRef)</span>:</span></span><br><span class="line">        newnode=Node(<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> key&lt;node.key1:</span><br><span class="line">            pKey=node.key1</span><br><span class="line">            node.key1=key</span><br><span class="line">            newnode.key1=node.key2</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=node.middle</span><br><span class="line">                newnode.middle=node.right</span><br><span class="line">                node.middle=pRef</span><br><span class="line">        <span class="keyword">elif</span> key&lt;node.key2:</span><br><span class="line">            pKey=key</span><br><span class="line">            newnode.key1=node.key2</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=Pref</span><br><span class="line">                newnode.middle=node.right</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pKey=node.key2</span><br><span class="line">            newnode.key1=key</span><br><span class="line">            <span class="keyword">if</span> pRef <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                newnode.left=node.right</span><br><span class="line">                newnode.middle=pRef</span><br><span class="line">        node.key2=<span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> pKey,newnode</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3、平衡查找树之红黑树（Red-Black-Tree）"><a href="#3、平衡查找树之红黑树（Red-Black-Tree）" class="headerlink" title="3、平衡查找树之红黑树（Red-Black Tree）"></a>3、平衡查找树之红黑树（Red-Black Tree）</h4><p><strong>红黑树的定义</strong></p>
+<p>　　<strong>红黑树是一种具有红色和黑色链接的平衡查找树，同时满足：</strong><br>　　　　１、红色节点向左倾斜 ；<br>　　　　2、一个节点不可能有两个红色链接；<br>　　　　3、整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同。</p>
+<p><strong>红黑树的性质</strong></p>
+<p>整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同（2-3树的第2）性质，从根节点到叶子节点的距离都相等）。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/03.png">
+
+<p><strong>复杂度分析</strong></p>
+<p>　　最坏的情况就是，红黑树中除了最左侧路径全部是由3-node节点组成，即红黑相间的路径长度是全黑路径长度的2倍。<br>　　下图是一个典型的红黑树，从中可以看到最长的路径(红黑相间的路径)是最短路径的2倍：</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/04.png">
+
+<p><strong>算法实现</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#红黑树</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">RED = <span class="string">'red'</span></span><br><span class="line">BLACK = <span class="string">'black'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBT</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="comment"># self.items = []</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">        self.zlist = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LEFT_ROTATE</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="comment"># x是一个RBTnode</span></span><br><span class="line">        y = x.right</span><br><span class="line">        <span class="keyword">if</span> y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 右节点为空，不旋转</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            beta = y.left</span><br><span class="line">            x.right = beta</span><br><span class="line">            <span class="keyword">if</span> beta <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                beta.parent = x</span><br><span class="line"></span><br><span class="line">            p = x.parent</span><br><span class="line">            y.parent = p</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment"># x原来是root</span></span><br><span class="line">                self.root = y</span><br><span class="line">            <span class="keyword">elif</span> x == p.left:</span><br><span class="line">                p.left = y</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = y</span><br><span class="line">            y.left = x</span><br><span class="line">            x.parent = y</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">RIGHT_ROTATE</span><span class="params">(self, y)</span>:</span></span><br><span class="line">        <span class="comment"># y是一个节点</span></span><br><span class="line">        x = y.left</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 右节点为空，不旋转</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            beta = x.right</span><br><span class="line">            y.left = beta</span><br><span class="line">            <span class="keyword">if</span> beta <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                beta.parent = y</span><br><span class="line"></span><br><span class="line">            p = y.parent</span><br><span class="line">            x.parent = p</span><br><span class="line">            <span class="keyword">if</span> p <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment"># y原来是root</span></span><br><span class="line">                self.root = x</span><br><span class="line">            <span class="keyword">elif</span> y == p.left:</span><br><span class="line">                p.left = x</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.right = x</span><br><span class="line">            x.right = y</span><br><span class="line">            y.parent = x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">INSERT</span><span class="params">(self, val)</span>:</span></span><br><span class="line"></span><br><span class="line">        z = RBTnode(val)</span><br><span class="line">        y = <span class="literal">None</span></span><br><span class="line">        x = self.root</span><br><span class="line">        <span class="keyword">while</span> x <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            y = x</span><br><span class="line">            <span class="keyword">if</span> z.val &lt; x.val:</span><br><span class="line">                x = x.left</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                x = x.right</span><br><span class="line"></span><br><span class="line">        z.PAINT(RED)</span><br><span class="line">        z.parent = y</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 插入z之前为空的RBT</span></span><br><span class="line">            self.root = z</span><br><span class="line">            self.INSERT_FIXUP(z)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> z.val &lt; y.val:</span><br><span class="line">            y.left = z</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y.right = z</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> y.color == RED:</span><br><span class="line">            <span class="comment"># z的父节点y为红色，需要fixup。</span></span><br><span class="line">            <span class="comment"># 如果z的父节点y为黑色，则不用调整</span></span><br><span class="line">            self.INSERT_FIXUP(z)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">INSERT_FIXUP</span><span class="params">(self, z)</span>:</span></span><br><span class="line">        <span class="comment"># case 1:z为root节点</span></span><br><span class="line">        <span class="keyword">if</span> z.parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            z.PAINT(BLACK)</span><br><span class="line">            self.root = z</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 2:z的父节点为黑色</span></span><br><span class="line">        <span class="keyword">if</span> z.parent.color == BLACK:</span><br><span class="line">            <span class="comment"># 包括了z处于第二层的情况</span></span><br><span class="line">            <span class="comment"># 这里感觉不必要啊。。似乎z.parent为黑色则不会进入fixup阶段</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 下面的几种情况，都是z.parent.color == RED:</span></span><br><span class="line">        <span class="comment"># 节点y为z的uncle</span></span><br><span class="line">        p = z.parent</span><br><span class="line">        g = p.parent  <span class="comment"># g为x的grandpa</span></span><br><span class="line">        <span class="keyword">if</span> g <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">            <span class="comment">#   return 这里不能return的。。。</span></span><br><span class="line">        <span class="keyword">if</span> g.right == p:</span><br><span class="line">            y = g.left</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y = g.right</span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-0:z没有叔叔。即：y为NIL节点</span></span><br><span class="line">        <span class="comment"># 注意，此时z的父节点一定是RED</span></span><br><span class="line">        <span class="keyword">if</span> y == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> z == p.right <span class="keyword">and</span> p == p.parent.left:</span><br><span class="line">                <span class="comment"># 3-0-0:z为右儿子,且p为左儿子，则把p左旋</span></span><br><span class="line">                <span class="comment"># 转化为3-0-1或3-0-2的情况</span></span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line">                g = p.parent</span><br><span class="line">            <span class="keyword">elif</span> z == p.left <span class="keyword">and</span> p == p.parent.right:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line"></span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            <span class="keyword">if</span> p == g.left:</span><br><span class="line">                <span class="comment"># 3-0-1:p为g的左儿子</span></span><br><span class="line">                self.RIGHT_ROTATE(g)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 3-0-2:p为g的右儿子</span></span><br><span class="line">                self.LEFT_ROTATE(g)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-1:z有黑叔</span></span><br><span class="line">        <span class="keyword">elif</span> y.color == BLACK:</span><br><span class="line">            <span class="keyword">if</span> p.right == z <span class="keyword">and</span> p.parent.left == p:</span><br><span class="line">                <span class="comment"># 3-1-0:z为右儿子,且p为左儿子,则左旋p</span></span><br><span class="line">                <span class="comment"># 转化为3-1-1或3-1-2</span></span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line">            <span class="keyword">elif</span> p.left == z <span class="keyword">and</span> p.parent.right == p:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line">                p, z = z, p</span><br><span class="line"></span><br><span class="line">            p = z.parent</span><br><span class="line">            g = p.parent</span><br><span class="line"></span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            <span class="keyword">if</span> p == g.left:</span><br><span class="line">                <span class="comment"># 3-1-1:p为g的左儿子，则右旋g</span></span><br><span class="line">                self.RIGHT_ROTATE(g)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 3-1-2:p为g的右儿子，则左旋g</span></span><br><span class="line">                self.LEFT_ROTATE(g)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># case 3-2:z有红叔</span></span><br><span class="line">        <span class="comment"># 则涂黑父和叔，涂红爷，g作为新的z，递归调用</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y.PAINT(BLACK)</span><br><span class="line">            p.PAINT(BLACK)</span><br><span class="line">            g.PAINT(RED)</span><br><span class="line">            new_z = g</span><br><span class="line">            self.INSERT_FIXUP(new_z)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DELETE</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        curNode = self.root</span><br><span class="line">        <span class="keyword">while</span> curNode <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> val &lt; curNode.val:</span><br><span class="line">                curNode = curNode.left</span><br><span class="line">            <span class="keyword">elif</span> val &gt; curNode.val:</span><br><span class="line">                curNode = curNode.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 找到了值为val的元素,正式开始删除</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> curNode.left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> curNode.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    <span class="comment"># case1:curNode为叶子节点：直接删除即可</span></span><br><span class="line">                    <span class="keyword">if</span> curNode == self.root:</span><br><span class="line">                        self.root = <span class="literal">None</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        p = curNode.parent</span><br><span class="line">                        <span class="keyword">if</span> curNode == p.left:</span><br><span class="line">                            p.left = <span class="literal">None</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            p.right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">elif</span> curNode.left <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> curNode.right <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    sucNode = self.SUCCESOR(curNode)</span><br><span class="line">                    curNode.val, sucNode.val  = sucNode.val, curNode.val</span><br><span class="line">                    self.DELETE(sucNode.val)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p = curNode.parent</span><br><span class="line">                    <span class="keyword">if</span> curNode.left <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                        x = curNode.right</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        x = curNode.left</span><br><span class="line">                    <span class="keyword">if</span> curNode == p.left:</span><br><span class="line">                        p.left = x</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        p.right = x</span><br><span class="line">                    x.parent = p</span><br><span class="line">                    <span class="keyword">if</span> curNode.color == BLACK:</span><br><span class="line">                        self.DELETE_FIXUP(x)</span><br><span class="line"></span><br><span class="line">                curNode = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DELETE_FIXUP</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        p = x.parent</span><br><span class="line">        <span class="comment"># w:x的兄弟结点</span></span><br><span class="line">        <span class="keyword">if</span> x == p.left:</span><br><span class="line">            w = x.right</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            w = x.left</span><br><span class="line"></span><br><span class="line">        <span class="comment"># case1:x的兄弟w是红色的</span></span><br><span class="line">        <span class="keyword">if</span> w.color == RED:</span><br><span class="line">            p.PAINT(RED)</span><br><span class="line">            w.PAINT(BLACK)</span><br><span class="line">            <span class="keyword">if</span> w == p.right:</span><br><span class="line">                self.LEFT_ROTATE(p)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.RIGHT_ROTATE(p)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> w.color == BLACK:</span><br><span class="line">            <span class="comment"># case2:x的兄弟w是黑色的，而且w的两个孩子都是黑色的</span></span><br><span class="line">            <span class="keyword">if</span> w.left.color == BLACK <span class="keyword">and</span> w.right.color == BLACK:</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                <span class="keyword">if</span> p.color == BLACK:</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    p.color = BLACK</span><br><span class="line">                    self.DELETE_FIXUP(p)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># case3:x的兄弟w是黑色的，而且w的左儿子是红色的，右儿子是黑色的</span></span><br><span class="line">            <span class="keyword">if</span> w.left.color == RED <span class="keyword">and</span> w.color == BLACK:</span><br><span class="line">                w.left.PAINT(BLACK)</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                self.RIGHT_ROTATE(w)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># case4:x的兄弟w是黑色的，而且w的右儿子是红</span></span><br><span class="line">            <span class="keyword">if</span> w.right.color == RED:</span><br><span class="line">                p.PAINT(BLACK)</span><br><span class="line">                w.PAINT(RED)</span><br><span class="line">                <span class="keyword">if</span> w == p.right:</span><br><span class="line">                    self.LEFT_ROTATE(p)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.RIGHT_ROTATE(p)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">SHOW</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.DISPLAY1(self.root)</span><br><span class="line">        <span class="keyword">return</span> self.zlist</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY1</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY1(node.left)</span><br><span class="line">        self.zlist.append(node.val)</span><br><span class="line">        self.DISPLAY1(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY2</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY2(node.left)</span><br><span class="line">        print(node.val)</span><br><span class="line">        self.DISPLAY2(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DISPLAY3</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.DISPLAY3(node.left)</span><br><span class="line">        self.DISPLAY3(node.right)</span><br><span class="line">        print(node.val)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBTnode</span>:</span></span><br><span class="line">    <span class="string">'''红黑树的节点类型'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.left = <span class="literal">None</span></span><br><span class="line">        self.right = <span class="literal">None</span></span><br><span class="line">        self.parent = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PAINT</span><span class="params">(self, color)</span>:</span></span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zuoxuan</span><span class="params">(b, c)</span>:</span></span><br><span class="line">    a = b.parent</span><br><span class="line">    a.left = c</span><br><span class="line">    c.parent = a</span><br><span class="line">    b.parent = c</span><br><span class="line">    c.left = b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    rbt=RBT()</span><br><span class="line">    b = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        m = randint(<span class="number">0</span>, <span class="number">500</span>)</span><br><span class="line">        rbt.INSERT(m)</span><br><span class="line">        b.append(m)</span><br><span class="line"></span><br><span class="line">    a = rbt.SHOW()</span><br><span class="line">    b.sort()</span><br><span class="line">    equal = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        <span class="keyword">if</span> a[i] != b[i]:</span><br><span class="line">            equal = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> equal:</span><br><span class="line">        print(<span class="string">'wrong'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'OK!'</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4、B树和B-树（B-Tree-B-Tree）"><a href="#4、B树和B-树（B-Tree-B-Tree）" class="headerlink" title="4、B树和B+树（B Tree/B+ Tree）"></a>4、B树和B+树（B Tree/B+ Tree）</h4><p><strong>B树简介</strong></p>
+<p>　　B树可以看作是对2-3查找树的一种扩展，即他允许每个节点有M-1个子节点。<br>　　　　１、根节点至少有两个子节点；<br>　　　　2、每个节点有M-1个key，并且以升序排列；<br>　　　　3、位于M-1和M key的子节点的值位于M-1 和M key对应的Value之间；<br>　　　　4、非叶子结点的关键字个数=指向儿子的指针个数-1；<br>　　　　5、非叶子结点的关键字：K[1], K[2], …, K[M-1]；且K[i] ；<br>　　　　6、其它节点至少有M/2个子节点；<br>　　　　7、所有叶子结点位于同一层；<br>　　如：（M=3）</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/05.png">
+
+<p><strong>B树算法思想</strong></p>
+<p>　　B-树的搜索，从根结点开始，对结点内的关键字（有序）序列进行二分查找，如果命中则结束，否则进入查询关键字所属范围的儿子结点；重复，直到所对应的儿子指针为</p>
+<p>空，或已经是叶子结点；</p>
+<p><strong>B树的特性</strong></p>
+<p>　　1.关键字集合分布在整颗树中；<br>　　2.任何一个关键字出现且只出现在一个结点中；<br>　　3.搜索有可能在非叶子结点结束；<br>　　4.其搜索性能等价于在关键字全集内做一次二分查找；<br>　　5.自动层次控制；<br>　　由于限制了除根结点以外的非叶子结点，至少含有M/2个儿子，确保了结点的至少利用率，其最底搜索性能为O(LogN)</p>
+<p><strong>B+ 树简介</strong></p>
+<p>**B+树是B-树的变体，也是一种多路搜索树：<br>　　1.其定义基本与B-树同，除了：<br>　　2.非叶子结点的子树指针与关键字个数相同；<br>　　3.非叶子结点的子树指针P[i]，指向关键字值属于[K[i], K[i+1])的子树<br>　　4.B-树是开区间；<br>　　5.为所有叶子结点增加一个链指针；<br>　　6.所有关键字都在叶子结点出现；</p>
+<p>如：（M=3）</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/06.png">
+
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># B树查找</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BTree</span>:</span>  <span class="comment">#B树</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.left=<span class="literal">None</span></span><br><span class="line">        self.data=value</span><br><span class="line">        self.right=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertLeft</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.left=BTree(value)</span><br><span class="line">        <span class="keyword">return</span> self.left</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertRight</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.right=BTree(value)</span><br><span class="line">        <span class="keyword">return</span> self.right</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(node)</span>:</span>  <span class="comment">#中序遍历：先左子树，再根节点，再右子树</span></span><br><span class="line">    <span class="keyword">if</span> node.data:</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            inorder(node.left)</span><br><span class="line">        node.show()</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            inorder(node.right)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rinorder</span><span class="params">(node)</span>:</span>  <span class="comment">#倒中序遍历</span></span><br><span class="line">    <span class="keyword">if</span> node.data:</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            rinorder(node.right)</span><br><span class="line">        node.show()</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            rinorder(node.left)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(node,value)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> value &gt; node.data:</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            insert(node.right,value)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.insertRight(value)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            insert(node.left,value)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.insertLeft(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line">    l=[<span class="number">88</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">33</span>,<span class="number">22</span>,<span class="number">4</span>,<span class="number">55</span>,<span class="number">33</span>,<span class="number">221</span>,<span class="number">34</span>]</span><br><span class="line">    Root=BTree(l[<span class="number">0</span>])</span><br><span class="line">    node=Root</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(l)):</span><br><span class="line">        insert(Root,l[i])</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"中序遍历（从小到大排序 ）"</span>)</span><br><span class="line">    inorder(Root)</span><br><span class="line">    print(<span class="string">"倒中序遍历（从大到小排序）"</span>)</span><br><span class="line">    rinorder(Root)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="5、树表查找总结"><a href="#5、树表查找总结" class="headerlink" title="5、树表查找总结"></a>5、树表查找总结</h4><p>　　二叉查找树平均查找性能不错，为O(logn)，但是最坏情况会退化为O(n)。在二叉查找树的基础上进行优化，我们可以使用平衡查找树。平衡查找树中的2-3查找树，这种数</p>
+<p>据结构在插入之后能够进行自平衡操作，从而保证了树的高度在一定的范围内进而能够保证最坏情况下的时间复杂度。但是2-3查找树实现起来比较困难，红黑树是2-3树的一种</p>
+<p>简单高效的实现，他巧妙地使用颜色标记来替代2-3树中比较难处理的3-node节点问题。红黑树是一种比较高效的平衡查找树，应用非常广泛，很多编程语言的内部实现都或多或</p>
+<p>少的采用了红黑树。 </p>
+<p>　　除此之外，2-3查找树的另一个扩展——B/B+平衡树，在文件系统和数据库系统中有着广泛的应用。</p>
+<h3 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h3><p><strong>算法简介</strong></p>
+<p>　　要求是顺序表，分块查找又称索引顺序查找，它是顺序查找的一种改进方法。</p>
+<p><strong>算法思想</strong><br>　　将n个数据元素”按块有序”划分为m块（m ≤ n）。<br>　　每一块中的结点不必有序，但块与块之间必须”按块有序”；<br>　　即第1块中任一元素的关键字都必须小于第2块中任一元素的关键字；<br>　　而第2块中任一元素又都必须小于第3块中的任一元素，……</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/search/07.png">
+
+<p><strong>算法流程</strong></p>
+<p>　　1、先选取各块中的最大关键字构成一个索引表；<br>　　2、查找分两个部分：先对索引表进行二分查找或顺序查找，以确定待查记录在哪一块中；<br>　　3、在已确定的块中用顺序法进行查找。</p>
+<p><strong>复杂度分析</strong></p>
+<p>  <strong>时间复杂度：</strong>O(log(m)+N/m)</p>
+<h3 id="哈希查找"><a href="#哈希查找" class="headerlink" title="哈希查找"></a>哈希查找</h3><p><strong>算法简介</strong></p>
+<p>哈希表就是一种以键-值(key-indexed) 存储数据的结构，只要输入待查找的值即key，即可查找到其对应的值。</p>
+<p><strong>算法思想</strong></p>
+<p>　　哈希的思路很简单，如果所有的键都是整数，那么就可以使用一个简单的无序数组来实现：将键作为索引，值即为其对应的值，这样就可以快速访问任意键的值。这是对于</p>
+<p>简单的键的情况，我们将其扩展到可以处理更加复杂的类型的键。</p>
+<p><strong>算法流程</strong></p>
+<p>　　1）用给定的哈希函数构造哈希表；<br>　　2）根据选择的冲突处理方法解决地址冲突；<br>　　　常见的解决冲突的方法：拉链法和线性探测法。<br>　　3）在哈希表的基础上执行哈希查找。</p>
+<p><strong>复杂度分析</strong></p>
+<p>　　单纯论查找复杂度：对于无冲突的Hash表而言，查找复杂度为O(1)（注意，在查找之前我们需要构建相应的Hash表）。</p>
+<p><strong>实现算法</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略了对数据类型，元素溢出等问题的判断。</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashTable</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size)</span>:</span></span><br><span class="line">    self.elem = [<span class="literal">None</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(size)] <span class="comment"># 使用list数据结构作为哈希表元素保存方法</span></span><br><span class="line">    self.count = size <span class="comment"># 最大表长</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> key % self.count <span class="comment"># 散列函数采用除留余数法</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">insert_hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="string">"""插入关键字到哈希表内"""</span></span><br><span class="line">    address = self.hash(key) <span class="comment"># 求散列地址</span></span><br><span class="line">    <span class="keyword">while</span> self.elem[address]: <span class="comment"># 当前位置已经有数据了，发生冲突。</span></span><br><span class="line">      address = (address+<span class="number">1</span>) % self.count <span class="comment"># 线性探测下一地址是否可用</span></span><br><span class="line">    self.elem[address] = key <span class="comment"># 没有冲突则直接保存。</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">search_hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">    <span class="string">"""查找关键字，返回布尔值"""</span></span><br><span class="line">    star = address = self.hash(key)</span><br><span class="line">    <span class="keyword">while</span> self.elem[address] != key:</span><br><span class="line">      address = (address + <span class="number">1</span>) % self.count</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> self.elem[address] <span class="keyword">or</span> address == star: <span class="comment"># 说明没找到或者循环到了开始的位置</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  list_a = [<span class="number">12</span>, <span class="number">67</span>, <span class="number">56</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">37</span>, <span class="number">22</span>, <span class="number">29</span>, <span class="number">15</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">34</span>]</span><br><span class="line">  hash_table = HashTable(<span class="number">12</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> list_a:</span><br><span class="line">    hash_table.insert_hash(i)</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> hash_table.elem:</span><br><span class="line">    <span class="keyword">if</span> i:</span><br><span class="line">      print((i, hash_table.elem.index(i)), end=<span class="string">" "</span>)</span><br><span class="line">  print(<span class="string">"\n"</span>)</span><br><span class="line"> </span><br><span class="line">  print(hash_table.search_hash(<span class="number">15</span>))</span><br><span class="line">  print(hash_table.search_hash(<span class="number">33</span>))</span><br></pre></td></tr></table></figure></div>
+
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Python/Python_id_57.html">Python常用查找算法</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2020年06月10日 - 23:06</p>
+  <p><span>最后更新:</span>2020年06月10日 - 23:06</p>
+  <p><span>原始链接:</span><a href="/Python/Python_id_57.html" title="Python常用查找算法">https://onlyyu.cn/Python/Python_id_57.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_57.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Flask\Flask_id_01.html" rel="bookmark">flask中app上下文机制</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Flask\Flask_id_02.html" rel="bookmark">flask开端</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Flask\Flask_id_03.html" rel="bookmark">flask_migrate</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Flask\Flask_id_04.html" rel="bookmark">flask_route</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Flask\Flask_id_05.html" rel="bookmark">flask_script</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag">分类： Python</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/MySQL/MySQL_id_01.html" rel="prev" title="MySQL主从原理">
+      <i class="fa fa-chevron-left"></i> MySQL主从原理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/MySQL/MySQL_id_02.html" rel="next" title="MySQL Myisam和Innodb的区别">
+      MySQL Myisam和Innodb的区别 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找算法-–-简介"><span class="nav-text">查找算法 – 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查找表按照操作方式可分为："><span class="nav-text">查找表按照操作方式可分为：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序查找"><span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找"><span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插值查找"><span class="nav-text">插值查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契查找"><span class="nav-text">斐波那契查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树表查找"><span class="nav-text">树表查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、二叉树查找算法。"><span class="nav-text">1、二叉树查找算法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、平衡查找树之2-3查找树（2-3-Tree）"><span class="nav-text">2、平衡查找树之2-3查找树（2-3 Tree）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、平衡查找树之红黑树（Red-Black-Tree）"><span class="nav-text">3、平衡查找树之红黑树（Red-Black Tree）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、B树和B-树（B-Tree-B-Tree）"><span class="nav-text">4、B树和B+树（B Tree&#x2F;B+ Tree）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、树表查找总结"><span class="nav-text">5、树表查找总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块查找"><span class="nav-text">分块查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希查找"><span class="nav-text">哈希查找</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.missbless.cn/" title="http:&#x2F;&#x2F;www.missbless.cn&#x2F;" rel="noopener" target="_blank">ISSAC　LOVELESS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.f322.xyz/" title="https:&#x2F;&#x2F;www.f322.xyz&#x2F;" rel="noopener" target="_blank">逆の神様</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">439k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:39</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
