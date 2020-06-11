@@ -1,6 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python可变与不可变数据类型</title>
+    <url>/Python/Python_id_60.html</url>
+    <content><![CDATA[<h3 id="1-名词解释"><a href="#1-名词解释" class="headerlink" title="1.名词解释"></a>1.名词解释</h3><p>　　以下所有的内容都是基于内存地址来说的。</p>
+<p>　　<strong>不可变数据类型：</strong>当该数据类型的对应变量的值发生了改变，那么它对应的内存地址也会发生改变，对于这种数据类型，就称不可变数据类型。</p>
+<p>　　<strong>可变数据类型：</strong>当该数据类型的对应变量的值发生了改变，那么它对应的内存地址不发生改变，对于这种数据类型，就称可变数据类型。</p>
+<p>　  总结：不可变数据类型更改后地址发生改变，可变数据类型更改地址不发生改变</p>
+<a id="more"></a>
+
+<h3 id="2-数据类型分类"><a href="#2-数据类型分类" class="headerlink" title="2.数据类型分类"></a>2.数据类型分类</h3><p>在python中数据类型有：整型，字符串，元组，集合，列表，字典。接下来我们用例子来一一查看他们分别属于不可变数据类型还是可变数据类型。</p>
+<h4 id="2-1、整型"><a href="#2-1、整型" class="headerlink" title="2.1、整型"></a>2.1、整型</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">print(id(a),type(a))</span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">print(id(a),type(a))</span><br><span class="line"></span><br><span class="line"><span class="number">1912499232</span> &lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></span><br><span class="line"><span class="class">1912499264 &lt;<span class="title">class</span> '<span class="title">int</span>'&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>我们可以发现，当数据发生改变后，变量的内存地址发生了改变，那么<strong>整型就是不可变数据类型</strong>。</p>
+<h4 id="2-2、字符串"><a href="#2-2、字符串" class="headerlink" title="2.2、字符串"></a>2.2、字符串</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">b = <span class="string">'djx'</span></span><br><span class="line">print(id(b),type(b))</span><br><span class="line">b = <span class="string">'djx1996'</span></span><br><span class="line">print(id(b),type(b))</span><br><span class="line"></span><br><span class="line"><span class="number">535056476344</span> &lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt;</span></span><br><span class="line"><span class="class">535056476624 &lt;<span class="title">class</span> '<span class="title">str</span>'&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>我们可以发现，当数据发生改变后，变量的内存地址发生了改变，那么<strong>字符串就是不可变数据类型</strong>。</p>
+<h4 id="2-3、元组"><a href="#2-3、元组" class="headerlink" title="2.3、元组"></a>2.3、元组</h4><p>　　元组被称为只读列表，即数据可以被查询，但不能被修改,但是我们可以在元组的元素中存放一个列表，通过更改列表的值来查看元组是属于可变还是不可变。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">c1 = [<span class="string">'1'</span>,<span class="string">'2'</span>]</span><br><span class="line">c = (<span class="number">1</span>,<span class="number">2</span>,c1)</span><br><span class="line">print(c,id(c),type(c))</span><br><span class="line">c1[<span class="number">1</span>] = <span class="string">'djx'</span></span><br><span class="line">print(c,id(c),type(c))</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, [<span class="string">'1'</span>, <span class="string">'2'</span>]) <span class="number">386030735432</span> &lt;<span class="class"><span class="keyword">class</span> '<span class="title">tuple</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="params">(<span class="number">1</span>, <span class="number">2</span>, [<span class="string">'1'</span>, <span class="string">'djx'</span>])</span> 386030735432 &lt;<span class="title">class</span> '<span class="title">tuple</span>'&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　我们可以发现，虽然元组数据发生改变，但是内存地址没有发生了改变，但是我们不可以以此来判定元组就是可变数据类型。我们回头仔细想想元组的定义就是不可变<br>的。我们修改了元组中列表的值，但是因为列表是可变数据类型，所以虽然在列表中更改了值，但是列表的地址没有改变，列表在元组中的地址的值没有改变，所以也就意<br>味着元组没有发生变化。我们就可以认为<strong>元组是不可变数据类型</strong>，因为元组是不可变的。</p>
+<h4 id="2-4、集合"><a href="#2-4、集合" class="headerlink" title="2.4、集合"></a>2.4、集合</h4><p>集合我们常用来进行<strong>去重和关系运算，集合是无序的。</strong></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">s = &#123;<span class="number">1</span>,<span class="string">'d'</span>,<span class="string">'34'</span>,<span class="string">'1'</span>,<span class="number">1</span>&#125;</span><br><span class="line">print(s,type(s),id(s))</span><br><span class="line">s.add(<span class="string">'djx'</span>)</span><br><span class="line">print(s,type(s),id(s))</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">&#123;<span class="string">'d'</span>, <span class="number">1</span>, <span class="string">'34'</span>, <span class="string">'1'</span>&#125; &lt;<span class="class"><span class="keyword">class</span> '<span class="title">set</span>'&gt; 870405285032</span></span><br><span class="line">&#123;1, '34', 'djx', '1', 'd'&#125; &lt;class 'set'&gt; 870405285032</span><br></pre></td></tr></table></figure>
+
+<p>我们可以发现，虽然集合数据发生改变，但是内存地址没有发生了改变，那么<strong>集合就是可变数据类型</strong>。</p>
+<h4 id="2-5、列表"><a href="#2-5、列表" class="headerlink" title="2.5、列表"></a>2.5、列表</h4><p>列表是python中的基础数据类型之一，其他语言中也有类似于列表的数据类型，比如js中叫数组，它是以[]括起来，每个元素以逗号隔开，而且它里面可以存放各种数据类型。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">list = [<span class="number">1</span>,<span class="string">'q'</span>,<span class="string">'qwer'</span>,<span class="literal">True</span>]</span><br><span class="line">print(list,type(list),id(list))</span><br><span class="line">list.append(<span class="string">'djx'</span>)</span><br><span class="line">print(list,type(list),id(list))</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">[<span class="number">1</span>, <span class="string">'q'</span>, <span class="string">'qwer'</span>, <span class="literal">True</span>] &lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt; 808140621128</span></span><br><span class="line">[1, 'q', 'qwer', True, 'djx'] &lt;class 'list'&gt; 808140621128</span><br></pre></td></tr></table></figure>
+
+<p>　　我们可以发现，虽然列表数据发生改变，但是内存地址没有发生了改变，那么<strong>列表就是可变数据类型</strong>。</p>
+<h4 id="2-6、字典"><a href="#2-6、字典" class="headerlink" title="2.6、字典"></a>2.6、字典</h4><p>字典是python中唯一的映射类型，采用键值对（key-value）的形式存储数据。python对key进行哈希函数运算，根据计算的结果决定value的存储地址，所以字典是无序存储<br>的。但是在3.6版本后，字典开始是有序的，这是新的版本特征。</p>
+<p>字典的key值可以是整型，字符串，元组，但是不可以是列表，集合，字典。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">tuple = (<span class="number">1</span>)</span><br><span class="line">dic = &#123;<span class="number">1</span>:<span class="number">2</span>&#125;</span><br><span class="line">d = &#123; tuple:<span class="number">1</span>,<span class="string">'key2'</span>:<span class="string">'djx'</span>,<span class="string">'key3'</span>:<span class="string">'li'</span>&#125;</span><br><span class="line">print(d,type(d),id(d))</span><br><span class="line">d[<span class="string">'key4'</span>] = <span class="string">'haha'</span></span><br><span class="line">print(d,type(d),id(d))</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">&#123;<span class="number">1</span>: <span class="number">1</span>, <span class="string">'key2'</span>: <span class="string">'djx'</span>, <span class="string">'key3'</span>: <span class="string">'li'</span>&#125; &lt;<span class="class"><span class="keyword">class</span> '<span class="title">dict</span>'&gt; 256310956320</span></span><br><span class="line">&#123;1: 1, 'key2': 'djx', 'key3': 'li', 'key4': 'haha'&#125; &lt;class 'dict'&gt; 256310956320</span><br></pre></td></tr></table></figure>
+
+<p>我们可以发现，虽然字典数据发生改变，但是内存地址没有发生了改变，那么<strong>字典就是可变数据类型</strong>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>数据类型</strong></th>
+<th><strong>可变/不可变</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整型</td>
+<td>不可变</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>不可变</td>
+</tr>
+<tr>
+<td>元组</td>
+<td>不可变</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>集合</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>字典</td>
+<td>可变</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>数据类型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python类的私有属性、公有属性、私有方法、公有方法</title>
+    <url>/Python/Python_id_59.html</url>
+    <content><![CDATA[<h2 id="类的私有属性、公有属性、私有方法、公有方法"><a href="#类的私有属性、公有属性、私有方法、公有方法" class="headerlink" title="类的私有属性、公有属性、私有方法、公有方法"></a>类的私有属性、公有属性、私有方法、公有方法</h2><h3 id="类的公有属性"><a href="#类的公有属性" class="headerlink" title="类的公有属性"></a>类的公有属性</h3><p>public_attrs：能在类的外部被使用或直接访问。在类内部的方法中使用时 public_attrs_attrs，在类的外部class_name.public_attrs。</p>
+<a id="more"></a>
+
+<h3 id="类的私有属性"><a href="#类的私有属性" class="headerlink" title="类的私有属性"></a>类的私有属性</h3><p>__ private_attrs：两个下划线开头，声明该属性为私有，不能在类的外部被使用或直接访问。在类内部的方法中使用时 self.__private_attrs。</p>
+<h3 id="类的-公有-方法"><a href="#类的-公有-方法" class="headerlink" title="类的(公有)方法"></a>类的(公有)方法</h3><p>在类的内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self，且为第一个参数，self 代表的是类的实例。<br>self 的名字并不是规定死的，也可以使用 this，但是最好还是按照约定是用 self。</p>
+<h3 id="类的私有方法"><a href="#类的私有方法" class="headerlink" title="类的私有方法"></a>类的私有方法</h3><p>__ private_method：两个下划线开头，声明该方法为私有方法，只能在类的内部调用 ，不能在类的外部调用。self.__private_methods。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#问女性的姓名、工作是没有问题的，但是问女性的年龄、体重是不礼貌的，所以我们把女性年龄定义为私有属性</span></span><br><span class="line"><span class="comment">#定义显示女性的姓名、工作为公有方法，显示女性年龄、体重为私有方法</span></span><br><span class="line"><span class="comment">#类的定义部分</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span><span class="params">()</span>:</span></span><br><span class="line">    name = <span class="string">"Juckes"</span>  <span class="comment">#类的公有属性</span></span><br><span class="line">    job = <span class="string">"Teacher"</span> </span><br><span class="line">    __ages = <span class="number">30</span>      <span class="comment">#类的私有属性</span></span><br><span class="line">    __weight = <span class="number">60</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">disp_nj_info</span><span class="params">(self)</span>:</span>  <span class="comment">#类的（公有）方法</span></span><br><span class="line">        print(<span class="string">"Name:&#123;&#125;, Job:&#123;&#125;"</span>.format(self.name,self.job)) <span class="comment">#类的内部调用公有属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__disp_aw_info</span><span class="params">(self)</span>:</span>  <span class="comment">#类的私有方法</span></span><br><span class="line">        print(<span class="string">"Age:&#123;&#125;, Weight:&#123;&#125;"</span>.format(self.__ages, self.__weight))  <span class="comment">#类的内部调用私有属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dis_all_info</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.disp_nj_info() <span class="comment">#类的内部调用公有方法</span></span><br><span class="line">        self.__disp_aw_info() <span class="comment">#类的内部调用私有方法</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>1、类外使用类的公有属性</strong>。OK<br>主程序</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主程序部分</span></span><br><span class="line">womanA = Woman()</span><br><span class="line"></span><br><span class="line">print(womanA.name, womanA.job)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">Juckes Teacher</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>2、类外使用类的私有属性</strong>， Error<br>主程序</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主程序部分</span></span><br><span class="line">womanA = Woman()</span><br><span class="line"></span><br><span class="line">print(womanA.__ages, womanA.__weight)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/untitled2/timer_test.py"</span>, line <span class="number">60</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(womanA.__ages, womanA.__weight)</span><br><span class="line">AttributeError: <span class="string">'Woman'</span> object has no attribute <span class="string">'__ages'</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>3、类外使用公用方法</strong>，OK<br>主程序</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主程序部分</span></span><br><span class="line">womanA = Woman()</span><br><span class="line">womanA.disp_nj_info()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">Name:Juckes, Job:Teacher</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>4、类外使用类的私有方法</strong>， Error<br>主程序</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主程序部分</span></span><br><span class="line">womanA = Woman()</span><br><span class="line">womanA.__disp_aw_info()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/untitled2/timer_test.py"</span>, line <span class="number">60</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    womanA.__disp_aw_info()</span><br><span class="line">AttributeError: <span class="string">'Woman'</span> object has no attribute <span class="string">'__disp_aw_info'</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>5、类外通过调用公有方法的方式，间接调用私有方法</strong>，OK</p>
+<p>主程序</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主程序部分</span></span><br><span class="line">womanA = Woman()</span><br><span class="line"></span><br><span class="line">womanA.dis_all_info() <span class="comment">#通过调用dis_all_info，间接调用__disp_aw_info</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">Name:Juckes, Job:Teacher</span><br><span class="line">Age:<span class="number">30</span>, Weight:<span class="number">60</span></span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python面向对象特性</title>
+    <url>/Python/Python_id_58.html</url>
+    <content><![CDATA[<p>　　抽象是隐藏多余细节的艺术。在面向对象的概念中，抽象的直接表现形式通常为类。Python基本上提供了面向对象编程语言的所有元素，如果你已经至少掌握了一门<br>面向对象语言，那么利用Python进行面向对象程序设计将会相当容易。</p>
+<a id="more"></a>
+
+<h2 id="一、封装"><a href="#一、封装" class="headerlink" title="一、封装"></a>一、封装</h2><p>　　面向对象程序设计中的术语对象（Object）基本上可以看做数据（特性）以及由一系列可以存取、操作这些数据的方法所组成的集合。传统意义上的“程序=数据结构+<br>算法”被封装”掩盖“并简化为“程序=对象+消息”。对象是类的实例，类的抽象则需要经过封装。封装可以让调用者不用关心对象是如何构建的而直接进行使用。</p>
+<p>一个简单的Python类封装如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment">#构造方法 一个对象创建后会立即调用此方法</span></span><br><span class="line">        self.Name=<span class="string">"Doraemon"</span></span><br><span class="line">        <span class="keyword">print</span> self.Name</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accessibleMethod</span><span class="params">(self)</span>:</span> <span class="comment">#绑定方法 对外公开</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"I have a self! current name is:"</span></span><br><span class="line">        <span class="keyword">print</span> self.Name</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"the secret message is:"</span></span><br><span class="line">        self.__inaccessible()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__inaccessible</span><span class="params">(self)</span>:</span> <span class="comment">#私有方法 对外不公开 以双下划线开头</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"U cannot see me..."</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">staticMethod</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="comment">#self.accessibleMethod() #在静态方法中无法直接调用实例方法 直接抛出异常</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"this is a static method"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setName</span><span class="params">(self,name)</span>:</span> <span class="comment">#访问器函数</span></span><br><span class="line">        self.Name=name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getName</span><span class="params">(self)</span>:</span> <span class="comment">#访问器函数</span></span><br><span class="line">        <span class="keyword">return</span> self.Name</span><br><span class="line"></span><br><span class="line">    name=property(getName,setName) <span class="comment">#属性 可读可写</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　上面简单的示例代码可以看出，Python中的类包含了一般面向对象编程语言的主要元素，比如构造方法、绑定方法、静态方法、属性等，如果深入下去，还可以发现<br>Python中内置了很多面向对象的“高级”主题，比如迭代器、反射、特性等等，提供了封装的直接构造要素。</p>
+<h2 id="二、继承"><a href="#二、继承" class="headerlink" title="二、继承"></a>二、继承</h2><h3 id="1、类继承"><a href="#1、类继承" class="headerlink" title="1、类继承"></a>1、类继承</h3><p>　　继承给人的直接感觉是这是一种复用代码的行为。继承可以理解为它是以普通的类为基础建立专门的类对象，子类和它继承的父类是IS-A的关系。</p>
+<p>一个简单而不失经典的示例如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        self.Name=<span class="string">"Animal"</span></span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self,meters)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"%s moved %sm."</span> %(self.Name,meters) </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Animal)</span>:</span> <span class="comment">#Cat是Animal的子类</span></span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>  <span class="comment">#重写超类的构造方法</span></span><br><span class="line">        self.Name=<span class="string">"Garfield"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##     def move(self,meters): #重写超类的绑定方法</span></span><br><span class="line"><span class="comment">##        print "Garfield never moves more than 1m."</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RobotCat</span><span class="params">(Animal)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>  <span class="comment">#重写超类的构造方法</span></span><br><span class="line">        self.Name=<span class="string">"Doraemon"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##     def move(self,meters): #重写超类的绑定方法</span></span><br><span class="line"><span class="comment">##        print "Doraemon is flying."</span></span><br><span class="line"></span><br><span class="line">obj=Animal()</span><br><span class="line">obj.move(<span class="number">10</span>) <span class="comment">#输出：Animal moved 10m.</span></span><br><span class="line"></span><br><span class="line">cat=Cat()</span><br><span class="line">cat.move(<span class="number">1</span>) <span class="comment">#输出：Garfield moved 1m.</span></span><br><span class="line"></span><br><span class="line">robot=RobotCat()</span><br><span class="line">robot.move(<span class="number">1000</span>) <span class="comment">#输出：Doraemon moved 1000m.</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　一个显而易见的特点是，Python的面向对象的继承特征是基于类（class）的，比javascript基于原型（prototype）的继承更容易组织和编写代码，也更容易让人接受和<br>理解。</p>
+<p><code>ps：最近几天Anders大神搞出来的[TypeScript](http://typescript.codeplex.com/)横空出世，看它的语言规范里继承也是基于类的：</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor(public name) &#123; &#125;</span><br><span class="line">    move(meters) &#123;</span><br><span class="line">        alert(this.name + <span class="string">" moved "</span> + meters + <span class="string">"m."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Snake extends Animal &#123;</span><br><span class="line">    constructor(name) &#123; super(name); &#125;</span><br><span class="line">    move() &#123;</span><br><span class="line">        alert(<span class="string">"Slithering..."</span>);</span><br><span class="line">        super.move(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Horse extends Animal &#123;</span><br><span class="line">    constructor(name) &#123; super(name); &#125;</span><br><span class="line">    move() &#123;</span><br><span class="line">        alert(<span class="string">"Galloping..."</span>);</span><br><span class="line">        super.move(<span class="number">45</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var sam = new Snake(<span class="string">"Sammy the Python"</span>)</span><br><span class="line">var tom: Animal = new Horse(<span class="string">"Tommy the Palomino"</span>)</span><br><span class="line"></span><br><span class="line">sam.move()</span><br><span class="line">tom.move(<span class="number">34</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>感觉基于类的继承的语言好像在实现OO的可读性和编程体验上都不太差，据传说javascript是码农最想喷也是喷过最多f**k的语言。</p>
+<h3 id="2、多重继承"><a href="#2、多重继承" class="headerlink" title="2、多重继承"></a>2、多重继承</h3><p>　　不同于C#，Python是支持多重类继承的（C#可继承自多个Interface，但最多继承自一个类）。多重继承机制有时很好用，但是它容易让事情变得复杂。</p>
+<p>一个多重继承的示例如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self,food)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"eat %s"</span> %food </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Robot</span>:</span></span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fly</span><span class="params">(self,kilometers)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"flyed %skm."</span> %kilometers </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RobotCat</span><span class="params">(Animal,Robot)</span>:</span> <span class="comment">#继承自多个超类</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>  </span><br><span class="line">        self.Name=<span class="string">"Doraemon"</span></span><br><span class="line"></span><br><span class="line">robot=RobotCat() <span class="comment"># 一只可以吃东西的会飞行的叫哆啦A梦的机器猫</span></span><br><span class="line"><span class="keyword">print</span> robot.Name</span><br><span class="line"></span><br><span class="line">robot.eat(<span class="string">"cookies"</span>) <span class="comment">#从动物继承而来的eat</span></span><br><span class="line"></span><br><span class="line">robot.fly(<span class="number">10000000</span>) <span class="comment">#从机器继承而来的fly</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　如你所看到的那样，多重继承的好处显而易见，我们可以轻而易举地通过类似“组合”的方式复用代码构造一个类型。</p>
+<p>有个需要注意的地方，即如果一个方法从多个超类继承，那么务必要小心继承的超类（或者基类）的顺序：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self,food)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"eat %s"</span> %food</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self,kilometers)</span>:</span> <span class="comment">#动物的move方法</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Robot</span>:</span></span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self,kilometers)</span>:</span> <span class="comment">#机器的move方法</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"flyed %skm."</span> %kilometers </span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RobotCat</span><span class="params">(Animal,Robot)</span>:</span> <span class="comment">#继承自多个超类 如方法名称相同，注意继承的顺序</span></span><br><span class="line"><span class="comment">#class RobotCat(Robot,Animal): </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>  </span><br><span class="line">        self.Name=<span class="string">"Doraemon"</span></span><br><span class="line"></span><br><span class="line">robot=RobotCat() <span class="comment"># 一只可以吃东西的会飞行的叫哆啦A梦的机器猫</span></span><br><span class="line"><span class="keyword">print</span> robot.Name</span><br><span class="line"></span><br><span class="line">robot.eat(<span class="string">"cookies"</span>) <span class="comment">#从动物继承而来的eat</span></span><br><span class="line"></span><br><span class="line">robot.move(<span class="number">10000000</span>) <span class="comment">#本来是要从机器继承move方法，但是因为继承的顺序，这个方法直接继承自动物而pass掉</span></span><br></pre></td></tr></table></figure></div>
+
+<p>我们为动物和机器各实现一个相同名称的move方法，但是输出因为继承的顺序而有所不同，Python在查找给定方法或者特性时访问超类的顺序被称为MRO<br>（Method Resolution Order，方法判定顺序）。</p>
+<h2 id="三、多态"><a href="#三、多态" class="headerlink" title="三、多态"></a>三、多态</h2><p>　　多态意味着可以对不同的对象使用同样的操作，但它们可能会以多种形态呈现出结果。在Python中，任何不知道对象到底是什么类型，但又需要对象做点什么的时候，<br>都会用到多态。</p>
+<p>能够直接说明多态的两段示例代码如下：</p>
+<h3 id="1、方法多态"><a href="#1、方法多态" class="headerlink" title="1、方法多态"></a>1、方法多态</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">calculator</span>:</span></span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(self,args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">calc=calculator() <span class="comment">#自定义类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">obj=choice([<span class="string">'hello,world'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],calc]) <span class="comment">#obj是随机返回的 类型不确定</span></span><br><span class="line"><span class="comment">#print type(obj)</span></span><br><span class="line"><span class="keyword">print</span> obj.count(<span class="string">'a'</span>) <span class="comment">#方法多态</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　对于一个临时对象obj，它通过Python的随机函数取出来，不知道具体类型（是字符串、元组还是自定义类型），都可以调用count方法进行计算，至于count由谁<br>（哪种类型）去做怎么去实现我们并不关心。</p>
+<p>有一种称为”<a href="http://zh.wikipedia.org/wiki/Duck_typing" target="_blank" rel="noopener">鸭子类型（duck typing）</a>“的东西，讲的也是多态：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">_metaclass_=type <span class="comment"># 确定使用新式类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Duck</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quack</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">print</span> <span class="string">"Quaaaaaack!"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feathers</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">print</span> <span class="string">"The duck has white and gray feathers."</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"The person imitates a duck."</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feathers</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">print</span> <span class="string">"The person takes a feather from the ground and shows it."</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">in_the_forest</span><span class="params">(duck)</span>:</span></span><br><span class="line">    duck.quack()</span><br><span class="line">    duck.feathers()</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">game</span><span class="params">()</span>:</span></span><br><span class="line">    donald = Duck()</span><br><span class="line">    john = Person()</span><br><span class="line">    in_the_forest(donald)</span><br><span class="line">    in_the_forest(john)</span><br><span class="line"> </span><br><span class="line">game()</span><br></pre></td></tr></table></figure></div>
+
+<p>　　就in_the_forest函数而言，参数对象是一个鸭子类型，它实现了方法多态。但是实际上我们知道，从严格的抽象来讲，Person类型和Duck完全风马牛不相及。</p>
+<h3 id="2、运算符也多态"><a href="#2、运算符也多态" class="headerlink" title="2、运算符也多态"></a>2、运算符也多态</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> add(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#输出3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> add(<span class="string">"hello,"</span>,<span class="string">"world"</span>) <span class="comment">#输出hello,world</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> add(<span class="number">1</span>,<span class="string">"abc"</span>) <span class="comment">#抛出异常 TypeError: unsupported operand type(s) for +: 'int' and 'str'</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　上例中，显而易见，Python的加法运算符是”多态“的，理论上，我们实现的add方法支持任意支持加法的对象，但是我们不用关心两个参数x和y具体是什么类型。</p>
+<p>　　一两个示例代码当然不能从根本上说明多态。普遍认为面向对象最有价值最被低估的特征其实是多态。我们所理解的多态的实现和子类的虚函数地址绑定有关系，<br>多态的效果其实和函数地址运行时动态绑定有关。在C#中实现多态的方式通常有重写和重载两种，从上面两段代码，我们其实可以分析得出Python中实现多态也可以变相<br>理解为重写和载。在Python中很多内置函数和运算符都是多态的。</p>
+<p>　　号外：在C#中，我们熟知接口（Interface）和多态相关，在处理多态对象时，只要关心它的接口（或者称为“协议”）而不需要显式指定特定实现类型即可，这也是IoC<br>中面向接口（抽象）而不依赖于具体实现编程的基础。可惜在Python中根本没有Interface（有抽象类）。而在TypeScript的<a href="http://go.microsoft.com/fwlink/?LinkId=267121" target="_blank" rel="noopener">Specification</a>中引入了Interface的概念：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">interface Friend &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    favoriteColor?: string;</span><br><span class="line">&#125;</span><br><span class="line">function add(friend: Friend) &#123;</span><br><span class="line">    var name = friend.name;</span><br><span class="line">&#125;</span><br><span class="line">add(&#123; name: <span class="string">"Fred"</span> &#125;);  // Ok</span><br><span class="line">add(&#123; favoriteColor: <span class="string">"blue"</span> &#125;);  // Error, name required</span><br><span class="line">add(&#123; name: <span class="string">"Jill"</span>, favoriteColor: <span class="string">"green"</span> &#125;);  // Ok</span><br></pre></td></tr></table></figure></div>
+
+<p>TypeScript语言规范里对Interface的定义是命名的对象类型（Programmers can give names to object types; we call named object types interfaces. ）。它直接等价<br>于下面的Ojbect Type：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Friend: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    name: string; favoriteColor?: string;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<p>上面这个Object Type在Playgound中等价的javascript代码如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Friend;</span><br></pre></td></tr></table></figure></div>
+
+<p>在TypeScript编程规范文档里，对Interface的一些说明：</p>
+<p><em>Interfaces provide the ability to give names to object types and the ability to compose existing named object types into new ones.<br>Interfaces have no run-time representation—they are purely a compile-time construct. Interfaces are particularly useful for documenting and validating</em><br><em>the required shape of properties, objects passed as parameters, and objects returned from functions</em>.</p>
+<p>Interface可以继承自Interface：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">interface Mover</span><br><span class="line">&#123;</span><br><span class="line">    move(): <span class="keyword">void</span>;</span><br><span class="line">    getStatus(): &#123; <span class="attr">speed</span>: number; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Shaker</span><br><span class="line">&#123;</span><br><span class="line">    shake(): <span class="keyword">void</span>;</span><br><span class="line">    getStatus(): &#123; <span class="attr">frequency</span>: number; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface SimpleMover extends Mover</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface MoverShaker extends Mover, Shaker</span><br><span class="line">&#123;</span><br><span class="line">    getStatus(): &#123; <span class="attr">speed</span>: number; frequency: number; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>我们尝试让类继承自Interface：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">interface Mover</span><br><span class="line">&#123;</span><br><span class="line">    move(): <span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleMover</span>  <span class="keyword">extends</span> <span class="title">Mover</span></span>&#123;</span><br><span class="line">    move() &#123;</span><br><span class="line">		alert(<span class="string">"move"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mover=<span class="keyword">new</span> SimpleMover();</span><br><span class="line">mover.move();</span><br></pre></td></tr></table></figure></div>
+
+<p>　　实践证明类是不能继承实现Interface的：A export class may only extend other classes, Mover is an interface.</p>
+<p>　　现在大家知道TypeScript里的Interface和我们所认识和理解的接口的区别了吗？相同的一个名词Interface，不同语境下意义并不完全相同，看上去好像是挺傻的，但是<br>学习和使用语言不做对比几乎是不可能的。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL Myisam和Innodb的区别</title>
     <url>/MySQL/MySQL_id_02.html</url>
     <content><![CDATA[<p>1、myisam只支持表级锁 Innodb支持行级锁<br>2、myisam不支持事务 Innodb支持事务<br>3、myisam不支持外键 Innodb支持外键</p>
@@ -434,6 +611,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Django微博三方登录</title>
+    <url>/Django/Django_id_32.html</url>
+    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>微博</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django钉钉三方登录</title>
     <url>/Django/Django_id_33.html</url>
     <content><![CDATA[<h3 id="钉钉回调函数"><a href="#钉钉回调函数" class="headerlink" title="钉钉回调函数"></a>钉钉回调函数</h3><a id="more"></a>
@@ -479,30 +680,6 @@
       <tags>
         <tag>Python</tag>
         <tag>七牛云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django微博三方登录</title>
-    <url>/Django/Django_id_32.html</url>
-    <content><![CDATA[<h3 id="微博回调函数"><a href="#微博回调函数" class="headerlink" title="微博回调函数"></a>微博回调函数</h3><a id="more"></a>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新浪微博回调</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wb_back</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 获取code</span></span><br><span class="line">    code = request.GET.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="comment"># 定义微博认证地址</span></span><br><span class="line">    access_token_url = <span class="string">"https://api.weibo.com/oauth2/access_token"</span></span><br><span class="line">    <span class="comment"># 定义参数</span></span><br><span class="line">    resp = requests.post(</span><br><span class="line">        access_token_url,</span><br><span class="line">        data=&#123;</span><br><span class="line">            <span class="string">"client_id"</span>: <span class="string">"1136298168"</span>,</span><br><span class="line">            <span class="string">"client_secret"</span>: <span class="string">"0b4424b9df3e189126a05999d93ba86a"</span>,</span><br><span class="line">            <span class="string">"grant_type"</span>: <span class="string">"authorization_code"</span>,</span><br><span class="line">            <span class="string">"code"</span>: code,</span><br><span class="line">            <span class="string">"redirect_uri"</span>: <span class="string">"http://127.0.0.1:8000/weibo"</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># 转换类型</span></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 换取新浪微博昵称</span></span><br><span class="line">    resp = requests.get(<span class="string">"https://api.weibo.com/2/users/show.json"</span>,</span><br><span class="line">                        params=&#123;<span class="string">"access_token"</span>: resp[<span class="string">"access_token"</span>],</span><br><span class="line">                                <span class="string">"uid"</span>: resp[<span class="string">"uid"</span>]&#125;)</span><br><span class="line"></span><br><span class="line">    resp = json.loads(resp.text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询用户表中是否存在</span></span><br><span class="line">    user = User.objects.filter(username=resp[<span class="string">"name"</span>]).first()</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 手动创建账号</span></span><br><span class="line">        user = User(username=resp[<span class="string">"name"</span>], password=<span class="string">""</span>)</span><br><span class="line">        user.save()</span><br><span class="line"></span><br><span class="line">        sina_id = user.username</span><br><span class="line">        user_id = user.id</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">"http://127.0.0.1:8080?uid="</span> + str(user_id) + <span class="string">"&amp;sina_id="</span> + str(sina_id))</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Django定义URL"><a href="#Django定义URL" class="headerlink" title="Django定义URL"></a>Django定义URL</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'weibo/'</span>,wb_back), <span class="comment"># 微博登录接口</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Vue调用"><a href="#Vue调用" class="headerlink" title="Vue调用"></a>Vue调用</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--模版绑定微博登录事件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"cursor:pointer"</span> <span class="attr">:src</span>=<span class="string">"src"</span> @<span class="attr">click</span>=<span class="string">"sina"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  新浪微博登录函数</span></span><br><span class="line">sina() &#123;</span><br><span class="line">	<span class="comment">// 组装</span></span><br><span class="line">	<span class="keyword">let</span> url = <span class="string">"https://api.weibo.com/oauth2/authorize?client_id=1136298168&amp;redirect_uri="</span> + config[<span class="string">'baseurl'</span>] + <span class="string">"weibo"</span>;</span><br><span class="line">	<span class="comment">// 进行跳转</span></span><br><span class="line">	<span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>微博</tag>
       </tags>
   </entry>
   <entry>
@@ -1484,6 +1661,31 @@
       </tags>
   </entry>
   <entry>
+    <title>v-charts趋势图</title>
+    <url>/Vue/Vue_id_15.html</url>
+    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
+<p>使用工具：v-charts</p>
+<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>v-charts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Echarts趋势图</title>
     <url>/Vue/Vue_id_14.html</url>
     <content><![CDATA[<p><strong>在vue中让数据以一个趋势展示，让我们对数据可以一目了然</strong></p>
@@ -1507,31 +1709,6 @@
       <tags>
         <tag>Vue</tag>
         <tag>Echarts</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>v-charts趋势图</title>
-    <url>/Vue/Vue_id_15.html</url>
-    <content><![CDATA[<p><strong>在vue中让数据以一个折线展示，让我们对数据可以一目了然</strong></p>
-<p>使用工具：v-charts</p>
-<p>官网：点击<a href="https://v-charts.js.org/" target="_blank" rel="noopener">v-charts官网</a>跳转</p>
-<a id="more"></a>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">npm install v-charts echarts --save</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="main-js中完整引入"><a href="#main-js中完整引入" class="headerlink" title="main.js中完整引入"></a>main.js中完整引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">在vue中导入Echarts</span><br><span class="line"><span class="comment">// 导入曲线图包</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VCharts <span class="keyword">from</span> <span class="string">'v-charts'</span></span><br><span class="line">Vue.use(VCharts)</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="使用—-设置参数"><a href="#使用—-设置参数" class="headerlink" title="使用—-设置参数"></a>使用—-设置参数</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建Echarts函数</span></span><br><span class="line"><span class="comment">// 接收动态参数</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        chartData: &#123;</span><br><span class="line">            <span class="comment">// 曲线标题</span></span><br><span class="line">          columns: [<span class="string">'日期'</span>, <span class="string">'访问用户'</span>, <span class="string">'下单用户'</span>, <span class="string">'下单率'</span>],</span><br><span class="line">          rows: [</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/1'</span>, <span class="string">'访问用户'</span>: <span class="number">1393</span>, <span class="string">'下单用户'</span>: <span class="number">1093</span>, <span class="string">'下单率'</span>: <span class="number">0.32</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/2'</span>, <span class="string">'访问用户'</span>: <span class="number">3530</span>, <span class="string">'下单用户'</span>: <span class="number">3230</span>, <span class="string">'下单率'</span>: <span class="number">0.26</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/3'</span>, <span class="string">'访问用户'</span>: <span class="number">2923</span>, <span class="string">'下单用户'</span>: <span class="number">2623</span>, <span class="string">'下单率'</span>: <span class="number">0.76</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/4'</span>, <span class="string">'访问用户'</span>: <span class="number">1723</span>, <span class="string">'下单用户'</span>: <span class="number">1423</span>, <span class="string">'下单率'</span>: <span class="number">0.49</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/5'</span>, <span class="string">'访问用户'</span>: <span class="number">3792</span>, <span class="string">'下单用户'</span>: <span class="number">3492</span>, <span class="string">'下单率'</span>: <span class="number">0.323</span> &#125;,</span><br><span class="line">            &#123; <span class="string">'日期'</span>: <span class="string">'1/6'</span>, <span class="string">'访问用户'</span>: <span class="number">4593</span>, <span class="string">'下单用户'</span>: <span class="number">4293</span>, <span class="string">'下单率'</span>: <span class="number">0.78</span> &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="模版引入"><a href="#模版引入" class="headerlink" title="模版引入"></a>模版引入</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  	&lt;ve-line :data&#x3D;&quot;chartData&quot;&gt;&lt;&#x2F;ve-line&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="使用动态数据"><a href="#使用动态数据" class="headerlink" title="使用动态数据"></a>使用动态数据</h4><p>　　如果想导入参数，实现动态加载，则需将rows设置成空列表，当获取到参数后，直接给rows赋值即可实现动态数据加载</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>v-charts</tag>
       </tags>
   </entry>
   <entry>
@@ -1563,21 +1740,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue中router-link的点击事件</title>
-    <url>/Vue/Vue_id_06.html</url>
-    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
-<a id="more"></a>
-
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>点击事件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue引入百度地图</title>
     <url>/Vue/Vue_id_05.html</url>
     <content><![CDATA[<p>　　Vue中引入百度地图</p>
@@ -1599,6 +1761,21 @@
       <tags>
         <tag>Vue</tag>
         <tag>百度地图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue中router-link的点击事件</title>
+    <url>/Vue/Vue_id_06.html</url>
+    <content><![CDATA[<p>　　Vue中的router-link绑定点击事件失败，因为router-link会阻止click事件</p>
+<a id="more"></a>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。<br>所以如果在想要在router-link上添加事件的话需要<strong>@click.native</strong>这样写</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>点击事件</tag>
       </tags>
   </entry>
   <entry>
@@ -1866,13 +2043,26 @@
       </tags>
   </entry>
   <entry>
-    <title>redis数据淘汰机制</title>
-    <url>/Redis/Redis_id_03.html</url>
-    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
+    <title>redis雪崩、击穿、穿透</title>
+    <url>/Redis/Redis_id_04.html</url>
+    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
 <a id="more"></a>
 
-<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
+<p>　　<strong>发生场景：</strong></p>
+<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
+<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
+　　</p>
+<p><strong>解决方案</strong></p>
+<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
+<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
+<p>　　<strong>发生场景</strong></p>
+<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
+<p>　　<strong>解决方案</strong></p>
+<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -1920,26 +2110,13 @@
       </tags>
   </entry>
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <url>/Redis/Redis_id_04.html</url>
-    <content><![CDATA[<h2 id="redis穿透"><a href="#redis穿透" class="headerlink" title="redis穿透"></a>redis穿透</h2><p>　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存<br>　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义<br>　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
+    <title>redis数据淘汰机制</title>
+    <url>/Redis/Redis_id_03.html</url>
+    <content><![CDATA[<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>　　我们set key的时候，都可以给一个expire time，就是过期时间，指定这个key比如说只能存活1个小时，我们自己可以指定缓存到期就失效。<br>　　如果假设你设置一个一批key只能存活1个小时，那么接下来1小时后，redis是怎么对这批key进行删除的？<br>　　答案是：定期删除+惰性删除</p>
 <a id="more"></a>
 
-<p>　　<strong>发生场景：</strong></p>
-<p>　　　　对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。<br>　　　　黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。<br>　　　　举个例子：数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，<br>　　　　直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、有很多种方法可以有效地解决缓存穿透问题，最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数<br>　　　　　　据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br>　　　　2、另外也有一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数据不存在，还是系统故障），我们仍然把这个空结果进行<br>　　　　　　缓存，但它的过期时间会很短，最长不超过五分钟。</p>
-<h2 id="redis雪崩"><a href="#redis雪崩" class="headerlink" title="redis雪崩"></a>redis雪崩</h2><p>　　　　1、缓存中大批量热点数据过期后系统涌入大量查询请求<br>　　　　2、因为大部分数据在Redis层已经失效，请求渗透到数据库层<br>　　　　3、大批量请求犹如洪水一般涌入，引起数据库压力造成查询堵塞甚至宕机。</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机，缓存挂了。<br>　　　　此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。<br>　　　　此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。
-　　</p>
-<p><strong>解决方案</strong></p>
-<p>　　　　1、事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃<br>　　　　2、事中：本地 ehcache 缓存 + hystrix 限流&amp;降级，避免 MySQL 被打死。<br>　　　　3、事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。<br>　　　　4、用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 redis。如果 ehcache 和 redis 都没有，再查数据库，<br>　　　　　　将数据库中的结果，写入 ehcache 和 redis 中。<br>　　　　5、 限流组件，可以设置每秒的请求，有多少能通过组件，剩余的未通过的请求，怎么办？走降级！可以返回一些默认的值，或者友情提示，或者<br>　　　　　　空白的值。这样可以保证数据库绝对不会死，限流组件确保了每秒只有多少个请求能通过。 -只要数据库不死，就是说，对用户来说，2/5 的请求都是可以被<br>　　　　　　处理的。 - 只要有 2/5 的请求可以被处理，就意味着你的系统没死，对用户来说，可能就是点击几次刷不出来页面，但是多点几次，就可以刷出来一次。</p>
-<h2 id="redis击穿"><a href="#redis击穿" class="headerlink" title="redis击穿"></a>redis击穿</h2><p>　　　　1、就是说某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况<br>　　　　2、当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。<br>　　　　3、击穿和缓存雪崩的区别在于击穿针对某一key缓存，雪崩则是很多key</p>
-<p>　　<strong>发生场景</strong></p>
-<p>　　　　秒杀现场，在同一时间高频访问某一数据，并且当前数据正好过期。</p>
-<p>　　<strong>解决方案</strong></p>
-<p>　　　　1、可以将热点数据设置为永远不过期<br>　　　　2、实现互斥锁，等待第一个请求构建完缓存之后，再释放锁，进而其它请求才能通过该 key 访问数据。</p>
+<p>　　所谓定期删除，指的是redis默认是每隔100ms就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。<br>　　注意，这里可不是每隔100ms就遍历所有的设置过期时间的key，那样就是一场性能上的灾难。<br>　　实际上redis是每隔100ms随机抽取一些key来检查和删除的。<br>　　但是，定期删除可能会导致很多过期key到了时间并没有被删除掉，所以就得靠惰性删除了。<br>　　这就是说，在你获取某个key的时候，redis会检查一下 ，这个key如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。<br>　　并不是key到时间就被删除掉，而是你查询这个key的时候，redis再懒惰的检查一下<br>　　通过上述两种手段结合起来，保证过期的key一定会被干掉。<br>　　但是实际上这还是有问题的，如果定期删除漏掉了很多过期key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？<br>　　如果大量过期key堆积在内存里，导致redis内存块耗尽了，怎么办？<br>　　答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>　　如果redis的内存占用过多的时候，此时会进行内存淘汰，有如下一些策略：<br>　　noeviction：当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧<br>　　allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key（这个是最常用的）<br>　　allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key，这个一般没人用吧<br>　　volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key（这个一般不太合适）<br>　　volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>　　volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除</p>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -2975,77 +3152,6 @@ redis-server sentinel.conf --sentinel</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>CentOS7服务器配置主从之后的一些操作</title>
-    <url>/CentOS/CentOS_id_06.html</url>
-    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
-
-<ol>
-<li><p>首先说说配置主从数据库的问题</p>
-<ul>
-<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
-</li>
-<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
-</li>
-<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
-<ul>
-<li><p>第一种:   Slave_SQL_Running: No</p>
-<ul>
-<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
-</ul>
-</li>
-<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
-<ul>
-<li>类似这种形式的报错</li>
-<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
-</ul>
-</li>
-<li><p>说说解决方案:</p>
-<ul>
-<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
-</li>
-<li><pre><code class="mysql">stop slave;  
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
-start slave;
-show slave status\G  </code></pre>
-</li>
-<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
-</li>
-<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
-</li>
-<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
-</li>
-<li><p>然后…..</p>
-</li>
-<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
-</li>
-<li><p>居然是真的??????????</p>
-</li>
-</ul>
-</li>
-<li><p>总之,多写几遍就解决了,  就这么简单</p>
-</li>
-</ul>
-</li>
-<li><p>还能说什么</p>
-</li>
-</ul>
-</li>
-<li><p>然后就是关于一些在数据库中会用到的命令</p>
-<ol>
-<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
-</ol>
-</li>
-</ol>
-<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
-]]></content>
-      <categories>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7服务器配置主从</title>
     <url>/CentOS/CentOS_id_05.html</url>
     <content><![CDATA[<h2 id="Centos7-环境下配置mysql主从服务"><a href="#Centos7-环境下配置mysql主从服务" class="headerlink" title="Centos7 环境下配置mysql主从服务"></a>Centos7 环境下配置mysql主从服务</h2><a id="more"></a>
@@ -3118,6 +3224,77 @@ show slave status\G  </code></pre>
 </ol>
 <p>以上配置完成之后,从服务器将会自动从主服务器上同步数据库</p>
 <p>以上,就是mysql主从配置的操作</p>
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7服务器配置主从之后的一些操作</title>
+    <url>/CentOS/CentOS_id_06.html</url>
+    <content><![CDATA[<h2 id="今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理"><a href="#今天配置主从-简直脑袋爆炸-网路上各种虚虚实实的攻略一个比一个扯淡-踩坑踩了一堆-在这里记录一下-免得下次遇到同样的情况导致无法处理" class="headerlink" title="今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理"></a>今天配置主从,  简直脑袋爆炸,  网路上各种虚虚实实的攻略一个比一个扯淡,  踩坑踩了一堆,  在这里记录一下,  免得下次遇到同样的情况导致无法处理</h2><a id="more"></a>
+
+<ol>
+<li><p>首先说说配置主从数据库的问题</p>
+<ul>
+<li><p>首先,主从数据库的版本必须一样,  实测确实如此,  虽然我也不确定最开始是不是我不熟练导致的就是了.</p>
+</li>
+<li><p>第二点, 不要用官网给的安装包,要用zip! zip! 虽然配置起来得手动,  但是说实话,  所有配置文件自己设定这一点就足够让人特意去费这番功夫了.主从需要在配置文件中进行修改,  我一开始装了一个安装包的mysql, 各种出错,最重要的是,修改了配置选项之后并不起作用,这一点拖了我一个小时,最终一气之下选择卸载,重新卸载了官网的zip安装包,解压后手动配置了my.ini文件,方才完成了从属服务器的配置.</p>
+</li>
+<li><p>第三点,启动之后报错,这里一共遇到了两种报错</p>
+<ul>
+<li><p>第一种:   Slave_SQL_Running: No</p>
+<ul>
+<li>这个属性和另外一个属性(Slave_IO_Running)一样重要,可以说,这两个中只要有一个值为no,就意味着你的从数据库挂了,就这么恐怖</li>
+</ul>
+</li>
+<li><p>第二种:   Error executing row event: ‘Table ‘lab.django_migrations’ doesn’t exist’</p>
+<ul>
+<li>类似这种形式的报错</li>
+<li>我一直以为是主数据库的问题,甚至想着要不要直接重置一下主数据库,但万万没想到问题居然会这样解决</li>
+</ul>
+</li>
+<li><p>说说解决方案:</p>
+<ul>
+<li><p>网上搜索到的都是一个吊样,估计都是抄的同一篇文章,具体源头不可考据.</p>
+</li>
+<li><pre><code class="mysql">stop slave;  
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+start slave;
+show slave status\G  </code></pre>
+</li>
+<li><p>嗯,就这四条,乍一运行没啥卵用,但是在我翻遍网上的文章之后,一哥们的文章吸引了我的注意力<img src="/fcg22450.github.io/img/online_course/slave_code.png" alt="截图"></p>
+</li>
+<li><p><del>够扯淡,我喜欢</del><img src="https://www./fcg22450.github.io/images/meme/%E5%A4%9F%E6%89%AF%E6%B7%A1.png" alt="够扯淡"></p>
+</li>
+<li><p>综上所述,  那时候基本不抱希望的我试了试…..</p>
+</li>
+<li><p>然后…..</p>
+</li>
+<li><img src="https://www.f322.xyz/images/meme/what.png" alt="what">
+</li>
+<li><p>居然是真的??????????</p>
+</li>
+</ul>
+</li>
+<li><p>总之,多写几遍就解决了,  就这么简单</p>
+</li>
+</ul>
+</li>
+<li><p>还能说什么</p>
+</li>
+</ul>
+</li>
+<li><p>然后就是关于一些在数据库中会用到的命令</p>
+<ol>
+<li><del>你是不是以为我会写一堆</del><img src="/fcg22450.github.io/images/meme/%E6%83%B3%E9%83%BD%E4%B8%8D%E8%A6%81%E6%83%B3.png" alt="想都不要想"></li>
+</ol>
+</li>
+</ol>
+<p>当然,以上纯属扯淡,哈哈哈哈,<del>虽然我就是这么想的</del>,那么,本期的记录到此结束,拜拜~~ヾ(•ω•`)o.</p>
 ]]></content>
       <categories>
         <category>CentOS</category>
