@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-11T10:04:56.253Z</updated>
+  <updated>2020-06-15T13:40:31.717Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis的五大数据类型的底层实现</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_06.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_06.html</id>
+    <published>2020-06-14T16:00:00.000Z</published>
+    <updated>2020-06-15T13:40:31.717Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、简介&quot;&gt;&lt;a href=&quot;#1、简介&quot; class=&quot;headerlink&quot; title=&quot;1、简介&quot;&gt;&lt;/a&gt;1、简介&lt;/h2&gt;&lt;p&gt;　　Redis的五大数据类型也称五大数据对象；前面介绍过6大数据结构，Redis并没有直接使用这些结构来实现键值对数据库，而是使用这些结构构建了一个对象系&lt;br&gt;统redisObject；这个对象系统包含了五大数据对象，字符串对象（string）、列表对象（list）、哈希对象（hash）、集合（set）对象和有序集合对象（zset）；&lt;br&gt;而这五大对象的底层数据编码可以用命令OBJECT ENCODING来进行查看。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://onlyyu.cn/categories/Redis/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python可变与不可变数据类型</title>
@@ -255,29 +276,6 @@
   </entry>
   
   <entry>
-    <title>Django微博三方登录</title>
-    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
-    <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:51.372Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
-    
-    
-      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
-    
-      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Django钉钉三方登录</title>
     <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
     <id>https://onlyyu.cn/Django/Django_id_33.html</id>
@@ -320,6 +318,29 @@
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
       <category term="七牛云" scheme="https://onlyyu.cn/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django微博三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
+    <published>2020-06-01T16:00:00.000Z</published>
+    <updated>2020-06-02T03:38:51.372Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Django" scheme="https://onlyyu.cn/categories/Django/"/>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
+    
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
     
   </entry>
   
@@ -627,6 +648,29 @@
   </entry>
   
   <entry>
+    <title>Vue实现Excel文件下载</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-06-02T14:04:54.745Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>v-charts趋势图</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
@@ -677,15 +721,15 @@
   </entry>
   
   <entry>
-    <title>Vue实现Excel文件下载</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:54.745Z</updated>
+    <title>Vue中详细的百度地图解析</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-06-14T11:29:31.732Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
+      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/Vue/Vue_id_05.html&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
     
     </summary>
     
@@ -695,7 +739,7 @@
     
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
@@ -744,29 +788,6 @@
   </entry>
   
   <entry>
-    <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-02T14:01:20.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/2020/05/28/Vue/Vue引入百度地图/&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算某年某月某一天是第几天</title>
     <link href="https://onlyyu.cn/Python/Python_id_04.html"/>
     <id>https://onlyyu.cn/Python/Python_id_04.html</id>
@@ -809,15 +830,15 @@
   </entry>
   
   <entry>
-    <title>redis雪崩、击穿、穿透</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
+    <title>redis优化</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:18:24.377Z</updated>
+    <updated>2020-05-24T10:27:46.871Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
+      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
     
     </summary>
     
@@ -830,15 +851,15 @@
   </entry>
   
   <entry>
-    <title>redis优化</title>
-    <link href="https://onlyyu.cn/Redis/Redis_id_05.html"/>
-    <id>https://onlyyu.cn/Redis/Redis_id_05.html</id>
+    <title>redis雪崩、击穿、穿透</title>
+    <link href="https://onlyyu.cn/Redis/Redis_id_04.html"/>
+    <id>https://onlyyu.cn/Redis/Redis_id_04.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-24T10:27:46.871Z</updated>
+    <updated>2020-05-24T10:18:24.377Z</updated>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;内存管理优化&quot;&gt;&lt;a href=&quot;#内存管理优化&quot; class=&quot;headerlink&quot; title=&quot;内存管理优化&quot;&gt;&lt;/a&gt;内存管理优化&lt;/h4&gt;&lt;p&gt;Redis Hash是value内部为一个HashMap，如果该Map的成员数比较少，则会采用类似一维线性的紧凑格式来存储该Map, 即省去了大量指针的内存开销，这个参数控制对应在redis.conf配置文件中下面2项：&lt;/p&gt;
+      &lt;h2 id=&quot;redis穿透&quot;&gt;&lt;a href=&quot;#redis穿透&quot; class=&quot;headerlink&quot; title=&quot;redis穿透&quot;&gt;&lt;/a&gt;redis穿透&lt;/h2&gt;&lt;p&gt;　　　　1、查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存&lt;br&gt;　　　　2、这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义&lt;br&gt;　　　　3、在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。&lt;/p&gt;
     
     </summary>
     
@@ -3578,27 +3599,6 @@
   </entry>
   
   <entry>
-    <title>axios请求与跨域</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_03.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_03.html</id>
-    <published>2018-03-08T16:00:00.000Z</published>
-    <updated>2020-06-02T13:59:53.222Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;axios请求与跨域&quot;&gt;&lt;a href=&quot;#axios请求与跨域&quot; class=&quot;headerlink&quot; title=&quot;axios请求与跨域.&quot;&gt;&lt;/a&gt;axios请求与跨域.&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Axios" scheme="https://onlyyu.cn/tags/Axios/"/>
-    
-  </entry>
-  
-  <entry>
     <title>API接口生成</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_01.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_01.html</id>
@@ -3616,6 +3616,27 @@
     
     
       <category term="axios" scheme="https://onlyyu.cn/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>axios请求与跨域</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_03.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_03.html</id>
+    <published>2018-03-08T16:00:00.000Z</published>
+    <updated>2020-06-02T13:59:53.222Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;axios请求与跨域&quot;&gt;&lt;a href=&quot;#axios请求与跨域&quot; class=&quot;headerlink&quot; title=&quot;axios请求与跨域.&quot;&gt;&lt;/a&gt;axios请求与跨域.&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Axios" scheme="https://onlyyu.cn/tags/Axios/"/>
     
   </entry>
   
