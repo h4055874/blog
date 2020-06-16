@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-15T13:40:31.717Z</updated>
+  <updated>2020-06-16T08:43:26.366Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何提高系统的并发量</title>
+    <link href="https://onlyyu.cn/Python/Python_id_63.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_63.html</id>
+    <published>2020-06-16T08:43:00.000Z</published>
+    <updated>2020-06-16T08:43:26.366Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　互联网分布式架构设计，提高系统并发能力的方式，方法论上主要有两种：垂直扩展(Scale Up)与水平扩展(Scale Out)。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="高并发" scheme="https://onlyyu.cn/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高并发解决方案</title>
+    <link href="https://onlyyu.cn/Python/Python_id_62.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_62.html</id>
+    <published>2020-06-16T08:17:00.000Z</published>
+    <updated>2020-06-16T08:43:34.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;高并发介绍&quot;&gt;&lt;a href=&quot;#高并发介绍&quot; class=&quot;headerlink&quot; title=&quot;高并发介绍&quot;&gt;&lt;/a&gt;高并发介绍&lt;/h2&gt;&lt;p&gt;　&lt;strong&gt;高并发中一些概念&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　&lt;strong&gt;1.&lt;/strong&gt; &lt;strong&gt;PV(访问量)：&lt;/strong&gt; 页面访问量，页面刷新一次算一次。&lt;/p&gt;
+&lt;p&gt;　　&lt;strong&gt;2. UV(独立访客)：&lt;/strong&gt; 即Unique Visitor，一个客户端（电脑，手机）为一个访客；&lt;/p&gt;
+&lt;p&gt;　　&lt;strong&gt;3. DAU(日活跃用户数)：&lt;/strong&gt;登录或使用了某个产品的用户数，这与流量统计工具里的访客（UV）概念相似。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="高并发" scheme="https://onlyyu.cn/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx正反向代理</title>
+    <link href="https://onlyyu.cn/Python/Python_id_61.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_61.html</id>
+    <published>2020-06-16T08:13:00.000Z</published>
+    <updated>2020-06-16T08:43:40.274Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、nginx基本介绍&quot;&gt;&lt;a href=&quot;#一、nginx基本介绍&quot; class=&quot;headerlink&quot; title=&quot;一、nginx基本介绍&quot;&gt;&lt;/a&gt;一、nginx基本介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1、nginx高并发原理（ 多进程+epoll实现高并发 ）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　1. Nginx 在启动后，会有一个 master 进程和多个相互独立的 worker 进程。&lt;/p&gt;
+&lt;p&gt;　　2. 每个子进程只有一个线程(协程)，采用的 IO多路复用模型epoll，实现高并发。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="Nginx" scheme="https://onlyyu.cn/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis的五大数据类型的底层实现</title>
@@ -276,15 +344,15 @@
   </entry>
   
   <entry>
-    <title>Django钉钉三方登录</title>
-    <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_33.html</id>
+    <title>Django微博三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:55.559Z</updated>
+    <updated>2020-06-02T03:38:51.372Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;钉钉回调函数&quot;&gt;&lt;a href=&quot;#钉钉回调函数&quot; class=&quot;headerlink&quot; title=&quot;钉钉回调函数&quot;&gt;&lt;/a&gt;钉钉回调函数&lt;/h3&gt;
+      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
     
     </summary>
     
@@ -294,7 +362,7 @@
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="钉钉" scheme="https://onlyyu.cn/tags/%E9%92%89%E9%92%89/"/>
+      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
     
   </entry>
   
@@ -322,15 +390,15 @@
   </entry>
   
   <entry>
-    <title>Django微博三方登录</title>
-    <link href="https://onlyyu.cn/Django/Django_id_32.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_32.html</id>
+    <title>Django钉钉三方登录</title>
+    <link href="https://onlyyu.cn/Django/Django_id_33.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_33.html</id>
     <published>2020-06-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:38:51.372Z</updated>
+    <updated>2020-06-02T03:38:55.559Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;微博回调函数&quot;&gt;&lt;a href=&quot;#微博回调函数&quot; class=&quot;headerlink&quot; title=&quot;微博回调函数&quot;&gt;&lt;/a&gt;微博回调函数&lt;/h3&gt;
+      &lt;h3 id=&quot;钉钉回调函数&quot;&gt;&lt;a href=&quot;#钉钉回调函数&quot; class=&quot;headerlink&quot; title=&quot;钉钉回调函数&quot;&gt;&lt;/a&gt;钉钉回调函数&lt;/h3&gt;
     
     </summary>
     
@@ -340,7 +408,7 @@
     
       <category term="Python" scheme="https://onlyyu.cn/tags/Python/"/>
     
-      <category term="微博" scheme="https://onlyyu.cn/tags/%E5%BE%AE%E5%8D%9A/"/>
+      <category term="钉钉" scheme="https://onlyyu.cn/tags/%E9%92%89%E9%92%89/"/>
     
   </entry>
   
@@ -648,29 +716,6 @@
   </entry>
   
   <entry>
-    <title>Vue实现Excel文件下载</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
-    <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2020-06-02T14:04:54.745Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
-    
-    
-      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
-    
-      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>v-charts趋势图</title>
     <link href="https://onlyyu.cn/Vue/Vue_id_15.html"/>
     <id>https://onlyyu.cn/Vue/Vue_id_15.html</id>
@@ -721,15 +766,15 @@
   </entry>
   
   <entry>
-    <title>Vue中详细的百度地图解析</title>
-    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
-    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
-    <published>2020-05-27T16:00:00.000Z</published>
-    <updated>2020-06-14T11:29:31.732Z</updated>
+    <title>Vue实现Excel文件下载</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_16.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_16.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-06-02T14:04:54.745Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/Vue/Vue_id_05.html&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
+      &lt;p&gt;在vue中实现数据下载，保存为Excel文件&lt;/p&gt;
     
     </summary>
     
@@ -739,7 +784,7 @@
     
       <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
     
-      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+      <category term="文件下载" scheme="https://onlyyu.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
@@ -784,6 +829,29 @@
     
     
       <category term="点击事件" scheme="https://onlyyu.cn/tags/%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue中详细的百度地图解析</title>
+    <link href="https://onlyyu.cn/Vue/Vue_id_08.html"/>
+    <id>https://onlyyu.cn/Vue/Vue_id_08.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-06-14T11:29:31.732Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　Vue中如何引入百度地图，点击&lt;a href=&quot;/Vue/Vue_id_05.html&quot;&gt;Vue中引入百度地图&lt;/a&gt;查看&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://onlyyu.cn/tags/Vue/"/>
+    
+      <category term="百度地图" scheme="https://onlyyu.cn/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
@@ -2904,15 +2972,15 @@
   </entry>
   
   <entry>
-    <title>flask文件下载</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_12.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_12.html</id>
+    <title>flask中g定向</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_13.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_13.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:38.230Z</updated>
+    <updated>2020-05-17T06:48:43.825Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
+      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
     
     </summary>
     
@@ -2925,15 +2993,15 @@
   </entry>
   
   <entry>
-    <title>flask中g定向</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_13.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_13.html</id>
+    <title>flask文件下载</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_12.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_12.html</id>
     <published>2018-10-13T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:43.825Z</updated>
+    <updated>2020-05-17T06:48:38.230Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;g定向&quot;&gt;&lt;a href=&quot;#g定向&quot; class=&quot;headerlink&quot; title=&quot;g定向&quot;&gt;&lt;/a&gt;g定向&lt;/h2&gt;
+      &lt;h2 id=&quot;文件下载模块&quot;&gt;&lt;a href=&quot;#文件下载模块&quot; class=&quot;headerlink&quot; title=&quot;文件下载模块&quot;&gt;&lt;/a&gt;文件下载模块&lt;/h2&gt;
     
     </summary>
     
@@ -3157,16 +3225,15 @@
   </entry>
   
   <entry>
-    <title>flask开端</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
+    <title>flask_route</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:47:51.366Z</updated>
+    <updated>2020-05-17T06:48:01.847Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
+      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -3179,15 +3246,16 @@
   </entry>
   
   <entry>
-    <title>flask_route</title>
-    <link href="https://onlyyu.cn/Flask/Flask_id_04.html"/>
-    <id>https://onlyyu.cn/Flask/Flask_id_04.html</id>
+    <title>flask开端</title>
+    <link href="https://onlyyu.cn/Flask/Flask_id_02.html"/>
+    <id>https://onlyyu.cn/Flask/Flask_id_02.html</id>
     <published>2018-08-02T16:00:00.000Z</published>
-    <updated>2020-05-17T06:48:01.847Z</updated>
+    <updated>2020-05-17T06:47:51.366Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;flask-route&quot;&gt;&lt;a href=&quot;#flask-route&quot; class=&quot;headerlink&quot; title=&quot;*flask_route*&quot;&gt;&lt;/a&gt;&lt;strong&gt;*&lt;u&gt;flask_route*&lt;/u&gt;&lt;/strong&gt;&lt;/h2&gt;
+      &lt;h2 id=&quot;—————————–flask开端——————————–&quot;&gt;&lt;a href=&quot;#—————————–flask开端——————————–&quot; class=&quot;headerlink&quot; title=&quot;—————————–flask开端——————————–&quot;&gt;&lt;/a&gt;—————————–flask开端——————————–&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;flask安装&quot;&gt;&lt;a href=&quot;#flask安装&quot; class=&quot;headerlink&quot; title=&quot;flask安装:&quot;&gt;&lt;/a&gt;flask安装:&lt;/h2&gt;
     
     </summary>
     
@@ -3410,15 +3478,15 @@
   </entry>
   
   <entry>
-    <title>Django数据库关系属性</title>
-    <link href="https://onlyyu.cn/Django/Django_id_19.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_19.html</id>
+    <title>Django中cookie和session</title>
+    <link href="https://onlyyu.cn/Django/Django_id_22.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_22.html</id>
     <published>2018-03-17T16:00:00.000Z</published>
-    <updated>2020-05-17T06:50:36.944Z</updated>
+    <updated>2020-05-17T06:50:49.250Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;数据库关系属性&quot;&gt;&lt;a href=&quot;#数据库关系属性&quot; class=&quot;headerlink&quot; title=&quot;数据库关系属性&quot;&gt;&lt;/a&gt;数据库关系属性&lt;/h2&gt;
+      &lt;h2 id=&quot;COOKIES&quot;&gt;&lt;a href=&quot;#COOKIES&quot; class=&quot;headerlink&quot; title=&quot;COOKIES&quot;&gt;&lt;/a&gt;COOKIES&lt;/h2&gt;
     
     </summary>
     
@@ -3431,15 +3499,15 @@
   </entry>
   
   <entry>
-    <title>Django中cookie和session</title>
-    <link href="https://onlyyu.cn/Django/Django_id_22.html"/>
-    <id>https://onlyyu.cn/Django/Django_id_22.html</id>
+    <title>Django数据库关系属性</title>
+    <link href="https://onlyyu.cn/Django/Django_id_19.html"/>
+    <id>https://onlyyu.cn/Django/Django_id_19.html</id>
     <published>2018-03-17T16:00:00.000Z</published>
-    <updated>2020-05-17T06:50:49.250Z</updated>
+    <updated>2020-05-17T06:50:36.944Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;COOKIES&quot;&gt;&lt;a href=&quot;#COOKIES&quot; class=&quot;headerlink&quot; title=&quot;COOKIES&quot;&gt;&lt;/a&gt;COOKIES&lt;/h2&gt;
+      &lt;h2 id=&quot;数据库关系属性&quot;&gt;&lt;a href=&quot;#数据库关系属性&quot; class=&quot;headerlink&quot; title=&quot;数据库关系属性&quot;&gt;&lt;/a&gt;数据库关系属性&lt;/h2&gt;
     
     </summary>
     
