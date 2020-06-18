@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlyyu.cn/"/>
-  <updated>2020-06-17T12:31:59.339Z</updated>
+  <updated>2020-06-18T11:26:17.474Z</updated>
   <id>https://onlyyu.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>socket阻塞与非阻塞、同步与异步、select、pool、epool</title>
+    <link href="https://onlyyu.cn/Python/Python_id_64.html"/>
+    <id>https://onlyyu.cn/Python/Python_id_64.html</id>
+    <published>2020-06-18T11:26:00.000Z</published>
+    <updated>2020-06-18T11:26:17.474Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、与I-O相关的五个重要概念&quot;&gt;&lt;a href=&quot;#一、与I-O相关的五个重要概念&quot; class=&quot;headerlink&quot; title=&quot;一、与I/O相关的五个重要概念&quot;&gt;&lt;/a&gt;一、与I/O相关的五个重要概念&lt;/h2&gt;&lt;h3 id=&quot;1、第一个概念：用户空间与内核空间&quot;&gt;&lt;a href=&quot;#1、第一个概念：用户空间与内核空间&quot; class=&quot;headerlink&quot; title=&quot;1、第一个概念：用户空间与内核空间&quot;&gt;&lt;/a&gt;1、第一个概念：用户空间与内核空间&lt;/h3&gt;&lt;p&gt;　　1.现在操作系统都是采用虚拟存储器，那么对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方）&lt;/p&gt;
+&lt;p&gt;　　2.操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://onlyyu.cn/categories/Python/"/>
+    
+    
+      <category term="阻塞/非阻塞" scheme="https://onlyyu.cn/tags/%E9%98%BB%E5%A1%9E-%E9%9D%9E%E9%98%BB%E5%A1%9E/"/>
+    
+      <category term="同步/异步" scheme="https://onlyyu.cn/tags/%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis分布式锁</title>

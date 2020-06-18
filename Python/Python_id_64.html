@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%97%95%E8%BF%B9.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Gabriola:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、与I&#x2F;O相关的五个重要概念1、第一个概念：用户空间与内核空间　　1.现在操作系统都是采用虚拟存储器，那么对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方） 　　2.操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="socket阻塞与非阻塞、同步与异步、select、pool、epool">
+<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_64.html">
+<meta property="og:site_name" content="Yu ting&#39;s blog">
+<meta property="og:description" content="一、与I&#x2F;O相关的五个重要概念1、第一个概念：用户空间与内核空间　　1.现在操作系统都是采用虚拟存储器，那么对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方） 　　2.操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/01.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/02.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/03.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/04.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/05.png">
+<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/06.png">
+<meta property="article:published_time" content="2020-06-18T11:26:00.000Z">
+<meta property="article:modified_time" content="2020-06-18T11:26:17.474Z">
+<meta property="article:author" content="Yu ting">
+<meta property="article:tag" content="阻塞&#x2F;非阻塞">
+<meta property="article:tag" content="同步&#x2F;异步">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%8F%8A%E5%90%8C%E5%BC%82%E6%AD%A5/01.png">
+
+<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_64.html">
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+  <title>socket阻塞与非阻塞、同步与异步、select、pool、epool | Yu ting's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- <script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+  </script> -->
+
+   <!-- 不知道是什么玩意 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" /> -->
+<link rel="alternate" href="/atom.xml" title="Yu ting's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" style="background-image:url(/images/14.jpg);background-repeat:no-repeat;background-attachment: fixed;">
+<!-- <body itemscope itemtype="http://schema.org/WebPage" style="background-color: #C1C1C1"> -->
+
+
+  <div class="container use-motion">
+    <!-- 网页上方的黑色长线 -->
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yu ting's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">I only for you!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">74</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">184</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+        <!--
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn"></label>
+        -->
+      </li>
+  </ul>
+
+<style>
+    /*input css begin*/
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* input[type="checkbox"],input[type="radio"]{
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+input[type="checkbox"]:checked + label:after{
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"]:not(:checked) + label:after {
+    transition: all 0.3s ease-out;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before,
+input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{
+    transition: all 0.3s ease-in-out;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    transition: all 0.3s ease-in-out;
+}
+.switch_default[type="checkbox"]{
+    display: none;
+}
+.switch_default + label{
+     background-color: #e6e6e6;
+     border-radius:7px;
+     cursor: pointer;
+     display: inline-block;
+     height: 14px;
+     position: relative;
+     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     width: 30px;
+ }
+.switch_default + label:after{
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 12px;
+    left: 1px;
+    position: absolute;
+    top: .5px;
+    width: 12px;
+    box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+}
+.switch_default:checked + label{
+    background-color: #1ABC9C;
+    box-shadow:none;
+}
+.switch_default:checked + label:after{
+    left: 17px;
+}
+</style>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    <!-- -->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+    <!--sm -->
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_64.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yu ting">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yu ting's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          socket阻塞与非阻塞、同步与异步、select、pool、epool
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-18 19:26:00 / 修改时间：19:26:17" itemprop="dateCreated datePublished" datetime="2020-06-18T19:26:00+08:00">2020-06-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/Python_id_64.html" class="post-meta-item leancloud_visitors" data-flag-title="socket阻塞与非阻塞、同步与异步、select、pool、epool" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Python/Python_id_64.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_64.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一、与I-O相关的五个重要概念"><a href="#一、与I-O相关的五个重要概念" class="headerlink" title="一、与I/O相关的五个重要概念"></a>一、与I/O相关的五个重要概念</h2><h3 id="1、第一个概念：用户空间与内核空间"><a href="#1、第一个概念：用户空间与内核空间" class="headerlink" title="1、第一个概念：用户空间与内核空间"></a>1、第一个概念：用户空间与内核空间</h3><p>　　1.现在操作系统都是采用虚拟存储器，那么对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方）</p>
+<p>　　2.操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。</p>
+<a id="more"></a>
+
+<p>　　3.为了保证用户进程不能直接操作内核（kernel），保证内核的安全，操心系统将虚拟空间划分为两部分：一部分为内核空间，一部分为用户空间</p>
+<p>　　4.针对linux操作系统而言，将最高的1G字节（从虚拟地址0xC0000000到0xFFFFFFFF），供内核使用，称为内核空间，</p>
+<p>　　　　　　　　  　　　　而将较低的3G字节（从虚拟地址0x00000000到0xBFFFFFFF），供各个进程使用，称为用户空间。</p>
+<h3 id="2、第二个概念：进程切换"><a href="#2、第二个概念：进程切换" class="headerlink" title="2、第二个概念：进程切换"></a>2、第二个概念：进程切换</h3><p>　　1. 为了控制进程的执行，内核必须有能力挂起正在CPU上运行的进程，并恢复以前挂起的某个进程的执行。这种行为被称为进程切换</p>
+<p>　　2. 从一个进程的运行转到另一个进程上运行，这个过程中经过下面这些变化：</p>
+<p>　　　　1）保存处理机上下文，包括程序计数器和其他寄存器。</p>
+<p>　　　　2）更新PCB信息。</p>
+<p>　　　　3）把进程的PCB移入相应的队列，如就绪、在某事件阻塞等队列。</p>
+<p>　　　　4）选择另一个进程执行，并更新其PCB。</p>
+<p>　　　　5）更新内存管理的数据结构。</p>
+<p>　　　　6）恢复处理机上下文。</p>
+<p>　　　　<strong>注：</strong>总而言之就是很耗资源</p>
+<h3 id="3、第三个概念：进程的阻塞"><a href="#3、第三个概念：进程的阻塞" class="headerlink" title="3、第三个概念：进程的阻塞"></a>3、第三个概念：进程的阻塞</h3><p>　　1、正在执行的进程，由于期待的某些事件未发生，如请求系统资源失败、等待某种操作的完成、新数据尚未到达或无新工作做等，则由系统自动执行阻塞原语(Block)，<br>　　　　使自己由运行状态变为阻塞状态。</p>
+<p>　　2、可见，进程的阻塞是进程自身的一种主动行为，也因此只有处于运行态的进程（获得CPU），才可能将其转为阻塞状态</p>
+<p>　　3、当进程进入阻塞状态，是不占用CPU资源的。</p>
+<h3 id="4、第四个概念：文件描述符fd"><a href="#4、第四个概念：文件描述符fd" class="headerlink" title="4、第四个概念：文件描述符fd"></a>4、第四个概念：文件描述符fd</h3><p>　　1. 文件描述符在形式上是一个非负整数，实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表</p>
+<p>　　2. 当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符</p>
+<p>　　3. 在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开</p>
+<p>　　4. 但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统</p>
+<h3 id="5、第五个概念：缓存-I-O"><a href="#5、第五个概念：缓存-I-O" class="headerlink" title="5、第五个概念：缓存 I/O"></a>5、第五个概念：缓存 I/O</h3><p>　　1. 缓存 I/O 又被称作标准 I/O，大多数文件系统的默认 I/O 操作都是缓存 I/O。（与之对应的是直接I/O）</p>
+<p>　　2. 在 Linux 的缓存 I/O 机制中，操作系统会将 I/O 的数据缓存在文件系统的页缓存（ page cache ）中。</p>
+<p>　　3. 数据会先拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核缓冲区拷贝到应用程序的地址空间</p>
+<p>　　4. 缓存 I/O 的缺点：</p>
+<p>　　　　 数据在传输过程中需要在应用程序地址空间和内核进行多次数据拷贝操作，这些数据拷贝操作所</p>
+<p>　　　　 带来的 CPU 以及内存开销是非常大的。</p>
+<h2 id="二、在进行网络编程时四种调用方式"><a href="#二、在进行网络编程时四种调用方式" class="headerlink" title="二、在进行网络编程时四种调用方式"></a>二、在进行网络编程时四种调用方式</h2><p>　　<strong>我们常常见到同步(Sync)/异步(Async)，阻塞(Block)/非阻塞(Unblock)</strong></p>
+<h3 id="同步："><a href="#同步：" class="headerlink" title="同步："></a>同步：</h3><p>　　1、所谓同步，就是在发出一个功能调用时，在没有得到结果之前，该调用就不返回。也就是必须一件一件事做,等前一件做完了才能做下一件事。</p>
+<p>　　2、例如普通B/S模式（同步）：提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事</p>
+<h3 id="异步："><a href="#异步：" class="headerlink" title="异步："></a>异步：</h3><p>　　1、异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。</p>
+<p>　　2、例如 ajax请求（异步）: 请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕</p>
+<h3 id="阻塞："><a href="#阻塞：" class="headerlink" title="阻塞："></a>阻塞：</h3><p>   1、阻塞调用是指调用结果返回之前，当前线程会被挂起（线程进入非可执行状态，在这个状态下，cpu不会给线程分配时间片，即线程暂停运行）。函数只有在得到结果之后才会返回。</p>
+<p>   2、有人也许会把阻塞调用和同步调用等同起来，实际上他是不同的。对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。 例如，我们在socket中调用recv函数，如果缓冲区中没有数据，这个函数就会一直等待，直到有数据才返回。而此时，当前线程还会继续处理各种各样的消息。</p>
+<h3 id="非阻塞："><a href="#非阻塞：" class="headerlink" title="非阻塞："></a>非阻塞：</h3><p>   非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</p>
+<p>对象的阻塞模式和阻塞函数调用<br>对象是否处于阻塞模式和函数是不是阻塞调用有很强的相关性，但是并不是一一对应的。阻塞对象上可以有非阻塞的调用方式，我们可以通过一定的API去轮询状 态，在适当的时候调用阻塞函数，就可以避免阻塞。而对于非阻塞对象，调用特殊的函数也可以进入阻塞调用。函数select就是这样的一个例子。</p>
+<p><strong>1、同步，就是我调用一个功能，该功能没有结束前，我死等结果。</strong></p>
+<p><strong>2、异步，就是我调用一个功能，不需要知道该功能结果，该功能有结果后通知我（回调通知）</strong></p>
+<p><strong>3、阻塞， 就是调用我（函数），我（函数）没有接收完数据或者没有得到结果之前，我不会返回。</strong></p>
+<p><strong>4、非阻塞，就是调用我（函数），我（函数）立即返回，通过select通知调用者</strong></p>
+<p>一个小故事解释说明是阻塞/非阻塞，同步/异步。<a href="https://www.cnblogs.com/xcywt/p/8146123.html" target="_blank" rel="noopener">https://www.cnblogs.com/xcywt/p/8146123.html</a></p>
+<p>同步IO和异步IO的区别就在于：应用程序的调用是否立即返回！</p>
+<p>阻塞IO和非阻塞IO的区别就在于：数据拷贝的时候进程是否阻塞！</p>
+<p>对于举个简单c/s 模式：</p>
+<p>同步：提交请求-&gt;等待服务器处理-&gt;处理完毕返回这个期间客户端浏览器不能干任何事</p>
+<p>异步：请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕同步和异步都只针对于本机SOCKET而言的。</p>
+<p>同步和异步,阻塞和非阻塞,有些混用,其实它们完全不是一回事,而且它们修饰的对象也不相同。</p>
+<p>阻塞和非阻塞是指当进程访问的数据如果尚未就绪,进程是否需要等待,简单说这相当于函数内部的实现区别,也就是未就绪时是直接返回还是等待就绪;</p>
+<p>同步和异步是指访问数据的机制,同步一般指主动请求并等待I/O操作完毕的方式,当数据就绪后在读写的时候必须阻塞(区别就绪与读写二个阶段,同步的读写必须阻塞),</p>
+<p>异步则指主动请求数据后便可以继续处理其它任务,随后等待I/O,操作完毕的通知,这可以使进程在数据读写时也不阻塞。(等待”通知”)</p>
+<h2 id="三、Linux下的五种I-O模型"><a href="#三、Linux下的五种I-O模型" class="headerlink" title="三、Linux下的五种I/O模型"></a>三、Linux下的五种I/O模型</h2><p>1、阻塞I/O（blocking I/O）<br>2、非阻塞I/O （nonblocking I/O）<br>3、I/O复用(select 和poll) （I/O multiplexing）<br>4、信号驱动I/O （signal driven I/O (SIGIO)）<br>5、异步I/O （asynchronous I/O (the POSIX aio_functions)）</p>
+<p>前四种都是同步，只有最后一种才是异步IO。</p>
+<h3 id="1、阻塞I-O模型："><a href="#1、阻塞I-O模型：" class="headerlink" title="1、阻塞I/O模型："></a>1、阻塞I/O模型：</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/01.png">
+
+<p>　　简介：进程会一直阻塞，直到数据拷贝完成</p>
+<p>　　应用程序调用一个IO函数，导致应用程序阻塞，等待数据准备好。 如果数据没有准备好，一直等待….数据准备好了，从内核拷贝到用户空间,IO函数返回成功指示。</p>
+<p>阻塞I/O模型图：在调用recv()/recvfrom（）函数时，发生在内核中等待数据和复制数据的过程。</p>
+<p>　　当调用recv()函数时，系统首先查是否有准备好的数据。如果数据没有准备好，那么系统就处于等待状态。当数据准备好后，将数据从系统缓冲区复制到用户空间，<br>然后该函数返回。在套接应用程序中，当调用recv()函数时，未必用户空间就已经存在数据，那么此时recv()函数就会处于等待状态。</p>
+<p>　　当使用socket()函数和WSASocket()函数创建套接字时，默认的套接字都是阻塞的。这意味着当调用Windows Sockets API不能立即完成时，线程处于等待状态，直到<br>操作完成。</p>
+<p>　　并不是所有Windows Sockets API以阻塞套接字为参数调用都会发生阻塞。例如，以阻塞模式的套接字为参数调用bind()、listen()函数时，函数会立即返回。将可能阻<br>塞套接字的Windows Sockets API调用分为以下四种:</p>
+<p>　　1、输入操作： recv()、recvfrom()、WSARecv()和WSARecvfrom()函数。以阻塞套接字为参数调用该函数接收数据。如果此时套接字缓冲区内没有数据可读，则调用线<br>程在数据到来前一直睡眠。</p>
+<p>　　2、输出操作： send()、sendto()、WSASend()和WSASendto()函数。以阻塞套接字为参数调用该函数发送数据。如果套接字缓冲区没有可用空间，线程会一直睡眠，直到<br>有空间。</p>
+<p>　　3、接受连接：accept()和WSAAcept()函数。以阻塞套接字为参数调用该函数，等待接受对方的连接请求。如果此时没有连接请求，线程就会进入睡眠状态。</p>
+<p>　　4、外出连接：connect()和WSAConnect()函数。对于TCP连接，客户端以阻塞套接字为参数，调用该函数向服务器发起连接。该函数在收到服务器的应答前，不会返回。<br>这意味着TCP连接总会等待至少到服务器的一次往返时间。</p>
+<p>　　使用阻塞模式的套接字，开发网络程序比较简单，容易实现。当希望能够立即发送和接收数据，且处理的套接字数量比较少的情况下，使用阻塞模式来开发网络程序<br>比较合适。</p>
+<p>　　阻塞模式套接字的不足表现为，在大量建立好的套接字线程之间进行通信时比较困难。当使用“生产者-消费者”模型开发网络程序时，为每个套接字都分别分配一个读<br>线程、一个处理数据线程和一个用于同步的事件，那么这样无疑加大系统的开销。其最大的缺点是当希望同时处理大量套接字时，将无从下手，其扩展性很差</p>
+<p><strong>总结</strong></p>
+<p>　　在linux中，默认情况下所有的socket都是blocking，一个典型的读操作流程大概是这样：</p>
+<p>　　　　1、进程首先处于阻塞状态调用recv方法，想要去接收数据</p>
+<p>　　　　2、然后就会到内核中去读取数据，如果开始内核中没有data</p>
+<p>　　　　3、进程就会阻塞，过一会数据来了，然后进程就将数据从内核copy到用户那里</p>
+<p>　　　　4、Copy结束后就会return OK,用户态就收到数据了</p>
+<h3 id="2、非阻塞IO模型"><a href="#2、非阻塞IO模型" class="headerlink" title="2、非阻塞IO模型"></a>2、非阻塞IO模型</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/02.png">
+
+<p>　　简介：非阻塞IO通过进程反复调用IO函数（多次系统调用，并马上返回）；在数据拷贝的过程中，进程是阻塞的</p>
+<p>　　我们把一个SOCKET接口设置为非阻塞就是告诉内核，当所请求的I/O操作无法完成时，不要将进程睡眠，而是返回一个错误。这样我们的I/O操作函数将不断的测试数<br>据是否已经准备好，如果没有准备好，继续测试，直到数据准备好为止。在这个不断测试的过程中，会大量的占用CPU的时间。</p>
+<p>　　把SOCKET设置为非阻塞模式，即通知系统内核：在调用Windows Sockets API时，不要让线程睡眠，而应该让函数立即返回。在返回时，该函数返回一个错误代码。图<br>所示，一个非阻塞模式套接字多次调用recv()函数的过程。前三次调用recv()函数时，内核数据还没有准备好。因此，该函数立即返回WSAEWOULDBLOCK错误代码。第四次<br>调用recv()函数时，数据已经准备好，被复制到应用程序的缓冲区中，recv()函数返回成功指示，应用程序开始处理数据。</p>
+<p>　　当使用socket()函数和WSASocket()函数创建套接字时，默认都是阻塞的。在创建套接字之后，通过调用ioctlsocket()函数，将该套接字设置为非阻塞模式。Linux下的<br>函数是:fcntl().<br>　　套接字设置为非阻塞模式后，在调用Windows Sockets API函数时，调用函数会立即返回。大多数情况下，这些函数调用都会调用“失败”，并返回WSAEWOULDBLOCK错<br>误代码。说明请求的操作在调用期间内没有时间完成。通常，应用程序需要重复调用该函数，直到获得成功返回代码。</p>
+<p>　　需要说明的是并非所有的Windows Sockets API在非阻塞模式下调用，都会返回WSAEWOULDBLOCK错误。例如，以非阻塞模式的套接字为参数调用bind()函数时，就不会<br>返回该错误代码。当然，在调用WSAStartup()函数时更不会返回该错误代码，因为该函数是应用程序第一调用的函数，当然不会返回这样的错误代码。</p>
+<p>　　要将套接字设置为非阻塞模式，除了使用ioctlsocket()函数之外，还可以使用WSAAsyncselect()和WSAEventselect()函数。当调用该函数时，套接字会自动地设置为<br>非阻塞方式。</p>
+<p>　　由于使用非阻塞套接字在调用函数时，会经常返回WSAEWOULDBLOCK错误。所以在任何时候，都应仔细检查返回代码并作好对“失败”的准备。应用程序连续不断地调<br>用这个函数，直到它返回成功指示为止。上面的程序清单中，在While循环体内不断地调用recv()函数，以读入1024个字节的数据。这种做法很浪费系统资源。</p>
+<p>　　要完成这样的操作，有人使用MSG_PEEK标志调用recv()函数查看缓冲区中是否有数据可读。同样，这种方法也不好。因为该做法对系统造成的开销是很大的，并且应<br>用程序至少要调用recv()函数两次，才能实际地读入数据。较好的做法是，使用套接字的“I/O模型”来判断非阻塞套接字是否可读可写。</p>
+<p>　　非阻塞模式套接字与阻塞模式套接字相比，不容易使用。使用非阻塞模式套接字，需要编写更多的代码，以便在每个Windows Sockets API函数调用中，对收到的WSAEWOULDBLOCK错误进行处理。因此，非阻塞套接字便显得有些难于使用。</p>
+<p>　　但是，非阻塞套接字在控制建立的多个连接，在数据的收发量不均，时间不定时，明显具有优势。这种套接字在使用上存在一定难度，但只要排除了这些困难，它在<br>功能上还是非常强大的。通常情况下，可考虑使用套接字的“I/O模型”，它有助于应用程序通过异步方式，同时对一个或多个套接字的通信加以管理。</p>
+<p><strong>总结</strong></p>
+<p>　　1、linux下，可以通过设置socket使其变为non-blocking</p>
+<p>　　2、当对一个non-blocking socket执行读操作时，流程是这个样子：</p>
+<p>　　　　1）当用户进程发出read操作时，如果kernel中的数据还没有准备好，那么它并不会block用户进程，而是立刻返回一个error。</p>
+<p>　　　　2）从用户进程角度讲 ，它发起一个read操作后，并不需要等待，而是马上就得到了一个结果。</p>
+<p>　　　　3）用户进程判断结果是一个error时，它就知道数据还没有准备好，于是它可以再次发送read操作</p>
+<p>　　　　4）一旦kernel中的数据准备好了，并且又再次收到了用户进程的system call，那么它马上就将数据拷贝到了用户内存，然后返回。</p>
+<p>　　<strong>注：</strong>所以，nonblocking IO的特点是用户进程需要不断的主动询问kernel数据好了没有。</p>
+<h3 id="3、IO复用模型："><a href="#3、IO复用模型：" class="headerlink" title="3、IO复用模型："></a>3、IO复用模型：</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/03.png">
+
+<p>　　简介：主要是select和epoll；对一个IO端口，两次调用，两次返回，比阻塞IO并没有什么优越性；关键是能实现同时对多个IO端口进行监听；</p>
+<p>　　I/O复用模型会用到select、poll、epoll函数，这几个函数也会使进程阻塞，但是和阻塞I/O所不同的的，这两个函数可以同时阻塞多个I/O操作。而且可以同时对<br>多个读操作，多个写操作的I/O函数进行检测，直到有数据可读或可写时，才真正调用I/O操作函数。</p>
+<p>　<strong>总结</strong>　　</p>
+<p>　　用户还是要等待数据从kernel拷贝到用户进程</p>
+<p>　　　　1. IO multiplexing就是我们说的select，poll，epoll，有些地方也称这种IO方式为event driven IO</p>
+<p>　　　　2. select/epoll的好处就在于单个process就可以同时处理多个网络连接的IO。</p>
+<p>　　　　3. 它的基本原理就是select，poll，epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程</p>
+<p>　　　　　　1）当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket</p>
+<p>　　　　　　2）当任何一个socket中的数据准备好了，select就会返回</p>
+<p>　　　　　　3）这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。</p>
+<p>　　　　　　4）虽然是多并发但是还有一些卡，因为都要等待数据从kernel拷贝到用户进程</p>
+<p>　　　　　　5）其实select，poll，epoll实质就是循环着接收数据</p>
+<p>　　　　　　6）select/epoll的优势并不是对于单个连接能处理得更快，而是在于能处理更多的连接。</p>
+<h3 id="4、信号驱动IO"><a href="#4、信号驱动IO" class="headerlink" title="4、信号驱动IO"></a>4、信号驱动IO</h3><p>　　简介：两次调用，两次返回；</p>
+<p>　　首先我们允许套接口进行信号驱动I/O,并安装一个信号处理函数，进程继续运行并不阻塞。当数据准备好时，进程会收到一个SIGIO信号，可以在信号处理函数中<br>调用I/O操作函数处理数据。</p>
+<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/04.png">
+
+<p> <strong>总结：</strong></p>
+<p>　　1、建立信号处理程序，当没有数据是直接返回，但是信号连接保持</p>
+<p>　　2、当数据准备好事，调用信号处理程序通吃应用调用recvfrom读取数据。</p>
+<h3 id="5、异步IO模型"><a href="#5、异步IO模型" class="headerlink" title="5、异步IO模型"></a>5、异步IO模型</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/05.png">
+
+<p>　　简介：数据拷贝的时候进程无需阻塞。</p>
+<p>　　当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者的输入输出操作</p>
+<p><strong>总结;</strong></p>
+<p>　　Linux下的asynchronous IO其实用得很少。先看一下它的流程：</p>
+<p>　　　　1） 用户进程发起read操作之后，立刻就可以开始去做其它的事</p>
+<p>　　　　2） 而另一方面，从kernel的角度，当它收到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block（首先告诉用户可以去<br>做其他事情了）</p>
+<p>　　　　3） 然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成<br>了。（然后告诉用户所有东西都弄好了）</p>
+<h3 id="同步I-O和异步I-O区别"><a href="#同步I-O和异步I-O区别" class="headerlink" title="同步I/O和异步I/O区别"></a>同步I/O和异步I/O区别</h3><p>　　1）同步I/O,异步I/O,多路复用I/O都是同步I/O</p>
+<p>　　2）两者的区别就在于synchronous IO做”IO operation”的时候会将process阻塞</p>
+<p>　　3）而asynchronous IO则不一样，当进程发起IO 操作之后，就直接返回再也不理睬了，直到kernel发送一个信号，告诉进程说IO完成，在这整个过程中，进程完<br>全没有被block</p>
+<h3 id="五种IO模型的比较"><a href="#五种IO模型的比较" class="headerlink" title="五种IO模型的比较"></a>五种IO模型的比较</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/阻塞非阻塞及同异步/06.png">
+
+<h2 id="四、select、poll、epoll简介"><a href="#四、select、poll、epoll简介" class="headerlink" title="四、select、poll、epoll简介"></a>四、select、poll、epoll简介</h2><p>　　epoll跟select都能提供多路I/O复用的解决方案。在现在的Linux内核里有都能够支持，其中epoll是Linux所特有，而select则应该是POSIX所规定，一般操作系统均有实现</p>
+<h3 id="select："><a href="#select：" class="headerlink" title="select："></a>select：</h3><p>　　select本质上是通过设置或者检查存放fd标志位的数据结构来进行下一步处理。这样所带来的缺点是：</p>
+<p>　　　　1、单个进程可监视的fd数量被限制，即能监听端口的大小有限。</p>
+<p>   　　　　一般来说这个数目和系统内存关系很大，具体数目可以cat /proc/sys/fs/file-max察看。32位机默认是1024个。64位机默认是2048.</p>
+<p>　　　　2、 对socket进行扫描时是线性扫描，即采用轮询的方法，效率较低：</p>
+<p>​    　　　　当套接字比较多的时候，每次select()都要通过遍历FD_SETSIZE个Socket来完成调度,不管哪个Socket是活跃的,都遍历一遍。这会浪费很多CPU时间。如果能给套接字注册某个回调函数，当他们活跃时，自动完成相关操作，那就避免了轮询，这正是epoll与kqueue做的。</p>
+<p>　　　　3、需要维护一个用来存放大量fd的数据结构，这样会使得用户空间和内核空间在传递该结构时复制开销大</p>
+<h3 id="poll："><a href="#poll：" class="headerlink" title="poll："></a>poll：</h3><p>　　poll本质上和select没有区别，它将用户传入的数组拷贝到内核空间，然后查询每个fd对应的设备状态，如果设备就绪则在设备等待队列中加入一项并继续遍历，如果遍历完所有fd后没有发现就绪设备，则挂起当前进程，直到设备就绪或者主动超时，被唤醒后它又要再次遍历fd。这个过程经历了多次无谓的遍历。</p>
+<p>　　它没有最大连接数的限制，原因是它是基于链表来存储的，但是同样有一个缺点：</p>
+<p>　　　　1、大量的fd的数组被整体复制于用户态和内核地址空间之间，而不管这样的复制是不是有意义。</p>
+<p>　　　　2、poll还有一个特点是“水平触发”，如果报告了fd后，没有被处理，那么下次poll时会再次报告该fd。</p>
+<h3 id="epoll"><a href="#epoll" class="headerlink" title="epoll:"></a>epoll:</h3><p>　　epoll支持水平触发和边缘触发，最大的特点在于边缘触发，它只告诉进程哪些fd刚刚变为就需态，并且只会通知一次。还有一个特点是，epoll使用“事件”的就绪<br>通知方式，通过epoll_ctl注册fd，一旦该fd就绪，内核就会采用类似callback的回调机制来激活该fd，epoll_wait便可以收到通知</p>
+<p>  <strong>epoll的优点：</strong></p>
+<p>　　　　1、没有最大并发连接的限制，能打开的FD的上限远大于1024（1G的内存上能监听约10万个端口）；<br>　　　　2、效率提升，不是轮询的方式，不会随着FD数目的增加效率下降。只有活跃可用的FD才会调用callback函数；即Epoll最大的优点就在于它只管你“活跃”的<br>连接，而跟连接总数无关，因此在实际的网络环境中，Epoll的效率就会远远高于select和poll。</p>
+<p>　　　　3、 内存拷贝，利用mmap()文件映射内存加速与内核空间的消息传递；即epoll使用mmap减少复制开销。</p>
+<h3 id="select、poll、epoll-区别总结："><a href="#select、poll、epoll-区别总结：" class="headerlink" title="select、poll、epoll 区别总结："></a>select、poll、epoll 区别总结：</h3><p>1、支持一个进程所能打开的最大连接数</p>
+<table>
+<thead>
+<tr>
+<th>select</th>
+<th>单个进程所能打开的最大连接数有FD_SETSIZE宏定义，其大小是32个整数的大小（在32位的机器上，大小就是32<em>32，同理64位机器上FD_SETSIZE为32</em>64），当然我们可以对进行修改，然后重新编译内核，但是性能可能会受到影响，这需要进一步的测试。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll</td>
+<td>poll本质上和select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>虽然连接数有上限，但是很大，1G内存的机器上可以打开10万左右的连接，2G内存的机器可以打开20万左右的连接</td>
+</tr>
+</tbody></table>
+<p>2、FD剧增后带来的IO效率问题</p>
+<table>
+<thead>
+<tr>
+<th>select</th>
+<th>因为每次调用时都会对连接进行线性遍历，所以随着FD的增加会造成遍历速度慢的“线性下降性能问题”。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>因为epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，所以在活跃socket较少的情况下，使用epoll没有前面两者的线性下降的性能问题，但是所有socket都很活跃的情况下，可能会有性能问题。</td>
+</tr>
+</tbody></table>
+<p>3、消息传递方式</p>
+<table>
+<thead>
+<tr>
+<th>select</th>
+<th>内核需要将消息传递到用户空间，都需要内核拷贝动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>epoll通过内核和用户空间共享一块内存来实现的。</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Python/Python_id_64.html">socket阻塞与非阻塞、同步与异步、select、pool、epool</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
+  <p><span>发布时间:</span>2020年06月18日 - 19:06</p>
+  <p><span>最后更新:</span>2020年06月18日 - 19:06</p>
+  <p><span>原始链接:</span><a href="/Python/Python_id_64.html" title="socket阻塞与非阻塞、同步与异步、select、pool、epool">https://onlyyu.cn/Python/Python_id_64.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_64.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+      
+
+        <div class="reward-container">
+  <div>可以请我喝杯咖啡嘛</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yu ting 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yu ting 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%98%BB%E5%A1%9E-%E9%9D%9E%E9%98%BB%E5%A1%9E/" rel="tag">分类： 阻塞/非阻塞</a>
+              <a href="/tags/%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5/" rel="tag">分类： 同步/异步</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Redis/Redis_id_08.html" rel="prev" title="Redis分布式锁">
+      <i class="fa fa-chevron-left"></i> Redis分布式锁
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+              <!-- 此处可在文章模块中间添加东西 -->
+          </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、与I-O相关的五个重要概念"><span class="nav-text">一、与I&#x2F;O相关的五个重要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、第一个概念：用户空间与内核空间"><span class="nav-text">1、第一个概念：用户空间与内核空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、第二个概念：进程切换"><span class="nav-text">2、第二个概念：进程切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、第三个概念：进程的阻塞"><span class="nav-text">3、第三个概念：进程的阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、第四个概念：文件描述符fd"><span class="nav-text">4、第四个概念：文件描述符fd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、第五个概念：缓存-I-O"><span class="nav-text">5、第五个概念：缓存 I&#x2F;O</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、在进行网络编程时四种调用方式"><span class="nav-text">二、在进行网络编程时四种调用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步："><span class="nav-text">同步：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步："><span class="nav-text">异步：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞："><span class="nav-text">阻塞：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞："><span class="nav-text">非阻塞：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Linux下的五种I-O模型"><span class="nav-text">三、Linux下的五种I&#x2F;O模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、阻塞I-O模型："><span class="nav-text">1、阻塞I&#x2F;O模型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、非阻塞IO模型"><span class="nav-text">2、非阻塞IO模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、IO复用模型："><span class="nav-text">3、IO复用模型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、信号驱动IO"><span class="nav-text">4、信号驱动IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、异步IO模型"><span class="nav-text">5、异步IO模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步I-O和异步I-O区别"><span class="nav-text">同步I&#x2F;O和异步I&#x2F;O区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五种IO模型的比较"><span class="nav-text">五种IO模型的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、select、poll、epoll简介"><span class="nav-text">四、select、poll、epoll简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select："><span class="nav-text">select：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poll："><span class="nav-text">poll：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll"><span class="nav-text">epoll:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select、poll、epoll-区别总结："><span class="nav-text">select、poll、epoll 区别总结：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yu ting"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yu ting</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/u/0/#inbox" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;u&#x2F;0&#x2F;#inbox" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6207787940" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6207787940" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK%253Azh-Hant" title="Google → https:&#x2F;&#x2F;news.google.com&#x2F;?hl&#x3D;zh-HK&amp;gl&#x3D;HK&amp;ceid&#x3D;HK%3Azh-Hant" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://v3u.cn/" title="https:&#x2F;&#x2F;v3u.cn&#x2F;" rel="noopener" target="_blank">刘悦的技术博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.missbless.cn/" title="http:&#x2F;&#x2F;www.missbless.cn&#x2F;" rel="noopener" target="_blank">ISSAC　LOVELESS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.f322.xyz/" title="https:&#x2F;&#x2F;www.f322.xyz&#x2F;" rel="noopener" target="_blank">逆の神様</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.wosowoso.com/" title="http:&#x2F;&#x2F;www.wosowoso.com&#x2F;" rel="noopener" target="_blank">素材网</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      <div style="width:220px;text-align:center;padding-top:10px;margin-bottom:10px;border-bottom:1px dotted #000;"></div>
+      <!-- 数字时钟 -->
+      <!-- canvas粒子时钟 https://www.cnblogs.com/xiaohuochai/p/6368039.html
+  https://www.html5tricks.com/html5-canvas-dance-time.html
+ -->
+<div id="">
+  <canvas id="canvas" style="width:60%;">
+</div>
+<script>
+(function(){
+  var WINDOW_WIDTH = 820;
+        var WINDOW_HEIGHT = 250;
+        var RADIUS = 7; //球半径
+        var NUMBER_GAP = 10; //数字之间的间隙
+        var u=0.65; //碰撞能量损耗系数
+        var context; //Canvas绘制上下文
+        var balls = []; //存储彩色的小球
+        const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+        var currentNums = []; //屏幕显示的8个字符
+        var digit =
+                  [
+                      [
+                          [0,0,1,1,1,0,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,0,1,1,0],
+                          [0,0,1,1,1,0,0]
+                      ],//0
+                      [
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [1,1,1,1,1,1,1]
+                      ],//1
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,1,1,1,1,1]
+                      ],//2
+                      [
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,1,0,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//3
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,0],
+                          [0,0,1,1,1,1,0],
+                          [0,1,1,0,1,1,0],
+                          [1,1,0,0,1,1,0],
+                          [1,1,1,1,1,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,1,1]
+                      ],//4
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,1,1,1,1,0],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//5
+                      [
+                          [0,0,0,0,1,1,0],
+                          [0,0,1,1,0,0,0],
+                          [0,1,1,0,0,0,0],
+                          [1,1,0,0,0,0,0],
+                          [1,1,0,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//6
+                      [
+                          [1,1,1,1,1,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,0,1,1,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0],
+                          [0,0,1,1,0,0,0]
+                      ],//7
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,1,1,0]
+                      ],//8
+                      [
+                          [0,1,1,1,1,1,0],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [1,1,0,0,0,1,1],
+                          [0,1,1,1,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,0,1,1],
+                          [0,0,0,0,1,1,0],
+                          [0,0,0,1,1,0,0],
+                          [0,1,1,0,0,0,0]
+                      ],//9
+                      [
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0],
+                          [0,1,1,0],
+                          [0,1,1,0],
+                          [0,0,0,0],
+                          [0,0,0,0]
+                      ]//:
+                  ];
+
+        function drawDatetime(cxt){
+            var nums = [];
+
+            context.fillStyle="#005eac"
+            var date = new Date();
+            var offsetX = 70, offsetY = 30;
+            var hours = date.getHours();
+            var num1 = Math.floor(hours/10);
+            var num2 = hours%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var minutes = date.getMinutes();
+            var num1 = Math.floor(minutes/10);
+            var num2 = minutes%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+            nums.push({num: 10}); //冒号
+            var seconds = date.getSeconds();
+            var num1 = Math.floor(seconds/10);
+            var num2 = seconds%10;
+            nums.push({num: num1});
+            nums.push({num: num2});
+
+            for(var x = 0;x<nums.length;x++){
+                nums[x].offsetX = offsetX;
+                offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+                //两个数字连一块，应该间隔一些距离
+                if(x<nums.length-1){
+                    if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                        offsetX+=NUMBER_GAP;
+                    }
+                }
+            }
+
+            //说明这是初始化
+            if(currentNums.length ==0){
+                currentNums = nums;
+            }else{
+                //进行比较
+                for(var index = 0;index<currentNums.length;index++){
+                    if(currentNums[index].num!=nums[index].num){
+                        //不一样时，添加彩色小球
+                        addBalls(nums[index]);
+                        currentNums[index].num=nums[index].num;
+                    }
+                }
+            }
+            renderBalls(cxt);
+            updateBalls();
+
+            return date;
+        }
+
+        function addBalls (item) {
+            var num = item.num;
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        var ball={
+                            offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                            offsetY:30+RADIUS+RADIUS*2*y,
+                            color:colors[Math.floor(Math.random()*colors.length)],
+                            g:1.5+Math.random(),
+                            vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                            vy:-5
+                        }
+                        balls.push(ball);
+                    }
+                }
+            }
+        }
+
+        function renderBalls(cxt){
+            for(var index = 0;index<balls.length;index++){
+                cxt.beginPath();
+                cxt.fillStyle=balls[index].color;
+                cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+                cxt.fill();
+            }
+        }
+
+        function updateBalls () {
+            var i =0;
+            for(var index = 0;index<balls.length;index++){
+                var ball = balls[index];
+                ball.offsetX += ball.vx;
+                ball.offsetY += ball.vy;
+                ball.vy+=ball.g;
+                if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                    ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                    ball.vy=-ball.vy*u;
+                }
+                if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                    balls[i]=balls[index];
+                    i++;
+                }
+            }
+            //去除出边界的球
+            for(;i<balls.length;i++){
+                balls.pop();
+            }
+        }
+        function drawSingleNumber(offsetX, offsetY, num, cxt){
+            var numMatrix = digit[num];
+            for(var y = 0;y<numMatrix.length;y++){
+                for(var x = 0;x<numMatrix[y].length;x++){
+                    if(numMatrix[y][x]==1){
+                        cxt.beginPath();
+                        cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                        cxt.fill();
+                    }
+                }
+            }
+            cxt.beginPath();
+            offsetX += numMatrix[0].length*RADIUS*2;
+            return offsetX;
+        }
+
+        var canvas = document.getElementById("canvas");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        context = canvas.getContext("2d");
+
+        //记录当前绘制的时刻
+        var currentDate = new Date();
+
+        setInterval(function(){
+            //清空整个Canvas，重新绘制内容
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            drawDatetime(context);
+        }, 50)
+})();
+</script>
+
+      <!-- 建站时间 -->
+      
+      
+      <!-- 音乐 -->
+<!--       <div>
+        <audio src="/images/林俊杰 - 对的时间点.flac" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=569213220&auto=1&height=32"></iframe>
+         
+      </div> -->
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat" style="color:red"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu ting</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">474k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:11</span>
+</div>
+  <div class="powered-by"><a href="https://weibo.com/u/3035313940" class="theme-link" rel="noopener" target="_blank">Only丶Nie</a>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by"><a href="https://weibo.com/u/6207787940" class="theme-link" rel="noopener" target="_blank">余生有你才安好丶</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/busuanzi.js"></script>
+  <!-- https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>总访问人数：
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量：
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24337,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'usjRVOXqGpbFIevxocLk2MXI-gzGzoHsz',
+      appKey     : 'xd98ffpeQETblJ8uuGPacjjS',
+      placeholder: "请在此处填写评论",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <!-- 鼠标指针 -->
+  <style>
+    body{cursor:url(/images/正常选择.cur),move}
+    a{cursor:url(/images/链接选择.cur),wait} 
+  </style>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
