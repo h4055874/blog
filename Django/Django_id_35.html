@@ -23,32 +23,20 @@
     var CONFIG = {"hostname":"onlyyu.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="URL访问网站时的网络传输全过程，归纳起来就是： 　　首先要通过域名找到IP，如果缓存里没有就要请求DNS服务器；得到IP后开始于目的主机进行三次握手来建立TCP连接；连接建立后进行HTTP访问，传输并获取网页内容；　　传输完后与目的主机四次挥手来断开TCP连接。">
+  <meta name="description" content="1、什么是RESTfull？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python TCP和UDP、流量控制和拥塞控制">
-<meta property="og:url" content="https://onlyyu.cn/Python/Python_id_13.html">
+<meta property="og:title" content="Django-DRF框架">
+<meta property="og:url" content="https://onlyyu.cn/Django/Django_id_35.html">
 <meta property="og:site_name" content="Yu ting&#39;s blog">
-<meta property="og:description" content="URL访问网站时的网络传输全过程，归纳起来就是： 　　首先要通过域名找到IP，如果缓存里没有就要请求DNS服务器；得到IP后开始于目的主机进行三次握手来建立TCP连接；连接建立后进行HTTP访问，传输并获取网页内容；　　传输完后与目的主机四次挥手来断开TCP连接。">
+<meta property="og:description" content="1、什么是RESTfull？">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/01.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/02.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/03.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/04.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/05.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/06.png">
-<meta property="og:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/07.png">
-<meta property="article:published_time" content="2020-05-31T07:47:15.000Z">
-<meta property="article:modified_time" content="2020-05-31T15:51:25.200Z">
+<meta property="article:published_time" content="2020-06-23T15:31:00.000Z">
+<meta property="article:modified_time" content="2020-06-23T15:32:05.018Z">
 <meta property="article:author" content="Yu ting">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="TCP">
-<meta property="article:tag" content="UDP">
-<meta property="article:tag" content="流量控制">
-<meta property="article:tag" content="拥塞控制">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/01.png">
 
-<link rel="canonical" href="https://onlyyu.cn/Python/Python_id_13.html">
+<link rel="canonical" href="https://onlyyu.cn/Django/Django_id_35.html">
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
@@ -64,7 +52,7 @@
     <script src="/js/cursor/love.min.js"></script>
   
 
-  <title>Python TCP和UDP、流量控制和拥塞控制 | Yu ting's blog</title>
+  <title>Django-DRF框架 | Yu ting's blog</title>
   
 
 
@@ -305,7 +293,7 @@ input[type="radio"]:not(:checked) + label:after {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Python/Python_id_13.html">
+    <link itemprop="mainEntityOfPage" href="https://onlyyu.cn/Django/Django_id_35.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -318,7 +306,7 @@ input[type="radio"]:not(:checked) + label:after {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python TCP和UDP、流量控制和拥塞控制
+          Django-DRF框架
         </h1>
 
         <div class="post-meta">
@@ -329,7 +317,7 @@ input[type="radio"]:not(:checked) + label:after {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-31 15:47:15 / 修改时间：23:51:25" itemprop="dateCreated datePublished" datetime="2020-05-31T15:47:15+08:00">2020-05-31</time>
+              <time title="创建时间：2020-06-23 23:31:00 / 修改时间：23:32:05" itemprop="dateCreated datePublished" datetime="2020-06-23T23:31:00+08:00">2020-06-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -337,12 +325,12 @@ input[type="radio"]:not(:checked) + label:after {
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
                 </span>
             </span>
 
           
-            <span id="/Python/Python_id_13.html" class="post-meta-item leancloud_visitors" data-flag-title="Python TCP和UDP、流量控制和拥塞控制" title="阅读次数">
+            <span id="/Django/Django_id_35.html" class="post-meta-item leancloud_visitors" data-flag-title="Django-DRF框架" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -357,8 +345,8 @@ input[type="radio"]:not(:checked) + label:after {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Python/Python_id_13.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Python/Python_id_13.html" itemprop="commentCount"></span>
+    <a title="valine" href="/Django/Django_id_35.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Django/Django_id_35.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -368,14 +356,14 @@ input[type="radio"]:not(:checked) + label:after {
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.8k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -387,77 +375,65 @@ input[type="radio"]:not(:checked) + label:after {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>URL访问网站时的网络传输全过程，归纳起来就是：</strong></p>
-<p>　　首先要通过域名找到IP，如果缓存里没有就要请求DNS服务器；得到IP后开始于目的主机进行三次握手来建立TCP连接；连接建立后进行HTTP访问，传输并获取网页内容；<br>　　传输完后与目的主机四次挥手来断开TCP连接。</p>
-<a id="more"></a>
+        <h3 id="1、什么是RESTfull？"><a href="#1、什么是RESTfull？" class="headerlink" title="1、什么是RESTfull？"></a>1、什么是RESTfull？</h3><a id="more"></a>
 
-<p>　　整个过程基本分做下面几个部分：</p>
-<p>　　　　1、域名解析成IP地址；<br>　　　　2、与目的主机进行TCP连接（三次握手）；<br>　　　　3、发送与收取数据；<br>　　　　4、与目的主机断开TCP连接（四次挥手）；</p>
-<h3 id="TCP-UDP优缺点"><a href="#TCP-UDP优缺点" class="headerlink" title="TCP/UDP优缺点"></a>TCP/UDP优缺点</h3><h4 id="TCP的优点"><a href="#TCP的优点" class="headerlink" title="TCP的优点"></a>TCP的优点</h4><p>　　<strong>可靠，稳定</strong>TCP的可靠体现在TCP在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源。 </p>
-<h4 id="TCP的缺点"><a href="#TCP的缺点" class="headerlink" title="TCP的缺点"></a>TCP的缺点</h4><p>　　<strong>慢，效率低，占用系统资源高，易被攻击。</strong> TCP在传递数据之前，要先建连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。 而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。</p>
-<h4 id="UDP的优点"><a href="#UDP的优点" class="headerlink" title="UDP的优点"></a>UDP的优点</h4><p>　　<strong>快，比TCP稍安全</strong>UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，UDP是一个无状态的传输协议，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。但UDP也是无法避免攻击的，比如：UDP Flood攻击……</p>
-<h4 id="UDP的缺点"><a href="#UDP的缺点" class="headerlink" title="UDP的缺点"></a>UDP的缺点</h4><p>　　<strong>不可靠，不稳定</strong>因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。</p>
-<p>　　基于上面的优缺点，那么： 什么时候应该使用TCP： 当对网络通讯质量有要求的时候，比如：整个数据要准确无误的传递给对方，这往往用于一些要求可靠的应用，比如HTTP、HTTPS、FTP等传输文件的协议，POP、SMTP等邮件传输的协议。 在日常生活中，常见使用TCP协议的应用如下： 浏览器，用的HTTP FlashFXP，用的FTP Outlook，用的POP、SMTP Putty，用的Telnet、SSH QQ文件传输 ………… 什么时候应该使用UDP： 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频 TFTP ……</p>
-<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/01.png">
+<p>1）<strong>REST</strong>：即Representational State Transfer的缩写。维基百科称其为“具象状态传输”，国内大部分人理解为“表现层状态转化”。</p>
+<p>2）<strong>具象的</strong>：就是指表现层，要表现的对象也就是“资源”，什么是资源呢？网站就是资源共享的东西，客户端（浏览器）访问web服务器，所获取的就叫资源。<br>　　　　　比如html，txt，json，图片，视频等等。</p>
+<p>3）<strong>表现</strong>：比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式<br>　　　　　表现。浏览器通过URL确定一个资源，但是如何确定它的具体表现形式呢？应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段<br>　　　　　才是对”表现层”的描述。</p>
+<p>4）<strong>状态转换</strong>： 就是客户端和服务器互动的一个过程，在这个过程中, 势必涉及到数据和状态的变化, 这种变化叫做状态转换。互联网通信协议HTTP协议，<br>　　　　　　　客户端访问必然使用HTTP协议，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。</p>
+<p>　　<strong>总结：</strong></p>
+<p>　　　　REST与技术无关，代表的是一种软件架构风格</p>
+<p>　　　　REST从资源的角度审视审视整个网络，它将分布在网络中某个节点的资源通过URL进行标识</p>
+<p>　　　　所有的数据，无论是通过网络获取的还是操作（增删改查）的数据，都是资源。将一切数据视为资源是REST区别于其他架构风格的最本质的属性。</p>
+<p>　　　　每一个URL代表一种资源</p>
+<p>　　　　客户端和服务器之间，传递这种资源的某种表现层；</p>
+<p>　　　　客户端通过HTTP动词对服务器端资源进行操作，实现“表现层状态转化”（GET,POST,PUT,DELETE）</p>
+<h3 id="2、RESTfull设计规范"><a href="#2、RESTfull设计规范" class="headerlink" title="2、RESTfull设计规范"></a>2、RESTfull设计规范</h3><h4 id="1-域名"><a href="#1-域名" class="headerlink" title="1.域名"></a>1.域名</h4><p>　　1）子域名方式</p>
+<p>　　　　<a href="https://api.example.com" target="_blank" rel="noopener">https://api.example.com</a>             尽量将API部署在专用域名（会存在跨域问题）</p>
+<p>　　　　<a href="https://www.example.com" target="_blank" rel="noopener">https://www.example.com</a></p>
+<p>　　2）url方式</p>
+<p>　　　　<a href="https://example.org" target="_blank" rel="noopener">https://example.org</a></p>
+<p>　　　　<a href="https://example.org/api/" target="_blank" rel="noopener">https://example.org/api/</a>            API很简单</p>
+<h4 id="2-版本"><a href="#2-版本" class="headerlink" title="2.版本"></a>2.版本</h4><p>　　将API的版本号放入URL中。</p>
+<p>　　　　<a href="https://api.example.com/v1/" target="_blank" rel="noopener">https://api.example.com/v1/</a></p>
+<p>　　　　<a href="https://api.example.com/v2/" target="_blank" rel="noopener">https://api.example.com/v2/</a></p>
+<p>　　　　<a href="https://api.example.com/v3/" target="_blank" rel="noopener">https://api.example.com/v3/</a></p>
+<h4 id="3-路径"><a href="#3-路径" class="headerlink" title="3.路径"></a>3.路径</h4><p>　　路径又称“终点”，表示API的具体网址，每个网址代表一种资源</p>
+<p>　　1） 资源作为网址，只能有名词，不能有动词，而且所用的名词往往与数据库的表名对应。</p>
+<p>　　2）API中的名词应该使用复数。无论子资源或者所有资源。</p>
+<p>　　　　/getProducts　　　　不符合REST风格</p>
+<p>　　　　/Orders 　　　　　 符合REST风格</p>
+<p>　　　　获取单个产品：<a href="http://127.0.0.1:8080/AppName/products/1" target="_blank" rel="noopener">http://127.0.0.1:8080/AppName/products/1</a></p>
+<p>　　　　获取所有产品：<a href="http://127.0.0.1:8080/AppName/products" target="_blank" rel="noopener">http://127.0.0.1:8080/AppName/products</a></p>
+<h4 id="4-方式"><a href="#4-方式" class="headerlink" title="4.方式"></a>4.方式</h4><p>　　GET   ：从服务器取出资源（一项或多项）</p>
+<p>　　POST  ：在服务器新建一个资源</p>
+<p>　　PUT   ：在服务器更新资源（客户端提供改变的完整资源）</p>
+<p>　　PATCH ：在服务器更新资源（客户端提供改变的属性）</p>
+<p>　　DELETE ：从服务器删除资源</p>
+<h4 id="5-标准HTTP协议支持6种请求方式："><a href="#5-标准HTTP协议支持6种请求方式：" class="headerlink" title="5.标准HTTP协议支持6种请求方式："></a>5.标准HTTP协议支持6种请求方式：</h4><p>　　1.GET：发送一个请求来获取服务器上某个资源，返回给客户端，包括HTTP头信息和数据</p>
+<p>　　2.HEAD：发送一个请求来获取服务器上某个资源，返回给客户端，只包括HTTP头信息，可以用来判断某个资源是否存在</p>
+<p>　　3.PUT：向服务器发送资源，并指定资源的存放位置</p>
+<p>　　4.POST：向服务器发送资源，不指定资源的存放位置，存放位置由服务器自己决定</p>
+<p>　　5.DELETE：删除资源</p>
+<p>　　6.OPTIONS：获取当前URL所支持的请求方式，返回值会在HTTP头中包含一个名为“Allow”的头，值为所支持的方法，例如“GET, POST”。</p>
+<p>　　与数据库的CRUD的对应关系是：<br>　　　　Create – PUT<br>　　　　Read – GET<br>　　　　Update – POST<br>　　　　Delete – DELETE</p>
+<h4 id="6-过滤"><a href="#6-过滤" class="headerlink" title="6.过滤"></a>6.过滤</h4><p>　　通过在url上传参的形式传递搜索条件</p>
+<p>　　　　<a href="https://api.example.com/v1/zoos?limit=10：指定返回记录的数量" target="_blank" rel="noopener">https://api.example.com/v1/zoos?limit=10：指定返回记录的数量</a></p>
+<p>　　　　<a href="https://api.example.com/v1/zoos?offset=10：指定返回记录的开始位置" target="_blank" rel="noopener">https://api.example.com/v1/zoos?offset=10：指定返回记录的开始位置</a></p>
+<p>　　　　<a href="https://api.example.com/v1/zoos?page=2&amp;per_page=100：指定第几页，以及每页的记录数" target="_blank" rel="noopener">https://api.example.com/v1/zoos?page=2&amp;per_page=100：指定第几页，以及每页的记录数</a></p>
+<p>　　　　<a href="https://api.example.com/v1/zoos?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序" target="_blank" rel="noopener">https://api.example.com/v1/zoos?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序</a></p>
+<p>　　　　<a href="https://api.example.com/v1/zoos?animal_type_id=1：指定筛选条件" target="_blank" rel="noopener">https://api.example.com/v1/zoos?animal_type_id=1：指定筛选条件</a></p>
+<h4 id="7-状态码"><a href="#7-状态码" class="headerlink" title="7.状态码"></a>7.状态码</h4><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''1. 2XX请求成功'''</span></span><br><span class="line"><span class="comment"># 200 请求成功，一般用于GET与POST请求</span></span><br><span class="line"><span class="comment"># 201 Created - [POST/PUT/PATCH]：用户新建或修改数据成功。</span></span><br><span class="line"><span class="comment"># 202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）</span></span><br><span class="line"><span class="comment"># 204 NO CONTENT - [DELETE]：用户删除数据成功。</span></span><br><span class="line"><span class="string">'''2. 3XX重定向'''</span></span><br><span class="line"><span class="comment"># 301 NO CONTENT - 永久重定向</span></span><br><span class="line"><span class="comment"># 302 NO CONTENT - 临时重定向</span></span><br><span class="line"><span class="string">'''3. 4XX客户端错误'''</span></span><br><span class="line"><span class="comment"># 400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误。</span></span><br><span class="line"><span class="comment"># 401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。</span></span><br><span class="line"><span class="comment"># 403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。</span></span><br><span class="line"><span class="comment"># 404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录。</span></span><br><span class="line"><span class="comment"># 406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。</span></span><br><span class="line"><span class="comment"># 410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。</span></span><br><span class="line"><span class="comment"># 422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。</span></span><br><span class="line"><span class="string">'''4. 5XX服务端错误'''</span></span><br><span class="line"><span class="comment"># 500 INTERNAL SERVER ERROR - [*]：服务器内部错误，无法完成请求</span></span><br><span class="line"><span class="comment"># 501 Not Implemented 服务器不支持请求的功能，无法完成请求</span></span><br></pre></td></tr></table></figure></div>
 
-<h3 id="TCP报头结构"><a href="#TCP报头结构" class="headerlink" title="TCP报头结构"></a>TCP报头结构</h3><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/02.png">
-
-
-
-<h4 id="16位端口号"><a href="#16位端口号" class="headerlink" title="16位端口号"></a>16位端口号</h4><p>　　告知主机该报文段来自哪里（源端口号）以及传给哪个上层协议或应用程序（目的端口）的。TCP通信时，客户端通常使用系统自动选择的临时端口号，而服务器使用知名端口号。   </p>
-<h4 id="32位序号"><a href="#32位序号" class="headerlink" title="32位序号"></a>32位序号</h4><p>　　一次TCP通信过程中某个传输方向上的字节流的每个字节的编号。</p>
-<p>　　第一个报文段中序号值被系统初始化为某个随机值ISN，那么该传输方向上后续的TCP报文段中序号值将被系统设置为ISN加上该报文段所携带的第一个字节在整个字节流的偏移。     </p>
-<h4 id="32位确认号"><a href="#32位确认号" class="headerlink" title="32位确认号"></a>32位确认号</h4><p>　　用作对另一方发送的TCP报文段的响应。其值是收到的TCP报文段的序号值加1.假如主机A和主机B进行TCP通信，那么A发送的TCP报文段不仅携带自己的序号，还有对B发送来的TCP报文段的确认号。</p>
-<h4 id="4位头部长度"><a href="#4位头部长度" class="headerlink" title="4位头部长度"></a>4位头部长度</h4><p>　　标识该TCP头部有多少个32bit字（4字节），因为4位最大表示15所以TCP头部最长是60字节。    </p>
-<h4 id="6位标志位"><a href="#6位标志位" class="headerlink" title="6位标志位"></a>6位标志位</h4><p>　　选项有，ACK标志：表示确认号是否有效。将携带ACK标志的TCP报文段成为“确认报文段”。SYN标志：表示请求建立一个连接，将携带SYN标志的报文段称为“同步报文段”。   FIN标志：表示通知对方要关闭连接，将携带FIN标志的报文段称为“结束报文段”。    </p>
-<h4 id="16位窗口大小"><a href="#16位窗口大小" class="headerlink" title="16位窗口大小"></a>16位窗口大小</h4><p>　　指的是接受通告窗口。它告诉接受端自己接受缓冲区还能容纳多少字节的数据。   </p>
-<h4 id="16位校验和"><a href="#16位校验和" class="headerlink" title="16位校验和"></a>16位校验和</h4><p>　　由发送端填充，接收端对TCP报文段执行CRC算法检验报文段在传输中是否损坏，检验TCP头部和数据部分。这是TCP可靠传输的一个重要保障。   16位紧急指针。。  </p>
-<h4 id="头部选项"><a href="#头部选项" class="headerlink" title="头部选项"></a>头部选项</h4><p>　　还有最后一个选项字段是可变长的可选信息，最多40字节。。。</p>
-<h3 id="TCP、UDP的区别"><a href="#TCP、UDP的区别" class="headerlink" title="TCP、UDP的区别"></a>TCP、UDP的区别</h3><p>　　1、基于面向连接与无连接。因为每个连接都会占用系统的CPU、内存等硬件资源，所以对系统资源的要求TCP较多UDP少；并且tcp是一对一的，udp是一对一，一对多，多对一，多对多通信。</p>
-<p>　　2、字节流：应用程序对数据的发送和接受没有边界限制，即发送端执行的写操作次数和接受端的读操作次数没有任何数量关系，并且send只是将数据写进发送缓冲区，recv只是从输出缓冲区中获取数据。【因为如果发送端应用程序连续执行写操作，tcp先将数据放入TCP发送缓冲区中，等到缓冲区真正发送数据时，数据可能被封装了一个或多个TCP报文段发出，即TCP发出的tcp报文段个数和执行的写操作次数没有关系。 而接受端收到一个或多个TCP报文段，先将他们携带的数据按序号依次放到接受缓冲区中，通知应用进程接受。应用程序可以一次全部读出，也可以分几次读出，这取决于应用程序的缓冲区大小，即TCP模块接受的报文段个数和读操作次数没关系。】</p>
-<p>   数据报：sendto发送数据和对端recvfrom接受数次数相等，因此UDP保留了应用层数据的边界。【 发送端应用程序每执行写操作一次，UDP模块就将它封装成一个数据报发送了。接收端必须及时对每个udp数据报执行读操作并且一次接受完，否则不读数据会丢包，或者不读完整数据会被截断发生数据丢失。】</p>
-<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/03.png">
-
-<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/04.png">
-
-<p>　　3、tcp是<strong>可靠传输</strong>，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;udp是不保证可靠交付。</p>
-<h4 id="可靠性体现在："><a href="#可靠性体现在：" class="headerlink" title="可靠性体现在："></a>可靠性体现在：</h4><p>　　应用程序将数据发送给TCP，然后TCP把数据流分区成适当长度的报文段（通常受该计算机连接的网络的数据链路层的最大传输单元（ MTU）的限制）之后TCP把结果包传给IP层，由它来通过网络将包传送给接收端实体的TCP层。TCP为了保证不发生丢包，就给每个包一个序号，同时序号也保证了传送到接收端实体的包的按序接收。然后接收端实体对已成功收到的包发回一个相应的确认（ACK）；如果发送端实体在合理的往返时延（RTT）内未收到确认，那么对应的数据包就被假设为已丢失将会被进行重传。TCP用一个校验和函数来检验数据是否有错误；在发送和接收时都要计算校验和。</p>
-<h4 id="具体体现为："><a href="#具体体现为：" class="headerlink" title="具体体现为："></a>具体体现为：</h4><p>　　1、<strong>应用数据被分割成TCP认为最适合发送的数据块。</strong>这和UDP完全不同，应用程序产生的数据长度将保持不变。由TCP传递给IP的信息单位称为报文段或段。【在TCP三次我握手的前两次握手中（也就是两个SYN报文段中），通过一个“协商”的方式来告知对方自己期待收到的最大报文段长度（MSS），结果使用通信双发较小的MSS最为最终的MSS。在SYN=1的报文段中，会在报文段的选项部分来指定MSS大小（相当于告知对方自己所能接收的最大报文段长度）。在后续通信双发发送应用层数据之前，如果发送数据超过MSS，会对数据进行分段】。</p>
-<p>　　2、当TCP发出一个段后，它启动一个定时器，等待目的端<strong>确认</strong>收到这个报文段。当TCP收到发自TCP连接另一端的数据，它将发送一个确认。TCP有延迟确认的功能，在此功能没有打开，则是立即确认。功能打开，则由定时器触发确认时间点。</p>
-<p>　　3、TCP有<strong>超时重传</strong>机制，如果没有收到对端对于发送报文的确认，则会重传一份。如果发送端在合理的往返时延（RTT）内未收到确认，那么对应的数据包就被假设为已丢失将会被进行重传。</p>
-<p>　　4、TCP将<strong>保持它首部和数据的检验和。</strong>　CRC对TCP整个数据报进行校验（头部和数据部分都会校验）用一个校验和函数来检验数据是否有错误；在发送和接收时都要计算校验和。如果收到段的检验和有差错，TCP将丢弃这个报文段和不确认收到此报文段（希望发端超时并重发）。</p>
-<p>　　5、既然TCP报文段作为IP数据报来传输，而IP数据报的到达可能会失序、重复，因此TCP报文段的到达也可能会失序。如果必要，TCP将对收到的数据<strong>进行重新排序、整理，</strong>将收到的数据以正确的顺序交给应用层。【在同一次传输的同一个方向上每个TCP报文都有唯一的标识(序号），也保证了传送到接收端实体的包的按序接收。然后接收端对已成确认功收到的包发回一个相应的ACK；若重复TCP的接收端必须丢弃重复的数据。】</p>
-<p>udp和ip协议都是提供<strong>不可靠</strong>服务，它们需要上层协议来处理数据确认和超时重传。</p>
-<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/05.png">
-
-<p><strong>为什么三次握手？</strong></p>
-<p>　　如果两次握手，因为存在一种情况。client发送的第一个连接请求报文段没有丢失，而是在某个网络节点长时间滞留了，以致延误到连接断开后的某个时间才到服务器。</p>
-<p>　　这个失效报文段到了sever，sever以为client想建立连接，就发送确认报文段并同意建立连接。此时若只有两次握手，那新的连接就建立了。但由于client其实并没建立连接，所以对确认报文段无反应，更发不了数据。可是sever以为新的连接已建立，就傻傻地一直等着发数据，导致sever很多资源被浪费掉。</p>
-<p>　　<strong>所以三次握手可以防止已失效的连接请求的报文段突然到server，使服务器一直等待，浪费了资源；但是三次握手也有缺陷，会导致syn攻击</strong></p>
-<p><strong>Timewait</strong>是主动关闭的一端在本端已经关闭的前期下，收到对端的关闭请求（FIN报文段）并且将ACK发送出去后所处的状态，这种状态表示：双方都已经完成工作，只是为了<strong>确保迟来的数据报能被识别并丢弃；可靠的终止TCP连接。</strong>这种状态下客户端连接要等一段2MSL（报文段最大生存时间【2min】）的时间，才能完全关闭。</p>
-<p><strong>具体存在原因：</strong>①可靠的终止tcp连接。假如用于确认服务器结束报文段的tcp报文段7丢失了，那服务器将重发结束报文段。所以客户端需要停留在一个状态处理多次收到的服务器结束报文段。（也就是向服务器发送确认报文段）。否则，客户端将发送复位报文段给服务器，服务器认为这是一个错误。</p>
-<p>②保证让迟来的tcp报文段有足够时间被识别和丢弃。因为如果没有timewait状态，应用程序可以立即建立一个和刚关闭的相似的链接。这个连接可能接受原来连接的携带应用数据的tcp报文段（迟来的报文段）。因此我们此时不应该用此链接的端口号建立新连接，设为timewait状态。然后等待2MSL（保证网络的两个传输方向上迟到的报文段都消失了【被中转路由器丢弃】时间去使迟来的报文段被识别丢弃！</p>
-<p><strong>CLOSE_WAIT</strong>是被动关闭的一端在接收到对端关闭请求（FIN报文段）并且将ACK发送出去后所处的状态，这种状态表示：收到了对端关闭的请求，但是本端还没有完成工作，还未关闭。</p>
-<h4 id="TCP的流量控制与拥塞控制"><a href="#TCP的流量控制与拥塞控制" class="headerlink" title="TCP的流量控制与拥塞控制"></a>TCP的流量控制与拥塞控制</h4><p><strong>超时重传：</strong>TCP服务必须能够重传超时时间内未收到确认报文段的TCP报文段。TCP为每个TCP模块都维护了一个重传定时器，定时器在第一次发送TCP报文段时启动，如果超时时间内未收到接收方的确认号报文段，TCP模块将重传TCP报文段并重置定时器。   至于下次重传的超时时间如何选择，以及最多重传几次，这是TCP的重传策略。 与TCP超时重连的策略相似。</p>
-<p><strong>滑动窗口：</strong>TCP中采用滑动窗口来进行流量控制，滑动窗口的大小意味着接收方还有多大的缓冲区可以用于接收数据。发送方可以通过滑动窗口的大小来确定应该发送多少字节的数据。当滑动窗口为0时，发送方一般不能再发送数据报。</p>
-<p><strong>滑动窗口协议</strong>的基本原理就是在任意时刻，发送方都维持了一个连续的允许发送的帧的序号，称为发送窗口；同时，接收方也维持了一个连续的允许接收的帧的序号，称为接收窗口。发送窗口和接收窗口的序号的上下界不一定要一样，甚至大小也可以不同。不同的滑动窗口协议窗口大小一般不同。发送方窗口内的序列号代表了那些已经被发送，但是还没有被确认的帧，或者是那些可以被发送的帧。</p>
-<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/06.png">
-
-<p><strong>流量控制的处理过程：</strong></p>
-<p>　　TCP连接阶段，双方协商窗口尺寸，同时接收方预留数据缓存区；</p>
-<p>　　发送方根据协商的结果，发送符合窗口尺寸的数据字节流，并等待对方的确认；</p>
-<p>　　发送方根据确认信息，改变窗口的尺寸，增加或者减少发送未得到确认的字节流中的字节数。调整过程包括：如果出现发送拥塞，发送窗口缩小为原来的一半，同时将超时重传的时间间隔扩大一倍。</p>
-<h3 id="TCP的拥塞控制，流量控制"><a href="#TCP的拥塞控制，流量控制" class="headerlink" title="TCP的拥塞控制，流量控制"></a>TCP的拥塞控制，流量控制</h3><h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>　　TCP模块为了防止过多的数据注入网络，使网络中的路由器或链路不致于过载。以此提高网络利用率，降低丢包率，并抱证网络资源对每条数据流的公平性而采取的控制手段。拥塞控制包含四部分内容：慢启动、拥塞避免、快速重传、快速恢复。</p>
-<h5 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h5><p>　　网络传输刚开始时，并不知道网络的实际情况，所以采取一种试探的方式控制数据的发送速率。慢启动阶段，数据的发送速率以指数方式增长，即就是拥塞窗口的增长，每次都是收到确认报文段数量的2倍。可以看出慢启动并不慢，拥塞窗口增长的速度很快。所以，为其设置了一个慢启动门限，当达到门限时，就进入到拥塞避免阶段。</p>
-<h5 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h5><p>　　当拥塞窗口的大小采用慢启动方式增长到慢启动门限时，就进入拥塞避免阶段，拥塞避免阶段不再以指数形式增长拥塞窗口，而是每经过一个往返时间RTT就将发送方的拥塞窗口+1， 使其增长速度减缓。按照线性方式增长。如果发生网络拥塞，比如丢包时，就将慢启动门限设为原来的一半，然后将拥塞窗口设置为1，开始执行慢启动算法。（较低的起点，指数级增长）。</p>
-<h5 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h5><p>　　假设发送方发送的报文段分别为： M1,M2,M3,M4,M5,M6 , 当接收方收到M1和M2后，M3报文段丢失，接着收到的M4，M5，M6都不做处理，而是没接收到一个报文段就对M2重复确认，发送方接收到重复的三次确认报文段，就对其后的报文段进行重新发送，而不需要等待超时时间到达。当快速重传后，立即进入到快速恢复阶段。</p>
-<h5 id="快速恢复"><a href="#快速恢复" class="headerlink" title="快速恢复"></a>快速恢复</h5><p>　　将慢启动门限设置为原来的一半，然后将拥塞窗口设置为现在的慢启动门限值，不再执行慢启动算法，而是直接进入拥塞避免阶段。使发送窗口成线性方式增大。</p>
-<img src="https://gitee.com/tian_yu_ting/blog_img/raw/master/TCP&UDP/07.png">
-
-
-
-<p><strong>流量控制（滑动窗口协议）TCP连接的每一方都有固定大小的缓冲空间。TCP的接收端只允许另一端发送接收端缓冲区所能接纳的数据。这将防止较快主机致使较慢主机的缓冲区溢出。</strong>【滑动窗口技术存在于数据链路层和传输层。两者有不同的协议，但基本原理相同。区别是一个是发送帧，一个是发送字节数据。接收方的接受窗口告诉发送方本端tcp接受缓冲区还能容纳多少字节，发送方的发送窗口就可以控制发送数据的速度。】</p>
-<p>UDP没有流量控制和拥塞控制，所以在网络拥塞时不会是源主机发送速率降低（对实时通信很有用，比如QQ电话，视频会议等）</p>
+<h4 id="8-异常处理"><a href="#8-异常处理" class="headerlink" title="8.异常处理"></a>8.异常处理</h4><p>　　如果状态码是4xx，服务器就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</p>
+<p>　　<code>{ ``error: ``&quot;Invalid API key&quot; ``}</code></p>
+<h4 id="9-返回结果"><a href="#9-返回结果" class="headerlink" title="9.返回结果"></a>9.返回结果</h4><p>　　针对不同操作，服务器向用户返回的结果应该符合以下规范。</p>
+<p>　　　　GET /collection：返回资源对象的列表（数组）</p>
+<p>　　　　GET /collection/resource：返回单个资源对象</p>
+<p>　　　　POST /collection：返回新生成的资源对象</p>
+<p>　　　　PUT /collection/resource：返回完整的资源对象</p>
+<p>　　　　PATCH /collection/resource：返回完整的资源对象</p>
+<p>　　　　DELETE /collection/resource：返回一个空文档</p>
 
     </div>
 
@@ -484,12 +460,12 @@ input[type="radio"]:not(:checked) + label:after {
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/Python/Python_id_13.html">Python TCP和UDP、流量控制和拥塞控制</a></p>
+  <p><span>本文标题:</span><a href="/Django/Django_id_35.html">Django-DRF框架</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yu ting 的个人博客">Yu ting</a></p>
-  <p><span>发布时间:</span>2020年05月31日 - 15:05</p>
-  <p><span>最后更新:</span>2020年05月31日 - 23:05</p>
-  <p><span>原始链接:</span><a href="/Python/Python_id_13.html" title="Python TCP和UDP、流量控制和拥塞控制">https://onlyyu.cn/Python/Python_id_13.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Python/Python_id_13.html"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年06月23日 - 23:06</p>
+  <p><span>最后更新:</span>2020年06月23日 - 23:06</p>
+  <p><span>原始链接:</span><a href="/Django/Django_id_35.html" title="Django-DRF框架">https://onlyyu.cn/Django/Django_id_35.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://onlyyu.cn/Django/Django_id_35.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -553,10 +529,6 @@ input[type="radio"]:not(:checked) + label:after {
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Python/" rel="tag">分类： Python</a>
-              <a href="/tags/TCP/" rel="tag">分类： TCP</a>
-              <a href="/tags/UDP/" rel="tag">分类： UDP</a>
-              <a href="/tags/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/" rel="tag">分类： 流量控制</a>
-              <a href="/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/" rel="tag">分类： 拥塞控制</a>
           </div>
 
         
@@ -570,13 +542,10 @@ input[type="radio"]:not(:checked) + label:after {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Python/Python_id_12.html" rel="prev" title="Python上下文管理">
-      <i class="fa fa-chevron-left"></i> Python上下文管理
+    <a href="/Python/Python_id_64.html" rel="prev" title="socket阻塞与非阻塞、同步与异步、select、pool、epool">
+      <i class="fa fa-chevron-left"></i> socket阻塞与非阻塞、同步与异步、select、pool、epool
     </a></div>
-      <div class="post-nav-item">
-    <a href="/Python/Python_id_14.html" rel="next" title="Python 正则表达式">
-      Python 正则表达式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -613,7 +582,7 @@ input[type="radio"]:not(:checked) + label:after {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-UDP优缺点"><span class="nav-text">TCP&#x2F;UDP优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP的优点"><span class="nav-text">TCP的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP的缺点"><span class="nav-text">TCP的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP的优点"><span class="nav-text">UDP的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP的缺点"><span class="nav-text">UDP的缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP报头结构"><span class="nav-text">TCP报头结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16位端口号"><span class="nav-text">16位端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32位序号"><span class="nav-text">32位序号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32位确认号"><span class="nav-text">32位确认号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4位头部长度"><span class="nav-text">4位头部长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6位标志位"><span class="nav-text">6位标志位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16位窗口大小"><span class="nav-text">16位窗口大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16位校验和"><span class="nav-text">16位校验和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头部选项"><span class="nav-text">头部选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP、UDP的区别"><span class="nav-text">TCP、UDP的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可靠性体现在："><span class="nav-text">可靠性体现在：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体体现为："><span class="nav-text">具体体现为：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手与四次挥手"><span class="nav-text">三次握手与四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP的流量控制与拥塞控制"><span class="nav-text">TCP的流量控制与拥塞控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP的拥塞控制，流量控制"><span class="nav-text">TCP的拥塞控制，流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拥塞控制"><span class="nav-text">拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#慢启动"><span class="nav-text">慢启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拥塞避免"><span class="nav-text">拥塞避免</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速重传"><span class="nav-text">快速重传</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速恢复"><span class="nav-text">快速恢复</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、什么是RESTfull？"><span class="nav-text">1、什么是RESTfull？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、RESTfull设计规范"><span class="nav-text">2、RESTfull设计规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-域名"><span class="nav-text">1.域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-版本"><span class="nav-text">2.版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-路径"><span class="nav-text">3.路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-方式"><span class="nav-text">4.方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-标准HTTP协议支持6种请求方式："><span class="nav-text">5.标准HTTP协议支持6种请求方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-过滤"><span class="nav-text">6.过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-状态码"><span class="nav-text">7.状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-异常处理"><span class="nav-text">8.异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-返回结果"><span class="nav-text">9.返回结果</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
